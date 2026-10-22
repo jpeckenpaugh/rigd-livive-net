@@ -36,7 +36,10 @@ export class RigUI {
 
   buildSequenceDropdown() {
     this.sequenceSelect.innerHTML = '<option value="">Select sequence…</option>';
-    this.sequences.forEach(seq => {
+    const sorted = [...this.sequences].sort((a, b) =>
+      a.label.localeCompare(b.label, undefined, { sensitivity: 'base' })
+    );
+    sorted.forEach(seq => {
       const opt = document.createElement('option');
       opt.value = seq.id;
       opt.textContent = seq.label;

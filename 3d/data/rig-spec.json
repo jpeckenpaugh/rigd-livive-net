@@ -211,7 +211,7 @@
           "valId": "val_r_shoulder_rotation",
           "label": "Humeral Rotation",
           "title": "At 90° abduction: -90° = forearm down, 0° = forward, +90° = up",
-          "min": -90,
+          "min": -135,
           "max": 90,
           "default": -60,
           "unit": "°"
@@ -264,7 +264,7 @@
           "valId": "val_l_shoulder_rotation",
           "label": "Humeral Rotation",
           "title": "At 90° abduction: -90° = forearm down, 0° = forward, +90° = up",
-          "min": -90,
+          "min": -135,
           "max": 90,
           "default": -60,
           "unit": "°"

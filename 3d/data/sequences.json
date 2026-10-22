@@ -119,6 +119,33 @@
       ]
     },
     {
+      "id": "point-me",
+      "label": "Point Me",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "rightShoulderAngle",
+          "type": "tween",
+          "target": 20
+        },
+        {
+          "stateKey": "rightShoulderFlexion",
+          "type": "tween",
+          "target": 60
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "type": "tween",
+          "target": -110
+        },
+        {
+          "stateKey": "rightElbowBend",
+          "type": "tween",
+          "target": 130
+        }
+      ]
+    },
+    {
       "id": "hats-off",
       "label": "Hats Off",
       "duration": 1500,
@@ -143,6 +170,58 @@
           "type": "tween",
           "target": -60,
           "endAt": 0.4
+        }
+      ]
+    },
+    {
+      "id": "hands-up",
+      "label": "Hands Up",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "shoulderElevation",
+          "type": "tween",
+          "target": 10
+        },
+        {
+          "stateKey": "rightShoulderAngle",
+          "type": "tween",
+          "target": 8
+        },
+        {
+          "stateKey": "rightShoulderFlexion",
+          "type": "tween",
+          "target": 150
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "type": "tween",
+          "target": -60
+        },
+        {
+          "stateKey": "leftShoulderAngle",
+          "type": "tween",
+          "target": -8
+        },
+        {
+          "stateKey": "leftShoulderFlexion",
+          "type": "tween",
+          "target": 150
+        },
+        {
+          "stateKey": "leftShoulderRotation",
+          "type": "tween",
+          "target": -60
+        },
+        {
+          "stateKey": "rightElbowBend",
+          "type": "tween",
+          "target": 20
+        },
+        {
+          "stateKey": "leftElbowBend",
+          "type": "tween",
+          "target": 20
         }
       ]
     }
