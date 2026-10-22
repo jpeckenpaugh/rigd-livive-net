@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upper Body Rig - 2.5D</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #f1f5f9;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .page-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+    }
+
+    .page-nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid #334155;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .page-nav a:hover {
+      color: #f8fafc;
+      background: #1e293b;
+      border-color: #475569;
+    }
+
+    .page-nav a.active {
+      color: #0f172a;
+      background: #fbbf24;
+      border-color: #fbbf24;
+      font-weight: 600;
+    }
+
+    .page-nav a.active:hover {
+      color: #0f172a;
+      background: #fcd34d;
+      border-color: #fcd34d;
+    }
+
+    h1 {
+      margin: 0 0 6px 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    .main-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-start;
+      max-width: 1050px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    #canvas-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      padding: 16px;
+      position: relative;
+    }
+
+    canvas {
+      display: block;
+      background: #0b1120;
+      border-radius: 8px;
+    }
+
+    .sidebar {
+      flex-shrink: 0;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 20px;
+      width: 380px;
+      box-sizing: border-box;
+      max-height: 640px;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      margin: 0 0 12px 0;
+      color: #e2e8f0;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .sidebar h2 > span {
+      white-space: nowrap;
+    }
+
+    .sidebar-hint {
+      margin: -4px 0 14px 0;
+      font-size: 0.72rem;
+      line-height: 1.35;
+      color: #64748b;
+    }
+
+    .reset-btn,
+    .action-btn {
+      background: #334155;
+      color: #94a3b8;
+      border: none;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 90px;
+    }
+    .reset-btn:hover,
+    .action-btn:hover {
+      background: #475569;
+      color: #f8fafc;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .action-btn.is-active {
+      background: #fbbf24;
+      color: #0f172a;
+    }
+    .action-btn.is-active:hover {
+      background: #fcd34d;
+      color: #0f172a;
+    }
+
+    .joint-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .joint-card:hover {
+      border-color: rgba(251, 191, 36, 0.65);
+      background: #111c30;
+      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.14);
+    }
+
+    .joint-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .joint-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .explore-check {
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      accent-color: #fbbf24;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .joint-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tag-hinge { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+    .tag-universal { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+    .tag-saddle { background: rgba(45, 212, 191, 0.2); color: #2dd4bf; }
+    .tag-girdle { background: rgba(251, 146, 60, 0.2); color: #fb923c; }
+    .tag-ball { background: rgba(244, 114, 182, 0.2); color: #f472b6; }
+
+    .control-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .control-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+
+    .control-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: #94a3b8;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #334155;
+      outline: none;
+      cursor: pointer;
+      accent-color: #38bdf8;
+    }
+
+    .view-toggles {
+      display: flex;
+      gap: 16px;
+      margin-top: 14px;
+      border-top: 1px solid #334155;
+      padding-top: 12px;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+    }
+    .view-toggles label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    /* Mobile: fit the fixed-resolution canvas to the viewport and stack controls. */
+    @media (max-width: 720px) {
+      body {
+        display: block;
+        padding: 10px;
+        overflow-x: hidden;
+      }
+
+      header {
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      .page-nav {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .page-nav a {
+        padding: 6px 11px;
+      }
+
+      .main-layout {
+        gap: 16px;
+        margin: 0 auto;
+      }
+
+      #canvas-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+      }
+
+      canvas {
+        width: 100%;
+        height: auto;
+      }
+
+      .sidebar {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        overflow-y: visible;
+        padding: 16px;
+      }
+
+      .sidebar h2 {
+        gap: 8px;
+      }
+
+      .reset-btn,
+      .action-btn {
+        min-width: 0;
+        padding: 6px 10px;
+      }
+
+      .sidebar-hint {
+        font-size: 0.7rem;
+      }
+
+      .joint-card {
+        padding: 10px;
+      }
+
+      .joint-header {
+        gap: 8px;
+      }
+
+      .joint-name {
+        font-size: 0.82rem;
+      }
+
+      .joint-tag {
+        font-size: 0.62rem;
+      }
+
+      .explore-check {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    /* Very narrow phones: stack the control header instead of squeezing it. */
+    @media (max-width: 380px) {
+      .sidebar h2 {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .sidebar h2 > span {
+        width: 100%;
+      }
+
+      .header-actions {
+        width: 100%;
+      }
+
+      .header-actions .action-btn {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="page-nav" aria-label="Model navigation">
+      <a href="index.html">← Models</a>
+      <a href="2.5d.html" class="active" aria-current="page">2.5D</a>
+      <a href="3d.html">3D</a>
+    </nav>
+    <h1>Upper Body Rig &mdash; 2.5D</h1>
+    <p>Hand-projected front view with biomechanical joint limits</p>
+  </header>
+
+  <div class="main-layout">
+    <div id="canvas-card">
+      <canvas id="rigCanvas" width="560" height="600"></canvas>
+    </div>
+
+    <aside class="sidebar">
+      <h2>
+        <span>Joint Controls</span>
+        <div class="header-actions">
+          <button class="action-btn" id="autoExploreBtn" aria-pressed="false" title="Checks all joints and roams their limits; uncheck a joint to exclude it">Auto Explore</button>
+          <button class="reset-btn" id="resetPoseBtn">Reset Pose</button>
+        </div>
+      </h2>
+      <p class="sidebar-hint">Hover a control group to highlight it on the rig. Check one joint to explore it alone, or use Auto Explore for all.</p>
+
+      <!-- Skull Base Joint (C1 / Atlanto-Occipital) -->
+      <div class="joint-card" data-rig-section="head">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="head" aria-label="Explore Skull Base" title="Include in Auto Explore">
+            <span style="color: #a78bfa;">●</span> Skull Base (C1)
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Pitch / Nod (Nod Up/Down)</span>
+            <span class="control-val" id="val_head_pitch">0°</span>
+          </div>
+          <input type="range" id="ctrl_head_pitch" min="-45" max="50" value="0">
+        </div>
+      </div>
+
+      <!-- Jaw (Mandible) -->
+      <div class="joint-card" data-rig-section="jaw">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="jaw" aria-label="Explore Jaw" title="Include in Auto Explore">
+            <span style="color: #fb7185;">●</span> Jaw (Mandible)
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Mouth Open</span>
+            <span class="control-val" id="val_jaw_open">0°</span>
+          </div>
+          <input type="range" id="ctrl_jaw_open" min="0" max="35" value="0">
+        </div>
+      </div>
+
+      <!-- Neck Base Joint (C7) -->
+      <div class="joint-card" data-rig-section="neck">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="neck" aria-label="Explore Neck Base" title="Include in Auto Explore">
+            <span style="color: #38bdf8;">●</span> Neck Base (C7)
+          </span>
+          <span class="joint-tag tag-universal">Universal (2-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Roll / Tilt (Ear to Shoulder)</span>
+            <span class="control-val" id="val_neck_roll">0°</span>
+          </div>
+          <input type="range" id="ctrl_neck_roll" min="-40" max="40" value="0">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Yaw / Turn (Look L/R)</span>
+            <span class="control-val" id="val_neck_yaw">0°</span>
+          </div>
+          <input type="range" id="ctrl_neck_yaw" min="-70" max="70" value="0">
+        </div>
+      </div>
+
+      <!-- Shoulder Girdle -->
+      <div class="joint-card" data-rig-section="shoulderGirdle">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="shoulderGirdle" aria-label="Explore Shoulder Girdle" title="Include in Auto Explore">
+            <span style="color: #fb923c;">●</span> Shoulder Girdle
+          </span>
+          <span class="joint-tag tag-girdle">Girdle (2-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Elevation (Both)</span>
+            <span class="control-val" id="val_shoulder_elevation">0°</span>
+          </div>
+          <input type="range" id="ctrl_shoulder_elevation" min="-10" max="25" value="0">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Tilt (L Up / R Down)</span>
+            <span class="control-val" id="val_shoulder_tilt">0°</span>
+          </div>
+          <input type="range" id="ctrl_shoulder_tilt" min="-15" max="15" value="0">
+        </div>
+      </div>
+
+      <!-- Left Shoulder -->
+      <div class="joint-card" data-rig-section="leftShoulder">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="leftShoulder" aria-label="Explore Left Shoulder" title="Include in Auto Explore">
+            <span style="color: #34d399;">●</span> Left Shoulder
+          </span>
+          <span class="joint-tag tag-ball">Ball &amp; Socket</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Upper Arm Swing Angle</span>
+            <span class="control-val" id="val_l_shoulder_angle">4°</span>
+          </div>
+          <input type="range" id="ctrl_l_shoulder_angle" min="-45" max="140" value="4">
+        </div>
+      </div>
+
+      <!-- Right Shoulder -->
+      <div class="joint-card" data-rig-section="rightShoulder">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="rightShoulder" aria-label="Explore Right Shoulder" title="Include in Auto Explore">
+            <span style="color: #22c55e;">●</span> Right Shoulder
+          </span>
+          <span class="joint-tag tag-ball">Ball &amp; Socket</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Upper Arm Swing Angle</span>
+            <span class="control-val" id="val_r_shoulder_angle">-4°</span>
+          </div>
+          <input type="range" id="ctrl_r_shoulder_angle" min="-140" max="45" value="-4">
+        </div>
+      </div>
+
+      <!-- Left Elbow -->
+      <div class="joint-card" data-rig-section="leftElbow">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="leftElbow" aria-label="Explore Left Elbow" title="Include in Auto Explore">
+            <span style="color: #f472b6;">●</span> Left Elbow
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Elbow Bend</span>
+            <span class="control-val" id="val_l_elbow_bend">-20°</span>
+          </div>
+          <input type="range" id="ctrl_l_elbow_bend" min="-120" max="40" value="-20">
+        </div>
+      </div>
+
+      <!-- Right Elbow -->
+      <div class="joint-card" data-rig-section="rightElbow">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="rightElbow" aria-label="Explore Right Elbow" title="Include in Auto Explore">
+            <span style="color: #f472b6;">●</span> Right Elbow
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Elbow Bend</span>
+            <span class="control-val" id="val_r_elbow_bend">20°</span>
+          </div>
+          <input type="range" id="ctrl_r_elbow_bend" min="-40" max="120" value="20">
+        </div>
+      </div>
+
+      <!-- Pelvis (Root) -->
+      <div class="joint-card" data-rig-section="pelvis">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="pelvis" aria-label="Explore Pelvis" title="Include in Auto Explore">
+            <span style="color: #2dd4bf;">●</span> Pelvis (Root)
+          </span>
+          <span class="joint-tag tag-saddle">Saddle (2-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Twist (Body Turn)</span>
+            <span class="control-val" id="val_pelvis_twist">0°</span>
+          </div>
+          <input type="range" id="ctrl_pelvis_twist" min="-45" max="45" value="0">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Bow (Forward / Back)</span>
+            <span class="control-val" id="val_pelvis_bow">0°</span>
+          </div>
+          <input type="range" id="ctrl_pelvis_bow" min="-20" max="40" value="0">
+        </div>
+      </div>
+
+      <div class="view-toggles">
+        <label><input type="checkbox" id="toggleLabels" checked> Labels</label>
+        <label><input type="checkbox" id="toggleJoints" checked> Joint Nodes</label>
+        <label><input type="checkbox" id="toggleHeadMesh" checked> Head Oval</label>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    /**
+     * 1. Joint Class Hierarchy & Definitions
+     */
+    const JointTypes = {
+      HINGE: 'hinge',         // 1-DOF: Flexion / Extension
+      UNIVERSAL: 'universal', // 2-DOF: Tilt + Twist
+      SADDLE: 'saddle',       // 2-DOF: Twist + Bow (pelvis)
+      GIRDLE: 'girdle',       // 2-DOF: Elevation + Tilt (shoulder girdle)
+      BALL_SOCKET: 'ball'     // 3-DOF: Spherical rotation
+    };
+
+    class JointDefinition {
+      constructor({ name, type, limits = {} }) {
+        this.name = name;
+        this.type = type;
+        this.limits = limits; // e.g. { pitch: [-45, 50], roll: [-40, 40], yaw: [-70, 70] }
+      }
+
+      clamp(paramName, val) {
+        if (!this.limits[paramName]) return val;
+        const [min, max] = this.limits[paramName];
+        return Math.max(min, Math.min(max, val));
+      }
+    }
+
+    // Biomechanical Joint Dictionary
+    const RIG_JOINTS = {
+      pelvis: new JointDefinition({
+        name: 'Pelvis (Root)',
+        type: JointTypes.SADDLE,
+        limits: {
+          twist: [-45, 45], // upper-body turn over planted hips
+          bow:   [-20, 40]   // forward flexion / backward lean
+        }
+      }),
+      neckBase: new JointDefinition({
+        name: 'Cervical Base (C7)',
+        type: JointTypes.UNIVERSAL,
+        limits: {
+          roll: [-40, 40], // lateral tilt ear to shoulder
+          yaw:  [-70, 70]  // turn left / right
+        }
+      }),
+      skullBase: new JointDefinition({
+        name: 'Atlanto-Occipital (C1)',
+        type: JointTypes.HINGE,
+        limits: {
+          pitch: [-45, 50] // chin tuck / nod up
+        }
+      }),
+      jaw: new JointDefinition({
+        name: 'Mandible (TMJ)',
+        type: JointTypes.HINGE,
+        limits: { open: [0, 35] }
+      }),
+      shoulderGirdle: new JointDefinition({
+        name: 'Shoulder Girdle',
+        type: JointTypes.GIRDLE,
+        limits: {
+          elevation: [-10, 25], // both shoulders up / down
+          tilt:      [-15, 15]  // left up / right down (or vice versa)
+        }
+      }),
+      shoulderLeft: new JointDefinition({
+        name: 'Left Shoulder (Glenohumeral)',
+        type: JointTypes.BALL_SOCKET,
+        limits: { swing: [-45, 140] }
+      }),
+      shoulderRight: new JointDefinition({
+        name: 'Right Shoulder (Glenohumeral)',
+        type: JointTypes.BALL_SOCKET,
+        limits: { swing: [-140, 45] }
+      }),
+      elbowLeft: new JointDefinition({
+        name: 'Left Elbow',
+        type: JointTypes.HINGE,
+        limits: { flex: [-120, 40] }
+      }),
+      elbowRight: new JointDefinition({
+        name: 'Right Elbow',
+        type: JointTypes.HINGE,
+        limits: { flex: [-40, 120] }
+      })
+    };
+
+    // Rig parts that light up when the matching control card is hovered.
+    const RIG_SECTIONS = {
+      head: {
+        segments: ['head', 'crown'],
+        joints: ['c1', 'headCrown', 'leftEar', 'rightEar']
+      },
+      jaw: {
+        segments: ['leftJaw', 'rightJaw'],
+        joints: ['chin']
+      },
+      neck: {
+        segments: ['neck'],
+        joints: ['c7', 'c1']
+      },
+      shoulderGirdle: {
+        segments: ['leftShoulderGirdle', 'rightShoulderGirdle'],
+        joints: ['c7', 'leftShoulder', 'rightShoulder']
+      },
+      leftShoulder: {
+        segments: ['leftUpperArm'],
+        joints: ['leftShoulder', 'leftElbow']
+      },
+      rightShoulder: {
+        segments: ['rightUpperArm'],
+        joints: ['rightShoulder', 'rightElbow']
+      },
+      leftElbow: {
+        segments: ['leftLowerArm'],
+        joints: ['leftElbow', 'leftWrist']
+      },
+      rightElbow: {
+        segments: ['rightLowerArm'],
+        joints: ['rightElbow', 'rightWrist']
+      },
+      pelvis: {
+        segments: ['pelvis'],
+        joints: ['pelvis', 'leftHip', 'rightHip']
+      }
+    };
+
+    /**
+     * 2. Upper Body Rig Model with Neck & Head Distinction
+     */
+    class UpperBodyRig {
+      constructor(config = {}) {
+        this.scaleH = config.scaleH || 105;
+        this.root = config.root || { x: 280, y: 530 };
+
+        // Proportions in Head Lengths (H)
+        this.proportions = {
+          pelvisHalfWidth: 0.85 * this.scaleH,   // Hip cross half-width
+          torsoLength: 2.65 * this.scaleH,       // Waist to C7 (shoulder cross)
+          neckLength: 0.45 * this.scaleH,        // C7 to C1 (skull base)
+          headLength: 0.75 * this.scaleH,        // Skull base to crown
+          shoulderHalfWidth: 0.95 * this.scaleH, // Bi-acromial half-width
+          upperArmLength: 1.35 * this.scaleH,
+          lowerArmLength: 1.15 * this.scaleH
+        };
+
+        // Current Joint Angles (degrees)
+        this.state = this.getDefaultState();
+
+        this.palette = {
+          pelvis: '#2dd4bf',         // Teal
+          torso: '#38bdf8',          // Sky Blue
+          neck: '#818cf8',           // Indigo
+          head: '#a78bfa',           // Violet
+          crown: '#c084fc',          // Light Violet
+          jaw: '#fb7185',            // Rose
+          shoulders: '#fb923c',      // Orange
+          highlight: '#fbbf24',      // Amber (hover highlight)
+          leftUpperArm: '#34d399',   // Emerald
+          rightUpperArm: '#22c55e',  // Green
+          leftLowerArm: '#f472b6',   // Pink
+          rightLowerArm: '#ec4899',  // Rose
+          joints: '#f8fafc'
+        };
+      }
+
+      getDefaultState() {
+        return {
+          pelvisTwist: 0,
+          pelvisBow: 0,
+          neckRoll: 0,
+          neckYaw: 0,
+          headPitch: 0,
+          jawOpen: 0,
+          shoulderElevation: 0,
+          shoulderTilt: 0,
+          leftShoulderAngle: 4,
+          rightShoulderAngle: -4,
+          leftElbowBend: -20,
+          rightElbowBend: 20
+        };
+      }
+
+      reset() {
+        this.state = this.getDefaultState();
+      }
+
+      /**
+       * Forward Kinematics solver
+       */
+      computeSkeleton() {
+        const p = this.proportions;
+        const s = this.state;
+        const deg2rad = Math.PI / 180;
+
+        // 1. Pelvis: root cross line (hip-to-hip).
+        // The legs are planted, so the hip line itself stays fixed.
+        const pelvis = { x: this.root.x, y: this.root.y };
+        const leftHip = { x: pelvis.x - p.pelvisHalfWidth, y: pelvis.y };
+        const rightHip = { x: pelvis.x + p.pelvisHalfWidth, y: pelvis.y };
+
+        // The pelvis twist is carried by the upper body above the planted hips.
+        const bodyYawRad = s.pelvisTwist * deg2rad;
+        const cosBodyYaw = Math.cos(bodyYawRad);
+        // Small orthographic depth cue so left and right turns stay distinguishable.
+        const bodyDepthSlope = Math.sin(bodyYawRad) * 0.16;
+
+        // 2. Torso Spine: Pelvis -> C7 (Neck base / clavicle cross)
+        // Bowing rotates the torso out of the image plane, so it shortens.
+        // A backward lean lifts the chest slightly as a 2.5D depth cue.
+        const bowRad = s.pelvisBow * deg2rad;
+        const projectedTorsoLength = p.torsoLength * Math.cos(bowRad);
+        const bowDepthCue = bowRad < 0
+          ? Math.sin(bowRad) * p.torsoLength * 0.30
+          : 0;
+        const c7 = { x: pelvis.x, y: pelvis.y - projectedTorsoLength + bowDepthCue };
+
+        // 3. Shoulder girdle: two clavicles anchored at C7.
+        // Elevation raises/lowers both endpoints; tilt raises one while lowering the other.
+        const elevationRad = s.shoulderElevation * deg2rad;
+        const tiltRad = s.shoulderTilt * deg2rad;
+        const leftClavicleAngle = elevationRad + tiltRad;
+        const rightClavicleAngle = elevationRad - tiltRad;
+        const leftShoulder = {
+          x: c7.x - p.shoulderHalfWidth * Math.cos(leftClavicleAngle),
+          y: c7.y - p.shoulderHalfWidth * Math.sin(leftClavicleAngle)
+        };
+        const rightShoulder = {
+          x: c7.x + p.shoulderHalfWidth * Math.cos(rightClavicleAngle),
+          y: c7.y - p.shoulderHalfWidth * Math.sin(rightClavicleAngle)
+        };
+
+        // 4. Neck: C7 -> C1 (Skull base)
+        // Rotates with neckRoll (ear to shoulder) and lateral offset from yaw
+        const neckAngleRad = s.neckRoll * deg2rad;
+        const c1 = {
+          x: c7.x + p.neckLength * Math.sin(neckAngleRad),
+          y: c7.y - p.neckLength * Math.cos(neckAngleRad)
+        };
+
+        // 5. Head: C1 -> Crown
+        // Incorporates neck roll + head pitch (nodding foreshortening and vertical tilt)
+        const headRotationRad = (s.neckRoll + s.headPitch * 0.25) * deg2rad;
+        // Pitch visually foreshortens head height and shifts crown Y
+        const pitchForeshorten = Math.cos(s.headPitch * deg2rad);
+        const effectiveHeadLen = p.headLength * Math.max(0.65, pitchForeshorten);
+
+        const headCrown = {
+          x: c1.x + effectiveHeadLen * Math.sin(headRotationRad) + (s.neckYaw * 0.15),
+          y: c1.y - effectiveHeadLen * Math.cos(headRotationRad)
+        };
+
+        // Head center for oval rendering
+        const headCenter = {
+          x: (c1.x + headCrown.x) / 2,
+          y: (c1.y + headCrown.y) / 2
+        };
+
+        // The head follows the body turn. The body-yaw projection uses the
+        // opposite screen-space sign from the head's local yaw, so subtract it.
+        const effectiveHeadYaw = Math.max(-90, Math.min(90, s.neckYaw - s.pelvisTwist));
+        const effectiveHeadYawRad = effectiveHeadYaw * deg2rad;
+
+        // Shared local head frame used by the oval, crown line, and jaw.
+        const headFrame = {
+          center: headCenter,
+          rotation: headRotationRad,
+          radX: p.headLength * 0.42,
+          radY: p.headLength * 0.6 * Math.max(0.7, pitchForeshorten),
+          cosYaw: Math.max(0.05, Math.cos(effectiveHeadYawRad)),
+          yaw: effectiveHeadYaw
+        };
+
+        // Map a point from head-local space (x right, y down) to canvas space.
+        const headLocal = (lx, ly) => {
+          const squashedX = lx * headFrame.cosYaw;
+          return {
+            x: headCenter.x + squashedX * Math.cos(headRotationRad) - ly * Math.sin(headRotationRad),
+            y: headCenter.y + squashedX * Math.sin(headRotationRad) + ly * Math.cos(headRotationRad)
+          };
+        };
+
+        // Crown / ear line: transverse axis through the eyes and nose.
+        const leftEar = headLocal(-headFrame.radX * 0.98, 0);
+        const rightEar = headLocal(headFrame.radX * 0.98, 0);
+
+        // Jaw: the mandible hinges at the ears and drops at the chin.
+        const jawDrop = Math.sin(s.jawOpen * deg2rad) * headFrame.radY * 0.45;
+        // Yaw shifts the face toward the direction the head is looking.
+        const faceYawOffset = (effectiveHeadYaw / 90) * headFrame.radX * 0.65;
+        const chin = headLocal(faceYawOffset, headFrame.radY * 0.78 + jawDrop);
+
+        // 6. Left Arm
+        const lShoulderRad = s.leftShoulderAngle * deg2rad;
+        const leftElbow = {
+          x: leftShoulder.x + p.upperArmLength * Math.sin(lShoulderRad),
+          y: leftShoulder.y + p.upperArmLength * Math.cos(lShoulderRad)
+        };
+
+        const lElbowRad = s.leftElbowBend * deg2rad;
+        const leftWrist = {
+          x: leftElbow.x + p.lowerArmLength * Math.sin(lElbowRad),
+          y: leftElbow.y + p.lowerArmLength * Math.cos(lElbowRad)
+        };
+
+        // 7. Right Arm
+        const rShoulderRad = s.rightShoulderAngle * deg2rad;
+        const rightElbow = {
+          x: rightShoulder.x + p.upperArmLength * Math.sin(rShoulderRad),
+          y: rightShoulder.y + p.upperArmLength * Math.cos(rShoulderRad)
+        };
+
+        const rElbowRad = s.rightElbowBend * deg2rad;
+        const rightWrist = {
+          x: rightElbow.x + p.lowerArmLength * Math.sin(rElbowRad),
+          y: rightElbow.y + p.lowerArmLength * Math.cos(rElbowRad)
+        };
+
+        // Project the shoulder girdle and arms through the body twist.
+        // Points on the spine centerline (dx = 0) stay put; lateral points turn.
+        const projectUpper = (pt) => {
+          const dx = pt.x - pelvis.x;
+          return {
+            x: pelvis.x + dx * cosBodyYaw,
+            y: pt.y + dx * bodyDepthSlope
+          };
+        };
+
+        const bodyLeftShoulder = projectUpper(leftShoulder);
+        const bodyRightShoulder = projectUpper(rightShoulder);
+        const bodyLeftElbow = projectUpper(leftElbow);
+        const bodyRightElbow = projectUpper(rightElbow);
+        const bodyLeftWrist = projectUpper(leftWrist);
+        const bodyRightWrist = projectUpper(rightWrist);
+
+        return {
+          pelvis, leftHip, rightHip,
+          c7, c1, headCrown, headCenter, headFrame,
+          leftEar, rightEar, chin,
+          leftShoulder: bodyLeftShoulder, rightShoulder: bodyRightShoulder,
+          leftElbow: bodyLeftElbow, rightElbow: bodyRightElbow,
+          leftWrist: bodyLeftWrist, rightWrist: bodyRightWrist,
+          segments: [
+            { id: 'pelvis', label: 'Pelvis (Hip Line)', color: this.palette.pelvis, from: leftHip, to: rightHip },
+            { id: 'torso', label: 'Torso Spine', color: this.palette.torso, from: pelvis, to: c7 },
+            { id: 'leftShoulderGirdle', label: 'Shoulders', color: this.palette.shoulders, from: c7, to: bodyLeftShoulder },
+            { id: 'rightShoulderGirdle', label: null, color: this.palette.shoulders, from: c7, to: bodyRightShoulder },
+            { id: 'neck', label: 'Neck (C7-C1)', color: this.palette.neck, from: c7, to: c1 },
+            { id: 'head', label: 'Head (Crown)', color: this.palette.head, from: c1, to: headCrown },
+            { id: 'crown', label: 'Crown Line (Ear-Ear)', color: this.palette.crown, from: leftEar, to: rightEar, width: 3 },
+            { id: 'leftJaw', label: 'Jaw', color: this.palette.jaw, from: leftEar, to: chin, width: 3 },
+            { id: 'rightJaw', label: null, color: this.palette.jaw, from: rightEar, to: chin, width: 3 },
+            { id: 'leftUpperArm', label: 'Upper Arm (L)', color: this.palette.leftUpperArm, from: bodyLeftShoulder, to: bodyLeftElbow },
+            { id: 'rightUpperArm', label: 'Upper Arm (R)', color: this.palette.rightUpperArm, from: bodyRightShoulder, to: bodyRightElbow },
+            { id: 'leftLowerArm', label: 'Lower Arm (L)', color: this.palette.leftLowerArm, from: bodyLeftElbow, to: bodyLeftWrist },
+            { id: 'rightLowerArm', label: 'Lower Arm (R)', color: this.palette.rightLowerArm, from: bodyRightElbow, to: bodyRightWrist }
+          ]
+        };
+      }
+
+      draw(ctx, options = {}) {
+        const skel = this.computeSkeleton();
+        const frame = skel.headFrame;
+        const highlight = options.highlightSection ? RIG_SECTIONS[options.highlightSection] : null;
+        const headHot = !!highlight && options.highlightSection === 'head';
+
+        // Optional head guide oval
+        if (options.showHeadMesh) {
+          ctx.save();
+          ctx.translate(frame.center.x, frame.center.y);
+          ctx.rotate(frame.rotation);
+
+          ctx.strokeStyle = headHot ? 'rgba(192, 132, 252, 0.95)' : 'rgba(167, 139, 250, 0.35)';
+          ctx.lineWidth = headHot ? 3 : 1.5;
+          if (headHot) {
+            ctx.shadowColor = this.palette.crown;
+            ctx.shadowBlur = 16;
+          }
+          ctx.beginPath();
+          ctx.ellipse(0, 0, frame.radX, frame.radY, 0, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+
+          // Subtle face orientation crosshair
+          ctx.strokeStyle = 'rgba(167, 139, 250, 0.2)';
+          ctx.beginPath();
+          // Yaw offset on crosshair; uses the same effective yaw as the jaw.
+          const yawOffset = (frame.yaw / 90) * (frame.radX * 0.65);
+          ctx.moveTo(yawOffset, -frame.radY * 0.7);
+          ctx.lineTo(yawOffset, frame.radY * 0.7);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // Draw Segments
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        skel.segments.forEach(seg => {
+          ctx.lineWidth = seg.width || 5;
+          ctx.strokeStyle = seg.color;
+          ctx.beginPath();
+          ctx.moveTo(seg.from.x, seg.from.y);
+          ctx.lineTo(seg.to.x, seg.to.y);
+          ctx.stroke();
+        });
+
+        // Redraw the hovered section with a glow and a heavier stroke.
+        if (highlight) {
+          ctx.save();
+          ctx.shadowBlur = 16;
+          skel.segments.forEach(seg => {
+            if (!highlight.segments.includes(seg.id)) return;
+            ctx.shadowColor = seg.color;
+            ctx.strokeStyle = seg.color;
+            ctx.lineWidth = (seg.width || 5) + 4;
+            ctx.beginPath();
+            ctx.moveTo(seg.from.x, seg.from.y);
+            ctx.lineTo(seg.to.x, seg.to.y);
+            ctx.stroke();
+          });
+          ctx.restore();
+        }
+
+        // Draw Joint nodes
+        if (options.showJoints) {
+          const joints = [
+            { id: 'pelvis', pt: skel.pelvis, label: 'Pelvis' },
+            { id: 'leftHip', pt: skel.leftHip, label: 'L Hip' },
+            { id: 'rightHip', pt: skel.rightHip, label: 'R Hip' },
+            { id: 'c7', pt: skel.c7, label: 'C7 (Neck Base)' },
+            { id: 'c1', pt: skel.c1, label: 'C1 (Skull Base)' },
+            { id: 'headCrown', pt: skel.headCrown, label: 'Crown' },
+            { id: 'leftEar', pt: skel.leftEar, label: 'L Ear' },
+            { id: 'rightEar', pt: skel.rightEar, label: 'R Ear' },
+            { id: 'chin', pt: skel.chin, label: 'Chin' },
+            { id: 'leftShoulder', pt: skel.leftShoulder, label: 'L Shoulder' },
+            { id: 'rightShoulder', pt: skel.rightShoulder, label: 'R Shoulder' },
+            { id: 'leftElbow', pt: skel.leftElbow, label: 'L Elbow' },
+            { id: 'rightElbow', pt: skel.rightElbow, label: 'R Elbow' },
+            { id: 'leftWrist', pt: skel.leftWrist, label: 'L Wrist' },
+            { id: 'rightWrist', pt: skel.rightWrist, label: 'R Wrist' }
+          ];
+
+          joints.forEach(({ id, pt }) => {
+            const isHot = highlight && highlight.joints.includes(id);
+
+            if (isHot) {
+              ctx.save();
+              ctx.shadowColor = this.palette.highlight;
+              ctx.shadowBlur = 18;
+              ctx.fillStyle = 'rgba(251, 191, 36, 0.22)';
+              ctx.beginPath();
+              ctx.arc(pt.x, pt.y, 11, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.restore();
+            }
+
+            ctx.fillStyle = '#0f172a';
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = this.palette.joints;
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 3.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            if (isHot) {
+              ctx.strokeStyle = this.palette.highlight;
+              ctx.lineWidth = 2;
+              ctx.beginPath();
+              ctx.arc(pt.x, pt.y, 7.5, 0, Math.PI * 2);
+              ctx.stroke();
+            }
+          });
+        }
+
+        // Draw Labels
+        if (options.showLabels) {
+          ctx.font = '500 11px system-ui, sans-serif';
+
+          skel.segments.forEach(seg => {
+            if (!seg.label) return;
+
+            const midX = (seg.from.x + seg.to.x) / 2;
+            const midY = (seg.from.y + seg.to.y) / 2;
+
+            // Offset label sideways
+            let offsetX = 12;
+            let align = 'left';
+            if (seg.id.includes('left') || seg.id === 'torso') {
+              offsetX = -12;
+              align = 'right';
+            } else if (seg.id === 'neck' || seg.id === 'head') {
+              offsetX = 14;
+              align = 'left';
+            }
+
+            ctx.textAlign = align;
+            ctx.textBaseline = 'middle';
+
+            const text = seg.label;
+            const metrics = ctx.measureText(text);
+            const padX = 5, padY = 3;
+            const w = metrics.width + padX * 2;
+            const h = 16;
+            const posX = midX + offsetX;
+            const drawX = align === 'right' ? posX - w : posX;
+
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+            ctx.strokeStyle = seg.color;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(drawX, midY - h / 2, w, h, 3);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = seg.color;
+            ctx.fillText(text, align === 'right' ? posX - padX : posX + padX, midY);
+          });
+        }
+      }
+    }
+
+    // App Initialization
+    const canvas = document.getElementById('rigCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const rig = new UpperBodyRig({
+      scaleH: 100,
+      root: { x: canvas.width / 2, y: 535 }
+    });
+
+    // Control binding helper
+    const controlBindings = [];
+
+    function bindSlider(sliderId, valId, stateKey, jointRef, paramName, unit = '°') {
+      const slider = document.getElementById(sliderId);
+      const valDisplay = document.getElementById(valId);
+
+      slider.addEventListener('input', (e) => {
+        stopExplore();
+
+        let val = parseFloat(e.target.value);
+        if (jointRef && paramName) {
+          val = jointRef.clamp(paramName, val);
+          slider.value = val;
+        }
+        rig.state[stateKey] = val;
+        valDisplay.textContent = `${Math.round(val)}${unit}`;
+        render();
+      });
+
+      controlBindings.push({
+        slider,
+        valDisplay,
+        stateKey,
+        jointRef,
+        paramName,
+        unit,
+        min: parseFloat(slider.min),
+        max: parseFloat(slider.max),
+        sectionKey: slider.closest('.joint-card')?.dataset.rigSection || null
+      });
+    }
+
+    bindSlider('ctrl_pelvis_twist', 'val_pelvis_twist', 'pelvisTwist', RIG_JOINTS.pelvis, 'twist');
+    bindSlider('ctrl_pelvis_bow', 'val_pelvis_bow', 'pelvisBow', RIG_JOINTS.pelvis, 'bow');
+    bindSlider('ctrl_neck_roll', 'val_neck_roll', 'neckRoll', RIG_JOINTS.neckBase, 'roll');
+    bindSlider('ctrl_neck_yaw', 'val_neck_yaw', 'neckYaw', RIG_JOINTS.neckBase, 'yaw');
+    bindSlider('ctrl_head_pitch', 'val_head_pitch', 'headPitch', RIG_JOINTS.skullBase, 'pitch');
+    bindSlider('ctrl_jaw_open', 'val_jaw_open', 'jawOpen', RIG_JOINTS.jaw, 'open');
+    bindSlider('ctrl_shoulder_elevation', 'val_shoulder_elevation', 'shoulderElevation', RIG_JOINTS.shoulderGirdle, 'elevation');
+    bindSlider('ctrl_shoulder_tilt', 'val_shoulder_tilt', 'shoulderTilt', RIG_JOINTS.shoulderGirdle, 'tilt');
+    bindSlider('ctrl_l_shoulder_angle', 'val_l_shoulder_angle', 'leftShoulderAngle', RIG_JOINTS.shoulderLeft, 'swing');
+    bindSlider('ctrl_r_shoulder_angle', 'val_r_shoulder_angle', 'rightShoulderAngle', RIG_JOINTS.shoulderRight, 'swing');
+    bindSlider('ctrl_l_elbow_bend', 'val_l_elbow_bend', 'leftElbowBend', RIG_JOINTS.elbowLeft, 'flex');
+    bindSlider('ctrl_r_elbow_bend', 'val_r_elbow_bend', 'rightElbowBend', RIG_JOINTS.elbowRight, 'flex');
+
+    const toggleLabels = document.getElementById('toggleLabels');
+    const toggleJoints = document.getElementById('toggleJoints');
+    const toggleHeadMesh = document.getElementById('toggleHeadMesh');
+    const resetBtn = document.getElementById('resetPoseBtn');
+
+    // Hovering a control card highlights its matching rig parts.
+    let hoveredSection = null;
+    document.querySelectorAll('.joint-card[data-rig-section]').forEach(card => {
+      const section = card.dataset.rigSection;
+      card.addEventListener('mouseenter', () => {
+        hoveredSection = section;
+        render();
+      });
+      card.addEventListener('mouseleave', () => {
+        if (hoveredSection === section) {
+          hoveredSection = null;
+          render();
+        }
+      });
+    });
+
+    // Auto Explore: selectively roam the checked joints within their limits.
+    const autoExploreBtn = document.getElementById('autoExploreBtn');
+    const exploreChecks = Array.from(document.querySelectorAll('.explore-check'));
+    let exploring = false;
+    let exploreRAF = null;
+    let lastExploreTime = 0;
+    let exploreState = [];
+
+    function randomBetween(min, max) {
+      return min + Math.random() * (max - min);
+    }
+
+    function getEnabledExploreSections() {
+      return new Set(
+        exploreChecks
+          .filter(checkbox => checkbox.checked)
+          .map(checkbox => checkbox.dataset.exploreKey)
+      );
+    }
+
+    function startExplore(checkAll = true) {
+      if (exploring) return;
+
+      // Auto Explore checks every joint; a single checkbox starts a focused run.
+      if (checkAll) {
+        exploreChecks.forEach(checkbox => {
+          checkbox.checked = true;
+        });
+      }
+
+      if (getEnabledExploreSections().size === 0) return;
+
+      exploring = true;
+      autoExploreBtn.textContent = 'Stop Explore';
+      autoExploreBtn.classList.add('is-active');
+      autoExploreBtn.setAttribute('aria-pressed', 'true');
+
+      const now = performance.now();
+      exploreState = controlBindings.map(binding => ({
+        binding,
+        target: randomBetween(binding.min, binding.max),
+        nextChange: now + randomBetween(1200, 3800),
+        speed: randomBetween(0.5, 1.2)
+      }));
+
+      lastExploreTime = now;
+      exploreRAF = requestAnimationFrame(exploreStep);
+    }
+
+    function stopExplore() {
+      if (!exploring) return;
+
+      exploring = false;
+      if (exploreRAF !== null) {
+        cancelAnimationFrame(exploreRAF);
+        exploreRAF = null;
+      }
+
+      exploreChecks.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+
+      autoExploreBtn.textContent = 'Auto Explore';
+      autoExploreBtn.classList.remove('is-active');
+      autoExploreBtn.setAttribute('aria-pressed', 'false');
+    }
+
+    function exploreStep(now) {
+      if (!exploring) return;
+
+      const dt = Math.min(0.05, Math.max(0, (now - lastExploreTime) / 1000));
+      lastExploreTime = now;
+
+      const enabledSections = getEnabledExploreSections();
+      if (enabledSections.size === 0) {
+        stopExplore();
+        return;
+      }
+
+      exploreState.forEach(item => {
+        const { binding } = item;
+        if (!enabledSections.has(binding.sectionKey)) return;
+
+        if (now >= item.nextChange) {
+          item.target = randomBetween(binding.min, binding.max);
+          item.nextChange = now + randomBetween(1500, 4200);
+          item.speed = randomBetween(0.5, 1.2);
+        }
+
+        const current = rig.state[binding.stateKey];
+        let next = current + (item.target - current) * (1 - Math.exp(-dt * item.speed));
+        if (binding.jointRef && binding.paramName) {
+          next = binding.jointRef.clamp(binding.paramName, next);
+        }
+
+        rig.state[binding.stateKey] = next;
+        binding.slider.value = next;
+        binding.valDisplay.textContent = `${Math.round(next)}${binding.unit}`;
+      });
+
+      render();
+      exploreRAF = requestAnimationFrame(exploreStep);
+    }
+
+    autoExploreBtn.addEventListener('click', () => {
+      if (exploring) {
+        stopExplore();
+      } else {
+        startExplore(true);
+      }
+    });
+
+    exploreChecks.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const enabledCount = getEnabledExploreSections().size;
+
+        if (exploring) {
+          if (enabledCount === 0) stopExplore();
+        } else if (enabledCount > 0) {
+          startExplore(false);
+        }
+      });
+    });
+
+    function syncUI() {
+      document.getElementById('ctrl_pelvis_twist').value = rig.state.pelvisTwist;
+      document.getElementById('val_pelvis_twist').textContent = `${rig.state.pelvisTwist}°`;
+
+      document.getElementById('ctrl_pelvis_bow').value = rig.state.pelvisBow;
+      document.getElementById('val_pelvis_bow').textContent = `${rig.state.pelvisBow}°`;
+
+      document.getElementById('ctrl_neck_roll').value = rig.state.neckRoll;
+      document.getElementById('val_neck_roll').textContent = `${rig.state.neckRoll}°`;
+
+      document.getElementById('ctrl_neck_yaw').value = rig.state.neckYaw;
+      document.getElementById('val_neck_yaw').textContent = `${rig.state.neckYaw}°`;
+
+      document.getElementById('ctrl_head_pitch').value = rig.state.headPitch;
+      document.getElementById('val_head_pitch').textContent = `${rig.state.headPitch}°`;
+
+      document.getElementById('ctrl_jaw_open').value = rig.state.jawOpen;
+      document.getElementById('val_jaw_open').textContent = `${rig.state.jawOpen}°`;
+
+      document.getElementById('ctrl_shoulder_elevation').value = rig.state.shoulderElevation;
+      document.getElementById('val_shoulder_elevation').textContent = `${rig.state.shoulderElevation}°`;
+
+      document.getElementById('ctrl_shoulder_tilt').value = rig.state.shoulderTilt;
+      document.getElementById('val_shoulder_tilt').textContent = `${rig.state.shoulderTilt}°`;
+
+      document.getElementById('ctrl_l_shoulder_angle').value = rig.state.leftShoulderAngle;
+      document.getElementById('val_l_shoulder_angle').textContent = `${rig.state.leftShoulderAngle}°`;
+
+      document.getElementById('ctrl_r_shoulder_angle').value = rig.state.rightShoulderAngle;
+      document.getElementById('val_r_shoulder_angle').textContent = `${rig.state.rightShoulderAngle}°`;
+
+      document.getElementById('ctrl_l_elbow_bend').value = rig.state.leftElbowBend;
+      document.getElementById('val_l_elbow_bend').textContent = `${rig.state.leftElbowBend}°`;
+
+      document.getElementById('ctrl_r_elbow_bend').value = rig.state.rightElbowBend;
+      document.getElementById('val_r_elbow_bend').textContent = `${rig.state.rightElbowBend}°`;
+    }
+
+    resetBtn.addEventListener('click', () => {
+      stopExplore();
+      rig.reset();
+      syncUI();
+      render();
+    });
+
+    [toggleLabels, toggleJoints, toggleHeadMesh].forEach(el => {
+      el.addEventListener('change', render);
+    });
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      rig.draw(ctx, {
+        showLabels: toggleLabels.checked,
+        showJoints: toggleJoints.checked,
+        showHeadMesh: toggleHeadMesh.checked,
+        highlightSection: hoveredSection
+      });
+    }
+
+    // Once the canvas is scaled down for mobile, labels become too dense.
+    if (window.matchMedia('(max-width: 720px)').matches) {
+      toggleLabels.checked = false;
+    }
+
+    render();
+  </script>
+</body>
+</html>
