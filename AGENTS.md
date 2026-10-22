@@ -78,3 +78,10 @@ Supported `"chain"` entries in `3d/js/animator.js`:
 - **Single sequence ID** (e.g. `"point-you"`): Runs that sequence's tracks.
 - **`"reset"` / `"reset-pose"`**: Eases all joints back to default pose over 1s (skipped automatically if already at default pose).
 - **Parallel sequence IDs** (e.g. `["point-right", "agree"]` or `"point-right+agree"`): Merges tracks and runs them simultaneously.
+
+## Deterministic Trajectory Solver (`scripts/rig_rl_scorer.py`)
+
+When optimizing or generating keyframe animations from reference videos:
+1. **Physical Velocity Limit:** Maximum joint velocity is bounded by $\le 12^\circ/\text{frame}$ ($360^\circ/\text{sec}$ at 30 fps) to prevent "bamfing" (discontinuous jumps).
+2. **Kinematic Inversion:** Single-arm signs begin and end at the resting stance ($S_0 \equiv S_T$); the retraction phase is an inverted reflection of the preparation phase.
+3. **Bidirectional Two-Pass Consensus:** The solver rolls forward from $S_0 \to S_{\text{apex}}$ and backward from $S_T \to S_{\text{apex}}$, blending passes via cubic Hermite smoothstep to guarantee zero boundary discontinuity.

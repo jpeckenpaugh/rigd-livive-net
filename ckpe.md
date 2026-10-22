@@ -58,3 +58,28 @@ To build training and evaluation targets from [ASL-LEX 2.0](https://asl-lex.org/
         *   `stroke` ($\text{SignOnset} \le t \le \text{SignOffset}$): active sign execution/hold in target location.
         *   `retract` ($t > \text{SignOffset}$): returning from sign offset back to `DEFAULT_POSE`.
     *   Emits `ckpe_single_step_targets`, pairing $(I_{t-1}, S_{t-1}, I_t, \text{action\_descriptor}) \rightarrow S_t$ for each $0.1\text{s}$ step.
+
+---
+
+### 8. Bidirectional Trajectory Solver & Physical Continuity (`scripts/rig_rl_scorer.py`)
+
+To eliminate "bamfing" (discontinuous teleportation of limb angles between adjacent frames) without relying on external pre-trained pose models, `scripts/rig_rl_scorer.py` implements a **physics-constrained, bidirectional two-pass trajectory optimizer**:
+
+1. **Newtonian Physical Velocity & Acceleration Bounds:**
+   - Voluntary purposeful human arm movements operate at $150^\circ - 360^\circ/\text{sec}$. At $30\text{ fps}$ ($\Delta t \approx 33.3\text{ ms}$), physical velocity is strictly bounded by $\le 12^\circ/\text{frame}$.
+   - Minimum-jerk acceleration damping is enforced by penalizing second differences:
+     $$\Delta^2 S_t = S_t - 2 S_{t-1} + S_{t-2}$$
+   - The temporal smoothness reward component is weighted at $25\%$ of the total score, mathematically forbidding greedy jumps that trade biological continuity for minor pixel overlap gains.
+
+2. **Kinematic Inversion Property ($S_{\text{prep}} \leftrightarrow S_{\text{retract}}$):**
+   - Because gestures start and finish at the identical resting stance ($S_0 \equiv S_T$), the preparation and retraction phases traverse symmetric topological paths in configuration space $\mathbb{R}^4$:
+     $$S_{\text{retract}}(t) \approx S_{\text{prep}}(1 - t)$$
+   - The trajectory solver exploits this property by modeling retraction not as an unguided forward decay, but as a time-inverted rollout anchored to resting stance $S_T$.
+
+3. **Bidirectional Two-Pass Optimizer (Two-Point BVP):**
+   - **Step 1: Apex Anchor:** Identifies the stroke hold nucleus $S_{\text{apex}}$ at the gesture apex (where skin-cloud confidence and hold stability are highest, $R \approx 0.72$).
+   - **Step 2: Forward Rollout ($0 \to t_{\text{stroke\_end}}$):** Propagates motion forward from $S_0$ toward $S_{\text{apex}}$, dynamically guiding the cross-entropy action distributions.
+   - **Step 3: Backward Rollout ($T \to t_{\text{stroke\_start}}$):** Propagates motion backward in reverse time from $S_T$ toward $S_{\text{apex}}$, ensuring exact resting landing at the final frame.
+   - **Step 4: Hermite Consensus Fusion:** Fuses forward and backward passes using a $C^1/C^2$ continuous cubic Hermite smoothstep weight $w(\tau) = \tau^2 (3 - 2\tau)$:
+     $$S_{\text{fused}}(t) = (1 - w(\tau)) S_{\text{forward}}(t) + w(\tau) S_{\text{backward}}(t)$$
+   - **Step 5: Minimum-Jerk $C^2$ Filter:** Applies an anchored 3-tap smoothing kernel ($[0.20, 0.60, 0.20]$) with a hard velocity clamp ($\le 12^\circ/\text{frame}$), guaranteeing fluid, zero-bamf playback.

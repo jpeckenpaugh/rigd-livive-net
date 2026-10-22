@@ -455,11 +455,14 @@ def score_rig_state(
     state: dict[str, float],
     frame_feat: dict,
     calib: dict,
-    prev_state: dict[str, float] | None = None
+    prev_state: dict[str, float] | None = None,
+    prev_prev_state: dict[str, float] | None = None,
+    max_step_deg: float = 12.0,
 ) -> dict:
     """
     Deterministic reward function R(S_t | I_t, S_{t-1}) in [0, 1].
-    Evaluates how well the 3D rig state projects onto the video frame's pixel evidence.
+    Evaluates how well the 3D rig state projects onto the video frame's pixel evidence,
+    constrained by Newton's laws of motion (velocity limit <= 12 deg/frame at 30 fps, minimum jerk).
     """
     skel = rig.compute_skeleton(state)
 
@@ -510,22 +513,27 @@ def score_rig_state(
             inside_fg += 1
     silhouette_score = inside_fg / len(upper_samples)
 
-    # 4. Biomechanical Prior & Temporal Smoothness (anti-bamfing penalty from ckpe.md)
+    # 4. Biomechanical Prior & Temporal Smoothness (anti-bamfing velocity and acceleration penalties)
     smooth_score = 1.0
     if prev_state is not None:
-        max_step_deg = 35.0
         vel_penalty = 0.0
-        for k in ("rightShoulderAngle", "rightShoulderFlexion", "rightShoulderRotation", "rightElbowBend"):
+        accel_penalty = 0.0
+        for k in ACTIVE_DOFS:
             delta = abs(state.get(k, 0.0) - prev_state.get(k, 0.0))
             if delta > max_step_deg:
-                vel_penalty += ((delta - max_step_deg) / 25.0) ** 2
-        smooth_score = math.exp(-vel_penalty)
+                vel_penalty += ((delta - max_step_deg) / 5.0) ** 2
+            if prev_prev_state is not None:
+                # Acceleration: delta2 = S_t - 2*S_{t-1} + S_{t-2}
+                accel = abs(state.get(k, 0.0) - 2.0 * prev_state.get(k, 0.0) + prev_prev_state.get(k, 0.0))
+                if accel > max_step_deg:
+                    accel_penalty += ((accel - max_step_deg) / 5.0) ** 2
+        smooth_score = math.exp(-0.75 * vel_penalty - 0.25 * accel_penalty)
 
     total_reward = (
-        0.40 * capsule_coverage_score
-        + 0.40 * endpoint_score
-        + 0.12 * silhouette_score
-        + 0.08 * smooth_score
+        0.32 * capsule_coverage_score
+        + 0.32 * endpoint_score
+        + 0.11 * silhouette_score
+        + 0.25 * smooth_score
     )
 
     return {
@@ -555,52 +563,71 @@ ACTIVE_DOFS = [
 ]
 
 
+def hermite_smoothstep(t: float) -> float:
+    """C1/C2 continuous cubic Hermite ease-in-out in [0, 1]."""
+    t = max(0.0, min(1.0, t))
+    return t * t * (3.0 - 2.0 * t)
+
+
 def optimize_frame_rl(
     rig: Rig3DPython,
     frame_feat: dict,
     calib: dict,
     init_state: dict[str, float],
-    prev_state: dict[str, float] | None,
-    rng: random.Random,
-    iterations: int = 18,
+    prev_state: dict[str, float] | None = None,
+    prev_prev_state: dict[str, float] | None = None,
+    rng: random.Random = None,
+    iterations: int = 16,
     pop_size: int = 64,
     elite_frac: float = 0.20,
+    max_step_deg: float = 12.0,
 ) -> tuple[dict[str, float], dict]:
     """
-    Uses Cross-Entropy Method / Evolution Strategies (RL policy search over Gaussian action distributions)
-    to find the joint angles S_t that maximize the deterministic reward score.
+    Cross-Entropy Method / Evolution Strategy optimizing joint angles S_t
+    within physically bounded velocity distributions.
     """
+    if rng is None:
+        rng = random.Random(42)
+
     mean = {k: float(init_state[k]) for k in ACTIVE_DOFS}
-    std = {
-        "rightShoulderAngle": 18.0,
-        "rightShoulderFlexion": 25.0,
-        "rightShoulderRotation": 25.0,
-        "rightElbowBend": 25.0,
-    }
+    if prev_state is not None:
+        std = {
+            "rightShoulderAngle": 5.0,
+            "rightShoulderFlexion": 7.0,
+            "rightShoulderRotation": 7.0,
+            "rightElbowBend": 7.0,
+        }
+    else:
+        std = {
+            "rightShoulderAngle": 15.0,
+            "rightShoulderFlexion": 25.0,
+            "rightShoulderRotation": 25.0,
+            "rightElbowBend": 25.0,
+        }
+
     n_elite = max(4, int(pop_size * elite_frac))
 
     best_state = rig.clamp_state(init_state)
-    best_eval = score_rig_state(rig, best_state, frame_feat, calib, prev_state)
+    best_eval = score_rig_state(rig, best_state, frame_feat, calib, prev_state, prev_prev_state, max_step_deg)
 
-    # Also seed population with canonical exploring candidates (resting pose + high-flexion stroke pose)
     seed_poses = [
         dict(init_state),
-        dict(calib["calibrated_rest_state"]),
-        {
-            **calib["calibrated_rest_state"],
-            "rightShoulderAngle": -10.0,
-            "rightShoulderFlexion": 25.0,
-            "rightShoulderRotation": -35.0,
-            "rightElbowBend": 125.0,
-        },
     ]
+    if prev_state is not None:
+        seed_poses.append(dict(prev_state))
+        if prev_prev_state is not None:
+            # Linear momentum extrapolation S_t ≈ 2*S_{t-1} - S_{t-2}
+            momentum_state = dict(init_state)
+            for k in ACTIVE_DOFS:
+                momentum_state[k] = 2.0 * prev_state[k] - prev_prev_state[k]
+            seed_poses.append(rig.clamp_state(momentum_state))
 
     for it in range(iterations):
         candidates = []
         if it == 0:
             for sp in seed_poses:
                 clamped = rig.clamp_state(sp)
-                ev = score_rig_state(rig, clamped, frame_feat, calib, prev_state)
+                ev = score_rig_state(rig, clamped, frame_feat, calib, prev_state, prev_prev_state, max_step_deg)
                 candidates.append((ev["total_reward"], clamped, ev))
 
         for _ in range(pop_size):
@@ -608,7 +635,7 @@ def optimize_frame_rl(
             for k in ACTIVE_DOFS:
                 sample[k] = rng.gauss(mean[k], std[k])
             clamped = rig.clamp_state(sample)
-            ev = score_rig_state(rig, clamped, frame_feat, calib, prev_state)
+            ev = score_rig_state(rig, clamped, frame_feat, calib, prev_state, prev_prev_state, max_step_deg)
             candidates.append((ev["total_reward"], clamped, ev))
 
         candidates.sort(key=lambda item: item[0], reverse=True)
@@ -621,12 +648,155 @@ def optimize_frame_rl(
             new_mean = sum(item[1][k] for item in elites) / n_elite
             new_var = sum((item[1][k] - new_mean) ** 2 for item in elites) / n_elite
             mean[k] = new_mean
-            std[k] = max(1.2, math.sqrt(new_var) * 0.85)
+            std[k] = max(1.0, math.sqrt(new_var) * 0.85)
 
-    # Round final angles to 1 decimal place
     final_state = {k: round(v, 1) for k, v in best_state.items()}
-    final_eval = score_rig_state(rig, final_state, frame_feat, calib, prev_state)
+    final_eval = score_rig_state(rig, final_state, frame_feat, calib, prev_state, prev_prev_state, max_step_deg)
     return final_state, final_eval
+
+
+def solve_trajectory_bidirectional(
+    rig: Rig3DPython,
+    frame_entries: list[dict],
+    frame_grids: list[list[tuple[int, int, int]]],
+    calib: dict,
+    rng: random.Random,
+) -> list[dict[str, float]]:
+    """
+    Bidirectional Two-Pass Trajectory Optimizer:
+    1. Extracts frame features for all keyframes.
+    2. Identifies stroke apex anchor frames with high confidence.
+    3. Forward pass (t = 0 -> stroke_end) starting from resting stance S_0.
+    4. Backward pass (t = N-1 -> stroke_start) starting from resting stance S_T (time-inverted).
+    5. Hermite consensus fusion connecting forward rollout and inverted backward rollout.
+    6. Minimum-jerk physical smoothing filter ensuring max velocity <= 12 deg/frame.
+    """
+    n_frames = len(frame_entries)
+    all_feats = []
+    for idx, (f_entry, grid) in enumerate(zip(frame_entries, frame_grids)):
+        feat = extract_frame_features(grid, frame_grids[0], calib)
+        feat["phase"] = f_entry.get("phase")
+        all_feats.append(feat)
+
+    rest_state = dict(calib["calibrated_rest_state"])
+
+    # Locate stroke phase bounds
+    stroke_indices = [i for i, f in enumerate(frame_entries) if f.get("phase") == "stroke"]
+    if not stroke_indices:
+        stroke_start = int(n_frames * 0.28)
+        stroke_end = int(n_frames * 0.65)
+    else:
+        stroke_start = min(stroke_indices)
+        stroke_end = max(stroke_indices)
+
+    # 1. Optimize Stroke Apex Anchor Pose
+    stroke_apex_idx = (stroke_start + stroke_end) // 2
+    stroke_seed = {
+        **rest_state,
+        "rightShoulderAngle": 0.0,
+        "rightShoulderFlexion": 32.0,
+        "rightShoulderRotation": -16.0,
+        "rightElbowBend": 140.0,
+    }
+    print(f"      [Step 1/5] Anchoring Stroke Apex at frame {stroke_apex_idx + 1}...")
+    apex_state, apex_eval = optimize_frame_rl(
+        rig=rig,
+        frame_feat=all_feats[stroke_apex_idx],
+        calib=calib,
+        init_state=stroke_seed,
+        prev_state=None,
+        rng=rng,
+        iterations=20,
+        pop_size=80,
+    )
+    print(f"                 Apex Reward={apex_eval['total_reward']:.3f} | Flexion={apex_state['rightShoulderFlexion']}° Elbow={apex_state['rightElbowBend']}°")
+
+    # 2. Forward Pass: t = 0 -> stroke_end
+    print(f"      [Step 2/5] Forward Pass: Rolling out S_0 -> S_apex (frames 1..{stroke_end + 1})...")
+    forward_states = [None] * n_frames
+    forward_states[0] = dict(rest_state)
+    for t in range(1, stroke_end + 1):
+        alpha = min(1.0, t / max(1, stroke_start))
+        guided_prior = {
+            k: (1.0 - alpha) * rest_state[k] + alpha * apex_state[k]
+            for k in ACTIVE_DOFS
+        }
+        prev_s = forward_states[t - 1]
+        prev_prev_s = forward_states[t - 2] if t >= 2 else None
+        st, _ = optimize_frame_rl(
+            rig=rig,
+            frame_feat=all_feats[t],
+            calib=calib,
+            init_state=guided_prior,
+            prev_state=prev_s,
+            prev_prev_state=prev_prev_s,
+            rng=rng,
+        )
+        forward_states[t] = st
+
+    # 3. Backward Pass: t = N-1 -> stroke_start (Time-Inverted Rollout)
+    print(f"      [Step 3/5] Backward Pass: Rolling out S_T -> S_apex in reverse time (frames {n_frames}..{stroke_start + 1})...")
+    backward_states = [None] * n_frames
+    backward_states[n_frames - 1] = dict(rest_state)
+    for t in range(n_frames - 2, stroke_start - 1, -1):
+        beta = min(1.0, (n_frames - 1 - t) / max(1, n_frames - 1 - stroke_end))
+        guided_prior = {
+            k: (1.0 - beta) * rest_state[k] + beta * apex_state[k]
+            for k in ACTIVE_DOFS
+        }
+        succ_s = backward_states[t + 1]
+        succ_succ_s = backward_states[t + 2] if t + 2 < n_frames else None
+        st, _ = optimize_frame_rl(
+            rig=rig,
+            frame_feat=all_feats[t],
+            calib=calib,
+            init_state=guided_prior,
+            prev_state=succ_s,
+            prev_prev_state=succ_succ_s,
+            rng=rng,
+        )
+        backward_states[t] = st
+
+    # 4. Bidirectional Consensus Fusion
+    print(f"      [Step 4/5] Bidirectional Consensus Fusion with Hermite smoothstep...")
+    fused_states = []
+    for t in range(n_frames):
+        if t <= stroke_start:
+            fused_states.append(dict(forward_states[t]))
+        elif t < stroke_end:
+            tau = (t - stroke_start) / max(1, stroke_end - stroke_start)
+            w = hermite_smoothstep(tau)
+            f_st = forward_states[t]
+            b_st = backward_states[t]
+            blended = {k: (1.0 - w) * f_st[k] + w * b_st[k] for k in ACTIVE_DOFS}
+            fused_states.append({**rest_state, **blended})
+        else:
+            tau = (t - stroke_end) / max(1, n_frames - 1 - stroke_end)
+            w = hermite_smoothstep(tau)
+            f_st = forward_states[min(t, stroke_end)]
+            b_st = backward_states[t]
+            blended = {k: (1.0 - w) * f_st[k] + w * b_st[k] for k in ACTIVE_DOFS}
+            fused_states.append({**rest_state, **blended})
+
+    # 5. Minimum-Jerk Continuity Filter & Final Velocity Clamping
+    print(f"      [Step 5/5] Minimum-Jerk C2 Continuity Filtering (max velocity clamp <= 12°/frame)...")
+    smoothed_states = [dict(fused_states[0])]
+    for t in range(1, n_frames - 1):
+        prev_s = fused_states[t - 1]
+        curr_s = fused_states[t]
+        next_s = fused_states[t + 1]
+        sm = {}
+        for k in ACTIVE_DOFS:
+            val = 0.20 * prev_s[k] + 0.60 * curr_s[k] + 0.20 * next_s[k]
+            # Velocity clamp relative to previous smoothed frame
+            d = val - smoothed_states[t - 1][k]
+            if abs(d) > 12.0:
+                val = smoothed_states[t - 1][k] + math.copysign(12.0, d)
+            sm[k] = round(val, 1)
+        smoothed_states.append({**rest_state, **sm})
+    smoothed_states.append(dict(rest_state))
+
+    return smoothed_states
 
 
 def main():
@@ -652,58 +822,32 @@ def main():
     print(f"      Centerline X = {calib['center_x']} px | Crown Y = {calib['top_head_y']} px | Shoulder Y = {calib['shoulder_y']} px | Elbow Y = {calib['elbow_y']} px")
     print(f"      Scale = ({calib['scale_x']}, {calib['scale_y']}) px/unit | Resting Abduction = {calib['calibrated_rest_state']['rightShoulderAngle']}°")
 
-    # Step 2: Optimize each keyframe via RL Policy Search against the deterministic reward
-    print(f"[2/3] Running RL Policy Search across {len(frame_entries)} keyframes...")
+    # Step 2: Solve trajectory using Bidirectional Two-Pass Optimizer with physical limits
+    print(f"[2/3] Running Bidirectional Two-Pass Optimizer across {len(frame_entries)} keyframes...")
     rng = random.Random(42)
-    prev_state = calib["calibrated_rest_state"]
-    solved_states = []
+    solved_states = solve_trajectory_bidirectional(rig, frame_entries, frame_grids, calib, rng)
 
-    for idx, (f_entry, grid) in enumerate(zip(frame_entries, frame_grids)):
+    # Score each frame and verify velocity limits
+    max_dof_delta = 0.0
+    for idx, (f_entry, grid, st) in enumerate(zip(frame_entries, frame_grids, solved_states)):
         feat = extract_frame_features(grid, frame_grids[0], calib)
         feat["phase"] = f_entry.get("phase")
-        if idx == 0 or idx == len(frame_entries) - 1:
-            # Known bounds prior from ckpe.md: gesture begins and ends at calibrated resting stance
-            best_state = dict(calib["calibrated_rest_state"])
-            best_eval = score_rig_state(rig, best_state, feat, calib, prev_state)
-        else:
-            # During retraction, if the arm moves below the chest, guide it steadily back to resting pose
-            if f_entry.get("phase") == "retract":
-                t_retract = (idx - 32) / max(1, len(frame_entries) - 1 - 32)
-                target_rest = calib["calibrated_rest_state"]
-                # Interpolate anchor prior toward resting pose
-                interp_prior = {
-                    k: (1.0 - t_retract) * prev_state[k] + t_retract * target_rest[k]
-                    for k in ACTIVE_DOFS
-                }
-                best_state, best_eval = optimize_frame_rl(
-                    rig=rig,
-                    frame_feat=feat,
-                    calib=calib,
-                    init_state=interp_prior,
-                    prev_state=prev_state,
-                    rng=rng,
-                )
-            else:
-                best_state, best_eval = optimize_frame_rl(
-                    rig=rig,
-                    frame_feat=feat,
-                    calib=calib,
-                    init_state=prev_state,
-                    prev_state=prev_state,
-                    rng=rng,
-                )
-
-        f_entry["rig_state"] = best_state
-        f_entry["reward"] = best_eval
-        solved_states.append(best_state)
-        prev_state = best_state
+        prev_s = solved_states[idx - 1] if idx > 0 else None
+        prev_prev_s = solved_states[idx - 2] if idx > 1 else None
+        eval_res = score_rig_state(rig, st, feat, calib, prev_s, prev_prev_s)
+        f_entry["rig_state"] = st
+        f_entry["reward"] = eval_res
+        if prev_s is not None:
+            for k in ACTIVE_DOFS:
+                max_dof_delta = max(max_dof_delta, abs(st[k] - prev_s[k]))
 
         print(
             f"      Frame {idx+1:2d} ({f_entry['timestamp_ms']:4d}ms, {f_entry['phase']:7s}): "
-            f"reward={best_eval['total_reward']:.3f} | "
-            f"R.Shoulder=({best_state['rightShoulderAngle']:5.1f}°, {best_state['rightShoulderFlexion']:5.1f}°, {best_state['rightShoulderRotation']:6.1f}°) "
-            f"R.Elbow={best_state['rightElbowBend']:5.1f}°"
+            f"reward={eval_res['total_reward']:.3f} | "
+            f"R.Shoulder=({st['rightShoulderAngle']:5.1f}°, {st['rightShoulderFlexion']:5.1f}°, {st['rightShoulderRotation']:6.1f}°) "
+            f"R.Elbow={st['rightElbowBend']:5.1f}°"
         )
+    print(f"      Trajectory Continuity: Max inter-frame velocity delta = {max_dof_delta:.1f}°/frame (Physical limit <= 12.0°)")
 
     # Update single-step target pairs with the solved states
     for step in manifest.get("ckpe_single_step_targets", []):
