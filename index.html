@@ -81,6 +81,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
+    }
+    .sidebar h2 > span {
+      white-space: nowrap;
     }
 
     .reset-btn {
@@ -92,6 +96,8 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .reset-btn:hover {
       background: #475569;
@@ -119,6 +125,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      white-space: nowrap;
     }
 
     .joint-tag {
@@ -128,10 +135,13 @@
       border-radius: 4px;
       font-weight: 700;
       letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .tag-hinge { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
     .tag-universal { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+    .tag-saddle { background: rgba(45, 212, 191, 0.2); color: #2dd4bf; }
     .tag-ball { background: rgba(244, 114, 182, 0.2); color: #f472b6; }
 
     .control-row {
@@ -186,7 +196,7 @@
 <body>
   <header>
     <h1>Upper Body Rig &mdash; Joint Classes &amp; DOFs</h1>
-    <p>Independent Neck &amp; Head nodes with biomechanical angular limits</p>
+    <p>Pelvis, jaw, neck &amp; head nodes with biomechanical angular limits</p>
   </header>
 
   <div class="main-layout">
@@ -199,6 +209,30 @@
         <span>Joint Controls</span>
         <button class="reset-btn" id="resetPoseBtn">Reset Pose</button>
       </h2>
+
+      <!-- Pelvis (Root) -->
+      <div class="joint-card">
+        <div class="joint-header">
+          <span class="joint-name">
+            <span style="color: #2dd4bf;">●</span> Pelvis (Root)
+          </span>
+          <span class="joint-tag tag-saddle">Saddle (2-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Twist (Body Turn)</span>
+            <span class="control-val" id="val_pelvis_twist">0°</span>
+          </div>
+          <input type="range" id="ctrl_pelvis_twist" min="-45" max="45" value="0">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Bow (Forward Flex)</span>
+            <span class="control-val" id="val_pelvis_bow">0°</span>
+          </div>
+          <input type="range" id="ctrl_pelvis_bow" min="0" max="40" value="0">
+        </div>
+      </div>
 
       <!-- Neck Base Joint (C7) -->
       <div class="joint-card">
@@ -238,6 +272,23 @@
             <span class="control-val" id="val_head_pitch">0°</span>
           </div>
           <input type="range" id="ctrl_head_pitch" min="-45" max="50" value="0">
+        </div>
+      </div>
+
+      <!-- Jaw (Mandible) -->
+      <div class="joint-card">
+        <div class="joint-header">
+          <span class="joint-name">
+            <span style="color: #fb7185;">●</span> Jaw (Mandible)
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Mouth Open</span>
+            <span class="control-val" id="val_jaw_open">0°</span>
+          </div>
+          <input type="range" id="ctrl_jaw_open" min="0" max="35" value="0">
         </div>
       </div>
 
@@ -313,6 +364,7 @@
     const JointTypes = {
       HINGE: 'hinge',         // 1-DOF: Flexion / Extension
       UNIVERSAL: 'universal', // 2-DOF: Tilt + Twist
+      SADDLE: 'saddle',       // 2-DOF: Twist + Bow (pelvis)
       BALL_SOCKET: 'ball'     // 3-DOF: Spherical rotation
     };
 
@@ -332,6 +384,14 @@
 
     // Biomechanical Joint Dictionary
     const RIG_JOINTS = {
+      pelvis: new JointDefinition({
+        name: 'Pelvis (Root)',
+        type: JointTypes.SADDLE,
+        limits: {
+          twist: [-45, 45], // upper-body turn over planted hips
+          bow:   [0, 40]    // forward flexion
+        }
+      }),
       neckBase: new JointDefinition({
         name: 'Cervical Base (C7)',
         type: JointTypes.UNIVERSAL,
@@ -346,6 +406,11 @@
         limits: {
           pitch: [-45, 50] // chin tuck / nod up
         }
+      }),
+      jaw: new JointDefinition({
+        name: 'Mandible (TMJ)',
+        type: JointTypes.HINGE,
+        limits: { open: [0, 35] }
       }),
       shoulderLeft: new JointDefinition({
         name: 'Left Shoulder (Glenohumeral)',
@@ -379,6 +444,7 @@
 
         // Proportions in Head Lengths (H)
         this.proportions = {
+          pelvisHalfWidth: 0.85 * this.scaleH,   // Hip cross half-width
           torsoLength: 2.65 * this.scaleH,       // Waist to C7 (shoulder cross)
           neckLength: 0.45 * this.scaleH,        // C7 to C1 (skull base)
           headLength: 0.75 * this.scaleH,        // Skull base to crown
@@ -391,9 +457,12 @@
         this.state = this.getDefaultState();
 
         this.palette = {
+          pelvis: '#2dd4bf',         // Teal
           torso: '#38bdf8',          // Sky Blue
           neck: '#818cf8',           // Indigo
           head: '#a78bfa',           // Violet
+          crown: '#c084fc',          // Light Violet
+          jaw: '#fb7185',            // Rose
           shoulders: '#fbbf24',      // Amber
           leftUpperArm: '#34d399',   // Emerald
           rightUpperArm: '#22c55e',  // Green
@@ -405,9 +474,12 @@
 
       getDefaultState() {
         return {
+          pelvisTwist: 0,
+          pelvisBow: 0,
           neckRoll: 0,
           neckYaw: 0,
           headPitch: 0,
+          jawOpen: 0,
           leftShoulderAngle: 4,
           rightShoulderAngle: -4,
           leftElbowBend: -20,
@@ -427,15 +499,29 @@
         const s = this.state;
         const deg2rad = Math.PI / 180;
 
-        // 1. Torso Spine: Waist -> C7 (Neck base / clavicle cross)
-        const waist = { x: this.root.x, y: this.root.y };
-        const c7 = { x: waist.x, y: waist.y - p.torsoLength };
+        // 1. Pelvis: root cross line (hip-to-hip).
+        // The legs are planted, so the hip line itself stays fixed.
+        const pelvis = { x: this.root.x, y: this.root.y };
+        const leftHip = { x: pelvis.x - p.pelvisHalfWidth, y: pelvis.y };
+        const rightHip = { x: pelvis.x + p.pelvisHalfWidth, y: pelvis.y };
 
-        // 2. Shoulders: Crosses at C7
+        // The pelvis twist is carried by the upper body above the planted hips.
+        const bodyYawRad = s.pelvisTwist * deg2rad;
+        const cosBodyYaw = Math.cos(bodyYawRad);
+        // Small orthographic depth cue so left and right turns stay distinguishable.
+        const bodyDepthSlope = Math.sin(bodyYawRad) * 0.16;
+
+        // 2. Torso Spine: Pelvis -> C7 (Neck base / clavicle cross)
+        // Bowing forward rotates the torso out of the image plane, so it shortens.
+        const bowRad = s.pelvisBow * deg2rad;
+        const projectedTorsoLength = p.torsoLength * Math.cos(bowRad);
+        const c7 = { x: pelvis.x, y: pelvis.y - projectedTorsoLength };
+
+        // 3. Shoulders: Crosses at C7
         const leftShoulder = { x: c7.x - p.shoulderHalfWidth, y: c7.y };
         const rightShoulder = { x: c7.x + p.shoulderHalfWidth, y: c7.y };
 
-        // 3. Neck: C7 -> C1 (Skull base)
+        // 4. Neck: C7 -> C1 (Skull base)
         // Rotates with neckRoll (ear to shoulder) and lateral offset from yaw
         const neckAngleRad = s.neckRoll * deg2rad;
         const c1 = {
@@ -443,16 +529,16 @@
           y: c7.y - p.neckLength * Math.cos(neckAngleRad)
         };
 
-        // 4. Head: C1 -> Crown
+        // 5. Head: C1 -> Crown
         // Incorporates neck roll + head pitch (nodding foreshortening and vertical tilt)
-        const totalHeadAngleRad = (s.neckRoll + s.headPitch * 0.25) * deg2rad;
+        const headRotationRad = (s.neckRoll + s.headPitch * 0.25) * deg2rad;
         // Pitch visually foreshortens head height and shifts crown Y
         const pitchForeshorten = Math.cos(s.headPitch * deg2rad);
         const effectiveHeadLen = p.headLength * Math.max(0.65, pitchForeshorten);
 
         const headCrown = {
-          x: c1.x + effectiveHeadLen * Math.sin(totalHeadAngleRad) + (s.neckYaw * 0.15),
-          y: c1.y - effectiveHeadLen * Math.cos(totalHeadAngleRad)
+          x: c1.x + effectiveHeadLen * Math.sin(headRotationRad) + (s.neckYaw * 0.15),
+          y: c1.y - effectiveHeadLen * Math.cos(headRotationRad)
         };
 
         // Head center for oval rendering
@@ -461,7 +547,41 @@
           y: (c1.y + headCrown.y) / 2
         };
 
-        // 5. Left Arm
+        // The head follows the body turn. The body-yaw projection uses the
+        // opposite screen-space sign from the head's local yaw, so subtract it.
+        const effectiveHeadYaw = Math.max(-90, Math.min(90, s.neckYaw - s.pelvisTwist));
+        const effectiveHeadYawRad = effectiveHeadYaw * deg2rad;
+
+        // Shared local head frame used by the oval, crown line, and jaw.
+        const headFrame = {
+          center: headCenter,
+          rotation: headRotationRad,
+          radX: p.headLength * 0.42,
+          radY: p.headLength * 0.6 * Math.max(0.7, pitchForeshorten),
+          cosYaw: Math.max(0.05, Math.cos(effectiveHeadYawRad)),
+          yaw: effectiveHeadYaw
+        };
+
+        // Map a point from head-local space (x right, y down) to canvas space.
+        const headLocal = (lx, ly) => {
+          const squashedX = lx * headFrame.cosYaw;
+          return {
+            x: headCenter.x + squashedX * Math.cos(headRotationRad) - ly * Math.sin(headRotationRad),
+            y: headCenter.y + squashedX * Math.sin(headRotationRad) + ly * Math.cos(headRotationRad)
+          };
+        };
+
+        // Crown / ear line: transverse axis through the eyes and nose.
+        const leftEar = headLocal(-headFrame.radX * 0.98, 0);
+        const rightEar = headLocal(headFrame.radX * 0.98, 0);
+
+        // Jaw: the mandible hinges at the ears and drops at the chin.
+        const jawDrop = Math.sin(s.jawOpen * deg2rad) * headFrame.radY * 0.45;
+        // Yaw shifts the face toward the direction the head is looking.
+        const faceYawOffset = (effectiveHeadYaw / 90) * headFrame.radX * 0.65;
+        const chin = headLocal(faceYawOffset, headFrame.radY * 0.78 + jawDrop);
+
+        // 6. Left Arm
         const lShoulderRad = s.leftShoulderAngle * deg2rad;
         const leftElbow = {
           x: leftShoulder.x + p.upperArmLength * Math.sin(lShoulderRad),
@@ -474,7 +594,7 @@
           y: leftElbow.y + p.lowerArmLength * Math.cos(lElbowRad)
         };
 
-        // 6. Right Arm
+        // 7. Right Arm
         const rShoulderRad = s.rightShoulderAngle * deg2rad;
         const rightElbow = {
           x: rightShoulder.x + p.upperArmLength * Math.sin(rShoulderRad),
@@ -487,59 +607,80 @@
           y: rightElbow.y + p.lowerArmLength * Math.cos(rElbowRad)
         };
 
+        // Project the shoulder girdle and arms through the body twist.
+        // Points on the spine centerline (dx = 0) stay put; lateral points turn.
+        const projectUpper = (pt) => {
+          const dx = pt.x - pelvis.x;
+          return {
+            x: pelvis.x + dx * cosBodyYaw,
+            y: pt.y + dx * bodyDepthSlope
+          };
+        };
+
+        const bodyLeftShoulder = projectUpper(leftShoulder);
+        const bodyRightShoulder = projectUpper(rightShoulder);
+        const bodyLeftElbow = projectUpper(leftElbow);
+        const bodyRightElbow = projectUpper(rightElbow);
+        const bodyLeftWrist = projectUpper(leftWrist);
+        const bodyRightWrist = projectUpper(rightWrist);
+
         return {
-          waist, c7, c1, headCrown, headCenter,
-          leftShoulder, rightShoulder,
-          leftElbow, rightElbow,
-          leftWrist, rightWrist,
+          pelvis, leftHip, rightHip,
+          c7, c1, headCrown, headCenter, headFrame,
+          leftEar, rightEar, chin,
+          leftShoulder: bodyLeftShoulder, rightShoulder: bodyRightShoulder,
+          leftElbow: bodyLeftElbow, rightElbow: bodyRightElbow,
+          leftWrist: bodyLeftWrist, rightWrist: bodyRightWrist,
           segments: [
-            { id: 'torso', label: 'Torso Spine', color: this.palette.torso, from: waist, to: c7 },
+            { id: 'pelvis', label: 'Pelvis (Hip Line)', color: this.palette.pelvis, from: leftHip, to: rightHip },
+            { id: 'torso', label: 'Torso Spine', color: this.palette.torso, from: pelvis, to: c7 },
+            { id: 'shoulders', label: 'Shoulders', color: this.palette.shoulders, from: bodyLeftShoulder, to: bodyRightShoulder },
             { id: 'neck', label: 'Neck (C7-C1)', color: this.palette.neck, from: c7, to: c1 },
             { id: 'head', label: 'Head (Crown)', color: this.palette.head, from: c1, to: headCrown },
-            { id: 'shoulders', label: 'Shoulders', color: this.palette.shoulders, from: leftShoulder, to: rightShoulder },
-            { id: 'leftUpperArm', label: 'Upper Arm (L)', color: this.palette.leftUpperArm, from: leftShoulder, to: leftElbow },
-            { id: 'rightUpperArm', label: 'Upper Arm (R)', color: this.palette.rightUpperArm, from: rightShoulder, to: rightElbow },
-            { id: 'leftLowerArm', label: 'Lower Arm (L)', color: this.palette.leftLowerArm, from: leftElbow, to: leftWrist },
-            { id: 'rightLowerArm', label: 'Lower Arm (R)', color: this.palette.rightLowerArm, from: rightElbow, to: rightWrist }
+            { id: 'crown', label: 'Crown Line (Ear-Ear)', color: this.palette.crown, from: leftEar, to: rightEar, width: 3 },
+            { id: 'leftJaw', label: 'Jaw', color: this.palette.jaw, from: leftEar, to: chin, width: 3 },
+            { id: 'rightJaw', label: null, color: this.palette.jaw, from: rightEar, to: chin, width: 3 },
+            { id: 'leftUpperArm', label: 'Upper Arm (L)', color: this.palette.leftUpperArm, from: bodyLeftShoulder, to: bodyLeftElbow },
+            { id: 'rightUpperArm', label: 'Upper Arm (R)', color: this.palette.rightUpperArm, from: bodyRightShoulder, to: bodyRightElbow },
+            { id: 'leftLowerArm', label: 'Lower Arm (L)', color: this.palette.leftLowerArm, from: bodyLeftElbow, to: bodyLeftWrist },
+            { id: 'rightLowerArm', label: 'Lower Arm (R)', color: this.palette.rightLowerArm, from: bodyRightElbow, to: bodyRightWrist }
           ]
         };
       }
 
       draw(ctx, options = {}) {
         const skel = this.computeSkeleton();
+        const frame = skel.headFrame;
 
         // Optional head guide oval
         if (options.showHeadMesh) {
           ctx.save();
-          ctx.translate(skel.headCenter.x, skel.headCenter.y);
-          ctx.rotate((this.state.neckRoll + this.state.headPitch * 0.2) * Math.PI / 180);
-          
+          ctx.translate(frame.center.x, frame.center.y);
+          ctx.rotate(frame.rotation);
+
           ctx.strokeStyle = 'rgba(167, 139, 250, 0.35)';
           ctx.lineWidth = 1.5;
           ctx.beginPath();
-          // Adjust radii according to pitch foreshortening
-          const radY = (this.proportions.headLength * 0.6) * Math.max(0.7, Math.cos(this.state.headPitch * Math.PI / 180));
-          const radX = this.proportions.headLength * 0.42;
-          ctx.ellipse(0, 0, radX, radY, 0, 0, Math.PI * 2);
+          ctx.ellipse(0, 0, frame.radX, frame.radY, 0, 0, Math.PI * 2);
           ctx.stroke();
 
           // Subtle face orientation crosshair
           ctx.strokeStyle = 'rgba(167, 139, 250, 0.2)';
           ctx.beginPath();
-          // Yaw offset on crosshair
-          const yawOffset = (this.state.neckYaw / 70) * (radX * 0.65);
-          ctx.moveTo(yawOffset, -radY * 0.7);
-          ctx.lineTo(yawOffset, radY * 0.7);
+          // Yaw offset on crosshair; uses the same effective yaw as the jaw.
+          const yawOffset = (frame.yaw / 90) * (frame.radX * 0.65);
+          ctx.moveTo(yawOffset, -frame.radY * 0.7);
+          ctx.lineTo(yawOffset, frame.radY * 0.7);
           ctx.stroke();
           ctx.restore();
         }
 
         // Draw Segments
-        ctx.lineWidth = 5;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
 
         skel.segments.forEach(seg => {
+          ctx.lineWidth = seg.width || 5;
           ctx.strokeStyle = seg.color;
           ctx.beginPath();
           ctx.moveTo(seg.from.x, seg.from.y);
@@ -550,10 +691,15 @@
         // Draw Joint nodes
         if (options.showJoints) {
           const joints = [
-            { pt: skel.waist, label: 'Waist' },
+            { pt: skel.pelvis, label: 'Pelvis' },
+            { pt: skel.leftHip, label: 'L Hip' },
+            { pt: skel.rightHip, label: 'R Hip' },
             { pt: skel.c7, label: 'C7 (Neck Base)' },
             { pt: skel.c1, label: 'C1 (Skull Base)' },
             { pt: skel.headCrown, label: 'Crown' },
+            { pt: skel.leftEar, label: 'L Ear' },
+            { pt: skel.rightEar, label: 'R Ear' },
+            { pt: skel.chin, label: 'Chin' },
             { pt: skel.leftShoulder, label: 'L Shoulder' },
             { pt: skel.rightShoulder, label: 'R Shoulder' },
             { pt: skel.leftElbow, label: 'L Elbow' },
@@ -580,6 +726,8 @@
           ctx.font = '500 11px system-ui, sans-serif';
 
           skel.segments.forEach(seg => {
+            if (!seg.label) return;
+
             const midX = (seg.from.x + seg.to.x) / 2;
             const midY = (seg.from.y + seg.to.y) / 2;
 
@@ -646,9 +794,12 @@
       });
     }
 
+    bindSlider('ctrl_pelvis_twist', 'val_pelvis_twist', 'pelvisTwist', RIG_JOINTS.pelvis, 'twist');
+    bindSlider('ctrl_pelvis_bow', 'val_pelvis_bow', 'pelvisBow', RIG_JOINTS.pelvis, 'bow');
     bindSlider('ctrl_neck_roll', 'val_neck_roll', 'neckRoll', RIG_JOINTS.neckBase, 'roll');
     bindSlider('ctrl_neck_yaw', 'val_neck_yaw', 'neckYaw', RIG_JOINTS.neckBase, 'yaw');
     bindSlider('ctrl_head_pitch', 'val_head_pitch', 'headPitch', RIG_JOINTS.skullBase, 'pitch');
+    bindSlider('ctrl_jaw_open', 'val_jaw_open', 'jawOpen', RIG_JOINTS.jaw, 'open');
     bindSlider('ctrl_l_shoulder_angle', 'val_l_shoulder_angle', 'leftShoulderAngle', RIG_JOINTS.shoulderLeft, 'swing');
     bindSlider('ctrl_r_shoulder_angle', 'val_r_shoulder_angle', 'rightShoulderAngle', RIG_JOINTS.shoulderRight, 'swing');
     bindSlider('ctrl_l_elbow_bend', 'val_l_elbow_bend', 'leftElbowBend', RIG_JOINTS.elbowLeft, 'flex');
@@ -660,6 +811,12 @@
     const resetBtn = document.getElementById('resetPoseBtn');
 
     function syncUI() {
+      document.getElementById('ctrl_pelvis_twist').value = rig.state.pelvisTwist;
+      document.getElementById('val_pelvis_twist').textContent = `${rig.state.pelvisTwist}°`;
+
+      document.getElementById('ctrl_pelvis_bow').value = rig.state.pelvisBow;
+      document.getElementById('val_pelvis_bow').textContent = `${rig.state.pelvisBow}°`;
+
       document.getElementById('ctrl_neck_roll').value = rig.state.neckRoll;
       document.getElementById('val_neck_roll').textContent = `${rig.state.neckRoll}°`;
 
@@ -668,6 +825,9 @@
 
       document.getElementById('ctrl_head_pitch').value = rig.state.headPitch;
       document.getElementById('val_head_pitch').textContent = `${rig.state.headPitch}°`;
+
+      document.getElementById('ctrl_jaw_open').value = rig.state.jawOpen;
+      document.getElementById('val_jaw_open').textContent = `${rig.state.jawOpen}°`;
 
       document.getElementById('ctrl_l_shoulder_angle').value = rig.state.leftShoulderAngle;
       document.getElementById('val_l_shoulder_angle').textContent = `${rig.state.leftShoulderAngle}°`;
