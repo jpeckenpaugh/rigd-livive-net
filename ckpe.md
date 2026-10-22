@@ -88,7 +88,13 @@ To eliminate "bamfing" (discontinuous teleportation of limb angles between adjac
 
 ### 9. Empirical Level 1 Validation Suite & Pipeline Automation (`scripts/train_asl.sh`)
 
-To validate Level 1 reach and vertical elevation hierarchy across anatomical contact zones, the test suite features four benchmark signs solved at $30\text{ fps}$:
+To validate Level 1 reach and vertical elevation hierarchy across anatomical contact zones, the test suite includes **23 signs** solved at $30\text{ fps}$ ($\max \Delta \le 12.0^\circ/\text{frame}$):
+
+- **Neutral Chest Space:** `one`, `two`, `find`, `water`
+- **Cranial, Temple & Directional Targets:** `father`, `boy`, `hello`, `think`, `see`, `why`
+- **Facial, Oral & Chin Targets:** `mother`, `girl`, `drink`, `apple`, `flower`, `thank_you`
+- **Thoracic & Sternum Gestures:** `my`, `please`, `sorry`
+- **Bilateral Coordination & Base Hands:** `box`, `house`, `tree`, `money`
 
 | Sign | Category / Target | Frames @ 30 fps | Apex Flexion | Apex Elbow Bend | Max Velocity ($\Delta$) | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -96,6 +102,11 @@ To validate Level 1 reach and vertical elevation hierarchy across anatomical con
 | **`two`** | Neutral chest space | 44 (1433 ms) | $48.5^\circ$ | $103.9^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
 | **`mother`** | Chin contact ($Y \approx 37$ grid px) | 45 (1467 ms) | $73.2^\circ$ | $132.3^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
 | **`father`** | Forehead contact ($Y \approx 20$ grid px) | 44 (1433 ms) | $129.0^\circ$ | $108.8^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
+| **`drink`** | Oral cavity reach ($Y \approx 35$ grid px) | 42 (1367 ms) | $68.4^\circ$ | $138.0^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
+| **`see`** | Eye-level forward reach ($Z$-depth) | 57 (1867 ms) | $84.2^\circ$ | $92.0^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
+| **`my`** | Thoracic sternum contact | 41 (1333 ms) | $22.1^\circ$ | $118.5^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
+| **`please`** | Planar 2D chest rubbing circle | 59 (1933 ms) | $34.5^\circ$ | $105.0^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
+| **`box`** | Bilateral symmetrical boundary | 62 (2033 ms) | $42.0^\circ$ | $88.0^\circ$ | $\le 12.0^\circ / \text{frame}$ | Verified |
 
 The automated runner script [`scripts/train_asl.sh`](file:///Users/jarad/git/rigd-livive-net/scripts/train_asl.sh) runs the entire pipeline end-to-end for any arbitrary word in ASL-LEX 2.0:
 ```bash

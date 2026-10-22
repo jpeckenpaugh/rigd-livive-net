@@ -61,13 +61,38 @@ The 3D viewer features an automatically alphabetized **Sequence** selector drive
 - **We Don't Go Left** — Chained sequence (`reset` $\to$ `point-you` $\to$ `point-me` $\to$ `point-left + disagree`)
 - **We Go Right** — Chained sequence (`reset` $\to$ `point-you` $\to$ `point-me` $\to$ `point-right + agree`)
 
-### Trained ASL Signs (Solved via CKPE Level 1 RL Policy)
-- **ASL: One** — Neutral chest space index point (51 frames @ 30 fps, Apex Flexion $30.8^\circ$, Elbow $104.2^\circ$).
-- **ASL: Two** — Neutral space V-sign parity test (44 frames @ 30 fps, Apex Flexion $48.5^\circ$, Elbow $103.9^\circ$).
-- **ASL: Mother** — Chin-level thumb contact target (45 frames @ 30 fps, Apex Flexion $73.2^\circ$, Elbow $132.3^\circ$).
-- **ASL: Father** — Forehead-level thumb contact target (44 frames @ 30 fps, Apex Flexion $129.0^\circ$, Elbow $108.8^\circ$).
+### Trained ASL Signs (23 Solved via CKPE Level 1 RL Policy)
 
-All ASL trajectories are solved with zero "bamfing" ($\max \Delta \le 12.0^\circ/\text{frame}$).
+All 23 signs are extracted at 30 fps, calibrated from Frame 0, optimized via bidirectional Hermite rollout, and guaranteed zero-bamf ($\max \Delta \le 12.0^\circ/\text{frame}$):
+
+- **Neutral Chest Space (1-Handed):**
+  - **ASL: One** (51 frames, 1667ms) — Vertical index point in central space.
+  - **ASL: Two** (44 frames, 1433ms) — V-sign neutral space parity test.
+  - **ASL: Find** (51 frames, 1667ms) — Grasping stroke in neutral space.
+  - **ASL: Water** (27 frames, 867ms) — Rapid W-hand tap trajectory.
+- **Cranial, Temple & Directional Targets (1-Handed):**
+  - **ASL: Father** (44 frames, 1433ms) — Forehead-level thumb contact target ($Y \approx 20$).
+  - **ASL: Boy** (43 frames, 1400ms) — Cap brim grasp at anterior forehead.
+  - **ASL: Hello** (53 frames, 1733ms) — Temple-level salute and outward release.
+  - **ASL: Think** (68 frames, 2233ms) — Single index point to the temple.
+  - **ASL: See** (57 frames, 1867ms) — Eye-level forward reach extending toward the viewer.
+  - **ASL: Why** (61 frames, 2000ms) — Forehead contact down to neutral mid-space.
+- **Facial, Oral & Chin Targets (1-Handed):**
+  - **ASL: Mother** (45 frames, 1467ms) — Chin-level thumb contact target ($Y \approx 37$).
+  - **ASL: Girl** (49 frames, 1600ms) — Jawline sweep stroke along the right cheek.
+  - **ASL: Drink** (42 frames, 1367ms) — High elbow flexion and humeral rotation to mouth.
+  - **ASL: Apple** (34 frames, 1100ms) — Zygomatic cheek contact with wrist twist.
+  - **ASL: Flower** (36 frames, 1167ms) — Bilateral cheek-to-nose brush.
+  - **ASL: Thank_you** (51 frames, 1667ms) — Chin contact extending forward toward the viewer.
+- **Thoracic & Sternum Gestures (1-Handed):**
+  - **ASL: My** (41 frames, 1333ms) — Flat palm placed flat against central sternum.
+  - **ASL: Please** (59 frames, 1933ms) — Planar circular rubbing motion across the chest.
+  - **ASL: Sorry** (58 frames, 1900ms) — Circular fist rotation against the chest.
+- **Bilateral Coordination & Base Hands (2-Handed):**
+  - **ASL: Box** (62 frames, 2033ms) — Bilateral symmetrical container boundary delineation.
+  - **ASL: House** (56 frames, 1833ms) — Bilateral roof-peak to vertical wall trajectory.
+  - **ASL: Tree** (31 frames, 1000ms) — Upright active forearm supported by base arm.
+  - **ASL: Money** (45 frames, 1467ms) — Active flat-O rubbing atop non-dominant base palm.
 
 ---
 
