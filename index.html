@@ -166,6 +166,111 @@
       border: 1px solid rgba(167, 139, 250, 0.25);
     }
 
+    .kicker-ckpe {
+      color: var(--teal);
+      background: rgba(45, 212, 191, 0.12);
+      border: 1px solid rgba(45, 212, 191, 0.25);
+    }
+
+    .ckpe-banner {
+      margin-top: 24px;
+      padding: 24px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+    }
+
+    .ckpe-content {
+      flex: 1;
+    }
+
+    .ckpe-banner h2 {
+      margin: 8px 0;
+      font-size: 1.25rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+
+    .ckpe-banner p {
+      margin: 0 0 16px 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      max-width: 580px;
+    }
+
+    .ckpe-banner code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.82rem;
+      color: var(--amber);
+      background: rgba(251, 191, 36, 0.1);
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    .ckpe-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .ckpe-actions .card-cta {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .ckpe-doc-link {
+      color: var(--sky);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ckpe-doc-link:hover {
+      text-decoration: underline;
+    }
+
+    .ckpe-badges {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      min-width: 190px;
+    }
+
+    .badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      background: rgba(11, 17, 32, 0.6);
+      border: 1px solid rgba(51, 65, 85, 0.65);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .badge-val {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .badge-lbl {
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
     .model-card h2 {
       margin: 0 0 8px 0;
       font-size: 1.2rem;
@@ -260,6 +365,18 @@
         padding-top: 16px;
       }
 
+      .ckpe-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        gap: 16px;
+      }
+
+      .ckpe-badges {
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+      }
+
       footer {
         margin-top: 20px;
       }
@@ -336,13 +453,36 @@
           </svg>
         </div>
         <span class="card-kicker kicker-3d">3D</span>
-        <h2>Spatial Rig</h2>
+        <h2>Spatial Rig & ASL Gestures</h2>
         <p>
           A true 3D skeleton driven by the same controls, shown simultaneously from front, side,
-          top, and isometric cameras with a ground grid and depth order.
+          top, and isometric cameras. Includes the Level 1 CKPE gesture engine with photo keyframe overlays.
         </p>
         <span class="card-cta">Open 3D <span>→</span></span>
       </a>
+    </div>
+
+    <div class="ckpe-banner">
+      <div class="ckpe-content">
+        <span class="card-kicker kicker-ckpe">Level 1 Kinematic Engine</span>
+        <h2>Constrained Kinematic Pose Estimator (CKPE)</h2>
+        <p>
+          Physics-constrained gesture and pose estimation from 2D keyframes. Features an automated
+          single-command pipeline (<code>./scripts/train_asl.sh</code>), bidirectional Hermite trajectory
+          rollout, zero-bamf physical limits (&le;12&deg;/frame), and benchmark ASL signs:
+          <em>One</em>, <em>Two</em>, <em>Mother</em>, and <em>Father</em>.
+        </p>
+        <div class="ckpe-actions">
+          <a class="card-cta" href="3d/">Review Signs in 3D <span>&rarr;</span></a>
+          <a class="ckpe-doc-link" href="ckpe.md">Read Architecture Spec <span>&nearr;</span></a>
+        </div>
+      </div>
+      <div class="ckpe-badges">
+        <div class="badge-item"><span class="badge-val">30 fps</span><span class="badge-lbl">Sampling</span></div>
+        <div class="badge-item"><span class="badge-val">&le; 12&deg;/f</span><span class="badge-lbl">Velocity Cap</span></div>
+        <div class="badge-item"><span class="badge-val">4 Signs</span><span class="badge-lbl">Solved</span></div>
+        <div class="badge-item"><span class="badge-val">0 Deps</span><span class="badge-lbl">Vanilla Web</span></div>
+      </div>
     </div>
 
     <footer>Plain HTML + Canvas 2D · no build step</footer>

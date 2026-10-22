@@ -1,77 +1,117 @@
 # rigd-livive-net
 
-Browser prototypes of an upper-body skeletal rig, built with Canvas 2D and no dependencies.
+Zero-dependency, browser-based articulated skeletal rig and the Level 1 kinematic testbed for the **Constrained Kinematic Pose Estimator (CKPE)**, built with native ES Modules and the Canvas 2D API.
 
-## Pages
+Live deployment: [https://rigd.livive.net/](https://rigd.livive.net/)
 
-- `index.html` — landing page linking both models
-- `2.5d.html` — preserved front-view rig with hand-projected depth
-- `3d/index.html` — modular 3D skeleton with front, side, top, and isometric views (`3d.html` redirects to `3d/`)
-  - `3d/style.css` — layout, sidebar, joint cards, and responsive styling
-  - `3d/data/rig-spec.json` — proportions, color palette, joint limits, defaults, UI metadata, and symmetry pairs
-  - `3d/data/sequences.json` — declarative preset sequences (`sine`, `tween`, `pulse`, and `keyframes` tracks)
-  - `3d/js/math3d.js` — 3D vector and 3×3 rotation matrix helpers
-  - `3d/js/rig.js` — `JointDefinition`, `Rig3D` state, and forward kinematics
-  - `3d/js/renderer.js` — orthographic/isometric camera setup and Canvas 2D projection
-  - `3d/js/animator.js` — Auto Explore, Symmetry/Asymmetry pair tweens, Reset Pose easing, and sequence playback
-  - `3d/js/ui.js` — data-driven sidebar generator (with alphabetized sequence dropdown) and DOM bindings
-  - `3d/js/main.js` — module entry point
+---
 
-Left/right labels use the model's anatomical perspective: in the front view, the model's left appears on the viewer's right.
+## Architecture & Pages
 
-## Current rig
+- **`index.html`** — Landing hub linking the 2.5D model, the 3D spatial rig, and the CKPE architectural specification.
+- **`2.5d.html`** — Standalone front-view prototype with hand-projected depth.
+- **`3d/index.html`** — Modular 3D spatial rig with 4 simultaneous viewports (Front, Side, Top, and 3D Isometric) driven by a single unified skeleton (`3d.html` redirects to `3d/`).
+  - `3d/style.css` — Layout, dark theme palette, sidebar controls, joint cards, and mobile responsiveness.
+  - `3d/data/rig-spec.json` — Single source of truth for body proportions (in head units $H$), joint limits, defaults, UI metadata, and bilateral symmetry pairs.
+  - `3d/data/sequences.json` — Declarative preset sequences (`sine`, `tween`, `pulse`, and `keyframes` tracks).
+  - `3d/js/math3d.js` — Pure 3D vector (`v3`) and $3 \times 3$ rotation matrix (`M3`) primitives.
+  - `3d/js/rig.js` — `JointDefinition`, `Rig3D` state management, and forward kinematics (FK).
+  - `3d/js/renderer.js` — Orthographic/isometric cameras, reference grids, ground shadows, and front-view keyframe photo underlay projection.
+  - `3d/js/animator.js` — Mutually exclusive RAF animation loops: Auto Explore, bilateral symmetry/anti-symmetry alignment tweens, 1-second Reset Pose easing, and sequence playback.
+  - `3d/js/ui.js` — Data-driven sidebar generator with alphabetized preset selector, dynamic sign switcher, scrubbing controls, and real-time reward badge.
+  - `3d/js/main.js` — Application entry point.
+- **`ckpe.md`** — Architectural specification for the Constrained Kinematic Pose Estimator machine learning pipeline.
+- **`scripts/train_asl.sh`** — Single-command end-to-end automated training and trajectory solving script.
+- **`scripts/prepare_asl_sign.py`** — ASL-LEX 2.0 downloader, metadata extractor, and 30 fps keyframe slicer.
+- **`scripts/rig_rl_scorer.py`** — Deterministic bidirectional trajectory optimizer, pixel reward scorer, and sequence exporter.
 
-- Pelvis root with planted hips and a forward/back bow
-- Torso, shoulder girdle, neck, and head chain
-- Shoulder girdle elevation and left/right tilt
-- Head crown / ear-to-ear line, 3D face line, and hinged jaw
-- 3D arms expose shoulder abduction (up to 120°), forward flexion (0°…180°), humeral rotation (−135°…+90°), and local elbow flexion (0°…140°)
-- 3D loads in a hands-folded pose (right shoulder 8° / 6° / −60°, left −8° / 6° / −60°, elbows 40°); Reset Pose eases all joints back over 1 second
-- Shoulder and elbow controls with clamped joint limits
-- Per-joint explore checkboxes: check one to explore it alone, or Auto Explore to check all
-- Symmetry/Asymmetry explore modes for paired left/right shoulder and elbow DOFs, with one-second alignment tweens
-- Hover a control card to highlight its rig segments and joints
-- Toggleable labels, joint nodes, and head guide
+---
 
-The 3D arm chain is composed as abduction/adduction → forward flexion → humeral rotation → local elbow flexion.
+## Kinematic Features
 
-## Preset sequences
+- **Pelvis Root:** Planted hips with forward/backward bow ($-20^\circ \dots 40^\circ$) and pelvic twist ($-45^\circ \dots 45^\circ$).
+- **Torso & Spine:** Spine column with neck base (C7) tilt/roll and yaw/turn.
+- **Shoulder Girdle:** Bilateral elevation ($-10^\circ \dots 25^\circ$) and lateral tilt ($-15^\circ \dots 15^\circ$).
+- **Head & Jaw:** Skull base (C1) pitch/nod, crown line, 3D face line, and hinged mandible (jaw opening).
+- **3D Arm Kinematic Chain:**
+  $$\text{Abduction / Adduction} \longrightarrow \text{Forward Flexion} \longrightarrow \text{Humeral Rotation} \longrightarrow \text{Elbow Flexion}$$
+  - Abduction/Adduction: $-120^\circ \dots 45^\circ$
+  - Forward Flexion: $0^\circ \dots 180^\circ$
+  - Humeral Axial Rotation: $-135^\circ \dots 90^\circ$
+  - Local Elbow Flexion: $0^\circ \dots 140^\circ$
+- **Resting Stance:** Loads in a hands-folded resting stance; Reset Pose smoothly interpolates all joints back to neutral over 1.0 second.
+- **Anatomical Perspective:** Left and right always refer to the **model's** anatomical perspective (in Front view, the model's right arm is on the viewer's left at $-X$).
 
-The 3D page has an alphabetized **Sequence** dropdown driven by `3d/data/sequences.json`:
+---
 
-- **Agree** — head nod (`headPitch` ±20° sine oscillation)
-- **Disagree** — head shake (`neckYaw` ±40° sine oscillation)
-- **Hands Up** — raises both arms overhead (`shoulderElevation: 10°`, `right/leftShoulderFlexion: 150°`, `right/leftElbowBend: 20°`)
-- **Hats Off** — raises the right hand to the crown and tips outward (`rightShoulderAngle` keyframes `-15° → 0° → -15°` at `115°` flexion)
-- **Point It** — right-handed forward/outward point (`rightShoulderFlexion: 60°`, `rightShoulderRotation: 50°`)
-- **Point Left** — right-handed cross-body point to the model's left (`rightShoulderAngle: 45°`, `rightShoulderRotation: -90°`, `rightElbowBend: 50°`)
-- **Point Me** — right-handed point back toward the chest (`rightShoulderAngle: 20°`, `rightShoulderFlexion: 60°`, `rightShoulderRotation: -110°`, `rightElbowBend: 130°`)
-- **Point Right** — right-handed point to the model's right (`rightShoulderAngle: -60°`, `rightShoulderRotation: 70°`, `rightElbowBend: 50°`)
-- **Point You** — right-handed straight-ahead point (`rightShoulderFlexion: 60°`, `rightShoulderRotation: 0°`)
-- **We Don't Go Left** — chained sequence (`reset` → `point-you` → `point-me` → `point-left + disagree`)
-- **We Go Right** — chained sequence (`reset` → `point-you` → `point-me` → `point-right + agree`)
+## Preset Animations & ASL Sequences
 
-Selecting a sequence stops Auto Explore and cancels any symmetry or reset tween.
+The 3D viewer features an automatically alphabetized **Sequence** selector driven by `3d/data/sequences.json`:
 
-The 3D page uses one shared skeleton and four cameras. Front, side, and top are orthographic;
-the isometric view uses the same projected skeleton for depth reading. Each viewport includes a reference grid (back wall in Front, far wall in Side, and floor in Top/3D) and toggleable cast shadows from a directional light source.
+### Standard Gestural Presets
+- **Agree** — Head nod (`headPitch` $\pm 20^\circ$ sinusoidal oscillation)
+- **Disagree** — Head shake (`neckYaw` $\pm 40^\circ$ sinusoidal oscillation)
+- **Hands Up** — Overhead bilateral reach (`shoulderElevation: 10°`, `flexion: 150°`, `elbow: 20°`)
+- **Hats Off** — Raises right hand to head crown and tips outward (`flexion: 115°`, angle `-15° → 0° → -15°`)
+- **Point It** — Outward forward point (`flexion: 60°`, humeral rotation: $50^\circ$)
+- **Point Left** — Cross-body point to the model's left (`shoulderAngle: 45°`, rotation: $-90^\circ$)
+- **Point Me** — Points back toward own chest (`angle: 20°`, `flexion: 60°`, `elbow: 130°`)
+- **Point Right** — Points outward to the model's right (`shoulderAngle: -60°`, rotation: $70^\circ$)
+- **Point You** — Straight-ahead point (`flexion: 60°`, rotation: $0^\circ$)
+- **We Don't Go Left** — Chained sequence (`reset` $\to$ `point-you` $\to$ `point-me` $\to$ `point-left + disagree`)
+- **We Go Right** — Chained sequence (`reset` $\to$ `point-you` $\to$ `point-me` $\to$ `point-right + agree`)
 
-## ASL-LEX Dataset & CKPE Keyframe Preparation
+### Trained ASL Signs (Solved via CKPE Level 1 RL Policy)
+- **ASL: One** — Neutral chest space index point (51 frames @ 30 fps, Apex Flexion $30.8^\circ$, Elbow $104.2^\circ$).
+- **ASL: Two** — Neutral space V-sign parity test (44 frames @ 30 fps, Apex Flexion $48.5^\circ$, Elbow $103.9^\circ$).
+- **ASL: Mother** — Chin-level thumb contact target (45 frames @ 30 fps, Apex Flexion $73.2^\circ$, Elbow $132.3^\circ$).
+- **ASL: Father** — Forehead-level thumb contact target (44 frames @ 30 fps, Apex Flexion $129.0^\circ$, Elbow $108.8^\circ$).
 
-`scripts/prepare_asl_sign.py` downloads reference sign videos and lexical/phonological metadata from [ASL-LEX 2.0](https://asl-lex.org/visualization/) and extracts fixed-interval keyframe bitmaps (`10 fps` / `0.1s` default) along with a single-step transition manifest for the **Constrained Kinematic Pose Estimator (CKPE)** described in `ckpe.md`.
+All ASL trajectories are solved with zero "bamfing" ($\max \Delta \le 12.0^\circ/\text{frame}$).
+
+---
+
+## Training New ASL Signs
+
+The repository includes a single-command automated pipeline runner, [`scripts/train_asl.sh`](file:///Users/jarad/git/rigd-livive-net/scripts/train_asl.sh), to ingest, calibrate, solve, and export any ASL sign from [ASL-LEX 2.0](https://asl-lex.org/):
 
 ```bash
-# Download by ASL-LEX visualization URL (defaults to 10 fps PNGs):
-python3 scripts/prepare_asl_sign.py --url "https://asl-lex.org/visualization/?sign=one"
+# Train a single word:
+./scripts/train_asl.sh water
 
-# Or by sign EntryID with custom frame rate / image format:
-python3 scripts/prepare_asl_sign.py --sign one --fps 10 --format png
+# Train multiple words in a batch:
+./scripts/train_asl.sh water candy hello girl
+./scripts/train_asl.sh "water, candy, hello"
+
+# Specify custom extraction fps (default: 30):
+./scripts/train_asl.sh --fps 30 boy
+
+# Re-run the kinematic solver on an existing downloaded sign:
+./scripts/train_asl.sh --scorer-only mother
 ```
 
-Output structure under `data/asl/<sign>/` (e.g. `data/asl/one/`):
-- `metadata.json` — Raw ASL-LEX 2.0 record (`EntryID`, `Code`, `SignOnset(ms)`, `SignOffset(ms)`, `Handshape.2.0`, `MajorLocation.2.0`, `Movement.2.0`, etc.) and graph coordinates.
-- `<sign>.mp4` — Remuxed reference video downloaded from the sign's embedded Vimeo stream.
-- `frames/frame_0001.png` … `frame_NNNN.png` — Extracted keyframe bitmaps at `0.1s` (`10 fps`) intervals.
-- `keyframes.json` — CKPE single-step target manifest pairing `(I_{t-1}, S_{t-1}, I_t, action_descriptor) -> S_t` with movement phases (`prep`, `stroke`, `retract`) derived from `SignOnset(ms)` and `SignOffset(ms)`.
+### What `train_asl.sh` Does Under the Hood:
+1. **Ingestion (`prepare_asl_sign.py`):** Downloads metadata (`metadata.json`), video (`<sign>.mp4`), and extracts normalized bitmaps (`frames/frame_*.png`) at 30 fps into `data/asl/<sign>/`.
+2. **Trajectory Optimization (`rig_rl_scorer.py`):**
+   - Calibrates camera and skeleton proportions from Frame 0.
+   - Extracts active skin/motion pixels and locates apex hold nucleus.
+   - Executes a **bidirectional two-pass rollout**: forward $S_0 \to S_{\text{apex}}$ and reverse $S_T \to S_{\text{apex}}$, fused with cubic Hermite smoothstep weighting.
+   - Enforces physical velocity bounds ($\le 12.0^\circ/\text{frame}$) to guarantee smooth biological movement.
+   - Writes solved states to `data/asl/<sign>/keyframes.json` and exports keyframe animation tracks to `3d/data/sequences.json`.
+3. **Dynamic UI Registration:**
+   - Both the top **Sequence** dropdown and the **ASL Keyframe Calibration Overlay** sign selector dynamically detect and list the new sign upon page refresh without needing any manual HTML edits.
 
-Serve the repository over a local HTTP server (e.g., `python3 -m http.server 8000`) or visit `https://rigd.livive.net/`.
+---
+
+## Running Locally
+
+Serve the repository with any static HTTP server:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit:
+- Landing Page: `http://localhost:8000/`
+- 3D Rig & Gesture Reviewer: `http://localhost:8000/3d/`
+- 2.5D Prototype: `http://localhost:8000/2.5d.html`
