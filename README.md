@@ -11,7 +11,7 @@ Browser prototype of an upper-body skeletal rig, built with a single Canvas 2D s
 - Hinged mandible / jaw with a mouth-open control
 - Shoulder and elbow controls with clamped joint limits
 - Controls ordered head-to-pelvis; hovering a control card highlights its rig segments and joints
-- Auto Explore mode that roams all controls within their joint limits
+- Per-joint explore checkboxes: check one to explore it alone, or Auto Explore to check all; Stop Explore clears the selection
 - Toggleable labels, joint nodes, and head oval
 
 Open `index.html` directly in a browser.

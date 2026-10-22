@@ -161,6 +161,15 @@
       white-space: nowrap;
     }
 
+    .explore-check {
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      accent-color: #fbbf24;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
     .joint-tag {
       font-size: 0.68rem;
       text-transform: uppercase;
@@ -242,16 +251,17 @@
       <h2>
         <span>Joint Controls</span>
         <div class="header-actions">
-          <button class="action-btn" id="autoExploreBtn" aria-pressed="false" title="Roams the joint space until you adjust a control">Auto Explore</button>
+          <button class="action-btn" id="autoExploreBtn" aria-pressed="false" title="Checks all joints and roams their limits; uncheck a joint to exclude it">Auto Explore</button>
           <button class="reset-btn" id="resetPoseBtn">Reset Pose</button>
         </div>
       </h2>
-      <p class="sidebar-hint">Hover a control group to highlight it on the rig.</p>
+      <p class="sidebar-hint">Hover a control group to highlight it on the rig. Check one joint to explore it alone, or use Auto Explore for all.</p>
 
       <!-- Skull Base Joint (C1 / Atlanto-Occipital) -->
       <div class="joint-card" data-rig-section="head">
         <div class="joint-header">
           <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="head" aria-label="Explore Skull Base" title="Include in Auto Explore">
             <span style="color: #a78bfa;">●</span> Skull Base (C1)
           </span>
           <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
@@ -269,6 +279,7 @@
       <div class="joint-card" data-rig-section="jaw">
         <div class="joint-header">
           <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="jaw" aria-label="Explore Jaw" title="Include in Auto Explore">
             <span style="color: #fb7185;">●</span> Jaw (Mandible)
           </span>
           <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
@@ -286,6 +297,7 @@
       <div class="joint-card" data-rig-section="neck">
         <div class="joint-header">
           <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="neck" aria-label="Explore Neck Base" title="Include in Auto Explore">
             <span style="color: #38bdf8;">●</span> Neck Base (C7)
           </span>
           <span class="joint-tag tag-universal">Universal (2-DOF)</span>
@@ -310,6 +322,7 @@
       <div class="joint-card" data-rig-section="shoulderGirdle">
         <div class="joint-header">
           <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="shoulderGirdle" aria-label="Explore Shoulder Girdle" title="Include in Auto Explore">
             <span style="color: #fb923c;">●</span> Shoulder Girdle
           </span>
           <span class="joint-tag tag-girdle">Girdle (2-DOF)</span>
@@ -334,6 +347,7 @@
       <div class="joint-card" data-rig-section="leftShoulder">
         <div class="joint-header">
           <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="leftShoulder" aria-label="Explore Left Shoulder" title="Include in Auto Explore">
             <span style="color: #34d399;">●</span> Left Shoulder
           </span>
           <span class="joint-tag tag-ball">Ball &amp; Socket</span>
@@ -351,6 +365,7 @@
       <div class="joint-card" data-rig-section="rightShoulder">
         <div class="joint-header">
           <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="rightShoulder" aria-label="Explore Right Shoulder" title="Include in Auto Explore">
             <span style="color: #22c55e;">●</span> Right Shoulder
           </span>
           <span class="joint-tag tag-ball">Ball &amp; Socket</span>
@@ -364,24 +379,36 @@
         </div>
       </div>
 
-      <!-- Elbows -->
-      <div class="joint-card" data-rig-section="elbows">
+      <!-- Left Elbow -->
+      <div class="joint-card" data-rig-section="leftElbow">
         <div class="joint-header">
           <span class="joint-name">
-            <span style="color: #f472b6;">●</span> Elbows (Hinge)
+            <input type="checkbox" class="explore-check" data-explore-key="leftElbow" aria-label="Explore Left Elbow" title="Include in Auto Explore">
+            <span style="color: #f472b6;">●</span> Left Elbow
           </span>
           <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
         </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Left Elbow Bend</span>
+            <span>Elbow Bend</span>
             <span class="control-val" id="val_l_elbow_bend">-20°</span>
           </div>
           <input type="range" id="ctrl_l_elbow_bend" min="-120" max="40" value="-20">
         </div>
+      </div>
+
+      <!-- Right Elbow -->
+      <div class="joint-card" data-rig-section="rightElbow">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="rightElbow" aria-label="Explore Right Elbow" title="Include in Auto Explore">
+            <span style="color: #f472b6;">●</span> Right Elbow
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Right Elbow Bend</span>
+            <span>Elbow Bend</span>
             <span class="control-val" id="val_r_elbow_bend">20°</span>
           </div>
           <input type="range" id="ctrl_r_elbow_bend" min="-40" max="120" value="20">
@@ -392,6 +419,7 @@
       <div class="joint-card" data-rig-section="pelvis">
         <div class="joint-header">
           <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="pelvis" aria-label="Explore Pelvis" title="Include in Auto Explore">
             <span style="color: #2dd4bf;">●</span> Pelvis (Root)
           </span>
           <span class="joint-tag tag-saddle">Saddle (2-DOF)</span>
@@ -532,9 +560,13 @@
         segments: ['rightUpperArm'],
         joints: ['rightShoulder', 'rightElbow']
       },
-      elbows: {
-        segments: ['leftLowerArm', 'rightLowerArm'],
-        joints: ['leftElbow', 'rightElbow', 'leftWrist', 'rightWrist']
+      leftElbow: {
+        segments: ['leftLowerArm'],
+        joints: ['leftElbow', 'leftWrist']
+      },
+      rightElbow: {
+        segments: ['rightLowerArm'],
+        joints: ['rightElbow', 'rightWrist']
       },
       pelvis: {
         segments: ['pelvis'],
@@ -973,7 +1005,8 @@
         paramName,
         unit,
         min: parseFloat(slider.min),
-        max: parseFloat(slider.max)
+        max: parseFloat(slider.max),
+        sectionKey: slider.closest('.joint-card')?.dataset.rigSection || null
       });
     }
 
@@ -1011,8 +1044,9 @@
       });
     });
 
-    // Auto Explore: smoothly roam every control within its joint limits.
+    // Auto Explore: selectively roam the checked joints within their limits.
     const autoExploreBtn = document.getElementById('autoExploreBtn');
+    const exploreChecks = Array.from(document.querySelectorAll('.explore-check'));
     let exploring = false;
     let exploreRAF = null;
     let lastExploreTime = 0;
@@ -1022,8 +1056,25 @@
       return min + Math.random() * (max - min);
     }
 
-    function startExplore() {
+    function getEnabledExploreSections() {
+      return new Set(
+        exploreChecks
+          .filter(checkbox => checkbox.checked)
+          .map(checkbox => checkbox.dataset.exploreKey)
+      );
+    }
+
+    function startExplore(checkAll = true) {
       if (exploring) return;
+
+      // Auto Explore checks every joint; a single checkbox starts a focused run.
+      if (checkAll) {
+        exploreChecks.forEach(checkbox => {
+          checkbox.checked = true;
+        });
+      }
+
+      if (getEnabledExploreSections().size === 0) return;
 
       exploring = true;
       autoExploreBtn.textContent = 'Stop Explore';
@@ -1051,6 +1102,10 @@
         exploreRAF = null;
       }
 
+      exploreChecks.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+
       autoExploreBtn.textContent = 'Auto Explore';
       autoExploreBtn.classList.remove('is-active');
       autoExploreBtn.setAttribute('aria-pressed', 'false');
@@ -1062,8 +1117,15 @@
       const dt = Math.min(0.05, Math.max(0, (now - lastExploreTime) / 1000));
       lastExploreTime = now;
 
+      const enabledSections = getEnabledExploreSections();
+      if (enabledSections.size === 0) {
+        stopExplore();
+        return;
+      }
+
       exploreState.forEach(item => {
         const { binding } = item;
+        if (!enabledSections.has(binding.sectionKey)) return;
 
         if (now >= item.nextChange) {
           item.target = randomBetween(binding.min, binding.max);
@@ -1090,8 +1152,20 @@
       if (exploring) {
         stopExplore();
       } else {
-        startExplore();
+        startExplore(true);
       }
+    });
+
+    exploreChecks.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const enabledCount = getEnabledExploreSections().size;
+
+        if (exploring) {
+          if (enabledCount === 0) stopExplore();
+        } else if (enabledCount > 0) {
+          startExplore(false);
+        }
+      });
     });
 
     function syncUI() {
