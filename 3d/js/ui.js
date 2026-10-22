@@ -3,17 +3,21 @@
  */
 
 export class RigUI {
-  constructor({ rig, spec, sequences, renderer }) {
+  constructor({ rig, spec, sequences, renderer, keyframesData }) {
     this.rig = rig;
     this.spec = spec;
     this.sequences = sequences || [];
     this.renderer = renderer;
+    this.keyframesData = keyframesData || null;
     this.animator = null;
 
     this.controlBindings = [];
     this.bindingByStateKey = new Map();
     this.exploreChecks = [];
     this.hoveredSection = null;
+
+    this.currentKeyframeIndex = 0;
+    this.loadedKeyframeImages = new Map();
 
     this.cardsContainer = document.getElementById('jointCardsContainer');
     this.sequenceSelect = document.getElementById('sequenceSelect');
@@ -25,6 +29,15 @@ export class RigUI {
     this.toggleJoints = document.getElementById('toggleJoints');
     this.toggleHeadMesh = document.getElementById('toggleHeadMesh');
     this.toggleShadows = document.getElementById('toggleShadows');
+    this.toggleKeyframeOverlay = document.getElementById('toggleKeyframeOverlay');
+
+    this.keyframeCard = document.getElementById('keyframeReviewCard');
+    this.kfSlider = document.getElementById('kfSlider');
+    this.kfPrevBtn = document.getElementById('kfPrevBtn');
+    this.kfNextBtn = document.getElementById('kfNextBtn');
+    this.kfFrameLabel = document.getElementById('kfFrameLabel');
+    this.kfPhaseLabel = document.getElementById('kfPhaseLabel');
+    this.keyframeScoreBadge = document.getElementById('keyframeScoreBadge');
   }
 
   init(animator) {
@@ -221,6 +234,89 @@ export class RigUI {
     [this.toggleLabels, this.toggleJoints, this.toggleHeadMesh, this.toggleShadows].forEach(el => {
       if (el) el.addEventListener('change', () => this.requestRender());
     });
+
+    if (this.toggleKeyframeOverlay) {
+      this.toggleKeyframeOverlay.addEventListener('change', () => {
+        const active = this.toggleKeyframeOverlay.checked;
+        if (this.keyframeCard) {
+          this.keyframeCard.style.display = active ? 'block' : 'none';
+        }
+        if (active) {
+          this.showKeyframe(this.currentKeyframeIndex);
+        } else {
+          this.requestRender();
+        }
+      });
+    }
+
+    if (this.kfSlider) {
+      this.kfSlider.addEventListener('input', (e) => {
+        this.showKeyframe(parseInt(e.target.value, 10));
+      });
+    }
+
+    if (this.kfPrevBtn) {
+      this.kfPrevBtn.addEventListener('click', () => {
+        const prev = Math.max(0, this.currentKeyframeIndex - 1);
+        if (this.kfSlider) this.kfSlider.value = prev;
+        this.showKeyframe(prev);
+      });
+    }
+
+    if (this.kfNextBtn) {
+      this.kfNextBtn.addEventListener('click', () => {
+        const total = (this.keyframesData && this.keyframesData.frames) ? this.keyframesData.frames.length : 17;
+        const next = Math.min(total - 1, this.currentKeyframeIndex + 1);
+        if (this.kfSlider) this.kfSlider.value = next;
+        this.showKeyframe(next);
+      });
+    }
+  }
+
+  showKeyframe(index) {
+    if (!this.keyframesData || !this.keyframesData.frames) return;
+    const frames = this.keyframesData.frames;
+    if (index < 0 || index >= frames.length) return;
+
+    this.currentKeyframeIndex = index;
+    const f = frames[index];
+
+    if (this.animator) {
+      this.animator.cancelAllForManualInput();
+    }
+
+    // Apply the solved joint angles directly to the rig
+    if (f.rig_state) {
+      Object.entries(f.rig_state).forEach(([k, val]) => {
+        this.setControlValue(k, val);
+      });
+    }
+
+    if (this.kfFrameLabel) {
+      this.kfFrameLabel.textContent = `Frame ${index + 1} / ${frames.length} (${f.timestamp_ms}ms)`;
+    }
+    if (this.kfPhaseLabel) {
+      this.kfPhaseLabel.textContent = f.phase || 'pose';
+    }
+    if (this.keyframeScoreBadge) {
+      const score = (f.reward && typeof f.reward.total_reward === 'number')
+        ? f.reward.total_reward.toFixed(3)
+        : '--';
+      this.keyframeScoreBadge.textContent = `Score: ${score}`;
+    }
+
+    // Load or retrieve the reference image
+    const imgUrl = `../data/asl/one/${f.file}`;
+    if (!this.loadedKeyframeImages.has(imgUrl)) {
+      const img = new Image();
+      img.src = imgUrl;
+      img.onload = () => {
+        this.loadedKeyframeImages.set(imgUrl, img);
+        this.requestRender();
+      };
+    } else {
+      this.requestRender();
+    }
   }
 
   setControlValue(stateKey, value) {
@@ -277,11 +373,26 @@ export class RigUI {
   }
 
   requestRender() {
+    let keyframeImage = null;
+    let keyframeCalib = null;
+    const showKeyframeOverlay = !!(this.toggleKeyframeOverlay && this.toggleKeyframeOverlay.checked);
+    if (showKeyframeOverlay && this.keyframesData && this.keyframesData.frames) {
+      const f = this.keyframesData.frames[this.currentKeyframeIndex];
+      keyframeCalib = this.keyframesData.calibration || null;
+      if (f) {
+        const imgUrl = `../data/asl/one/${f.file}`;
+        keyframeImage = this.loadedKeyframeImages.get(imgUrl) || null;
+      }
+    }
+
     this.renderer.render({
       showLabels: this.toggleLabels.checked,
       showJoints: this.toggleJoints.checked,
       showHeadMesh: this.toggleHeadMesh.checked,
       showShadows: this.toggleShadows ? this.toggleShadows.checked : true,
+      showKeyframeOverlay,
+      keyframeImage,
+      keyframeCalib,
       highlightSection: this.hoveredSection
     });
   }

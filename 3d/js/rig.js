@@ -82,9 +82,9 @@ export class Rig3D {
     this.state = this.getDefaultState();
   }
 
-  computeSkeleton() {
+  computeSkeleton(customState = null) {
     const p = this.proportions;
-    const s = this.state;
+    const s = customState || this.state;
     const identity = M3.identity();
 
     // Root pelvis and planted hip line.

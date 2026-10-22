@@ -8,18 +8,20 @@ import { RigUI } from './ui.js';
 import { RigAnimator } from './animator.js';
 
 async function bootstrap() {
-  const [specRes, seqRes] = await Promise.all([
+  const [specRes, seqRes, kfRes] = await Promise.all([
     fetch('./data/rig-spec.json'),
-    fetch('./data/sequences.json')
+    fetch('./data/sequences.json'),
+    fetch('../data/asl/one/keyframes.json').catch(() => null)
   ]);
 
   if (!specRes.ok || !seqRes.ok) {
     throw new Error('Failed to load 3D rig configuration files.');
   }
 
-  const [spec, seqData] = await Promise.all([
+  const [spec, seqData, keyframesData] = await Promise.all([
     specRes.json(),
-    seqRes.json()
+    seqRes.json(),
+    (kfRes && kfRes.ok) ? kfRes.json() : null
   ]);
 
   const canvas = document.getElementById('rigCanvas');
@@ -29,7 +31,8 @@ async function bootstrap() {
     rig,
     spec,
     sequences: seqData.sequences,
-    renderer
+    renderer,
+    keyframesData
   });
   const animator = new RigAnimator({
     rig,

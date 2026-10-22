@@ -56,4 +56,22 @@ Selecting a sequence stops Auto Explore and cancels any symmetry or reset tween.
 The 3D page uses one shared skeleton and four cameras. Front, side, and top are orthographic;
 the isometric view uses the same projected skeleton for depth reading. Each viewport includes a reference grid (back wall in Front, far wall in Side, and floor in Top/3D) and toggleable cast shadows from a directional light source.
 
+## ASL-LEX Dataset & CKPE Keyframe Preparation
+
+`scripts/prepare_asl_sign.py` downloads reference sign videos and lexical/phonological metadata from [ASL-LEX 2.0](https://asl-lex.org/visualization/) and extracts fixed-interval keyframe bitmaps (`10 fps` / `0.1s` default) along with a single-step transition manifest for the **Constrained Kinematic Pose Estimator (CKPE)** described in `ckpe.md`.
+
+```bash
+# Download by ASL-LEX visualization URL (defaults to 10 fps PNGs):
+python3 scripts/prepare_asl_sign.py --url "https://asl-lex.org/visualization/?sign=one"
+
+# Or by sign EntryID with custom frame rate / image format:
+python3 scripts/prepare_asl_sign.py --sign one --fps 10 --format png
+```
+
+Output structure under `data/asl/<sign>/` (e.g. `data/asl/one/`):
+- `metadata.json` — Raw ASL-LEX 2.0 record (`EntryID`, `Code`, `SignOnset(ms)`, `SignOffset(ms)`, `Handshape.2.0`, `MajorLocation.2.0`, `Movement.2.0`, etc.) and graph coordinates.
+- `<sign>.mp4` — Remuxed reference video downloaded from the sign's embedded Vimeo stream.
+- `frames/frame_0001.png` … `frame_NNNN.png` — Extracted keyframe bitmaps at `0.1s` (`10 fps`) intervals.
+- `keyframes.json` — CKPE single-step target manifest pairing `(I_{t-1}, S_{t-1}, I_t, action_descriptor) -> S_t` with movement phases (`prep`, `stroke`, `retract`) derived from `SignOnset(ms)` and `SignOffset(ms)`.
+
 Serve the repository over a local HTTP server (e.g., `python3 -m http.server 8000`) or visit `https://rigd.livive.net/`.

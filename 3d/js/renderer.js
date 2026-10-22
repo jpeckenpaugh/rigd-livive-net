@@ -125,6 +125,11 @@ export class RigRenderer {
     // Draw reference grid (back wall in Front, far wall in Side, floor in Top/3D).
     this.drawGrid(ctx, project, camera.id);
 
+    // Optional Keyframe Overlay in FRONT view
+    if (camera.id === 'front' && options.keyframeImage && options.showKeyframeOverlay) {
+      this.drawKeyframeUnderlay(ctx, options.keyframeImage, view, project, options.keyframeCalib);
+    }
+
     // Draw subtle cast shadow from a directional light source in front, above, and slightly to the side.
     if (options.showShadows !== false) {
       this.drawShadow(ctx, skel, project, camera, scale);
@@ -182,6 +187,74 @@ export class RigRenderer {
 
     if (options.showLabels && (camera.id === 'front' || camera.id === 'iso')) {
       this.drawLabels(ctx, segments);
+    }
+
+    ctx.restore();
+  }
+
+  drawKeyframeUnderlay(ctx, img, view, project, calib) {
+    const { x, y, w, h } = view;
+    ctx.save();
+    ctx.globalAlpha = 0.50;
+
+    const natW = img.naturalWidth || 640;
+    const natH = img.naturalHeight || 480;
+
+    if (calib && calib.grid_width) {
+      // Map calibrated grid coordinates to native image pixels
+      const gridScaleX = natW / calib.grid_width;
+      const gridScaleY = natH / calib.grid_height;
+
+      // Project the neutral 3D rig reference frame in FRONT view
+      const baseSkel = this.rig.computeSkeleton(this.rig.defaultState);
+      const pC7 = project(baseSkel.c7);
+      const pRightShoulder = project(baseSkel.rightShoulder);
+      const pLeftShoulder = project(baseSkel.leftShoulder);
+
+      // Model's reference shoulder span on screen
+      const rigShoulderSpanPx = Math.hypot(
+        pLeftShoulder.x - pRightShoulder.x,
+        pLeftShoulder.y - pRightShoulder.y
+      );
+
+      // Signer's anatomical shoulder center & skeletal span in image pixels
+      const imgCenter_x = (calib.center_x !== undefined ? calib.center_x : 78.25) * gridScaleX;
+      // In ASL-LEX 640x480 portraits, the physical clavicle / shoulder line is around Y=304 px (76.0 grid px)
+      const calibShoulderY = (calib.shoulder_y && calib.shoulder_y >= 70) ? calib.shoulder_y : 76.0;
+      const imgShoulder_y = calibShoulderY * gridScaleY;
+
+      // Skeletal shoulder half-width: inset from deltoid outer curve (~26.5 grid px / 106 px)
+      const skeletalHalfPx = (calib.skeletal_shoulder_half_px && calib.skeletal_shoulder_half_px >= 24)
+        ? calib.skeletal_shoulder_half_px
+        : 26.5;
+      const imgShoulderSpanPx = skeletalHalfPx * 2 * gridScaleX;
+
+      // Scale photo to match the 3D rig's shoulder width and upper-body proportions
+      const alignScale = rigShoulderSpanPx / imgShoulderSpanPx;
+
+      const drawW = natW * alignScale;
+      const drawH = natH * alignScale;
+      const drawX = pC7.x - imgCenter_x * alignScale;
+      const drawY = pC7.y - imgShoulder_y * alignScale;
+
+      ctx.drawImage(img, drawX, drawY, drawW, drawH);
+    } else {
+      // Fallback: fit aspect ratio centered
+      const imgAspect = natW / natH;
+      const boxAspect = w / h;
+      let drawW, drawH, drawX, drawY;
+      if (boxAspect > imgAspect) {
+        drawH = h;
+        drawW = h * imgAspect;
+        drawX = x + (w - drawW) / 2;
+        drawY = y;
+      } else {
+        drawW = w;
+        drawH = w / imgAspect;
+        drawX = x;
+        drawY = y + (h - drawH) / 2;
+      }
+      ctx.drawImage(img, drawX, drawY, drawW, drawH);
     }
 
     ctx.restore();

@@ -16,6 +16,8 @@ Guidelines and technical reference for AI coding agents working on `rigd-livive-
 - `2.5d.html` — Preserved standalone 2.5D front-view prototype. Do not break or remove unless explicitly asked.
 - `3d.html` — Redirect stub forwarding to `3d/`.
 - `ckpe.md` — Architectural specification for the Constrained Kinematic Pose Estimator ML pipeline.
+- `scripts/prepare_asl_sign.py` — CLI utility that downloads ASL-LEX 2.0 sign metadata (`metadata.json`), reference video (`<sign>.mp4`), `10 fps` keyframe bitmaps (`frames/frame_*.png`), and a CKPE single-step transition manifest (`keyframes.json`) into `data/asl/<sign>/`.
+- `data/asl/<sign>/` — Prepared ASL sign datasets (e.g., `data/asl/one/`).
 - `3d/` — Modular 3D spatial rig application:
   - `3d/index.html` — HTML shell and DOM mount points.
   - `3d/style.css` — Styles for layout, sidebar, joint cards, and mobile breakpoints.

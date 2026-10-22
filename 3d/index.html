@@ -54,6 +54,23 @@
         <label><input type="checkbox" id="toggleLabels"> Labels</label>
         <label><input type="checkbox" id="toggleJoints" checked> Joint Nodes</label>
         <label><input type="checkbox" id="toggleHeadMesh" checked> Head Sphere</label>
+        <label><input type="checkbox" id="toggleKeyframeOverlay"> Keyframe Overlay</label>
+      </div>
+
+      <div id="keyframeReviewCard" class="keyframe-card" style="display: none;">
+        <div class="keyframe-header">
+          <span class="keyframe-title">ASL: One Keyframes</span>
+          <span id="keyframeScoreBadge" class="keyframe-badge">Score: --</span>
+        </div>
+        <div class="keyframe-controls">
+          <button class="mode-btn" id="kfPrevBtn">&larr; Prev</button>
+          <input type="range" id="kfSlider" min="0" max="50" value="0">
+          <button class="mode-btn" id="kfNextBtn">Next &rarr;</button>
+        </div>
+        <div class="keyframe-meta">
+          <span id="kfFrameLabel">Frame 1 / 17 (0ms)</span>
+          <span id="kfPhaseLabel" class="phase-tag">prep</span>
+        </div>
       </div>
     </aside>
   </div>

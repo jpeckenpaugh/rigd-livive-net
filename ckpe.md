@@ -39,3 +39,22 @@ Once the Level 1 POC is reliably predicting elbow and shoulder angles:
 1.  Calculate the wrist's 2D location using Forward Kinematics (FK).
 2.  Use that calculated wrist location to automatically generate the hand crop (no external object detector needed).
 3.  Treat finger states (e.g., for ASL numbers) as a reduced-dimension classification problem (binary extended/curled states) rather than continuous 3D regression.
+
+---
+
+### 7. Data Ingestion & Keyframe Pipeline (`scripts/prepare_asl_sign.py`)
+To build training and evaluation targets from [ASL-LEX 2.0](https://asl-lex.org/visualization/), `scripts/prepare_asl_sign.py` automates video and metadata ingestion:
+
+1.  **Lexical & Phonological Metadata (`data/asl/<sign>/metadata.json`):**
+    *   Fetches the sign's full entry from `https://asl-lex.org/visualization/data/sign_props.json` (and node coordinates from `graph.json`).
+    *   Extracts key temporal bounds (`SignOnset(ms)`, `SignOffset(ms)`, `ClipDuration(ms)`) and phonological priors (`SignType.2.0`, `MajorLocation.2.0`, `Movement.2.0`, `Handshape.2.0`, `SelectedFingers.2.0`, `Flexion.2.0`, `ThumbPosition.2.0`).
+2.  **Reference Video Acquisition (`data/asl/<sign>/<sign>.mp4`):**
+    *   Resolves the sign's embedded Vimeo stream (`VimeoVideo`) using the `https://asl-lex.org/` referer header and remuxes the highest-resolution AVC stream into a local MP4 via `ffmpeg`.
+3.  **Fixed-Interval Keyframe Bitmaps (`data/asl/<sign>/frames/`):**
+    *   Samples the video at `10 fps` (`0.1s` intervals, configurable via `--fps`) into sequential bitmaps (`frame_0001.png`, `frame_0002.png`, …).
+4.  **Single-Step Target Manifest (`data/asl/<sign>/keyframes.json`):**
+    *   Labels every keyframe with its gesture phase relative to `SignOnset(ms)` and `SignOffset(ms)`:
+        *   `prep` ($t < \text{SignOnset}$): moving from neutral resting pose (`DEFAULT_POSE`) toward sign onset.
+        *   `stroke` ($\text{SignOnset} \le t \le \text{SignOffset}$): active sign execution/hold in target location.
+        *   `retract` ($t > \text{SignOffset}$): returning from sign offset back to `DEFAULT_POSE`.
+    *   Emits `ckpe_single_step_targets`, pairing $(I_{t-1}, S_{t-1}, I_t, \text{action\_descriptor}) \rightarrow S_t$ for each $0.1\text{s}$ step.
