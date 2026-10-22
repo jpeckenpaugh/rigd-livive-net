@@ -17,7 +17,12 @@ export class RigUI {
     this.hoveredSection = null;
 
     this.currentKeyframeIndex = 0;
+    this.currentSign = 'one';
     this.loadedKeyframeImages = new Map();
+    this.cachedKeyframes = new Map();
+    if (options.keyframesData) {
+      this.cachedKeyframes.set('one', options.keyframesData);
+    }
 
     this.cardsContainer = document.getElementById('jointCardsContainer');
     this.sequenceSelect = document.getElementById('sequenceSelect');
@@ -32,6 +37,7 @@ export class RigUI {
     this.toggleKeyframeOverlay = document.getElementById('toggleKeyframeOverlay');
 
     this.keyframeCard = document.getElementById('keyframeReviewCard');
+    this.kfSignSelect = document.getElementById('kfSignSelect');
     this.kfSlider = document.getElementById('kfSlider');
     this.kfPrevBtn = document.getElementById('kfPrevBtn');
     this.kfNextBtn = document.getElementById('kfNextBtn');
@@ -216,11 +222,17 @@ export class RigUI {
 
     this.sequenceSelect.addEventListener('change', () => {
       if (!this.animator) return;
-      if (!this.sequenceSelect.value) {
+      const val = this.sequenceSelect.value;
+      if (!val) {
         this.animator.cancelSequence();
         return;
       }
-      this.animator.startSequence(this.sequenceSelect.value);
+      if (val.startsWith('asl-')) {
+        const sign = val.replace('asl-', '');
+        if (this.kfSignSelect) this.kfSignSelect.value = sign;
+        this.switchSign(sign, false);
+      }
+      this.animator.startSequence(val);
     });
 
     this.resetBtn.addEventListener('click', () => {
@@ -234,6 +246,12 @@ export class RigUI {
     [this.toggleLabels, this.toggleJoints, this.toggleHeadMesh, this.toggleShadows].forEach(el => {
       if (el) el.addEventListener('change', () => this.requestRender());
     });
+
+    if (this.kfSignSelect) {
+      this.kfSignSelect.addEventListener('change', () => {
+        this.switchSign(this.kfSignSelect.value, true);
+      });
+    }
 
     if (this.toggleKeyframeOverlay) {
       this.toggleKeyframeOverlay.addEventListener('change', () => {
@@ -273,6 +291,35 @@ export class RigUI {
     }
   }
 
+  async switchSign(sign, autoShowFrame = true) {
+    this.currentSign = sign;
+    if (this.cachedKeyframes.has(sign)) {
+      this.keyframesData = this.cachedKeyframes.get(sign);
+    } else {
+      try {
+        const res = await fetch(`../data/asl/${sign}/keyframes.json`);
+        if (res.ok) {
+          this.keyframesData = await res.json();
+          this.cachedKeyframes.set(sign, this.keyframesData);
+        }
+      } catch (err) {
+        console.warn(`Could not load keyframes for ASL sign ${sign}:`, err);
+        return;
+      }
+    }
+
+    if (this.keyframesData && this.keyframesData.frames) {
+      if (this.kfSlider) {
+        this.kfSlider.max = this.keyframesData.frames.length - 1;
+        this.kfSlider.value = 0;
+      }
+      this.currentKeyframeIndex = 0;
+      if (autoShowFrame && this.toggleKeyframeOverlay && this.toggleKeyframeOverlay.checked) {
+        this.showKeyframe(0);
+      }
+    }
+  }
+
   showKeyframe(index) {
     if (!this.keyframesData || !this.keyframesData.frames) return;
     const frames = this.keyframesData.frames;
@@ -306,7 +353,8 @@ export class RigUI {
     }
 
     // Load or retrieve the reference image
-    const imgUrl = `../data/asl/one/${f.file}`;
+    const sign = (this.keyframesData && this.keyframesData.sign) || this.currentSign || 'one';
+    const imgUrl = `../data/asl/${sign}/${f.file}`;
     if (!this.loadedKeyframeImages.has(imgUrl)) {
       const img = new Image();
       img.src = imgUrl;
@@ -380,7 +428,8 @@ export class RigUI {
       const f = this.keyframesData.frames[this.currentKeyframeIndex];
       keyframeCalib = this.keyframesData.calibration || null;
       if (f) {
-        const imgUrl = `../data/asl/one/${f.file}`;
+        const sign = (this.keyframesData && this.keyframesData.sign) || this.currentSign || 'one';
+        const imgUrl = `../data/asl/${sign}/${f.file}`;
         keyframeImage = this.loadedKeyframeImages.get(imgUrl) || null;
       }
     }

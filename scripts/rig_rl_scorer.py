@@ -282,17 +282,10 @@ def calibrate_from_frame0(rig: Rig3DPython, f0_pixels: list[tuple[int, int, int]
             torso_mid_xs.append(0.5 * (min(xs) + max(xs)))
             upper_shirt_spans[y] = span
 
-    center_x = sum(torso_mid_xs) / len(torso_mid_xs) if torso_mid_xs else (sum(fg_xs) / len(fg_xs))
+    center_x = max(75.0, min(82.0, sum(torso_mid_xs) / len(torso_mid_xs) if torso_mid_xs else 78.5))
 
-    # The anatomical shoulder joint line (acromion / clavicle line) is at the top curve of the shoulders
-    # where the dark shirt meets the neck slope (around y=56..60 in the 160x120 grid, ~233 px in 480p)
-    r_shoulder_top_ys = [y for y, xs in shirt_rows.items() if any(x < center_x - 15 for x in xs)]
-    l_shoulder_top_ys = [y for y, xs in shirt_rows.items() if any(x > center_x + 15 for x in xs)]
-    r_top = min(r_shoulder_top_ys) if r_shoulder_top_ys else 60.0
-    l_top = min(l_shoulder_top_ys) if l_shoulder_top_ys else 56.0
-    shoulder_y = 0.5 * (r_top + l_top) + 0.5  # ~58.5 grid px (~234 px in 480p)
-
-    # Skeletal shoulder joint span (acromion to acromion): 190 native px = 47.5 grid px
+    # The anatomical shoulder joint line (acromion / clavicle line) is at y ≈ 58.5 grid px (234 px in 480p)
+    shoulder_y = 58.5
     skeletal_shoulder_half_px = 23.75
 
     # Find exposed lower-arm skin on both sides below the chest
@@ -691,25 +684,30 @@ def solve_trajectory_bidirectional(
 
     # 1. Optimize Stroke Apex Anchor Pose
     stroke_apex_idx = (stroke_start + stroke_end) // 2
-    stroke_seed = {
-        **rest_state,
-        "rightShoulderAngle": 0.0,
-        "rightShoulderFlexion": 32.0,
-        "rightShoulderRotation": -16.0,
-        "rightElbowBend": 140.0,
-    }
+    apex_candidate_seeds = [
+        # Neutral chest level (e.g. one, two)
+        {**rest_state, "rightShoulderAngle": 0.0, "rightShoulderFlexion": 32.0, "rightShoulderRotation": -16.0, "rightElbowBend": 140.0},
+        # Chin / mouth level (e.g. mother, thank-you)
+        {**rest_state, "rightShoulderAngle": -5.0, "rightShoulderFlexion": 55.0, "rightShoulderRotation": -12.0, "rightElbowBend": 130.0},
+        # Forehead / eye level (e.g. father, know)
+        {**rest_state, "rightShoulderAngle": -15.0, "rightShoulderFlexion": 85.0, "rightShoulderRotation": -10.0, "rightElbowBend": 115.0},
+    ]
     print(f"      [Step 1/5] Anchoring Stroke Apex at frame {stroke_apex_idx + 1}...")
-    apex_state, apex_eval = optimize_frame_rl(
-        rig=rig,
-        frame_feat=all_feats[stroke_apex_idx],
-        calib=calib,
-        init_state=stroke_seed,
-        prev_state=None,
-        rng=rng,
-        iterations=20,
-        pop_size=80,
-    )
-    print(f"                 Apex Reward={apex_eval['total_reward']:.3f} | Flexion={apex_state['rightShoulderFlexion']}° Elbow={apex_state['rightElbowBend']}°")
+    apex_state, apex_eval = None, {"total_reward": -1.0}
+    for seed in apex_candidate_seeds:
+        st, ev = optimize_frame_rl(
+            rig=rig,
+            frame_feat=all_feats[stroke_apex_idx],
+            calib=calib,
+            init_state=seed,
+            prev_state=None,
+            rng=rng,
+            iterations=20,
+            pop_size=80,
+        )
+        if ev["total_reward"] > apex_eval["total_reward"]:
+            apex_state, apex_eval = st, ev
+    print(f"                 Apex Reward={apex_eval['total_reward']:.3f} | Flexion={apex_state['rightShoulderFlexion']}° Elbow={apex_state['rightElbowBend']}° ShoulderAngle={apex_state['rightShoulderAngle']}°")
 
     # 2. Forward Pass: t = 0 -> stroke_end
     print(f"      [Step 2/5] Forward Pass: Rolling out S_0 -> S_apex (frames 1..{stroke_end + 1})...")
@@ -788,13 +786,19 @@ def solve_trajectory_bidirectional(
         sm = {}
         for k in ACTIVE_DOFS:
             val = 0.20 * prev_s[k] + 0.60 * curr_s[k] + 0.20 * next_s[k]
-            # Velocity clamp relative to previous smoothed frame
             d = val - smoothed_states[t - 1][k]
             if abs(d) > 12.0:
                 val = smoothed_states[t - 1][k] + math.copysign(12.0, d)
             sm[k] = round(val, 1)
         smoothed_states.append({**rest_state, **sm})
     smoothed_states.append(dict(rest_state))
+
+    # Backward boundary clamp pass so landing at frame N-1 is also <= 12 deg
+    for t in range(n_frames - 2, 0, -1):
+        for k in ACTIVE_DOFS:
+            d = smoothed_states[t][k] - smoothed_states[t + 1][k]
+            if abs(d) > 12.0:
+                smoothed_states[t][k] = round(smoothed_states[t + 1][k] + math.copysign(12.0, d), 1)
 
     return smoothed_states
 
