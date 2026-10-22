@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upper Body Rig - Joint Hierarchy & Limits</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #f1f5f9;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 6px 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    .main-layout {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      max-width: 1050px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    #canvas-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      padding: 16px;
+      position: relative;
+    }
+
+    canvas {
+      display: block;
+      background: #0b1120;
+      border-radius: 8px;
+    }
+
+    .sidebar {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 20px;
+      width: 380px;
+      box-sizing: border-box;
+      max-height: 640px;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      margin: 0 0 12px 0;
+      color: #e2e8f0;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reset-btn {
+      background: #334155;
+      color: #94a3b8;
+      border: none;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .reset-btn:hover {
+      background: #475569;
+      color: #f8fafc;
+    }
+
+    .joint-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .joint-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .joint-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .joint-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .tag-hinge { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+    .tag-universal { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+    .tag-ball { background: rgba(244, 114, 182, 0.2); color: #f472b6; }
+
+    .control-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .control-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+
+    .control-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: #94a3b8;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #334155;
+      outline: none;
+      cursor: pointer;
+      accent-color: #38bdf8;
+    }
+
+    .view-toggles {
+      display: flex;
+      gap: 16px;
+      margin-top: 14px;
+      border-top: 1px solid #334155;
+      padding-top: 12px;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+    }
+    .view-toggles label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Upper Body Rig &mdash; Joint Classes &amp; DOFs</h1>
+    <p>Independent Neck &amp; Head nodes with biomechanical angular limits</p>
+  </header>
+
+  <div class="main-layout">
+    <div id="canvas-card">
+      <canvas id="rigCanvas" width="560" height="600"></canvas>
+    </div>
+
+    <aside class="sidebar">
+      <h2>
+        <span>Joint Controls</span>
+        <button class="reset-btn" id="resetPoseBtn">Reset Pose</button>
+      </h2>
+
+      <!-- Neck Base Joint (C7) -->
+      <div class="joint-card">
+        <div class="joint-header">
+          <span class="joint-name">
+            <span style="color: #38bdf8;">●</span> Neck Base (C7)
+          </span>
+          <span class="joint-tag tag-universal">Universal (2-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Roll / Tilt (Ear to Shoulder)</span>
+            <span class="control-val" id="val_neck_roll">0°</span>
+          </div>
+          <input type="range" id="ctrl_neck_roll" min="-40" max="40" value="0">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Yaw / Turn (Look L/R)</span>
+            <span class="control-val" id="val_neck_yaw">0°</span>
+          </div>
+          <input type="range" id="ctrl_neck_yaw" min="-70" max="70" value="0">
+        </div>
+      </div>
+
+      <!-- Skull Base Joint (C1 / Atlanto-Occipital) -->
+      <div class="joint-card">
+        <div class="joint-header">
+          <span class="joint-name">
+            <span style="color: #a78bfa;">●</span> Skull Base (C1)
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Pitch / Nod (Nod Up/Down)</span>
+            <span class="control-val" id="val_head_pitch">0°</span>
+          </div>
+          <input type="range" id="ctrl_head_pitch" min="-45" max="50" value="0">
+        </div>
+      </div>
+
+      <!-- Shoulders & Arms -->
+      <div class="joint-card">
+        <div class="joint-header">
+          <span class="joint-name">
+            <span style="color: #34d399;">●</span> Left Shoulder
+          </span>
+          <span class="joint-tag tag-ball">Ball &amp; Socket</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Upper Arm Swing Angle</span>
+            <span class="control-val" id="val_l_shoulder_angle">4°</span>
+          </div>
+          <input type="range" id="ctrl_l_shoulder_angle" min="-45" max="140" value="4">
+        </div>
+      </div>
+
+      <div class="joint-card">
+        <div class="joint-header">
+          <span class="joint-name">
+            <span style="color: #22c55e;">●</span> Right Shoulder
+          </span>
+          <span class="joint-tag tag-ball">Ball &amp; Socket</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Upper Arm Swing Angle</span>
+            <span class="control-val" id="val_r_shoulder_angle">-4°</span>
+          </div>
+          <input type="range" id="ctrl_r_shoulder_angle" min="-140" max="45" value="-4">
+        </div>
+      </div>
+
+      <!-- Elbows -->
+      <div class="joint-card">
+        <div class="joint-header">
+          <span class="joint-name">
+            <span style="color: #f472b6;">●</span> Elbows (Hinge)
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Left Elbow Bend</span>
+            <span class="control-val" id="val_l_elbow_bend">-20°</span>
+          </div>
+          <input type="range" id="ctrl_l_elbow_bend" min="-120" max="40" value="-20">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Right Elbow Bend</span>
+            <span class="control-val" id="val_r_elbow_bend">20°</span>
+          </div>
+          <input type="range" id="ctrl_r_elbow_bend" min="-40" max="120" value="20">
+        </div>
+      </div>
+
+      <div class="view-toggles">
+        <label><input type="checkbox" id="toggleLabels" checked> Labels</label>
+        <label><input type="checkbox" id="toggleJoints" checked> Joint Nodes</label>
+        <label><input type="checkbox" id="toggleHeadMesh" checked> Head Oval</label>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    /**
+     * 1. Joint Class Hierarchy & Definitions
+     */
+    const JointTypes = {
+      HINGE: 'hinge',         // 1-DOF: Flexion / Extension
+      UNIVERSAL: 'universal', // 2-DOF: Tilt + Twist
+      BALL_SOCKET: 'ball'     // 3-DOF: Spherical rotation
+    };
+
+    class JointDefinition {
+      constructor({ name, type, limits = {} }) {
+        this.name = name;
+        this.type = type;
+        this.limits = limits; // e.g. { pitch: [-45, 50], roll: [-40, 40], yaw: [-70, 70] }
+      }
+
+      clamp(paramName, val) {
+        if (!this.limits[paramName]) return val;
+        const [min, max] = this.limits[paramName];
+        return Math.max(min, Math.min(max, val));
+      }
+    }
+
+    // Biomechanical Joint Dictionary
+    const RIG_JOINTS = {
+      neckBase: new JointDefinition({
+        name: 'Cervical Base (C7)',
+        type: JointTypes.UNIVERSAL,
+        limits: {
+          roll: [-40, 40], // lateral tilt ear to shoulder
+          yaw:  [-70, 70]  // turn left / right
+        }
+      }),
+      skullBase: new JointDefinition({
+        name: 'Atlanto-Occipital (C1)',
+        type: JointTypes.HINGE,
+        limits: {
+          pitch: [-45, 50] // chin tuck / nod up
+        }
+      }),
+      shoulderLeft: new JointDefinition({
+        name: 'Left Shoulder (Glenohumeral)',
+        type: JointTypes.BALL_SOCKET,
+        limits: { swing: [-45, 140] }
+      }),
+      shoulderRight: new JointDefinition({
+        name: 'Right Shoulder (Glenohumeral)',
+        type: JointTypes.BALL_SOCKET,
+        limits: { swing: [-140, 45] }
+      }),
+      elbowLeft: new JointDefinition({
+        name: 'Left Elbow',
+        type: JointTypes.HINGE,
+        limits: { flex: [-120, 40] }
+      }),
+      elbowRight: new JointDefinition({
+        name: 'Right Elbow',
+        type: JointTypes.HINGE,
+        limits: { flex: [-40, 120] }
+      })
+    };
+
+    /**
+     * 2. Upper Body Rig Model with Neck & Head Distinction
+     */
+    class UpperBodyRig {
+      constructor(config = {}) {
+        this.scaleH = config.scaleH || 105;
+        this.root = config.root || { x: 280, y: 530 };
+
+        // Proportions in Head Lengths (H)
+        this.proportions = {
+          torsoLength: 2.65 * this.scaleH,       // Waist to C7 (shoulder cross)
+          neckLength: 0.45 * this.scaleH,        // C7 to C1 (skull base)
+          headLength: 0.75 * this.scaleH,        // Skull base to crown
+          shoulderHalfWidth: 0.95 * this.scaleH, // Bi-acromial half-width
+          upperArmLength: 1.35 * this.scaleH,
+          lowerArmLength: 1.15 * this.scaleH
+        };
+
+        // Current Joint Angles (degrees)
+        this.state = this.getDefaultState();
+
+        this.palette = {
+          torso: '#38bdf8',          // Sky Blue
+          neck: '#818cf8',           // Indigo
+          head: '#a78bfa',           // Violet
+          shoulders: '#fbbf24',      // Amber
+          leftUpperArm: '#34d399',   // Emerald
+          rightUpperArm: '#22c55e',  // Green
+          leftLowerArm: '#f472b6',   // Pink
+          rightLowerArm: '#ec4899',  // Rose
+          joints: '#f8fafc'
+        };
+      }
+
+      getDefaultState() {
+        return {
+          neckRoll: 0,
+          neckYaw: 0,
+          headPitch: 0,
+          leftShoulderAngle: 4,
+          rightShoulderAngle: -4,
+          leftElbowBend: -20,
+          rightElbowBend: 20
+        };
+      }
+
+      reset() {
+        this.state = this.getDefaultState();
+      }
+
+      /**
+       * Forward Kinematics solver
+       */
+      computeSkeleton() {
+        const p = this.proportions;
+        const s = this.state;
+        const deg2rad = Math.PI / 180;
+
+        // 1. Torso Spine: Waist -> C7 (Neck base / clavicle cross)
+        const waist = { x: this.root.x, y: this.root.y };
+        const c7 = { x: waist.x, y: waist.y - p.torsoLength };
+
+        // 2. Shoulders: Crosses at C7
+        const leftShoulder = { x: c7.x - p.shoulderHalfWidth, y: c7.y };
+        const rightShoulder = { x: c7.x + p.shoulderHalfWidth, y: c7.y };
+
+        // 3. Neck: C7 -> C1 (Skull base)
+        // Rotates with neckRoll (ear to shoulder) and lateral offset from yaw
+        const neckAngleRad = s.neckRoll * deg2rad;
+        const c1 = {
+          x: c7.x + p.neckLength * Math.sin(neckAngleRad),
+          y: c7.y - p.neckLength * Math.cos(neckAngleRad)
+        };
+
+        // 4. Head: C1 -> Crown
+        // Incorporates neck roll + head pitch (nodding foreshortening and vertical tilt)
+        const totalHeadAngleRad = (s.neckRoll + s.headPitch * 0.25) * deg2rad;
+        // Pitch visually foreshortens head height and shifts crown Y
+        const pitchForeshorten = Math.cos(s.headPitch * deg2rad);
+        const effectiveHeadLen = p.headLength * Math.max(0.65, pitchForeshorten);
+
+        const headCrown = {
+          x: c1.x + effectiveHeadLen * Math.sin(totalHeadAngleRad) + (s.neckYaw * 0.15),
+          y: c1.y - effectiveHeadLen * Math.cos(totalHeadAngleRad)
+        };
+
+        // Head center for oval rendering
+        const headCenter = {
+          x: (c1.x + headCrown.x) / 2,
+          y: (c1.y + headCrown.y) / 2
+        };
+
+        // 5. Left Arm
+        const lShoulderRad = s.leftShoulderAngle * deg2rad;
+        const leftElbow = {
+          x: leftShoulder.x + p.upperArmLength * Math.sin(lShoulderRad),
+          y: leftShoulder.y + p.upperArmLength * Math.cos(lShoulderRad)
+        };
+
+        const lElbowRad = s.leftElbowBend * deg2rad;
+        const leftWrist = {
+          x: leftElbow.x + p.lowerArmLength * Math.sin(lElbowRad),
+          y: leftElbow.y + p.lowerArmLength * Math.cos(lElbowRad)
+        };
+
+        // 6. Right Arm
+        const rShoulderRad = s.rightShoulderAngle * deg2rad;
+        const rightElbow = {
+          x: rightShoulder.x + p.upperArmLength * Math.sin(rShoulderRad),
+          y: rightShoulder.y + p.upperArmLength * Math.cos(rShoulderRad)
+        };
+
+        const rElbowRad = s.rightElbowBend * deg2rad;
+        const rightWrist = {
+          x: rightElbow.x + p.lowerArmLength * Math.sin(rElbowRad),
+          y: rightElbow.y + p.lowerArmLength * Math.cos(rElbowRad)
+        };
+
+        return {
+          waist, c7, c1, headCrown, headCenter,
+          leftShoulder, rightShoulder,
+          leftElbow, rightElbow,
+          leftWrist, rightWrist,
+          segments: [
+            { id: 'torso', label: 'Torso Spine', color: this.palette.torso, from: waist, to: c7 },
+            { id: 'neck', label: 'Neck (C7-C1)', color: this.palette.neck, from: c7, to: c1 },
+            { id: 'head', label: 'Head (Crown)', color: this.palette.head, from: c1, to: headCrown },
+            { id: 'shoulders', label: 'Shoulders', color: this.palette.shoulders, from: leftShoulder, to: rightShoulder },
+            { id: 'leftUpperArm', label: 'Upper Arm (L)', color: this.palette.leftUpperArm, from: leftShoulder, to: leftElbow },
+            { id: 'rightUpperArm', label: 'Upper Arm (R)', color: this.palette.rightUpperArm, from: rightShoulder, to: rightElbow },
+            { id: 'leftLowerArm', label: 'Lower Arm (L)', color: this.palette.leftLowerArm, from: leftElbow, to: leftWrist },
+            { id: 'rightLowerArm', label: 'Lower Arm (R)', color: this.palette.rightLowerArm, from: rightElbow, to: rightWrist }
+          ]
+        };
+      }
+
+      draw(ctx, options = {}) {
+        const skel = this.computeSkeleton();
+
+        // Optional head guide oval
+        if (options.showHeadMesh) {
+          ctx.save();
+          ctx.translate(skel.headCenter.x, skel.headCenter.y);
+          ctx.rotate((this.state.neckRoll + this.state.headPitch * 0.2) * Math.PI / 180);
+          
+          ctx.strokeStyle = 'rgba(167, 139, 250, 0.35)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          // Adjust radii according to pitch foreshortening
+          const radY = (this.proportions.headLength * 0.6) * Math.max(0.7, Math.cos(this.state.headPitch * Math.PI / 180));
+          const radX = this.proportions.headLength * 0.42;
+          ctx.ellipse(0, 0, radX, radY, 0, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // Subtle face orientation crosshair
+          ctx.strokeStyle = 'rgba(167, 139, 250, 0.2)';
+          ctx.beginPath();
+          // Yaw offset on crosshair
+          const yawOffset = (this.state.neckYaw / 70) * (radX * 0.65);
+          ctx.moveTo(yawOffset, -radY * 0.7);
+          ctx.lineTo(yawOffset, radY * 0.7);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // Draw Segments
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        skel.segments.forEach(seg => {
+          ctx.strokeStyle = seg.color;
+          ctx.beginPath();
+          ctx.moveTo(seg.from.x, seg.from.y);
+          ctx.lineTo(seg.to.x, seg.to.y);
+          ctx.stroke();
+        });
+
+        // Draw Joint nodes
+        if (options.showJoints) {
+          const joints = [
+            { pt: skel.waist, label: 'Waist' },
+            { pt: skel.c7, label: 'C7 (Neck Base)' },
+            { pt: skel.c1, label: 'C1 (Skull Base)' },
+            { pt: skel.headCrown, label: 'Crown' },
+            { pt: skel.leftShoulder, label: 'L Shoulder' },
+            { pt: skel.rightShoulder, label: 'R Shoulder' },
+            { pt: skel.leftElbow, label: 'L Elbow' },
+            { pt: skel.rightElbow, label: 'R Elbow' },
+            { pt: skel.leftWrist, label: 'L Wrist' },
+            { pt: skel.rightWrist, label: 'R Wrist' }
+          ];
+
+          joints.forEach(({ pt }) => {
+            ctx.fillStyle = '#0f172a';
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = this.palette.joints;
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 3.5, 0, Math.PI * 2);
+            ctx.fill();
+          });
+        }
+
+        // Draw Labels
+        if (options.showLabels) {
+          ctx.font = '500 11px system-ui, sans-serif';
+
+          skel.segments.forEach(seg => {
+            const midX = (seg.from.x + seg.to.x) / 2;
+            const midY = (seg.from.y + seg.to.y) / 2;
+
+            // Offset label sideways
+            let offsetX = 12;
+            let align = 'left';
+            if (seg.id.includes('left') || seg.id === 'torso') {
+              offsetX = -12;
+              align = 'right';
+            } else if (seg.id === 'neck' || seg.id === 'head') {
+              offsetX = 14;
+              align = 'left';
+            }
+
+            ctx.textAlign = align;
+            ctx.textBaseline = 'middle';
+
+            const text = seg.label;
+            const metrics = ctx.measureText(text);
+            const padX = 5, padY = 3;
+            const w = metrics.width + padX * 2;
+            const h = 16;
+            const posX = midX + offsetX;
+            const drawX = align === 'right' ? posX - w : posX;
+
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+            ctx.strokeStyle = seg.color;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(drawX, midY - h / 2, w, h, 3);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = seg.color;
+            ctx.fillText(text, align === 'right' ? posX - padX : posX + padX, midY);
+          });
+        }
+      }
+    }
+
+    // App Initialization
+    const canvas = document.getElementById('rigCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const rig = new UpperBodyRig({
+      scaleH: 100,
+      root: { x: canvas.width / 2, y: 535 }
+    });
+
+    // Control binding helper
+    function bindSlider(sliderId, valId, stateKey, jointRef, paramName, unit = '°') {
+      const slider = document.getElementById(sliderId);
+      const valDisplay = document.getElementById(valId);
+
+      slider.addEventListener('input', (e) => {
+        let val = parseFloat(e.target.value);
+        if (jointRef && paramName) {
+          val = jointRef.clamp(paramName, val);
+          slider.value = val;
+        }
+        rig.state[stateKey] = val;
+        valDisplay.textContent = `${Math.round(val)}${unit}`;
+        render();
+      });
+    }
+
+    bindSlider('ctrl_neck_roll', 'val_neck_roll', 'neckRoll', RIG_JOINTS.neckBase, 'roll');
+    bindSlider('ctrl_neck_yaw', 'val_neck_yaw', 'neckYaw', RIG_JOINTS.neckBase, 'yaw');
+    bindSlider('ctrl_head_pitch', 'val_head_pitch', 'headPitch', RIG_JOINTS.skullBase, 'pitch');
+    bindSlider('ctrl_l_shoulder_angle', 'val_l_shoulder_angle', 'leftShoulderAngle', RIG_JOINTS.shoulderLeft, 'swing');
+    bindSlider('ctrl_r_shoulder_angle', 'val_r_shoulder_angle', 'rightShoulderAngle', RIG_JOINTS.shoulderRight, 'swing');
+    bindSlider('ctrl_l_elbow_bend', 'val_l_elbow_bend', 'leftElbowBend', RIG_JOINTS.elbowLeft, 'flex');
+    bindSlider('ctrl_r_elbow_bend', 'val_r_elbow_bend', 'rightElbowBend', RIG_JOINTS.elbowRight, 'flex');
+
+    const toggleLabels = document.getElementById('toggleLabels');
+    const toggleJoints = document.getElementById('toggleJoints');
+    const toggleHeadMesh = document.getElementById('toggleHeadMesh');
+    const resetBtn = document.getElementById('resetPoseBtn');
+
+    function syncUI() {
+      document.getElementById('ctrl_neck_roll').value = rig.state.neckRoll;
+      document.getElementById('val_neck_roll').textContent = `${rig.state.neckRoll}°`;
+
+      document.getElementById('ctrl_neck_yaw').value = rig.state.neckYaw;
+      document.getElementById('val_neck_yaw').textContent = `${rig.state.neckYaw}°`;
+
+      document.getElementById('ctrl_head_pitch').value = rig.state.headPitch;
+      document.getElementById('val_head_pitch').textContent = `${rig.state.headPitch}°`;
+
+      document.getElementById('ctrl_l_shoulder_angle').value = rig.state.leftShoulderAngle;
+      document.getElementById('val_l_shoulder_angle').textContent = `${rig.state.leftShoulderAngle}°`;
+
+      document.getElementById('ctrl_r_shoulder_angle').value = rig.state.rightShoulderAngle;
+      document.getElementById('val_r_shoulder_angle').textContent = `${rig.state.rightShoulderAngle}°`;
+
+      document.getElementById('ctrl_l_elbow_bend').value = rig.state.leftElbowBend;
+      document.getElementById('val_l_elbow_bend').textContent = `${rig.state.leftElbowBend}°`;
+
+      document.getElementById('ctrl_r_elbow_bend').value = rig.state.rightElbowBend;
+      document.getElementById('val_r_elbow_bend').textContent = `${rig.state.rightElbowBend}°`;
+    }
+
+    resetBtn.addEventListener('click', () => {
+      rig.reset();
+      syncUI();
+      render();
+    });
+
+    [toggleLabels, toggleJoints, toggleHeadMesh].forEach(el => {
+      el.addEventListener('change', render);
+    });
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      rig.draw(ctx, {
+        showLabels: toggleLabels.checked,
+        showJoints: toggleJoints.checked,
+        showHeadMesh: toggleHeadMesh.checked
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
