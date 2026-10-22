@@ -8,6 +8,8 @@ Browser prototypes of an upper-body skeletal rig, built with Canvas 2D and no de
 - `2.5d.html` — preserved front-view rig with hand-projected depth
 - `3d.html` — true 3D skeleton with front, side, top, and isometric views
 
+Left/right labels use the model's anatomical perspective: in the front view, the model's left appears on the viewer's right.
+
 ## Current rig
 
 - Pelvis root with planted hips and a forward/back bow

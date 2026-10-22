@@ -559,28 +559,10 @@
         </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Tilt (L Up / R Down)</span>
+            <span>Tilt (R Up / L Down)</span>
             <span class="control-val" id="val_shoulder_tilt">0°</span>
           </div>
           <input type="range" id="ctrl_shoulder_tilt" min="-15" max="15" value="0">
-        </div>
-      </div>
-
-      <!-- Left Shoulder -->
-      <div class="joint-card" data-rig-section="leftShoulder">
-        <div class="joint-header">
-          <span class="joint-name">
-            <input type="checkbox" class="explore-check" data-explore-key="leftShoulder" aria-label="Explore Left Shoulder" title="Include in Auto Explore">
-            <span style="color: #34d399;">●</span> Left Shoulder
-          </span>
-          <span class="joint-tag tag-ball">Ball &amp; Socket</span>
-        </div>
-        <div class="control-row">
-          <div class="control-label">
-            <span>Upper Arm Swing Angle</span>
-            <span class="control-val" id="val_l_shoulder_angle">4°</span>
-          </div>
-          <input type="range" id="ctrl_l_shoulder_angle" min="-45" max="140" value="4">
         </div>
       </div>
 
@@ -589,34 +571,34 @@
         <div class="joint-header">
           <span class="joint-name">
             <input type="checkbox" class="explore-check" data-explore-key="rightShoulder" aria-label="Explore Right Shoulder" title="Include in Auto Explore">
-            <span style="color: #22c55e;">●</span> Right Shoulder
+            <span style="color: #34d399;">●</span> Right Shoulder
           </span>
           <span class="joint-tag tag-ball">Ball &amp; Socket</span>
         </div>
         <div class="control-row">
           <div class="control-label">
             <span>Upper Arm Swing Angle</span>
-            <span class="control-val" id="val_r_shoulder_angle">-4°</span>
+            <span class="control-val" id="val_r_shoulder_angle">4°</span>
           </div>
-          <input type="range" id="ctrl_r_shoulder_angle" min="-140" max="45" value="-4">
+          <input type="range" id="ctrl_r_shoulder_angle" min="-45" max="140" value="4">
         </div>
       </div>
 
-      <!-- Left Elbow -->
-      <div class="joint-card" data-rig-section="leftElbow">
+      <!-- Left Shoulder -->
+      <div class="joint-card" data-rig-section="leftShoulder">
         <div class="joint-header">
           <span class="joint-name">
-            <input type="checkbox" class="explore-check" data-explore-key="leftElbow" aria-label="Explore Left Elbow" title="Include in Auto Explore">
-            <span style="color: #f472b6;">●</span> Left Elbow
+            <input type="checkbox" class="explore-check" data-explore-key="leftShoulder" aria-label="Explore Left Shoulder" title="Include in Auto Explore">
+            <span style="color: #22c55e;">●</span> Left Shoulder
           </span>
-          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+          <span class="joint-tag tag-ball">Ball &amp; Socket</span>
         </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Elbow Bend</span>
-            <span class="control-val" id="val_l_elbow_bend">-20°</span>
+            <span>Upper Arm Swing Angle</span>
+            <span class="control-val" id="val_l_shoulder_angle">-4°</span>
           </div>
-          <input type="range" id="ctrl_l_elbow_bend" min="-120" max="40" value="-20">
+          <input type="range" id="ctrl_l_shoulder_angle" min="-140" max="45" value="-4">
         </div>
       </div>
 
@@ -632,9 +614,27 @@
         <div class="control-row">
           <div class="control-label">
             <span>Elbow Bend</span>
-            <span class="control-val" id="val_r_elbow_bend">20°</span>
+            <span class="control-val" id="val_r_elbow_bend">-20°</span>
           </div>
-          <input type="range" id="ctrl_r_elbow_bend" min="-40" max="120" value="20">
+          <input type="range" id="ctrl_r_elbow_bend" min="-120" max="40" value="-20">
+        </div>
+      </div>
+
+      <!-- Left Elbow -->
+      <div class="joint-card" data-rig-section="leftElbow">
+        <div class="joint-header">
+          <span class="joint-name">
+            <input type="checkbox" class="explore-check" data-explore-key="leftElbow" aria-label="Explore Left Elbow" title="Include in Auto Explore">
+            <span style="color: #f472b6;">●</span> Left Elbow
+          </span>
+          <span class="joint-tag tag-hinge">Hinge (1-DOF)</span>
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span>Elbow Bend</span>
+            <span class="control-val" id="val_l_elbow_bend">20°</span>
+          </div>
+          <input type="range" id="ctrl_l_elbow_bend" min="-40" max="120" value="20">
         </div>
       </div>
 
@@ -735,23 +735,23 @@
           tilt:      [-15, 15]  // left up / right down (or vice versa)
         }
       }),
-      shoulderLeft: new JointDefinition({
-        name: 'Left Shoulder (Glenohumeral)',
-        type: JointTypes.BALL_SOCKET,
-        limits: { swing: [-45, 140] }
-      }),
       shoulderRight: new JointDefinition({
         name: 'Right Shoulder (Glenohumeral)',
         type: JointTypes.BALL_SOCKET,
-        limits: { swing: [-140, 45] }
+        limits: { swing: [-45, 140] }
       }),
-      elbowLeft: new JointDefinition({
-        name: 'Left Elbow',
-        type: JointTypes.HINGE,
-        limits: { flex: [-120, 40] }
+      shoulderLeft: new JointDefinition({
+        name: 'Left Shoulder (Glenohumeral)',
+        type: JointTypes.BALL_SOCKET,
+        limits: { swing: [-140, 45] }
       }),
       elbowRight: new JointDefinition({
         name: 'Right Elbow',
+        type: JointTypes.HINGE,
+        limits: { flex: [-120, 40] }
+      }),
+      elbowLeft: new JointDefinition({
+        name: 'Left Elbow',
         type: JointTypes.HINGE,
         limits: { flex: [-40, 120] }
       })
@@ -761,10 +761,10 @@
     const RIG_SECTIONS = {
       head: {
         segments: ['head', 'crown', 'face'],
-        joints: ['c1', 'headCrown', 'leftEar', 'rightEar']
+        joints: ['c1', 'headCrown', 'rightEar', 'leftEar']
       },
       jaw: {
-        segments: ['leftJaw', 'rightJaw'],
+        segments: ['rightJaw', 'leftJaw'],
         joints: ['chin']
       },
       neck: {
@@ -772,28 +772,28 @@
         joints: ['c7', 'c1']
       },
       shoulderGirdle: {
-        segments: ['leftShoulderGirdle', 'rightShoulderGirdle'],
-        joints: ['c7', 'leftShoulder', 'rightShoulder']
-      },
-      leftShoulder: {
-        segments: ['leftUpperArm'],
-        joints: ['leftShoulder', 'leftElbow']
+        segments: ['rightShoulderGirdle', 'leftShoulderGirdle'],
+        joints: ['c7', 'rightShoulder', 'leftShoulder']
       },
       rightShoulder: {
         segments: ['rightUpperArm'],
         joints: ['rightShoulder', 'rightElbow']
       },
-      leftElbow: {
-        segments: ['leftLowerArm'],
-        joints: ['leftElbow', 'leftWrist']
+      leftShoulder: {
+        segments: ['leftUpperArm'],
+        joints: ['leftShoulder', 'leftElbow']
       },
       rightElbow: {
         segments: ['rightLowerArm'],
         joints: ['rightElbow', 'rightWrist']
       },
+      leftElbow: {
+        segments: ['leftLowerArm'],
+        joints: ['leftElbow', 'leftWrist']
+      },
       pelvis: {
         segments: ['pelvis'],
-        joints: ['pelvis', 'leftHip', 'rightHip']
+        joints: ['pelvis', 'rightHip', 'leftHip']
       }
     };
 
@@ -919,10 +919,10 @@
           jaw: '#fb7185',
           shoulders: '#fb923c',
           highlight: '#fbbf24',
-          leftUpperArm: '#34d399',
-          rightUpperArm: '#22c55e',
-          leftLowerArm: '#f472b6',
-          rightLowerArm: '#ec4899',
+          rightUpperArm: '#34d399',
+          leftUpperArm: '#22c55e',
+          rightLowerArm: '#f472b6',
+          leftLowerArm: '#ec4899',
           joints: '#f8fafc'
         };
       }
@@ -937,10 +937,10 @@
           jawOpen: 0,
           shoulderElevation: 0,
           shoulderTilt: 0,
-          leftShoulderAngle: 4,
-          rightShoulderAngle: -4,
-          leftElbowBend: -20,
-          rightElbowBend: 20
+          rightShoulderAngle: 4,
+          leftShoulderAngle: -4,
+          rightElbowBend: -20,
+          leftElbowBend: 20
         };
       }
 
@@ -955,8 +955,8 @@
 
         // Root pelvis and planted hip line.
         const pelvis = v3(0, 0, 0);
-        const leftHip = v3(-p.pelvisHalfWidth, 0, 0);
-        const rightHip = v3(p.pelvisHalfWidth, 0, 0);
+        const rightHip = v3(-p.pelvisHalfWidth, 0, 0);
+        const leftHip = v3(p.pelvisHalfWidth, 0, 0);
 
         // Waist: twist (Y) after bow (X). The hips stay planted.
         const root = { R: identity, t: v3(0, 0, 0) };
@@ -971,39 +971,23 @@
         const c7 = c7T.t;
 
         // Clavicles: elevation raises both, tilt raises one and lowers the other.
-        const leftClavicleRotation = M3.rotZ(-(s.shoulderElevation + s.shoulderTilt) * DEG);
-        const rightClavicleRotation = M3.rotZ((s.shoulderElevation - s.shoulderTilt) * DEG);
-        const leftShoulderT = makeTransform(
-          makeTransform(c7T, v3(0, 0, 0), leftClavicleRotation),
+        const rightClavicleRotation = M3.rotZ(-(s.shoulderElevation + s.shoulderTilt) * DEG);
+        const leftClavicleRotation = M3.rotZ((s.shoulderElevation - s.shoulderTilt) * DEG);
+        const rightShoulderT = makeTransform(
+          makeTransform(c7T, v3(0, 0, 0), rightClavicleRotation),
           v3(-p.shoulderHalfWidth, 0, 0),
           identity
         );
-        const rightShoulderT = makeTransform(
-          makeTransform(c7T, v3(0, 0, 0), rightClavicleRotation),
+        const leftShoulderT = makeTransform(
+          makeTransform(c7T, v3(0, 0, 0), leftClavicleRotation),
           v3(p.shoulderHalfWidth, 0, 0),
           identity
         );
-        const leftShoulder = leftShoulderT.t;
         const rightShoulder = rightShoulderT.t;
+        const leftShoulder = leftShoulderT.t;
 
-        // Left arm. Elbow bend is interpreted as an absolute frontal-plane angle
+        // Right arm. Elbow bend is interpreted as an absolute frontal-plane angle
         // so the default pose stays close to the 2.5D rig.
-        const leftUpperArmT = makeTransform(
-          leftShoulderT,
-          v3(0, 0, 0),
-          M3.rotZ(s.leftShoulderAngle * DEG)
-        );
-        const leftElbowT = makeTransform(leftUpperArmT, v3(0, -p.upperArmLength, 0), identity);
-        const leftElbow = leftElbowT.t;
-        const leftForearmT = makeTransform(
-          leftElbowT,
-          v3(0, 0, 0),
-          M3.rotZ((s.leftElbowBend - s.leftShoulderAngle) * DEG)
-        );
-        const leftWristT = makeTransform(leftForearmT, v3(0, -p.lowerArmLength, 0), identity);
-        const leftWrist = leftWristT.t;
-
-        // Right arm.
         const rightUpperArmT = makeTransform(
           rightShoulderT,
           v3(0, 0, 0),
@@ -1018,6 +1002,22 @@
         );
         const rightWristT = makeTransform(rightForearmT, v3(0, -p.lowerArmLength, 0), identity);
         const rightWrist = rightWristT.t;
+
+        // Left arm.
+        const leftUpperArmT = makeTransform(
+          leftShoulderT,
+          v3(0, 0, 0),
+          M3.rotZ(s.leftShoulderAngle * DEG)
+        );
+        const leftElbowT = makeTransform(leftUpperArmT, v3(0, -p.upperArmLength, 0), identity);
+        const leftElbow = leftElbowT.t;
+        const leftForearmT = makeTransform(
+          leftElbowT,
+          v3(0, 0, 0),
+          M3.rotZ((s.leftElbowBend - s.leftShoulderAngle) * DEG)
+        );
+        const leftWristT = makeTransform(leftForearmT, v3(0, -p.lowerArmLength, 0), identity);
+        const leftWrist = leftWristT.t;
 
         // Neck: roll (Z), then yaw (Y); the head inherits the yaw.
         const neckRotation = M3.mul(
@@ -1036,8 +1036,8 @@
         const earY = p.headLength * 0.5;
         const earX = headRadius * 0.95;
 
-        const leftEar = applyTransform(headT, v3(-earX, earY, 0));
-        const rightEar = applyTransform(headT, v3(earX, earY, 0));
+        const rightEar = applyTransform(headT, v3(-earX, earY, 0));
+        const leftEar = applyTransform(headT, v3(earX, earY, 0));
 
         // Mandible: hinge around the ear line, chin forward and below.
         const chinRestY = earY - p.headLength * 0.35;
@@ -1052,27 +1052,27 @@
         const nose = applyTransform(headT, v3(0, earY, headRadius));
 
         return {
-          pelvis, leftHip, rightHip, c7, c1,
+          pelvis, rightHip, leftHip, c7, c1,
           headCrown, headCenter, headRadius,
-          leftEar, rightEar, chin, nose, faceTop, faceBottom,
-          leftShoulder, rightShoulder,
-          leftElbow, rightElbow,
-          leftWrist, rightWrist,
+          rightEar, leftEar, chin, nose, faceTop, faceBottom,
+          rightShoulder, leftShoulder,
+          rightElbow, leftElbow,
+          rightWrist, leftWrist,
           segments: [
-            { id: 'pelvis', label: 'Pelvis (Hip Line)', color: this.palette.pelvis, from: leftHip, to: rightHip },
+            { id: 'pelvis', label: 'Pelvis (Hip Line)', color: this.palette.pelvis, from: rightHip, to: leftHip },
             { id: 'torso', label: 'Torso Spine', color: this.palette.torso, from: pelvis, to: c7 },
-            { id: 'leftShoulderGirdle', label: 'Shoulders', color: this.palette.shoulders, from: c7, to: leftShoulder },
-            { id: 'rightShoulderGirdle', label: null, color: this.palette.shoulders, from: c7, to: rightShoulder },
+            { id: 'rightShoulderGirdle', label: 'Shoulders', color: this.palette.shoulders, from: c7, to: rightShoulder },
+            { id: 'leftShoulderGirdle', label: null, color: this.palette.shoulders, from: c7, to: leftShoulder },
             { id: 'neck', label: 'Neck (C7-C1)', color: this.palette.neck, from: c7, to: c1 },
             { id: 'head', label: 'Head (Crown)', color: this.palette.head, from: c1, to: headCrown },
-            { id: 'crown', label: 'Crown Line (Ear-Ear)', color: this.palette.crown, from: leftEar, to: rightEar, width: 3 },
+            { id: 'crown', label: 'Crown Line (Ear-Ear)', color: this.palette.crown, from: rightEar, to: leftEar, width: 3 },
             { id: 'face', label: null, color: this.palette.crown, from: faceTop, to: faceBottom, width: 2 },
-            { id: 'leftJaw', label: 'Jaw', color: this.palette.jaw, from: leftEar, to: chin, width: 3 },
-            { id: 'rightJaw', label: null, color: this.palette.jaw, from: rightEar, to: chin, width: 3 },
-            { id: 'leftUpperArm', label: 'Upper Arm (L)', color: this.palette.leftUpperArm, from: leftShoulder, to: leftElbow },
+            { id: 'rightJaw', label: 'Jaw', color: this.palette.jaw, from: rightEar, to: chin, width: 3 },
+            { id: 'leftJaw', label: null, color: this.palette.jaw, from: leftEar, to: chin, width: 3 },
             { id: 'rightUpperArm', label: 'Upper Arm (R)', color: this.palette.rightUpperArm, from: rightShoulder, to: rightElbow },
-            { id: 'leftLowerArm', label: 'Lower Arm (L)', color: this.palette.leftLowerArm, from: leftElbow, to: leftWrist },
-            { id: 'rightLowerArm', label: 'Lower Arm (R)', color: this.palette.rightLowerArm, from: rightElbow, to: rightWrist }
+            { id: 'leftUpperArm', label: 'Upper Arm (L)', color: this.palette.leftUpperArm, from: leftShoulder, to: leftElbow },
+            { id: 'rightLowerArm', label: 'Lower Arm (R)', color: this.palette.rightLowerArm, from: rightElbow, to: rightWrist },
+            { id: 'leftLowerArm', label: 'Lower Arm (L)', color: this.palette.leftLowerArm, from: leftElbow, to: leftWrist }
           ]
         };
       }
@@ -1271,20 +1271,20 @@
       drawJoints(ctx, skel, project, highlight) {
         const joints = [
           { id: 'pelvis', pt: skel.pelvis, label: 'Pelvis' },
-          { id: 'leftHip', pt: skel.leftHip, label: 'L Hip' },
           { id: 'rightHip', pt: skel.rightHip, label: 'R Hip' },
+          { id: 'leftHip', pt: skel.leftHip, label: 'L Hip' },
           { id: 'c7', pt: skel.c7, label: 'C7' },
           { id: 'c1', pt: skel.c1, label: 'C1' },
           { id: 'headCrown', pt: skel.headCrown, label: 'Crown' },
-          { id: 'leftEar', pt: skel.leftEar, label: 'L Ear' },
           { id: 'rightEar', pt: skel.rightEar, label: 'R Ear' },
+          { id: 'leftEar', pt: skel.leftEar, label: 'L Ear' },
           { id: 'chin', pt: skel.chin, label: 'Chin' },
-          { id: 'leftShoulder', pt: skel.leftShoulder, label: 'L Shoulder' },
           { id: 'rightShoulder', pt: skel.rightShoulder, label: 'R Shoulder' },
-          { id: 'leftElbow', pt: skel.leftElbow, label: 'L Elbow' },
+          { id: 'leftShoulder', pt: skel.leftShoulder, label: 'L Shoulder' },
           { id: 'rightElbow', pt: skel.rightElbow, label: 'R Elbow' },
-          { id: 'leftWrist', pt: skel.leftWrist, label: 'L Wrist' },
-          { id: 'rightWrist', pt: skel.rightWrist, label: 'R Wrist' }
+          { id: 'leftElbow', pt: skel.leftElbow, label: 'L Elbow' },
+          { id: 'rightWrist', pt: skel.rightWrist, label: 'R Wrist' },
+          { id: 'leftWrist', pt: skel.leftWrist, label: 'L Wrist' }
         ];
 
         joints
@@ -1336,9 +1336,12 @@
 
           let offsetX = 12;
           let align = 'left';
-          if (seg.id.includes('left') || seg.id === 'torso') {
+          if (seg.id === 'rightUpperArm' || seg.id === 'rightLowerArm' || seg.id === 'torso') {
             offsetX = -12;
             align = 'right';
+          } else if (seg.id === 'leftUpperArm' || seg.id === 'leftLowerArm') {
+            offsetX = 14;
+            align = 'left';
           } else if (seg.id === 'neck' || seg.id === 'head') {
             offsetX = 14;
             align = 'left';
@@ -1416,10 +1419,10 @@
     bindSlider('ctrl_jaw_open', 'val_jaw_open', 'jawOpen', RIG_JOINTS.jaw, 'open');
     bindSlider('ctrl_shoulder_elevation', 'val_shoulder_elevation', 'shoulderElevation', RIG_JOINTS.shoulderGirdle, 'elevation');
     bindSlider('ctrl_shoulder_tilt', 'val_shoulder_tilt', 'shoulderTilt', RIG_JOINTS.shoulderGirdle, 'tilt');
-    bindSlider('ctrl_l_shoulder_angle', 'val_l_shoulder_angle', 'leftShoulderAngle', RIG_JOINTS.shoulderLeft, 'swing');
     bindSlider('ctrl_r_shoulder_angle', 'val_r_shoulder_angle', 'rightShoulderAngle', RIG_JOINTS.shoulderRight, 'swing');
-    bindSlider('ctrl_l_elbow_bend', 'val_l_elbow_bend', 'leftElbowBend', RIG_JOINTS.elbowLeft, 'flex');
+    bindSlider('ctrl_l_shoulder_angle', 'val_l_shoulder_angle', 'leftShoulderAngle', RIG_JOINTS.shoulderLeft, 'swing');
     bindSlider('ctrl_r_elbow_bend', 'val_r_elbow_bend', 'rightElbowBend', RIG_JOINTS.elbowRight, 'flex');
+    bindSlider('ctrl_l_elbow_bend', 'val_l_elbow_bend', 'leftElbowBend', RIG_JOINTS.elbowLeft, 'flex');
 
     const bindingByStateKey = new Map(controlBindings.map(binding => [binding.stateKey, binding]));
 
@@ -1763,17 +1766,17 @@
       document.getElementById('ctrl_shoulder_tilt').value = rig.state.shoulderTilt;
       document.getElementById('val_shoulder_tilt').textContent = `${rig.state.shoulderTilt}°`;
 
-      document.getElementById('ctrl_l_shoulder_angle').value = rig.state.leftShoulderAngle;
-      document.getElementById('val_l_shoulder_angle').textContent = `${rig.state.leftShoulderAngle}°`;
-
       document.getElementById('ctrl_r_shoulder_angle').value = rig.state.rightShoulderAngle;
       document.getElementById('val_r_shoulder_angle').textContent = `${rig.state.rightShoulderAngle}°`;
 
-      document.getElementById('ctrl_l_elbow_bend').value = rig.state.leftElbowBend;
-      document.getElementById('val_l_elbow_bend').textContent = `${rig.state.leftElbowBend}°`;
+      document.getElementById('ctrl_l_shoulder_angle').value = rig.state.leftShoulderAngle;
+      document.getElementById('val_l_shoulder_angle').textContent = `${rig.state.leftShoulderAngle}°`;
 
       document.getElementById('ctrl_r_elbow_bend').value = rig.state.rightElbowBend;
       document.getElementById('val_r_elbow_bend').textContent = `${rig.state.rightElbowBend}°`;
+
+      document.getElementById('ctrl_l_elbow_bend').value = rig.state.leftElbowBend;
+      document.getElementById('val_l_elbow_bend').textContent = `${rig.state.leftElbowBend}°`;
     }
 
     resetBtn.addEventListener('click', () => {
