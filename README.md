@@ -16,12 +16,15 @@ Left/right labels use the model's anatomical perspective: in the front view, the
 - Torso, shoulder girdle, neck, and head chain
 - Shoulder girdle elevation and left/right tilt
 - Head crown / ear-to-ear line, 3D face line, and hinged jaw
-- 3D arms expose shoulder abduction (up to 120°), humeral rotation (−90°…+90°), and local elbow flexion (0°…140°)
+- 3D arms expose shoulder abduction (up to 120°), forward flexion (0°…180°), humeral rotation (−90°…+90°), and local elbow flexion (0°…140°)
+- 3D loads in a hands-folded pose (right shoulder 8° / 6° / −60°, left −8° / 6° / −60°, elbows 40°); Reset Pose eases all joints back over 1 second
 - Shoulder and elbow controls with clamped joint limits
 - Per-joint explore checkboxes: check one to explore it alone, or Auto Explore to check all
-- Symmetry/Asymmetry explore modes for the left/right shoulders and elbows, with one-second alignment tweens
+- Symmetry/Asymmetry explore modes for paired left/right shoulder and elbow DOFs, with one-second alignment tweens
 - Hover a control card to highlight its rig segments and joints
 - Toggleable labels, joint nodes, and head guide
+
+The 3D arm chain is composed as forward flexion → abduction/adduction → humeral rotation → local elbow flexion.
 
 The 3D page uses one shared skeleton and four cameras. Front, side, and top are orthographic;
 the isometric view uses the same projected skeleton for depth reading.
