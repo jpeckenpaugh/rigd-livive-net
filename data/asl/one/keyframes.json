@@ -51,10 +51,10 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -2.7,
+        "rightShoulderAngle": -8.1,
         "rightShoulderFlexion": 6.0,
         "rightShoulderRotation": -60.0,
-        "leftShoulderAngle": 2.7,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
         "rightElbowBend": 40.0,
@@ -63,27 +63,27 @@
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.8045,
-        "capsule_coverage": 0.5112,
+        "total_reward": 0.7261,
+        "capsule_coverage": 0.3451,
         "endpoint_alignment": 1.0,
-        "silhouette_containment": 1.0,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
             49.9,
-            115.7
+            91.7
           ],
           "rightWrist": [
-            66.8,
-            140.1
+            62.8,
+            114.7
           ],
           "rightHandTip": [
-            74.9,
-            151.8
+            69.0,
+            125.7
           ]
         }
       }
@@ -101,39 +101,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -3.5,
-        "rightShoulderFlexion": 6.5,
-        "rightShoulderRotation": -60.2,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -16.6,
+        "rightShoulderFlexion": 4.9,
+        "rightShoulderRotation": -58.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 39.8,
+        "rightElbowBend": 36.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.6616,
-        "capsule_coverage": 0.1547,
-        "endpoint_alignment": 0.9992,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.7373,
+        "capsule_coverage": 0.4432,
+        "endpoint_alignment": 0.93,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.4,
-            115.7
+            45.1,
+            90.7
           ],
           "rightWrist": [
-            65.9,
-            140.3
+            52.5,
+            116.4
           ],
           "rightHandTip": [
-            73.8,
-            152.0
+            56.1,
+            128.6
           ]
         }
       }
@@ -151,39 +151,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 0.8,
-        "rightShoulderFlexion": 0.0,
-        "rightShoulderRotation": -84.8,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -18.1,
+        "rightShoulderFlexion": 39.7,
+        "rightShoulderRotation": -28.2,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 23.9,
+        "rightElbowBend": 21.6,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3556,
-        "capsule_coverage": 0.005,
-        "endpoint_alignment": 0.3841,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4521,
+        "capsule_coverage": 0.0631,
+        "endpoint_alignment": 0.5972,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            52.2,
-            116.0
+            46.6,
+            83.2
           ],
           "rightWrist": [
-            65.7,
-            145.4
+            46.8,
+            98.6
           ],
           "rightHandTip": [
-            72.1,
-            159.4
+            46.9,
+            106.0
           ]
         }
       }
@@ -201,39 +201,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 16.0,
-        "rightShoulderFlexion": 0.3,
-        "rightShoulderRotation": -95.8,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -18.6,
+        "rightShoulderFlexion": 44.5,
+        "rightShoulderRotation": -40.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 20.2,
+        "rightElbowBend": 15.7,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.341,
-        "capsule_coverage": 0.0017,
-        "endpoint_alignment": 0.3507,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4306,
+        "capsule_coverage": 0.0067,
+        "endpoint_alignment": 0.5999,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            62.1,
-            114.5
+            47.0,
+            81.3
           ],
           "rightWrist": [
-            81.2,
-            140.7
+            46.8,
+            97.7
           ],
           "rightHandTip": [
-            90.3,
-            153.2
+            46.8,
+            105.6
           ]
         }
       }
@@ -251,39 +251,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 14.7,
-        "rightShoulderFlexion": 26.7,
-        "rightShoulderRotation": -85.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 0.3,
+        "rightShoulderFlexion": 48.4,
+        "rightShoulderRotation": -27.2,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 12.1,
+        "rightElbowBend": 10.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3601,
-        "capsule_coverage": 0.001,
-        "endpoint_alignment": 0.3993,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4393,
+        "capsule_coverage": 0.0294,
+        "endpoint_alignment": 0.5988,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            60.3,
-            110.8
+            54.8,
+            80.9
           ],
           "rightWrist": [
-            73.9,
-            136.2
+            57.1,
+            96.4
           ],
           "rightHandTip": [
-            80.5,
-            148.3
+            58.3,
+            103.8
           ]
         }
       }
@@ -301,39 +301,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 1.8,
-        "rightShoulderFlexion": 44.3,
-        "rightShoulderRotation": -87.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -2.0,
+        "rightShoulderFlexion": 78.0,
+        "rightShoulderRotation": -37.0,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 15.5,
+        "rightElbowBend": 41.2,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.36,
-        "capsule_coverage": 0.0001,
-        "endpoint_alignment": 0.3998,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.416,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.6,
+        "silhouette_containment": 0.8,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            52.5,
-            105.2
+            54.4,
+            65.5
           ],
           "rightWrist": [
-            61.9,
-            126.9
+            66.2,
+            55.6
           ],
           "rightHandTip": [
-            66.3,
-            137.3
+            71.8,
+            50.9
           ]
         }
       }
@@ -351,39 +351,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -4.5,
-        "rightShoulderFlexion": 49.0,
-        "rightShoulderRotation": -67.5,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -9.8,
+        "rightShoulderFlexion": 47.1,
+        "rightShoulderRotation": -23.2,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 20.9,
+        "rightElbowBend": 65.5,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.36,
-        "capsule_coverage": 0.0001,
-        "endpoint_alignment": 0.3999,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4378,
+        "capsule_coverage": 0.0238,
+        "endpoint_alignment": 0.6007,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.7,
-            102.8
+            50.7,
+            81.1
           ],
           "rightWrist": [
-            59.1,
-            120.1
+            62.5,
+            73.5
           ],
           "rightHandTip": [
-            63.5,
-            128.4
+            68.2,
+            69.9
           ]
         }
       }
@@ -401,39 +401,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -6.6,
-        "rightShoulderFlexion": 48.5,
-        "rightShoulderRotation": -70.4,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -2.4,
+        "rightShoulderFlexion": 28.5,
+        "rightShoulderRotation": -12.8,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 22.8,
+        "rightElbowBend": 107.2,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.36,
-        "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.3999,
-        "silhouette_containment": 1.0,
-        "temporal_smoothness": 1.0,
+        "total_reward": 0.5195,
+        "capsule_coverage": 0.2069,
+        "endpoint_alignment": 0.6357,
+        "silhouette_containment": 0.9,
+        "temporal_smoothness": 0.9307,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            48.8,
-            103.0
+            53.4,
+            88.1
           ],
           "rightWrist": [
-            58.6,
-            120.9
+            60.3,
+            68.2
           ],
           "rightHandTip": [
-            63.3,
-            129.4
+            63.7,
+            58.6
           ]
         }
       }
@@ -451,39 +451,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -6.2,
-        "rightShoulderFlexion": 48.5,
-        "rightShoulderRotation": -75.7,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -3.5,
+        "rightShoulderFlexion": 23.9,
+        "rightShoulderRotation": -18.2,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 23.7,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.36,
-        "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.3999,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.5811,
+        "capsule_coverage": 0.3408,
+        "endpoint_alignment": 0.6419,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.0,
-            103.0
+            52.8,
+            89.3
           ],
           "rightWrist": [
-            59.6,
-            121.5
+            60.2,
+            62.5
           ],
           "rightHandTip": [
-            64.7,
-            130.4
+            63.8,
+            49.6
           ]
         }
       }
@@ -501,39 +501,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -5.3,
-        "rightShoulderFlexion": 50.8,
-        "rightShoulderRotation": -90.8,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -3.7,
+        "rightShoulderFlexion": 29.3,
+        "rightShoulderRotation": -14.5,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 13.5,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.36,
-        "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.4,
+        "total_reward": 0.5895,
+        "capsule_coverage": 0.3485,
+        "endpoint_alignment": 0.6251,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.5,
-            101.9
+            52.8,
+            87.9
           ],
           "rightWrist": [
-            55.1,
-            122.5
+            59.2,
+            60.3
           ],
           "rightHandTip": [
-            57.9,
-            132.3
+            62.3,
+            47.1
           ]
         }
       }
@@ -551,39 +551,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -5.3,
-        "rightShoulderFlexion": 52.7,
-        "rightShoulderRotation": -87.4,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -3.6,
+        "rightShoulderFlexion": 32.5,
+        "rightShoulderRotation": -13.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 30.6,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.36,
-        "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.3999,
+        "total_reward": 0.5927,
+        "capsule_coverage": 0.3745,
+        "endpoint_alignment": 0.6072,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.6,
-            100.9
+            52.9,
+            86.9
           ],
           "rightWrist": [
-            64.4,
-            118.7
+            59.1,
+            59.0
           ],
           "rightHandTip": [
-            71.5,
-            127.1
+            62.0,
+            45.7
           ]
         }
       }
@@ -601,39 +601,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 18.0,
-        "rightShoulderFlexion": 95.4,
-        "rightShoulderRotation": -60.1,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -4.0,
+        "rightShoulderFlexion": 30.3,
+        "rightShoulderRotation": -13.6,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 40.4,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3621,
-        "capsule_coverage": 0.0684,
-        "endpoint_alignment": 0.355,
+        "total_reward": 0.6208,
+        "capsule_coverage": 0.4298,
+        "endpoint_alignment": 0.6222,
         "silhouette_containment": 1.0,
-        "temporal_smoothness": 0.9095,
+        "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            50.6,
-            74.6
+            52.6,
+            87.6
           ],
           "rightWrist": [
-            63.9,
-            56.9
+            58.9,
+            59.9
           ],
           "rightHandTip": [
-            70.3,
-            48.4
+            61.9,
+            46.6
           ]
         }
       }
@@ -651,39 +651,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 30.9,
-        "rightShoulderFlexion": 65.2,
-        "rightShoulderRotation": -37.6,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -3.9,
+        "rightShoulderFlexion": 31.8,
+        "rightShoulderRotation": -14.2,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 95.2,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.5103,
-        "capsule_coverage": 0.3545,
-        "endpoint_alignment": 0.5143,
+        "total_reward": 0.6231,
+        "capsule_coverage": 0.4393,
+        "endpoint_alignment": 0.6184,
         "silhouette_containment": 1.0,
-        "temporal_smoothness": 0.5341,
+        "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            59.9,
-            91.7
+            52.7,
+            87.1
           ],
           "rightWrist": [
-            64.2,
-            60.6
+            59.1,
+            59.3
           ],
           "rightHandTip": [
-            66.3,
-            45.8
+            62.2,
+            46.0
           ]
         }
       }
@@ -701,39 +701,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 7.6,
-        "rightShoulderFlexion": 67.5,
-        "rightShoulderRotation": -18.6,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -3.0,
+        "rightShoulderFlexion": 32.0,
+        "rightShoulderRotation": -14.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 110.9,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7321,
-        "capsule_coverage": 0.587,
-        "endpoint_alignment": 0.7433,
+        "total_reward": 0.6251,
+        "capsule_coverage": 0.4418,
+        "endpoint_alignment": 0.6209,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.6,
-            92.4
+            53.2,
+            87.1
           ],
           "rightWrist": [
-            59.1,
-            60.5
+            59.4,
+            59.2
           ],
           "rightHandTip": [
-            61.7,
-            45.3
+            62.4,
+            45.9
           ]
         }
       }
@@ -751,39 +751,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 2.6,
-        "rightShoulderFlexion": 67.1,
-        "rightShoulderRotation": -15.9,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -2.1,
+        "rightShoulderFlexion": 33.7,
+        "rightShoulderRotation": -15.4,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.0,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.732,
-        "capsule_coverage": 0.6232,
-        "endpoint_alignment": 0.7067,
+        "total_reward": 0.6192,
+        "capsule_coverage": 0.4455,
+        "endpoint_alignment": 0.6024,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            52.3,
-            92.8
+            53.6,
+            86.6
           ],
           "rightWrist": [
-            59.1,
-            61.1
+            59.6,
+            58.6
           ],
           "rightHandTip": [
             62.4,
-            46.0
+            45.2
           ]
         }
       }
@@ -801,39 +801,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 3.3,
-        "rightShoulderFlexion": 66.3,
-        "rightShoulderRotation": -16.5,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -1.8,
+        "rightShoulderFlexion": 31.0,
+        "rightShoulderRotation": -15.3,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.3,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7589,
-        "capsule_coverage": 0.6487,
-        "endpoint_alignment": 0.7487,
+        "total_reward": 0.6393,
+        "capsule_coverage": 0.4802,
+        "endpoint_alignment": 0.618,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            52.6,
-            93.2
+            53.8,
+            87.4
           ],
           "rightWrist": [
-            59.2,
-            61.6
+            59.5,
+            59.5
           ],
           "rightHandTip": [
-            62.4,
-            46.4
+            62.3,
+            46.2
           ]
         }
       }
@@ -851,39 +851,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.0,
-        "rightShoulderFlexion": 66.6,
-        "rightShoulderRotation": -18.2,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -1.1,
+        "rightShoulderFlexion": 32.8,
+        "rightShoulderRotation": -15.7,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.4,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7458,
-        "capsule_coverage": 0.6528,
-        "endpoint_alignment": 0.7117,
+        "total_reward": 0.631,
+        "capsule_coverage": 0.4777,
+        "endpoint_alignment": 0.5997,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.3,
-            93.0
+            54.1,
+            86.9
           ],
           "rightWrist": [
-            59.3,
-            61.2
+            59.7,
+            58.8
           ],
           "rightHandTip": [
-            62.2,
-            46.0
+            62.3,
+            45.4
           ]
         }
       }
@@ -901,39 +901,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.0,
-        "rightShoulderFlexion": 66.6,
-        "rightShoulderRotation": -18.2,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.1,
+        "rightShoulderFlexion": 32.8,
+        "rightShoulderRotation": -15.5,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.4,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7473,
-        "capsule_coverage": 0.6523,
-        "endpoint_alignment": 0.7158,
+        "total_reward": 0.632,
+        "capsule_coverage": 0.4755,
+        "endpoint_alignment": 0.6044,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.3,
-            93.0
+            54.6,
+            86.9
           ],
           "rightWrist": [
-            59.3,
-            61.2
+            59.6,
+            58.7
           ],
           "rightHandTip": [
-            62.2,
-            46.0
+            62.0,
+            45.3
           ]
         }
       }
@@ -951,39 +951,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 7.5,
-        "rightShoulderFlexion": 66.5,
-        "rightShoulderRotation": -19.2,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.1,
+        "rightShoulderFlexion": 32.8,
+        "rightShoulderRotation": -15.5,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 111.8,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7448,
-        "capsule_coverage": 0.6456,
-        "endpoint_alignment": 0.7164,
+        "total_reward": 0.6285,
+        "capsule_coverage": 0.4669,
+        "endpoint_alignment": 0.6045,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.7,
-            93.0
+            54.6,
+            86.9
           ],
           "rightWrist": [
-            59.4,
-            61.2
+            59.6,
+            58.7
           ],
           "rightHandTip": [
-            62.2,
-            46.0
+            62.0,
+            45.3
           ]
         }
       }
@@ -1001,39 +1001,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.7,
-        "rightShoulderFlexion": 65.4,
-        "rightShoulderRotation": -19.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.6,
+        "rightShoulderFlexion": 30.6,
+        "rightShoulderRotation": -16.3,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.7,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7717,
-        "capsule_coverage": 0.6768,
-        "endpoint_alignment": 0.7523,
+        "total_reward": 0.6469,
+        "capsule_coverage": 0.4972,
+        "endpoint_alignment": 0.62,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.5,
-            93.7
+            54.4,
+            87.5
           ],
           "rightWrist": [
-            59.5,
-            61.9
+            59.8,
+            59.6
           ],
           "rightHandTip": [
-            62.4,
-            46.7
+            62.5,
+            46.3
           ]
         }
       }
@@ -1051,39 +1051,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.7,
-        "rightShoulderFlexion": 65.4,
-        "rightShoulderRotation": -19.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.2,
+        "rightShoulderFlexion": 30.5,
+        "rightShoulderRotation": -16.5,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.7,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7679,
-        "capsule_coverage": 0.6681,
-        "endpoint_alignment": 0.7515,
+        "total_reward": 0.6439,
+        "capsule_coverage": 0.4904,
+        "endpoint_alignment": 0.6194,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.5,
-            93.7
+            54.6,
+            87.6
           ],
           "rightWrist": [
-            59.5,
-            61.9
+            59.9,
+            59.6
           ],
           "rightHandTip": [
-            62.4,
-            46.7
+            62.5,
+            46.3
           ]
         }
       }
@@ -1101,39 +1101,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.1,
-        "rightShoulderFlexion": 65.5,
-        "rightShoulderRotation": -19.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.2,
+        "rightShoulderFlexion": 30.5,
+        "rightShoulderRotation": -16.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.4,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7675,
-        "capsule_coverage": 0.6691,
-        "endpoint_alignment": 0.7497,
+        "total_reward": 0.6435,
+        "capsule_coverage": 0.4902,
+        "endpoint_alignment": 0.6184,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.4,
-            93.7
+            54.6,
+            87.6
           ],
           "rightWrist": [
-            59.7,
-            61.9
+            60.0,
+            59.6
           ],
           "rightHandTip": [
-            62.7,
-            46.8
+            62.6,
+            46.3
           ]
         }
       }
@@ -1151,39 +1151,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.1,
-        "rightShoulderFlexion": 65.5,
-        "rightShoulderRotation": -19.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.2,
+        "rightShoulderFlexion": 30.5,
+        "rightShoulderRotation": -16.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.4,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7668,
-        "capsule_coverage": 0.6676,
-        "endpoint_alignment": 0.7493,
+        "total_reward": 0.6429,
+        "capsule_coverage": 0.4891,
+        "endpoint_alignment": 0.6182,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.4,
-            93.7
+            54.6,
+            87.6
           ],
           "rightWrist": [
-            59.7,
-            61.9
+            60.0,
+            59.6
           ],
           "rightHandTip": [
-            62.7,
-            46.8
+            62.6,
+            46.3
           ]
         }
       }
@@ -1201,39 +1201,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 5.9,
-        "rightShoulderFlexion": 65.0,
-        "rightShoulderRotation": -18.8,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.2,
+        "rightShoulderFlexion": 30.5,
+        "rightShoulderRotation": -16.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 114.0,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7564,
-        "capsule_coverage": 0.6793,
-        "endpoint_alignment": 0.7117,
+        "total_reward": 0.6369,
+        "capsule_coverage": 0.4926,
+        "endpoint_alignment": 0.5995,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.3,
-            94.0
+            54.6,
+            87.6
           ],
           "rightWrist": [
-            59.6,
-            62.2
+            60.0,
+            59.6
           ],
           "rightHandTip": [
             62.6,
-            47.0
+            46.3
           ]
         }
       }
@@ -1251,39 +1251,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 5.9,
-        "rightShoulderFlexion": 65.3,
-        "rightShoulderRotation": -18.6,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.4,
+        "rightShoulderFlexion": 30.8,
+        "rightShoulderRotation": -17.1,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.5,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7666,
-        "capsule_coverage": 0.668,
-        "endpoint_alignment": 0.7484,
+        "total_reward": 0.6429,
+        "capsule_coverage": 0.4874,
+        "endpoint_alignment": 0.6198,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.3,
-            93.8
+            54.5,
+            87.5
           ],
           "rightWrist": [
-            59.5,
-            62.0
+            60.1,
+            59.6
           ],
           "rightHandTip": [
-            62.5,
-            46.8
+            62.8,
+            46.2
           ]
         }
       }
@@ -1301,39 +1301,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.5,
-        "rightShoulderFlexion": 66.5,
-        "rightShoulderRotation": -19.4,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 0.1,
+        "rightShoulderFlexion": 32.9,
+        "rightShoulderRotation": -17.4,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.3,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7306,
-        "capsule_coverage": 0.6508,
-        "endpoint_alignment": 0.6756,
+        "total_reward": 0.6182,
+        "capsule_coverage": 0.4604,
+        "endpoint_alignment": 0.5851,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.4,
-            93.1
+            54.7,
+            86.8
           ],
           "rightWrist": [
-            59.8,
-            61.3
+            60.2,
+            58.8
           ],
           "rightHandTip": [
             62.8,
-            46.2
+            45.3
           ]
         }
       }
@@ -1351,39 +1351,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.5,
-        "rightShoulderFlexion": 66.5,
-        "rightShoulderRotation": -19.4,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 0.1,
+        "rightShoulderFlexion": 32.9,
+        "rightShoulderRotation": -17.4,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.3,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7308,
-        "capsule_coverage": 0.6515,
-        "endpoint_alignment": 0.6755,
+        "total_reward": 0.6185,
+        "capsule_coverage": 0.4612,
+        "endpoint_alignment": 0.585,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.4,
-            93.1
+            54.7,
+            86.8
           ],
           "rightWrist": [
-            59.8,
-            61.3
+            60.2,
+            58.8
           ],
           "rightHandTip": [
             62.8,
-            46.2
+            45.3
           ]
         }
       }
@@ -1401,39 +1401,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 6.5,
-        "rightShoulderFlexion": 66.5,
-        "rightShoulderRotation": -19.4,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 0.1,
+        "rightShoulderFlexion": 32.9,
+        "rightShoulderRotation": -17.4,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.3,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7271,
-        "capsule_coverage": 0.6426,
-        "endpoint_alignment": 0.6752,
+        "total_reward": 0.6153,
+        "capsule_coverage": 0.4533,
+        "endpoint_alignment": 0.5849,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.4,
-            93.1
+            54.7,
+            86.8
           ],
           "rightWrist": [
-            59.8,
-            61.3
+            60.2,
+            58.8
           ],
           "rightHandTip": [
             62.8,
-            46.2
+            45.3
           ]
         }
       }
@@ -1451,39 +1451,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 7.1,
-        "rightShoulderFlexion": 66.8,
-        "rightShoulderRotation": -19.9,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 0.1,
+        "rightShoulderFlexion": 33.6,
+        "rightShoulderRotation": -17.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 111.6,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7227,
-        "capsule_coverage": 0.6308,
-        "endpoint_alignment": 0.6759,
+        "total_reward": 0.612,
+        "capsule_coverage": 0.4407,
+        "endpoint_alignment": 0.5894,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.5,
-            92.9
+            54.7,
+            86.6
           ],
           "rightWrist": [
-            59.9,
-            61.1
+            60.3,
+            58.5
           ],
           "rightHandTip": [
-            62.9,
-            45.9
+            63.0,
+            45.1
           ]
         }
       }
@@ -1501,39 +1501,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 5.1,
-        "rightShoulderFlexion": 65.6,
-        "rightShoulderRotation": -18.8,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.2,
+        "rightShoulderFlexion": 31.5,
+        "rightShoulderRotation": -18.6,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.9,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7438,
-        "capsule_coverage": 0.6522,
-        "endpoint_alignment": 0.7075,
+        "total_reward": 0.6268,
+        "capsule_coverage": 0.4639,
+        "endpoint_alignment": 0.603,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.1,
-            93.6
+            54.6,
+            87.3
           ],
           "rightWrist": [
-            59.9,
-            62.0
+            60.6,
+            59.4
           ],
           "rightHandTip": [
-            63.2,
-            46.9
+            63.4,
+            46.0
           ]
         }
       }
@@ -1551,39 +1551,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 5.1,
-        "rightShoulderFlexion": 65.8,
-        "rightShoulderRotation": -19.3,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -1.0,
+        "rightShoulderFlexion": 31.9,
+        "rightShoulderRotation": -18.7,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.3,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7376,
-        "capsule_coverage": 0.6389,
-        "endpoint_alignment": 0.7052,
+        "total_reward": 0.6213,
+        "capsule_coverage": 0.4506,
+        "endpoint_alignment": 0.6026,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.1,
-            93.5
+            54.2,
+            87.1
           ],
           "rightWrist": [
-            60.1,
-            61.9
+            60.6,
+            59.3
           ],
           "rightHandTip": [
-            63.5,
-            46.8
+            63.6,
+            46.0
           ]
         }
       }
@@ -1601,39 +1601,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 4.9,
-        "rightShoulderFlexion": 66.4,
+        "rightShoulderAngle": -0.6,
+        "rightShoulderFlexion": 33.3,
         "rightShoulderRotation": -18.9,
-        "leftShoulderAngle": 2.7,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.1,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7202,
-        "capsule_coverage": 0.6393,
-        "endpoint_alignment": 0.6613,
+        "total_reward": 0.6067,
+        "capsule_coverage": 0.4368,
+        "endpoint_alignment": 0.5799,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.0,
-            93.2
+            54.4,
+            86.7
           ],
           "rightWrist": [
-            60.0,
-            61.6
+            60.6,
+            58.8
           ],
           "rightHandTip": [
-            63.4,
-            46.5
+            63.6,
+            45.4
           ]
         }
       }
@@ -1651,39 +1651,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 5.1,
-        "rightShoulderFlexion": 65.7,
-        "rightShoulderRotation": -20.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.8,
+        "rightShoulderFlexion": 31.7,
+        "rightShoulderRotation": -20.3,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.4,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.7363,
-        "capsule_coverage": 0.645,
-        "endpoint_alignment": 0.6959,
+        "total_reward": 0.6194,
+        "capsule_coverage": 0.4521,
+        "endpoint_alignment": 0.5965,
         "silhouette_containment": 1.0,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.1,
-            93.6
+            54.3,
+            87.2
           ],
           "rightWrist": [
-            60.5,
-            62.1
+            61.1,
+            59.5
           ],
           "rightHandTip": [
-            64.1,
-            47.0
+            64.3,
+            46.2
           ]
         }
       }
@@ -1701,39 +1701,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 4.4,
-        "rightShoulderFlexion": 66.0,
-        "rightShoulderRotation": -21.7,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.3,
+        "rightShoulderFlexion": 32.9,
+        "rightShoulderRotation": -24.1,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 112.6,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.6943,
-        "capsule_coverage": 0.5981,
-        "endpoint_alignment": 0.6377,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.5743,
+        "capsule_coverage": 0.3868,
+        "endpoint_alignment": 0.5791,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            52.9,
-            93.4
+            54.5,
+            86.8
           ],
           "rightWrist": [
-            61.5,
-            62.2
+            62.2,
+            59.2
           ],
           "rightHandTip": [
-            65.7,
-            47.3
+            65.9,
+            46.0
           ]
         }
       }
@@ -1751,39 +1751,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 5.2,
-        "rightShoulderFlexion": 67.2,
-        "rightShoulderRotation": -24.1,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 0.8,
+        "rightShoulderFlexion": 33.5,
+        "rightShoulderRotation": -27.9,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 111.3,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.6579,
-        "capsule_coverage": 0.5431,
-        "endpoint_alignment": 0.6016,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.5492,
+        "capsule_coverage": 0.3341,
+        "endpoint_alignment": 0.569,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.0,
-            92.7
+            55.1,
+            86.6
           ],
           "rightWrist": [
-            62.6,
-            61.7
+            63.3,
+            59.1
           ],
           "rightHandTip": [
-            67.1,
-            47.0
+            67.3,
+            46.0
           ]
         }
       }
@@ -1801,39 +1801,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 7.7,
-        "rightShoulderFlexion": 68.7,
-        "rightShoulderRotation": -26.6,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 2.6,
+        "rightShoulderFlexion": 37.4,
+        "rightShoulderRotation": -30.1,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 109.0,
+        "rightElbowBend": 139.1,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.6001,
-        "capsule_coverage": 0.4356,
-        "endpoint_alignment": 0.5647,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.5045,
+        "capsule_coverage": 0.2199,
+        "endpoint_alignment": 0.5713,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.5,
-            91.7
+            55.9,
+            85.3
           ],
           "rightWrist": [
-            63.2,
-            60.8
+            64.1,
+            57.7
           ],
           "rightHandTip": [
-            67.8,
-            46.0
+            68.0,
+            44.6
           ]
         }
       }
@@ -1851,39 +1851,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 15.2,
-        "rightShoulderFlexion": 70.2,
-        "rightShoulderRotation": -32.8,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 7.1,
+        "rightShoulderFlexion": 39.7,
+        "rightShoulderRotation": -30.6,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 108.3,
+        "rightElbowBend": 136.7,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.5496,
-        "capsule_coverage": 0.313,
-        "endpoint_alignment": 0.5609,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4771,
+        "capsule_coverage": 0.1407,
+        "endpoint_alignment": 0.582,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            55.1,
-            90.4
+            57.9,
+            84.3
           ],
           "rightWrist": [
-            63.8,
-            59.3
+            64.5,
+            56.3
           ],
           "rightHandTip": [
-            68.0,
-            44.4
+            67.7,
+            42.9
           ]
         }
       }
@@ -1901,39 +1901,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 23.4,
-        "rightShoulderFlexion": 68.3,
-        "rightShoulderRotation": -40.5,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 11.2,
+        "rightShoulderFlexion": 33.9,
+        "rightShoulderRotation": -38.3,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 107.9,
+        "rightElbowBend": 140.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.5309,
-        "capsule_coverage": 0.2278,
-        "endpoint_alignment": 0.5995,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4719,
+        "capsule_coverage": 0.1194,
+        "endpoint_alignment": 0.5902,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            57.3,
-            90.9
+            60.1,
+            86.0
           ],
           "rightWrist": [
-            65.5,
-            59.6
+            66.2,
+            57.9
           ],
           "rightHandTip": [
-            69.5,
-            44.6
+            69.1,
+            44.5
           ]
         }
       }
@@ -1951,39 +1951,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 3.9,
-        "rightShoulderFlexion": 46.9,
-        "rightShoulderRotation": -31.2,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 16.7,
+        "rightShoulderFlexion": 42.0,
+        "rightShoulderRotation": -34.8,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 128.2,
+        "rightElbowBend": 132.7,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.4224,
-        "capsule_coverage": 0.1549,
-        "endpoint_alignment": 0.4011,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4362,
+        "capsule_coverage": 0.0215,
+        "endpoint_alignment": 0.599,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            53.4,
-            103.9
+            61.9,
+            82.5
           ],
           "rightWrist": [
-            64.6,
-            73.5
+            65.9,
+            54.1
           ],
           "rightHandTip": [
-            69.9,
-            59.0
+            67.9,
+            40.4
           ]
         }
       }
@@ -2001,39 +2001,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 26.9,
-        "rightShoulderFlexion": 54.7,
-        "rightShoulderRotation": -42.2,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 10.5,
+        "rightShoulderFlexion": 27.4,
+        "rightShoulderRotation": -35.1,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 118.3,
+        "rightElbowBend": 133.7,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.4992,
-        "capsule_coverage": 0.1206,
-        "endpoint_alignment": 0.6274,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4363,
+        "capsule_coverage": 0.0157,
+        "endpoint_alignment": 0.605,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            61.6,
-            97.6
+            60.1,
+            88.0
           ],
           "rightWrist": [
-            66.9,
-            65.6
+            67.2,
+            60.7
           ],
           "rightHandTip": [
-            69.4,
-            50.4
+            70.6,
+            47.7
           ]
         }
       }
@@ -2051,39 +2051,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 32.6,
-        "rightShoulderFlexion": 58.3,
-        "rightShoulderRotation": -46.6,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 9.2,
+        "rightShoulderFlexion": 30.6,
+        "rightShoulderRotation": -30.8,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 113.0,
+        "rightElbowBend": 125.6,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.4489,
-        "capsule_coverage": 0.0204,
-        "endpoint_alignment": 0.6019,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.4286,
+        "capsule_coverage": 0.0014,
+        "endpoint_alignment": 0.6,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            62.4,
-            94.8
+            59.3,
+            87.2
           ],
           "rightWrist": [
-            67.7,
-            62.9
+            67.2,
+            61.0
           ],
           "rightHandTip": [
-            70.2,
-            47.6
+            71.0,
+            48.4
           ]
         }
       }
@@ -2101,39 +2101,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": 33.4,
-        "rightShoulderFlexion": 72.7,
-        "rightShoulderRotation": -48.3,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 15.8,
+        "rightShoulderFlexion": 46.3,
+        "rightShoulderRotation": -25.4,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 103.8,
+        "rightElbowBend": 110.8,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.4392,
-        "capsule_coverage": 0.0017,
-        "endpoint_alignment": 0.5963,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.428,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.5998,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            57.9,
-            87.4
+            61.0,
+            80.9
           ],
           "rightWrist": [
-            65.2,
-            55.9
+            65.4,
+            54.1
           ],
           "rightHandTip": [
-            68.7,
-            40.9
+            67.5,
+            41.3
           ]
         }
       }
@@ -2151,39 +2151,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -0.7,
-        "rightShoulderFlexion": 25.5,
-        "rightShoulderRotation": -21.1,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 9.8,
+        "rightShoulderFlexion": 51.0,
+        "rightShoulderRotation": -25.3,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 131.9,
+        "rightElbowBend": 114.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3333,
-        "capsule_coverage": 0.0906,
-        "endpoint_alignment": 0.2851,
-        "silhouette_containment": 1.0,
-        "temporal_smoothness": 0.7881,
+        "total_reward": 0.428,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.5999,
+        "silhouette_containment": 0.9,
+        "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            51.3,
-            112.3
+            58.3,
+            79.4
           ],
           "rightWrist": [
-            60.3,
-            83.2
+            64.9,
+            52.1
           ],
           "rightHandTip": [
-            64.6,
-            69.3
+            68.1,
+            39.0
           ]
         }
       }
@@ -2201,39 +2201,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -0.8,
-        "rightShoulderFlexion": 16.0,
-        "rightShoulderRotation": -21.7,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 4.8,
+        "rightShoulderFlexion": 66.4,
+        "rightShoulderRotation": -19.6,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 140.0,
+        "rightElbowBend": 85.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3714,
-        "capsule_coverage": 0.0524,
-        "endpoint_alignment": 0.376,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.428,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.5999,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            51.2,
-            114.5
+            55.8,
+            72.0
           ],
           "rightWrist": [
-            59.3,
-            85.5
+            63.4,
+            47.5
           ],
           "rightHandTip": [
-            63.1,
-            71.6
+            67.0,
+            35.8
           ]
         }
       }
@@ -2251,39 +2251,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -3.5,
-        "rightShoulderFlexion": 9.3,
-        "rightShoulderRotation": -39.2,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -0.7,
+        "rightShoulderFlexion": 69.3,
+        "rightShoulderRotation": -17.3,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 140.0,
+        "rightElbowBend": 79.5,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3659,
-        "capsule_coverage": 0.0248,
-        "endpoint_alignment": 0.3898,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.428,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.5999,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.4,
-            115.4
+            54.5,
+            70.4
           ],
           "rightWrist": [
-            64.2,
-            89.2
+            63.2,
+            47.1
           ],
           "rightHandTip": [
-            71.2,
-            76.7
+            67.4,
+            36.0
           ]
         }
       }
@@ -2301,39 +2301,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -3.7,
-        "rightShoulderFlexion": 0.0,
-        "rightShoulderRotation": -47.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 8.0,
+        "rightShoulderFlexion": 64.5,
+        "rightShoulderRotation": -20.6,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 116.8,
+        "rightElbowBend": 88.8,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3582,
-        "capsule_coverage": 0.0002,
-        "endpoint_alignment": 0.3952,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.428,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.5999,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.2,
-            115.9
+            56.7,
+            72.9
           ],
           "rightWrist": [
-            71.2,
-            102.7
+            63.4,
+            47.7
           ],
           "rightHandTip": [
-            81.8,
-            96.4
+            66.5,
+            35.6
           ]
         }
       }
@@ -2351,39 +2351,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -3.6,
-        "rightShoulderFlexion": 0.0,
-        "rightShoulderRotation": -69.3,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": -2.5,
+        "rightShoulderFlexion": 60.9,
+        "rightShoulderRotation": -16.4,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 88.2,
+        "rightElbowBend": 107.0,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3581,
+        "total_reward": 0.428,
         "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.3953,
-        "silhouette_containment": 1.0,
+        "endpoint_alignment": 0.6,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.3,
-            115.9
+            53.9,
+            74.9
           ],
           "rightWrist": [
-            79.4,
-            118.8
+            62.9,
+            48.1
           ],
           "rightHandTip": [
-            93.8,
-            120.2
+            67.2,
+            35.3
           ]
         }
       }
@@ -2401,39 +2401,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -3.3,
-        "rightShoulderFlexion": 0.1,
-        "rightShoulderRotation": -50.3,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 27.0,
+        "rightShoulderFlexion": 48.6,
+        "rightShoulderRotation": -30.1,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 54.6,
+        "rightElbowBend": 112.9,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3581,
+        "total_reward": 0.428,
         "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.3952,
-        "silhouette_containment": 1.0,
+        "endpoint_alignment": 0.5999,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.5,
-            115.9
+            64.8,
+            78.4
           ],
           "rightWrist": [
-            68.7,
-            135.8
+            65.5,
+            50.5
           ],
           "rightHandTip": [
-            77.8,
-            145.3
+            65.8,
+            37.1
           ]
         }
       }
@@ -2451,39 +2451,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -3.1,
-        "rightShoulderFlexion": 0.1,
-        "rightShoulderRotation": -54.5,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 29.6,
+        "rightShoulderFlexion": 43.5,
+        "rightShoulderRotation": -32.7,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 31.1,
+        "rightElbowBend": 120.1,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3582,
+        "total_reward": 0.428,
         "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.3955,
-        "silhouette_containment": 1.0,
+        "endpoint_alignment": 0.5999,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            49.6,
-            115.9
+            66.8,
+            79.8
           ],
           "rightWrist": [
-            61.7,
-            144.3
+            66.2,
+            51.5
           ],
           "rightHandTip": [
-            67.5,
-            157.9
+            65.9,
+            38.0
           ]
         }
       }
@@ -2501,39 +2501,39 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -2.2,
-        "rightShoulderFlexion": 1.2,
-        "rightShoulderRotation": -72.0,
-        "leftShoulderAngle": 2.7,
+        "rightShoulderAngle": 19.9,
+        "rightShoulderFlexion": 36.7,
+        "rightShoulderRotation": -25.1,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
-        "rightElbowBend": 28.6,
+        "rightElbowBend": 120.9,
         "leftElbowBend": 40.0,
         "pelvisTwist": 0.0,
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3583,
-        "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.3956,
-        "silhouette_containment": 1.0,
+        "total_reward": 0.3446,
+        "capsule_coverage": 0.0001,
+        "endpoint_alignment": 0.3913,
+        "silhouette_containment": 0.9,
         "temporal_smoothness": 1.0,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
-            50.2,
-            116.0
+            63.9,
+            83.9
           ],
           "rightWrist": [
-            63.9,
-            144.8
+            65.1,
+            56.7
           ],
           "rightHandTip": [
-            70.4,
-            158.6
+            65.7,
+            43.7
           ]
         }
       }
@@ -2551,10 +2551,10 @@
         "neckYaw": 0.0,
         "shoulderElevation": 0.0,
         "shoulderTilt": 0.0,
-        "rightShoulderAngle": -2.7,
+        "rightShoulderAngle": -8.1,
         "rightShoulderFlexion": 6.0,
         "rightShoulderRotation": -60.0,
-        "leftShoulderAngle": 2.7,
+        "leftShoulderAngle": 8.1,
         "leftShoulderFlexion": 6.0,
         "leftShoulderRotation": -60.0,
         "rightElbowBend": 40.0,
@@ -2563,27 +2563,27 @@
         "pelvisBow": 0.0
       },
       "reward": {
-        "total_reward": 0.3564,
-        "capsule_coverage": 0.0,
-        "endpoint_alignment": 0.391,
-        "silhouette_containment": 1.0,
-        "temporal_smoothness": 1.0,
+        "total_reward": 0.1115,
+        "capsule_coverage": 0.0013,
+        "endpoint_alignment": 0.0007,
+        "silhouette_containment": 0.9,
+        "temporal_smoothness": 0.0344,
         "projected_2d": {
           "rightShoulder": [
-            51.7,
-            78.0
+            54.7,
+            58.5
           ],
           "rightElbow": [
             49.9,
-            115.7
+            91.7
           ],
           "rightWrist": [
-            66.8,
-            140.1
+            62.8,
+            114.7
           ],
           "rightHandTip": [
-            74.9,
-            151.8
+            69.0,
+            125.7
           ]
         }
       }
@@ -2605,10 +2605,10 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -2.7,
+          "rightShoulderAngle": -8.1,
           "rightShoulderFlexion": 6.0,
           "rightShoulderRotation": -60.0,
-          "leftShoulderAngle": 2.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
           "rightElbowBend": 40.0,
@@ -2629,18 +2629,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.5,
-          "rightShoulderFlexion": 6.5,
-          "rightShoulderRotation": -60.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -16.6,
+          "rightShoulderFlexion": 4.9,
+          "rightShoulderRotation": -58.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 39.8,
+          "rightElbowBend": 36.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.6616
+        "reward_score": 0.7373
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -2659,13 +2659,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.5,
-          "rightShoulderFlexion": 6.5,
-          "rightShoulderRotation": -60.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -16.6,
+          "rightShoulderFlexion": 4.9,
+          "rightShoulderRotation": -58.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 39.8,
+          "rightElbowBend": 36.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -2683,18 +2683,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 0.8,
-          "rightShoulderFlexion": 0.0,
-          "rightShoulderRotation": -84.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -18.1,
+          "rightShoulderFlexion": 39.7,
+          "rightShoulderRotation": -28.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 23.9,
+          "rightElbowBend": 21.6,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3556
+        "reward_score": 0.4521
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -2713,13 +2713,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 0.8,
-          "rightShoulderFlexion": 0.0,
-          "rightShoulderRotation": -84.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -18.1,
+          "rightShoulderFlexion": 39.7,
+          "rightShoulderRotation": -28.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 23.9,
+          "rightElbowBend": 21.6,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -2737,18 +2737,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 16.0,
-          "rightShoulderFlexion": 0.3,
-          "rightShoulderRotation": -95.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -18.6,
+          "rightShoulderFlexion": 44.5,
+          "rightShoulderRotation": -40.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 20.2,
+          "rightElbowBend": 15.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.341
+        "reward_score": 0.4306
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -2767,13 +2767,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 16.0,
-          "rightShoulderFlexion": 0.3,
-          "rightShoulderRotation": -95.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -18.6,
+          "rightShoulderFlexion": 44.5,
+          "rightShoulderRotation": -40.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 20.2,
+          "rightElbowBend": 15.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -2791,18 +2791,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 14.7,
-          "rightShoulderFlexion": 26.7,
-          "rightShoulderRotation": -85.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.3,
+          "rightShoulderFlexion": 48.4,
+          "rightShoulderRotation": -27.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 12.1,
+          "rightElbowBend": 10.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3601
+        "reward_score": 0.4393
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -2821,13 +2821,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 14.7,
-          "rightShoulderFlexion": 26.7,
-          "rightShoulderRotation": -85.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.3,
+          "rightShoulderFlexion": 48.4,
+          "rightShoulderRotation": -27.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 12.1,
+          "rightElbowBend": 10.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -2845,18 +2845,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 1.8,
-          "rightShoulderFlexion": 44.3,
-          "rightShoulderRotation": -87.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.0,
+          "rightShoulderFlexion": 78.0,
+          "rightShoulderRotation": -37.0,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 15.5,
+          "rightElbowBend": 41.2,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.36
+        "reward_score": 0.416
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -2875,13 +2875,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 1.8,
-          "rightShoulderFlexion": 44.3,
-          "rightShoulderRotation": -87.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.0,
+          "rightShoulderFlexion": 78.0,
+          "rightShoulderRotation": -37.0,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 15.5,
+          "rightElbowBend": 41.2,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -2899,18 +2899,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -4.5,
-          "rightShoulderFlexion": 49.0,
-          "rightShoulderRotation": -67.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -9.8,
+          "rightShoulderFlexion": 47.1,
+          "rightShoulderRotation": -23.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 20.9,
+          "rightElbowBend": 65.5,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.36
+        "reward_score": 0.4378
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -2929,13 +2929,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -4.5,
-          "rightShoulderFlexion": 49.0,
-          "rightShoulderRotation": -67.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -9.8,
+          "rightShoulderFlexion": 47.1,
+          "rightShoulderRotation": -23.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 20.9,
+          "rightElbowBend": 65.5,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -2953,18 +2953,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -6.6,
-          "rightShoulderFlexion": 48.5,
-          "rightShoulderRotation": -70.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.4,
+          "rightShoulderFlexion": 28.5,
+          "rightShoulderRotation": -12.8,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 22.8,
+          "rightElbowBend": 107.2,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.36
+        "reward_score": 0.5195
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -2983,13 +2983,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -6.6,
-          "rightShoulderFlexion": 48.5,
-          "rightShoulderRotation": -70.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.4,
+          "rightShoulderFlexion": 28.5,
+          "rightShoulderRotation": -12.8,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 22.8,
+          "rightElbowBend": 107.2,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3007,18 +3007,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -6.2,
-          "rightShoulderFlexion": 48.5,
-          "rightShoulderRotation": -75.7,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.5,
+          "rightShoulderFlexion": 23.9,
+          "rightShoulderRotation": -18.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 23.7,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.36
+        "reward_score": 0.5811
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -3037,13 +3037,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -6.2,
-          "rightShoulderFlexion": 48.5,
-          "rightShoulderRotation": -75.7,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.5,
+          "rightShoulderFlexion": 23.9,
+          "rightShoulderRotation": -18.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 23.7,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3061,18 +3061,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -5.3,
-          "rightShoulderFlexion": 50.8,
-          "rightShoulderRotation": -90.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.7,
+          "rightShoulderFlexion": 29.3,
+          "rightShoulderRotation": -14.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 13.5,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.36
+        "reward_score": 0.5895
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -3091,13 +3091,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -5.3,
-          "rightShoulderFlexion": 50.8,
-          "rightShoulderRotation": -90.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.7,
+          "rightShoulderFlexion": 29.3,
+          "rightShoulderRotation": -14.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 13.5,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3115,18 +3115,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -5.3,
-          "rightShoulderFlexion": 52.7,
-          "rightShoulderRotation": -87.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.6,
+          "rightShoulderFlexion": 32.5,
+          "rightShoulderRotation": -13.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 30.6,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.36
+        "reward_score": 0.5927
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -3145,13 +3145,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -5.3,
-          "rightShoulderFlexion": 52.7,
-          "rightShoulderRotation": -87.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.6,
+          "rightShoulderFlexion": 32.5,
+          "rightShoulderRotation": -13.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 30.6,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3169,18 +3169,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 18.0,
-          "rightShoulderFlexion": 95.4,
-          "rightShoulderRotation": -60.1,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -4.0,
+          "rightShoulderFlexion": 30.3,
+          "rightShoulderRotation": -13.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 40.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3621
+        "reward_score": 0.6208
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -3199,13 +3199,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 18.0,
-          "rightShoulderFlexion": 95.4,
-          "rightShoulderRotation": -60.1,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -4.0,
+          "rightShoulderFlexion": 30.3,
+          "rightShoulderRotation": -13.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 40.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3223,18 +3223,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 30.9,
-          "rightShoulderFlexion": 65.2,
-          "rightShoulderRotation": -37.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.9,
+          "rightShoulderFlexion": 31.8,
+          "rightShoulderRotation": -14.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 95.2,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.5103
+        "reward_score": 0.6231
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -3253,13 +3253,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 30.9,
-          "rightShoulderFlexion": 65.2,
-          "rightShoulderRotation": -37.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.9,
+          "rightShoulderFlexion": 31.8,
+          "rightShoulderRotation": -14.2,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 95.2,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3277,18 +3277,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.6,
-          "rightShoulderFlexion": 67.5,
-          "rightShoulderRotation": -18.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.0,
+          "rightShoulderFlexion": 32.0,
+          "rightShoulderRotation": -14.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 110.9,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7321
+        "reward_score": 0.6251
       },
       "action_descriptor": "Sign 'one' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape '1')."
     },
@@ -3307,13 +3307,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.6,
-          "rightShoulderFlexion": 67.5,
-          "rightShoulderRotation": -18.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -3.0,
+          "rightShoulderFlexion": 32.0,
+          "rightShoulderRotation": -14.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 110.9,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3331,18 +3331,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 2.6,
-          "rightShoulderFlexion": 67.1,
-          "rightShoulderRotation": -15.9,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.1,
+          "rightShoulderFlexion": 33.7,
+          "rightShoulderRotation": -15.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.0,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.732
+        "reward_score": 0.6192
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3361,13 +3361,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 2.6,
-          "rightShoulderFlexion": 67.1,
-          "rightShoulderRotation": -15.9,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.1,
+          "rightShoulderFlexion": 33.7,
+          "rightShoulderRotation": -15.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.0,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3385,18 +3385,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 3.3,
-          "rightShoulderFlexion": 66.3,
-          "rightShoulderRotation": -16.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -1.8,
+          "rightShoulderFlexion": 31.0,
+          "rightShoulderRotation": -15.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7589
+        "reward_score": 0.6393
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3415,13 +3415,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 3.3,
-          "rightShoulderFlexion": 66.3,
-          "rightShoulderRotation": -16.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -1.8,
+          "rightShoulderFlexion": 31.0,
+          "rightShoulderRotation": -15.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3439,18 +3439,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.0,
-          "rightShoulderFlexion": 66.6,
-          "rightShoulderRotation": -18.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -1.1,
+          "rightShoulderFlexion": 32.8,
+          "rightShoulderRotation": -15.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7458
+        "reward_score": 0.631
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3469,13 +3469,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.0,
-          "rightShoulderFlexion": 66.6,
-          "rightShoulderRotation": -18.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -1.1,
+          "rightShoulderFlexion": 32.8,
+          "rightShoulderRotation": -15.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3493,18 +3493,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.0,
-          "rightShoulderFlexion": 66.6,
-          "rightShoulderRotation": -18.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.1,
+          "rightShoulderFlexion": 32.8,
+          "rightShoulderRotation": -15.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7473
+        "reward_score": 0.632
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3523,13 +3523,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.0,
-          "rightShoulderFlexion": 66.6,
-          "rightShoulderRotation": -18.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.1,
+          "rightShoulderFlexion": 32.8,
+          "rightShoulderRotation": -15.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3547,18 +3547,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.1,
+          "rightShoulderFlexion": 32.8,
+          "rightShoulderRotation": -15.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 111.8,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7448
+        "reward_score": 0.6285
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3577,13 +3577,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.1,
+          "rightShoulderFlexion": 32.8,
+          "rightShoulderRotation": -15.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 111.8,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3601,18 +3601,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.7,
-          "rightShoulderFlexion": 65.4,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.6,
+          "rightShoulderFlexion": 30.6,
+          "rightShoulderRotation": -16.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.7,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7717
+        "reward_score": 0.6469
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3631,13 +3631,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.7,
-          "rightShoulderFlexion": 65.4,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.6,
+          "rightShoulderFlexion": 30.6,
+          "rightShoulderRotation": -16.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.7,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3655,18 +3655,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.7,
-          "rightShoulderFlexion": 65.4,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.7,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7679
+        "reward_score": 0.6439
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3685,13 +3685,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.7,
-          "rightShoulderFlexion": 65.4,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.5,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.7,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3709,18 +3709,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.1,
-          "rightShoulderFlexion": 65.5,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7675
+        "reward_score": 0.6435
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3739,13 +3739,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.1,
-          "rightShoulderFlexion": 65.5,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3763,18 +3763,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.1,
-          "rightShoulderFlexion": 65.5,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7668
+        "reward_score": 0.6429
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3793,13 +3793,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.1,
-          "rightShoulderFlexion": 65.5,
-          "rightShoulderRotation": -19.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3817,18 +3817,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.9,
-          "rightShoulderFlexion": 65.0,
-          "rightShoulderRotation": -18.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 114.0,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7564
+        "reward_score": 0.6369
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3847,13 +3847,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.9,
-          "rightShoulderFlexion": 65.0,
-          "rightShoulderRotation": -18.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 30.5,
+          "rightShoulderRotation": -16.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 114.0,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3871,18 +3871,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.9,
-          "rightShoulderFlexion": 65.3,
-          "rightShoulderRotation": -18.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.4,
+          "rightShoulderFlexion": 30.8,
+          "rightShoulderRotation": -17.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.5,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7666
+        "reward_score": 0.6429
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3901,13 +3901,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.9,
-          "rightShoulderFlexion": 65.3,
-          "rightShoulderRotation": -18.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.4,
+          "rightShoulderFlexion": 30.8,
+          "rightShoulderRotation": -17.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.5,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3925,18 +3925,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -17.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7306
+        "reward_score": 0.6182
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -3955,13 +3955,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -17.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -3979,18 +3979,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -17.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7308
+        "reward_score": 0.6185
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -4009,13 +4009,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -17.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4033,18 +4033,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -17.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7271
+        "reward_score": 0.6153
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -4063,13 +4063,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 6.5,
-          "rightShoulderFlexion": 66.5,
-          "rightShoulderRotation": -19.4,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -17.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4087,18 +4087,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.1,
-          "rightShoulderFlexion": 66.8,
-          "rightShoulderRotation": -19.9,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 33.6,
+          "rightShoulderRotation": -17.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 111.6,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7227
+        "reward_score": 0.612
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -4117,13 +4117,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.1,
-          "rightShoulderFlexion": 66.8,
-          "rightShoulderRotation": -19.9,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.1,
+          "rightShoulderFlexion": 33.6,
+          "rightShoulderRotation": -17.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 111.6,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4141,18 +4141,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.1,
-          "rightShoulderFlexion": 65.6,
-          "rightShoulderRotation": -18.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 31.5,
+          "rightShoulderRotation": -18.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.9,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7438
+        "reward_score": 0.6268
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -4171,13 +4171,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.1,
-          "rightShoulderFlexion": 65.6,
-          "rightShoulderRotation": -18.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.2,
+          "rightShoulderFlexion": 31.5,
+          "rightShoulderRotation": -18.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.9,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4195,18 +4195,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.1,
-          "rightShoulderFlexion": 65.8,
-          "rightShoulderRotation": -19.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -1.0,
+          "rightShoulderFlexion": 31.9,
+          "rightShoulderRotation": -18.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7376
+        "reward_score": 0.6213
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -4225,13 +4225,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.1,
-          "rightShoulderFlexion": 65.8,
-          "rightShoulderRotation": -19.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -1.0,
+          "rightShoulderFlexion": 31.9,
+          "rightShoulderRotation": -18.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4249,18 +4249,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 4.9,
-          "rightShoulderFlexion": 66.4,
+          "rightShoulderAngle": -0.6,
+          "rightShoulderFlexion": 33.3,
           "rightShoulderRotation": -18.9,
-          "leftShoulderAngle": 2.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.1,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7202
+        "reward_score": 0.6067
       },
       "action_descriptor": "Sign 'one' hold/stroke: right hand holding handshape '1' in Neutral space (Straight movement)."
     },
@@ -4279,13 +4279,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 4.9,
-          "rightShoulderFlexion": 66.4,
+          "rightShoulderAngle": -0.6,
+          "rightShoulderFlexion": 33.3,
           "rightShoulderRotation": -18.9,
-          "leftShoulderAngle": 2.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.1,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4303,18 +4303,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.1,
-          "rightShoulderFlexion": 65.7,
-          "rightShoulderRotation": -20.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.8,
+          "rightShoulderFlexion": 31.7,
+          "rightShoulderRotation": -20.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.7363
+        "reward_score": 0.6194
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4333,13 +4333,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.1,
-          "rightShoulderFlexion": 65.7,
-          "rightShoulderRotation": -20.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.8,
+          "rightShoulderFlexion": 31.7,
+          "rightShoulderRotation": -20.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.4,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4357,18 +4357,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 4.4,
-          "rightShoulderFlexion": 66.0,
-          "rightShoulderRotation": -21.7,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.3,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -24.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.6,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.6943
+        "reward_score": 0.5743
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4387,13 +4387,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 4.4,
-          "rightShoulderFlexion": 66.0,
-          "rightShoulderRotation": -21.7,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.3,
+          "rightShoulderFlexion": 32.9,
+          "rightShoulderRotation": -24.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 112.6,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4411,18 +4411,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.2,
-          "rightShoulderFlexion": 67.2,
-          "rightShoulderRotation": -24.1,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.8,
+          "rightShoulderFlexion": 33.5,
+          "rightShoulderRotation": -27.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 111.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.6579
+        "reward_score": 0.5492
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4441,13 +4441,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 5.2,
-          "rightShoulderFlexion": 67.2,
-          "rightShoulderRotation": -24.1,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 0.8,
+          "rightShoulderFlexion": 33.5,
+          "rightShoulderRotation": -27.9,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 111.3,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4465,18 +4465,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.7,
-          "rightShoulderFlexion": 68.7,
-          "rightShoulderRotation": -26.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 2.6,
+          "rightShoulderFlexion": 37.4,
+          "rightShoulderRotation": -30.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 109.0,
+          "rightElbowBend": 139.1,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.6001
+        "reward_score": 0.5045
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4495,13 +4495,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 7.7,
-          "rightShoulderFlexion": 68.7,
-          "rightShoulderRotation": -26.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 2.6,
+          "rightShoulderFlexion": 37.4,
+          "rightShoulderRotation": -30.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 109.0,
+          "rightElbowBend": 139.1,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4519,18 +4519,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 15.2,
-          "rightShoulderFlexion": 70.2,
-          "rightShoulderRotation": -32.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 7.1,
+          "rightShoulderFlexion": 39.7,
+          "rightShoulderRotation": -30.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 108.3,
+          "rightElbowBend": 136.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.5496
+        "reward_score": 0.4771
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4549,13 +4549,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 15.2,
-          "rightShoulderFlexion": 70.2,
-          "rightShoulderRotation": -32.8,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 7.1,
+          "rightShoulderFlexion": 39.7,
+          "rightShoulderRotation": -30.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 108.3,
+          "rightElbowBend": 136.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4573,18 +4573,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 23.4,
-          "rightShoulderFlexion": 68.3,
-          "rightShoulderRotation": -40.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 11.2,
+          "rightShoulderFlexion": 33.9,
+          "rightShoulderRotation": -38.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 107.9,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.5309
+        "reward_score": 0.4719
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4603,13 +4603,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 23.4,
-          "rightShoulderFlexion": 68.3,
-          "rightShoulderRotation": -40.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 11.2,
+          "rightShoulderFlexion": 33.9,
+          "rightShoulderRotation": -38.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 107.9,
+          "rightElbowBend": 140.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4627,18 +4627,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 3.9,
-          "rightShoulderFlexion": 46.9,
-          "rightShoulderRotation": -31.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 16.7,
+          "rightShoulderFlexion": 42.0,
+          "rightShoulderRotation": -34.8,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 128.2,
+          "rightElbowBend": 132.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.4224
+        "reward_score": 0.4362
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4657,13 +4657,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 3.9,
-          "rightShoulderFlexion": 46.9,
-          "rightShoulderRotation": -31.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 16.7,
+          "rightShoulderFlexion": 42.0,
+          "rightShoulderRotation": -34.8,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 128.2,
+          "rightElbowBend": 132.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4681,18 +4681,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 26.9,
-          "rightShoulderFlexion": 54.7,
-          "rightShoulderRotation": -42.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 10.5,
+          "rightShoulderFlexion": 27.4,
+          "rightShoulderRotation": -35.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 118.3,
+          "rightElbowBend": 133.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.4992
+        "reward_score": 0.4363
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4711,13 +4711,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 26.9,
-          "rightShoulderFlexion": 54.7,
-          "rightShoulderRotation": -42.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 10.5,
+          "rightShoulderFlexion": 27.4,
+          "rightShoulderRotation": -35.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 118.3,
+          "rightElbowBend": 133.7,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4735,18 +4735,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 32.6,
-          "rightShoulderFlexion": 58.3,
-          "rightShoulderRotation": -46.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 9.2,
+          "rightShoulderFlexion": 30.6,
+          "rightShoulderRotation": -30.8,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.0,
+          "rightElbowBend": 125.6,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.4489
+        "reward_score": 0.4286
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4765,13 +4765,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 32.6,
-          "rightShoulderFlexion": 58.3,
-          "rightShoulderRotation": -46.6,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 9.2,
+          "rightShoulderFlexion": 30.6,
+          "rightShoulderRotation": -30.8,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 113.0,
+          "rightElbowBend": 125.6,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4789,18 +4789,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 33.4,
-          "rightShoulderFlexion": 72.7,
-          "rightShoulderRotation": -48.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 15.8,
+          "rightShoulderFlexion": 46.3,
+          "rightShoulderRotation": -25.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 103.8,
+          "rightElbowBend": 110.8,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.4392
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4819,13 +4819,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": 33.4,
-          "rightShoulderFlexion": 72.7,
-          "rightShoulderRotation": -48.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 15.8,
+          "rightShoulderFlexion": 46.3,
+          "rightShoulderRotation": -25.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 103.8,
+          "rightElbowBend": 110.8,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4843,18 +4843,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -0.7,
-          "rightShoulderFlexion": 25.5,
-          "rightShoulderRotation": -21.1,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 9.8,
+          "rightShoulderFlexion": 51.0,
+          "rightShoulderRotation": -25.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 131.9,
+          "rightElbowBend": 114.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3333
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4873,13 +4873,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -0.7,
-          "rightShoulderFlexion": 25.5,
-          "rightShoulderRotation": -21.1,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 9.8,
+          "rightShoulderFlexion": 51.0,
+          "rightShoulderRotation": -25.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 131.9,
+          "rightElbowBend": 114.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4897,18 +4897,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -0.8,
-          "rightShoulderFlexion": 16.0,
-          "rightShoulderRotation": -21.7,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 4.8,
+          "rightShoulderFlexion": 66.4,
+          "rightShoulderRotation": -19.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 140.0,
+          "rightElbowBend": 85.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3714
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4927,13 +4927,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -0.8,
-          "rightShoulderFlexion": 16.0,
-          "rightShoulderRotation": -21.7,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 4.8,
+          "rightShoulderFlexion": 66.4,
+          "rightShoulderRotation": -19.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 140.0,
+          "rightElbowBend": 85.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -4951,18 +4951,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.5,
-          "rightShoulderFlexion": 9.3,
-          "rightShoulderRotation": -39.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.7,
+          "rightShoulderFlexion": 69.3,
+          "rightShoulderRotation": -17.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 140.0,
+          "rightElbowBend": 79.5,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3659
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -4981,13 +4981,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.5,
-          "rightShoulderFlexion": 9.3,
-          "rightShoulderRotation": -39.2,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -0.7,
+          "rightShoulderFlexion": 69.3,
+          "rightShoulderRotation": -17.3,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 140.0,
+          "rightElbowBend": 79.5,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -5005,18 +5005,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.7,
-          "rightShoulderFlexion": 0.0,
-          "rightShoulderRotation": -47.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 8.0,
+          "rightShoulderFlexion": 64.5,
+          "rightShoulderRotation": -20.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 116.8,
+          "rightElbowBend": 88.8,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3582
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -5035,13 +5035,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.7,
-          "rightShoulderFlexion": 0.0,
-          "rightShoulderRotation": -47.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 8.0,
+          "rightShoulderFlexion": 64.5,
+          "rightShoulderRotation": -20.6,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 116.8,
+          "rightElbowBend": 88.8,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -5059,18 +5059,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.6,
-          "rightShoulderFlexion": 0.0,
-          "rightShoulderRotation": -69.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.5,
+          "rightShoulderFlexion": 60.9,
+          "rightShoulderRotation": -16.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 88.2,
+          "rightElbowBend": 107.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3581
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -5089,13 +5089,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.6,
-          "rightShoulderFlexion": 0.0,
-          "rightShoulderRotation": -69.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": -2.5,
+          "rightShoulderFlexion": 60.9,
+          "rightShoulderRotation": -16.4,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 88.2,
+          "rightElbowBend": 107.0,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -5113,18 +5113,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.3,
-          "rightShoulderFlexion": 0.1,
-          "rightShoulderRotation": -50.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 27.0,
+          "rightShoulderFlexion": 48.6,
+          "rightShoulderRotation": -30.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 54.6,
+          "rightElbowBend": 112.9,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3581
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -5143,13 +5143,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.3,
-          "rightShoulderFlexion": 0.1,
-          "rightShoulderRotation": -50.3,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 27.0,
+          "rightShoulderFlexion": 48.6,
+          "rightShoulderRotation": -30.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 54.6,
+          "rightElbowBend": 112.9,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -5167,18 +5167,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.1,
-          "rightShoulderFlexion": 0.1,
-          "rightShoulderRotation": -54.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 29.6,
+          "rightShoulderFlexion": 43.5,
+          "rightShoulderRotation": -32.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 31.1,
+          "rightElbowBend": 120.1,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3582
+        "reward_score": 0.428
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -5197,13 +5197,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -3.1,
-          "rightShoulderFlexion": 0.1,
-          "rightShoulderRotation": -54.5,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 29.6,
+          "rightShoulderFlexion": 43.5,
+          "rightShoulderRotation": -32.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 31.1,
+          "rightElbowBend": 120.1,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -5221,18 +5221,18 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -2.2,
-          "rightShoulderFlexion": 1.2,
-          "rightShoulderRotation": -72.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 19.9,
+          "rightShoulderFlexion": 36.7,
+          "rightShoulderRotation": -25.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 28.6,
+          "rightElbowBend": 120.9,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3583
+        "reward_score": 0.3446
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     },
@@ -5251,13 +5251,13 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -2.2,
-          "rightShoulderFlexion": 1.2,
-          "rightShoulderRotation": -72.0,
-          "leftShoulderAngle": 2.7,
+          "rightShoulderAngle": 19.9,
+          "rightShoulderFlexion": 36.7,
+          "rightShoulderRotation": -25.1,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
-          "rightElbowBend": 28.6,
+          "rightElbowBend": 120.9,
           "leftElbowBend": 40.0,
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
@@ -5275,10 +5275,10 @@
           "neckYaw": 0.0,
           "shoulderElevation": 0.0,
           "shoulderTilt": 0.0,
-          "rightShoulderAngle": -2.7,
+          "rightShoulderAngle": -8.1,
           "rightShoulderFlexion": 6.0,
           "rightShoulderRotation": -60.0,
-          "leftShoulderAngle": 2.7,
+          "leftShoulderAngle": 8.1,
           "leftShoulderFlexion": 6.0,
           "leftShoulderRotation": -60.0,
           "rightElbowBend": 40.0,
@@ -5286,7 +5286,7 @@
           "pelvisTwist": 0.0,
           "pelvisBow": 0.0
         },
-        "reward_score": 0.3564
+        "reward_score": 0.1115
       },
       "action_descriptor": "Sign 'one' retraction: right arm lowering from Neutral space back to neutral resting pose."
     }
@@ -5296,12 +5296,12 @@
     "grid_height": 120,
     "center_x": 78.41,
     "top_head_y": 14.0,
-    "shoulder_y": 78.0,
+    "shoulder_y": 58.5,
     "elbow_y": 106.5,
-    "skeletal_shoulder_half_px": 26.73,
+    "skeletal_shoulder_half_px": 23.75,
     "elbow_half_px": 28.5,
-    "scale_x": 0.2814,
-    "scale_y": 0.2814,
+    "scale_x": 0.25,
+    "scale_y": 0.25,
     "calibrated_rest_state": {
       "headPitch": 0.0,
       "jawOpen": 0.0,
@@ -5309,10 +5309,10 @@
       "neckYaw": 0.0,
       "shoulderElevation": 0.0,
       "shoulderTilt": 0.0,
-      "rightShoulderAngle": -2.7,
+      "rightShoulderAngle": -8.1,
       "rightShoulderFlexion": 6.0,
       "rightShoulderRotation": -60.0,
-      "leftShoulderAngle": 2.7,
+      "leftShoulderAngle": 8.1,
       "leftShoulderFlexion": 6.0,
       "leftShoulderRotation": -60.0,
       "rightElbowBend": 40.0,

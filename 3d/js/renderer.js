@@ -218,15 +218,15 @@ export class RigRenderer {
       );
 
       // Signer's anatomical shoulder center & skeletal span in image pixels
-      const imgCenter_x = (calib.center_x !== undefined ? calib.center_x : 78.25) * gridScaleX;
-      // In ASL-LEX 640x480 portraits, the physical clavicle / shoulder line is around Y=304 px (76.0 grid px)
-      const calibShoulderY = (calib.shoulder_y && calib.shoulder_y >= 70) ? calib.shoulder_y : 76.0;
+      const imgCenter_x = (calib.center_x !== undefined ? calib.center_x : 78.75) * gridScaleX;
+      // In ASL-LEX 640x480 portraits, the physical clavicle / shoulder line is at Y ≈ 235 px (58.75 grid px)
+      const calibShoulderY = (calib.shoulder_y && calib.shoulder_y <= 65) ? calib.shoulder_y : 58.75;
       const imgShoulder_y = calibShoulderY * gridScaleY;
 
-      // Skeletal shoulder half-width: inset from deltoid outer curve (~26.5 grid px / 106 px)
-      const skeletalHalfPx = (calib.skeletal_shoulder_half_px && calib.skeletal_shoulder_half_px >= 24)
+      // Skeletal shoulder half-width (acromion to midline: ~23.75 grid px / 95 native px)
+      const skeletalHalfPx = (calib.skeletal_shoulder_half_px && calib.skeletal_shoulder_half_px <= 25)
         ? calib.skeletal_shoulder_half_px
-        : 26.5;
+        : 23.75;
       const imgShoulderSpanPx = skeletalHalfPx * 2 * gridScaleX;
 
       // Scale photo to match the 3D rig's shoulder width and upper-body proportions

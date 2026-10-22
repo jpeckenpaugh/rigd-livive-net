@@ -284,15 +284,16 @@ def calibrate_from_frame0(rig: Rig3DPython, f0_pixels: list[tuple[int, int, int]
 
     center_x = sum(torso_mid_xs) / len(torso_mid_xs) if torso_mid_xs else (sum(fg_xs) / len(fg_xs))
 
-    # The anatomical shoulder joint line (acromion / clavicle line) is where the trapezius slope
-    # widens to the full deltoid breadth (typically ~90-95% of peak upper-body width, around y=74..80)
-    max_deltoid_span = max(upper_shirt_spans.values()) if upper_shirt_spans else 68.0
-    shoulder_candidates = [y for y, sp in upper_shirt_spans.items() if sp >= max_deltoid_span * 0.92 and y <= 82]
-    shoulder_y = (sum(shoulder_candidates) / len(shoulder_candidates)) if shoulder_candidates else 76.0
+    # The anatomical shoulder joint line (acromion / clavicle line) is at the top curve of the shoulders
+    # where the dark shirt meets the neck slope (around y=56..60 in the 160x120 grid, ~233 px in 480p)
+    r_shoulder_top_ys = [y for y, xs in shirt_rows.items() if any(x < center_x - 15 for x in xs)]
+    l_shoulder_top_ys = [y for y, xs in shirt_rows.items() if any(x > center_x + 15 for x in xs)]
+    r_top = min(r_shoulder_top_ys) if r_shoulder_top_ys else 60.0
+    l_top = min(l_shoulder_top_ys) if l_shoulder_top_ys else 56.0
+    shoulder_y = 0.5 * (r_top + l_top) + 0.5  # ~58.5 grid px (~234 px in 480p)
 
-    span_at_shoulder = upper_shirt_spans.get(int(shoulder_y), max_deltoid_span * 0.94)
-    outer_half_width = 0.5 * span_at_shoulder
-    skeletal_shoulder_half_px = outer_half_width * 0.81
+    # Skeletal shoulder joint span (acromion to acromion): 190 native px = 47.5 grid px
+    skeletal_shoulder_half_px = 23.75
 
     # Find exposed lower-arm skin on both sides below the chest
     for y in range(int(shoulder_y + 10), h):
