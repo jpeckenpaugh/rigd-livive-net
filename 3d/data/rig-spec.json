@@ -1,0 +1,372 @@
+{
+  "scaleH": 100,
+  "proportions": {
+    "pelvisHalfWidth": 0.85,
+    "torsoLength": 2.65,
+    "neckLength": 0.45,
+    "headLength": 0.75,
+    "shoulderHalfWidth": 0.95,
+    "upperArmLength": 1.35,
+    "lowerArmLength": 1.15
+  },
+  "palette": {
+    "pelvis": "#2dd4bf",
+    "torso": "#38bdf8",
+    "neck": "#818cf8",
+    "head": "#a78bfa",
+    "crown": "#c084fc",
+    "jaw": "#fb7185",
+    "shoulders": "#fb923c",
+    "highlight": "#fbbf24",
+    "rightUpperArm": "#34d399",
+    "leftUpperArm": "#22c55e",
+    "rightLowerArm": "#f472b6",
+    "leftLowerArm": "#ec4899",
+    "joints": "#f8fafc"
+  },
+  "symmetryPairs": [
+    { "left": "leftShoulderAngle", "right": "rightShoulderAngle", "sign": -1 },
+    { "left": "leftShoulderFlexion", "right": "rightShoulderFlexion", "sign": 1, "oneSided": true },
+    { "left": "leftShoulderRotation", "right": "rightShoulderRotation", "sign": 1 },
+    { "left": "leftElbowBend", "right": "rightElbowBend", "sign": 1, "oneSided": true }
+  ],
+  "sections": [
+    {
+      "id": "head",
+      "jointId": "skullBase",
+      "jointName": "Atlanto-Occipital (C1)",
+      "cardTitle": "Skull Base (C1)",
+      "exploreLabel": "Explore Skull Base",
+      "dotColor": "#a78bfa",
+      "type": "hinge",
+      "tagLabel": "Hinge (1-DOF)",
+      "tagClass": "tag-hinge",
+      "highlight": {
+        "segments": ["head", "crown", "face"],
+        "joints": ["c1", "headCrown", "rightEar", "leftEar"]
+      },
+      "controls": [
+        {
+          "stateKey": "headPitch",
+          "paramName": "pitch",
+          "sliderId": "ctrl_head_pitch",
+          "valId": "val_head_pitch",
+          "label": "Pitch / Nod (Nod Up/Down)",
+          "min": -45,
+          "max": 50,
+          "default": 0,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "jaw",
+      "jointId": "jaw",
+      "jointName": "Mandible (TMJ)",
+      "cardTitle": "Jaw (Mandible)",
+      "exploreLabel": "Explore Jaw",
+      "dotColor": "#fb7185",
+      "type": "hinge",
+      "tagLabel": "Hinge (1-DOF)",
+      "tagClass": "tag-hinge",
+      "highlight": {
+        "segments": ["rightJaw", "leftJaw"],
+        "joints": ["chin"]
+      },
+      "controls": [
+        {
+          "stateKey": "jawOpen",
+          "paramName": "open",
+          "sliderId": "ctrl_jaw_open",
+          "valId": "val_jaw_open",
+          "label": "Mouth Open",
+          "min": 0,
+          "max": 35,
+          "default": 0,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "neck",
+      "jointId": "neckBase",
+      "jointName": "Cervical Base (C7)",
+      "cardTitle": "Neck Base (C7)",
+      "exploreLabel": "Explore Neck Base",
+      "dotColor": "#38bdf8",
+      "type": "universal",
+      "tagLabel": "Universal (2-DOF)",
+      "tagClass": "tag-universal",
+      "highlight": {
+        "segments": ["neck"],
+        "joints": ["c7", "c1"]
+      },
+      "controls": [
+        {
+          "stateKey": "neckRoll",
+          "paramName": "roll",
+          "sliderId": "ctrl_neck_roll",
+          "valId": "val_neck_roll",
+          "label": "Roll / Tilt (Ear to Shoulder)",
+          "min": -40,
+          "max": 40,
+          "default": 0,
+          "unit": "°"
+        },
+        {
+          "stateKey": "neckYaw",
+          "paramName": "yaw",
+          "sliderId": "ctrl_neck_yaw",
+          "valId": "val_neck_yaw",
+          "label": "Yaw / Turn (Look L/R)",
+          "min": -70,
+          "max": 70,
+          "default": 0,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "shoulderGirdle",
+      "jointId": "shoulderGirdle",
+      "jointName": "Shoulder Girdle",
+      "cardTitle": "Shoulder Girdle",
+      "exploreLabel": "Explore Shoulder Girdle",
+      "dotColor": "#fb923c",
+      "type": "girdle",
+      "tagLabel": "Girdle (2-DOF)",
+      "tagClass": "tag-girdle",
+      "highlight": {
+        "segments": ["rightShoulderGirdle", "leftShoulderGirdle"],
+        "joints": ["c7", "rightShoulder", "leftShoulder"]
+      },
+      "controls": [
+        {
+          "stateKey": "shoulderElevation",
+          "paramName": "elevation",
+          "sliderId": "ctrl_shoulder_elevation",
+          "valId": "val_shoulder_elevation",
+          "label": "Elevation (Both)",
+          "min": -10,
+          "max": 25,
+          "default": 0,
+          "unit": "°"
+        },
+        {
+          "stateKey": "shoulderTilt",
+          "paramName": "tilt",
+          "sliderId": "ctrl_shoulder_tilt",
+          "valId": "val_shoulder_tilt",
+          "label": "Tilt (R Up / L Down)",
+          "min": -15,
+          "max": 15,
+          "default": 0,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "rightShoulder",
+      "jointId": "shoulderRight",
+      "jointName": "Right Shoulder (Glenohumeral)",
+      "cardTitle": "Right Shoulder",
+      "exploreLabel": "Explore Right Shoulder",
+      "dotColor": "#34d399",
+      "type": "ball",
+      "tagLabel": "Ball & Socket",
+      "tagClass": "tag-ball",
+      "highlight": {
+        "segments": ["rightUpperArm"],
+        "joints": ["rightShoulder", "rightElbow"]
+      },
+      "controls": [
+        {
+          "stateKey": "rightShoulderAngle",
+          "paramName": "swing",
+          "sliderId": "ctrl_r_shoulder_angle",
+          "valId": "val_r_shoulder_angle",
+          "label": "Abduction / Adduction",
+          "title": "Right arm: negative raises out to the side; positive moves across the body",
+          "min": -120,
+          "max": 45,
+          "default": 8,
+          "unit": "°"
+        },
+        {
+          "stateKey": "rightShoulderFlexion",
+          "paramName": "flexion",
+          "sliderId": "ctrl_r_shoulder_flexion",
+          "valId": "val_r_shoulder_flexion",
+          "label": "Forward Flexion",
+          "title": "0° = arm at side, 90° = forward horizontal, 180° = overhead",
+          "min": 0,
+          "max": 180,
+          "default": 6,
+          "unit": "°"
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "paramName": "rotation",
+          "sliderId": "ctrl_r_shoulder_rotation",
+          "valId": "val_r_shoulder_rotation",
+          "label": "Humeral Rotation",
+          "title": "At 90° abduction: -90° = forearm down, 0° = forward, +90° = up",
+          "min": -90,
+          "max": 90,
+          "default": -60,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "leftShoulder",
+      "jointId": "shoulderLeft",
+      "jointName": "Left Shoulder (Glenohumeral)",
+      "cardTitle": "Left Shoulder",
+      "exploreLabel": "Explore Left Shoulder",
+      "dotColor": "#22c55e",
+      "type": "ball",
+      "tagLabel": "Ball & Socket",
+      "tagClass": "tag-ball",
+      "highlight": {
+        "segments": ["leftUpperArm"],
+        "joints": ["leftShoulder", "leftElbow"]
+      },
+      "controls": [
+        {
+          "stateKey": "leftShoulderAngle",
+          "paramName": "swing",
+          "sliderId": "ctrl_l_shoulder_angle",
+          "valId": "val_l_shoulder_angle",
+          "label": "Abduction / Adduction",
+          "title": "Left arm: positive raises out to the side; negative moves across the body",
+          "min": -45,
+          "max": 120,
+          "default": -8,
+          "unit": "°"
+        },
+        {
+          "stateKey": "leftShoulderFlexion",
+          "paramName": "flexion",
+          "sliderId": "ctrl_l_shoulder_flexion",
+          "valId": "val_l_shoulder_flexion",
+          "label": "Forward Flexion",
+          "title": "0° = arm at side, 90° = forward horizontal, 180° = overhead",
+          "min": 0,
+          "max": 180,
+          "default": 6,
+          "unit": "°"
+        },
+        {
+          "stateKey": "leftShoulderRotation",
+          "paramName": "rotation",
+          "sliderId": "ctrl_l_shoulder_rotation",
+          "valId": "val_l_shoulder_rotation",
+          "label": "Humeral Rotation",
+          "title": "At 90° abduction: -90° = forearm down, 0° = forward, +90° = up",
+          "min": -90,
+          "max": 90,
+          "default": -60,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "rightElbow",
+      "jointId": "elbowRight",
+      "jointName": "Right Elbow",
+      "cardTitle": "Right Elbow",
+      "exploreLabel": "Explore Right Elbow",
+      "dotColor": "#f472b6",
+      "type": "hinge",
+      "tagLabel": "Hinge (1-DOF)",
+      "tagClass": "tag-hinge",
+      "highlight": {
+        "segments": ["rightLowerArm"],
+        "joints": ["rightElbow", "rightWrist"]
+      },
+      "controls": [
+        {
+          "stateKey": "rightElbowBend",
+          "paramName": "flex",
+          "sliderId": "ctrl_r_elbow_bend",
+          "valId": "val_r_elbow_bend",
+          "label": "Elbow Flexion",
+          "title": "0° = straight, 140° = fully flexed",
+          "min": 0,
+          "max": 140,
+          "default": 40,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "leftElbow",
+      "jointId": "elbowLeft",
+      "jointName": "Left Elbow",
+      "cardTitle": "Left Elbow",
+      "exploreLabel": "Explore Left Elbow",
+      "dotColor": "#f472b6",
+      "type": "hinge",
+      "tagLabel": "Hinge (1-DOF)",
+      "tagClass": "tag-hinge",
+      "highlight": {
+        "segments": ["leftLowerArm"],
+        "joints": ["leftElbow", "leftWrist"]
+      },
+      "controls": [
+        {
+          "stateKey": "leftElbowBend",
+          "paramName": "flex",
+          "sliderId": "ctrl_l_elbow_bend",
+          "valId": "val_l_elbow_bend",
+          "label": "Elbow Flexion",
+          "title": "0° = straight, 140° = fully flexed",
+          "min": 0,
+          "max": 140,
+          "default": 40,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "pelvis",
+      "jointId": "pelvis",
+      "jointName": "Pelvis (Root)",
+      "cardTitle": "Pelvis (Root)",
+      "exploreLabel": "Explore Pelvis",
+      "dotColor": "#2dd4bf",
+      "type": "saddle",
+      "tagLabel": "Saddle (2-DOF)",
+      "tagClass": "tag-saddle",
+      "highlight": {
+        "segments": ["pelvis"],
+        "joints": ["pelvis", "rightHip", "leftHip"]
+      },
+      "controls": [
+        {
+          "stateKey": "pelvisTwist",
+          "paramName": "twist",
+          "sliderId": "ctrl_pelvis_twist",
+          "valId": "val_pelvis_twist",
+          "label": "Twist (Body Turn)",
+          "min": -45,
+          "max": 45,
+          "default": 0,
+          "unit": "°"
+        },
+        {
+          "stateKey": "pelvisBow",
+          "paramName": "bow",
+          "sliderId": "ctrl_pelvis_bow",
+          "valId": "val_pelvis_bow",
+          "label": "Bow (Forward / Back)",
+          "min": -20,
+          "max": 40,
+          "default": 0,
+          "unit": "°"
+        }
+      ]
+    }
+  ]
+}

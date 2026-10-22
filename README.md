@@ -6,7 +6,16 @@ Browser prototypes of an upper-body skeletal rig, built with Canvas 2D and no de
 
 - `index.html` — landing page linking both models
 - `2.5d.html` — preserved front-view rig with hand-projected depth
-- `3d.html` — true 3D skeleton with front, side, top, and isometric views
+- `3d/index.html` — modular 3D skeleton with front, side, top, and isometric views (`3d.html` redirects to `3d/`)
+  - `3d/style.css` — layout, sidebar, joint cards, and responsive styling
+  - `3d/data/rig-spec.json` — proportions, color palette, joint limits, defaults, UI metadata, and symmetry pairs
+  - `3d/data/sequences.json` — declarative preset sequences
+  - `3d/js/math3d.js` — 3D vector and 3×3 rotation matrix helpers
+  - `3d/js/rig.js` — `JointDefinition`, `Rig3D` state, and forward kinematics
+  - `3d/js/renderer.js` — orthographic/isometric camera setup and Canvas 2D projection
+  - `3d/js/animator.js` — Auto Explore, Symmetry/Asymmetry pair tweens, Reset Pose easing, and sequence playback
+  - `3d/js/ui.js` — data-driven sidebar generator and DOM bindings
+  - `3d/js/main.js` — module entry point
 
 Left/right labels use the model's anatomical perspective: in the front view, the model's left appears on the viewer's right.
 

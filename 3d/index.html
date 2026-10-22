@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upper Body Rig - 3D</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <nav class="page-nav" aria-label="Model navigation">
+      <a href="../index.html">← Models</a>
+      <a href="../2.5d.html">2.5D</a>
+      <a href="./index.html" class="active" aria-current="page">3D</a>
+    </nav>
+    <h1>Upper Body Rig &mdash; 3D</h1>
+    <p>One 3D skeleton projected into front, side, top, and isometric views</p>
+  </header>
+
+  <div class="main-layout">
+    <div id="canvas-card">
+      <canvas id="rigCanvas" width="680" height="680"></canvas>
+    </div>
+
+    <aside class="sidebar">
+      <h2>
+        <span>Joint Controls</span>
+        <div class="header-actions">
+          <button class="action-btn" id="autoExploreBtn" aria-pressed="false" title="Checks all joints and roams their limits; uncheck a joint to exclude it">Auto Explore</button>
+          <button class="reset-btn" id="resetPoseBtn">Reset Pose</button>
+        </div>
+      </h2>
+      <div class="explore-modes" role="group" aria-label="Explore symmetry mode">
+        <span class="explore-modes-label">Symmetry</span>
+        <div class="explore-mode-buttons">
+          <button class="mode-btn" id="modeSymBtn" aria-pressed="false" title="Mirror left/right shoulder and elbow movement">Symmetrical</button>
+          <button class="mode-btn" id="modeAntiBtn" aria-pressed="false" title="Anti-mirror left/right shoulder and elbow movement">Asymmetrical</button>
+        </div>
+      </div>
+      <div class="sequence-row">
+        <span class="sequence-label">Sequence</span>
+        <select id="sequenceSelect" class="sequence-select" aria-label="Preset sequence">
+          <option value="">Select sequence…</option>
+        </select>
+      </div>
+      <p class="sidebar-hint">Hover a control group to highlight it on the rig. Check one joint to explore it alone, or use Auto Explore for all. Symmetry pairs the shoulders and elbows.</p>
+
+      <div id="jointCardsContainer"></div>
+
+      <div class="view-toggles">
+        <label><input type="checkbox" id="toggleLabels"> Labels</label>
+        <label><input type="checkbox" id="toggleJoints" checked> Joint Nodes</label>
+        <label><input type="checkbox" id="toggleHeadMesh" checked> Head Sphere</label>
+      </div>
+    </aside>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

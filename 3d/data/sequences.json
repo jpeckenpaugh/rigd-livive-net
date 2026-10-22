@@ -1,0 +1,19 @@
+{
+  "sequences": [
+    {
+      "id": "disagree",
+      "label": "Disagree",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "neckYaw",
+          "type": "sine",
+          "amplitude": 40,
+          "cycles": 5,
+          "blendIn": 0.05,
+          "endValue": 0
+        }
+      ]
+    }
+  ]
+}
