@@ -122,9 +122,12 @@ export class RigRenderer {
     ctx.stroke();
     ctx.clip();
 
-    // Ground grid is most useful in the top and isometric views.
-    if (camera.id === 'top' || camera.id === 'iso') {
-      this.drawGrid(ctx, project);
+    // Draw reference grid (back wall in Front, far wall in Side, floor in Top/3D).
+    this.drawGrid(ctx, project, camera.id);
+
+    // Draw subtle cast shadow from a directional light source in front, above, and slightly to the side.
+    if (options.showShadows !== false) {
+      this.drawShadow(ctx, skel, project, camera, scale);
     }
 
     ctx.font = '600 10px system-ui, sans-serif';
@@ -184,30 +187,149 @@ export class RigRenderer {
     ctx.restore();
   }
 
-  drawGrid(ctx, project) {
+  drawGrid(ctx, project, cameraId) {
     const extent = 260;
     const step = 52;
     ctx.save();
     ctx.lineWidth = 1;
 
-    for (let value = -extent; value <= extent; value += step) {
-      const alpha = value === 0 ? 0.20 : 0.08;
-      ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+    if (cameraId === 'front') {
+      // Back wall (XY plane at Z = 0) starting at the floor (Y = 0) and going up.
+      const minY = 0;
+      const maxY = extent * 2;
+      for (let xVal = -extent; xVal <= extent; xVal += step) {
+        const alpha = xVal === 0 ? 0.20 : 0.08;
+        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+        const a = project(v3(xVal, minY, 0));
+        const b = project(v3(xVal, maxY, 0));
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+      for (let yVal = minY; yVal <= maxY; yVal += step) {
+        const alpha = yVal === 0 ? 0.24 : 0.08;
+        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+        const a = project(v3(-extent, yVal, 0));
+        const b = project(v3(extent, yVal, 0));
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+    } else if (cameraId === 'side') {
+      // Far wall (ZY plane at X = 0) starting at the floor (Y = 0) and going up.
+      const minY = 0;
+      const maxY = extent * 2;
+      for (let zVal = -extent; zVal <= extent; zVal += step) {
+        const alpha = zVal === 0 ? 0.20 : 0.08;
+        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+        const a = project(v3(0, minY, zVal));
+        const b = project(v3(0, maxY, zVal));
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+      for (let yVal = minY; yVal <= maxY; yVal += step) {
+        const alpha = yVal === 0 ? 0.24 : 0.08;
+        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+        const a = project(v3(0, yVal, -extent));
+        const b = project(v3(0, yVal, extent));
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+    } else {
+      // Floor grid (XZ plane at Y = 0) for Top and 3D isometric views.
+      for (let value = -extent; value <= extent; value += step) {
+        const alpha = value === 0 ? 0.20 : 0.08;
+        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
 
-      let a = project(v3(value, 0, -extent));
-      let b = project(v3(value, 0, extent));
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.lineTo(b.x, b.y);
-      ctx.stroke();
+        let a = project(v3(value, 0, -extent));
+        let b = project(v3(value, 0, extent));
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
 
-      a = project(v3(-extent, 0, value));
-      b = project(v3(extent, 0, value));
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.lineTo(b.x, b.y);
-      ctx.stroke();
+        a = project(v3(-extent, 0, value));
+        b = project(v3(extent, 0, value));
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
     }
+
+    ctx.restore();
+  }
+
+  drawShadow(ctx, skel, project, camera, scale) {
+    // Directional light source positioned in front (+Z), above (+Y), and slightly to the viewer's left (-X).
+    // Light rays travel in direction L = (+0.32, -1.0, -0.62).
+    const lightDir = vNorm(v3(0.32, -1.0, -0.62));
+    const floorY = 0;
+
+    let castPoint;
+    if (camera.id === 'front') {
+      // Back wall at Z = -110, clamped at the floor (Y = 0) so the shadow never sinks below the pelvis/ground.
+      const wallZ = -110;
+      castPoint = (pt) => {
+        const tWall = (wallZ - pt.z) / lightDir.z;
+        const hitWall = vAdd(pt, vScale(lightDir, tWall));
+        if (hitWall.y < floorY) {
+          const tFloor = (floorY - pt.y) / lightDir.y;
+          return vAdd(pt, vScale(lightDir, tFloor));
+        }
+        return hitWall;
+      };
+    } else if (camera.id === 'side') {
+      // Far wall at X = 135, clamped at the floor (Y = 0) so the shadow stays planted at the pelvis.
+      const wallX = 135;
+      castPoint = (pt) => {
+        const tWall = (wallX - pt.x) / lightDir.x;
+        const hitWall = vAdd(pt, vScale(lightDir, tWall));
+        if (hitWall.y < floorY) {
+          const tFloor = (floorY - pt.y) / lightDir.y;
+          return vAdd(pt, vScale(lightDir, tFloor));
+        }
+        return hitWall;
+      };
+    } else {
+      // Floor plane at Y = 0 for TOP and 3D isometric views
+      castPoint = (pt) => {
+        const t = (floorY - pt.y) / lightDir.y;
+        return vAdd(pt, vScale(lightDir, t));
+      };
+    }
+
+    ctx.save();
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = 'rgba(2, 6, 23, 0.45)';
+    ctx.fillStyle = 'rgba(2, 6, 23, 0.30)';
+    ctx.shadowColor = 'rgba(2, 6, 23, 0.55)';
+    ctx.shadowBlur = 4;
+
+    if (skel.headCenter && skel.headRadius) {
+      const shCenter = project(castPoint(skel.headCenter));
+      const shRadius = skel.headRadius * scale * (camera.id === 'top' || camera.id === 'iso' ? 0.92 : 0.96);
+      ctx.beginPath();
+      ctx.arc(shCenter.x, shCenter.y, shRadius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    skel.segments.forEach(seg => {
+      const a = project(castPoint(seg.from));
+      const b = project(castPoint(seg.to));
+      ctx.lineWidth = (seg.width || 5) * 0.9;
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+    });
 
     ctx.restore();
   }

@@ -48,10 +48,12 @@ The 3D page has an alphabetized **Sequence** dropdown driven by `3d/data/sequenc
 - **Point Me** — right-handed point back toward the chest (`rightShoulderAngle: 20°`, `rightShoulderFlexion: 60°`, `rightShoulderRotation: -110°`, `rightElbowBend: 130°`)
 - **Point Right** — right-handed point to the model's right (`rightShoulderAngle: -60°`, `rightShoulderRotation: 70°`, `rightElbowBend: 50°`)
 - **Point You** — right-handed straight-ahead point (`rightShoulderFlexion: 60°`, `rightShoulderRotation: 0°`)
+- **We Don't Go Left** — chained sequence (`reset` → `point-you` → `point-me` → `point-left + disagree`)
+- **We Go Right** — chained sequence (`reset` → `point-you` → `point-me` → `point-right + agree`)
 
 Selecting a sequence stops Auto Explore and cancels any symmetry or reset tween.
 
 The 3D page uses one shared skeleton and four cameras. Front, side, and top are orthographic;
-the isometric view uses the same projected skeleton for depth reading.
+the isometric view uses the same projected skeleton for depth reading. Each viewport includes a reference grid (back wall in Front, far wall in Side, and floor in Top/3D) and toggleable cast shadows from a directional light source.
 
 Serve the repository over a local HTTP server (e.g., `python3 -m http.server 8000`) or visit `https://rigd.livive.net/`.

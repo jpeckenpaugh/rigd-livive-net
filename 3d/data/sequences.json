@@ -224,6 +224,27 @@
           "target": 20
         }
       ]
+    },
+    {
+      "id": "we-go-right",
+      "label": "We Go Right",
+      "chain": [
+        "reset",
+        "point-you",
+        "point-me",
+        "point-right",
+        "agree"
+      ]
+    },
+    {
+      "id": "we-dont-go-left",
+      "label": "We Don't Go Left",
+      "chain": [
+        "reset",
+        "point-you",
+        "point-me",
+        ["point-left", "disagree"]
+      ]
     }
   ]
 }

@@ -207,6 +207,54 @@ export class RigAnimator {
     }
   }
 
+  resolveStepSpec(stepEntry, visited = new Set()) {
+    const ids = Array.isArray(stepEntry)
+      ? stepEntry
+      : typeof stepEntry === 'string'
+        ? stepEntry.split('+').map(s => s.trim()).filter(Boolean)
+        : [];
+
+    const tracks = [];
+    let duration = 0;
+
+    ids.forEach(id => {
+      if (id === 'reset' || id === 'reset-pose') {
+        const defaults = this.rig.getDefaultState();
+        let anyDiff = false;
+        Object.entries(defaults).forEach(([stateKey, target]) => {
+          if (Math.abs((this.rig.state[stateKey] ?? 0) - target) > 0.001) {
+            anyDiff = true;
+          }
+          tracks.push({ stateKey, type: 'tween', target });
+        });
+        // Skip the 1-second wait if the rig is already in the default pose
+        duration = Math.max(duration, anyDiff ? 1000 : 0);
+        return;
+      }
+
+      const sub = this.sequencesById.get(id);
+      if (!sub || visited.has(id)) return;
+
+      if (Array.isArray(sub.chain)) {
+        // Flatten nested chains if someone chains a chain
+        const nextVisited = new Set(visited);
+        nextVisited.add(id);
+        sub.chain.forEach(nestedEntry => {
+          const resolved = this.resolveStepSpec(nestedEntry, nextVisited);
+          tracks.push(...resolved.tracks);
+          duration = Math.max(duration, resolved.duration);
+        });
+      } else {
+        duration = Math.max(duration, sub.duration || 1000);
+        if (Array.isArray(sub.tracks)) {
+          tracks.push(...sub.tracks);
+        }
+      }
+    });
+
+    return { duration, tracks };
+  }
+
   startSequence(name) {
     this.cancelSequence(false);
 
@@ -220,105 +268,137 @@ export class RigAnimator {
     this.cancelPairTween();
     this.cancelResetTween();
 
-    const startTime = performance.now();
-    const duration = seq.duration || 1000;
-    const trackStates = (seq.tracks || []).map(track => ({
-      ...track,
-      startValue: this.rig.state[track.stateKey] ?? 0
-    }));
+    const rawSteps = Array.isArray(seq.chain) && seq.chain.length > 0
+      ? seq.chain
+      : [{ duration: seq.duration || 1000, tracks: seq.tracks || [] }];
 
     this.sequenceState = { name };
 
-    const step = (now) => {
+    const runStep = (stepIndex) => {
       if (!this.sequenceState || this.sequenceState.name !== name) return;
 
-      const progress = Math.min(1, (now - startTime) / duration);
+      if (stepIndex >= rawSteps.length) {
+        this.sequenceRAF = null;
+        this.sequenceState = null;
+        this.ui.clearSequenceSelection();
+        return;
+      }
 
-      trackStates.forEach(track => {
-        if (track.type === 'sine') {
-          const blendWindow = track.blendIn || 0.05;
-          const blendIn = Math.min(1, progress / blendWindow);
-          const oscillation = track.amplitude * Math.sin(2 * Math.PI * track.cycles * progress);
-          const val = track.startValue * (1 - blendIn) + oscillation * blendIn;
-          this.ui.setControlValue(track.stateKey, val);
-        } else if (track.type === 'keyframes' || Array.isArray(track.keyframes)) {
-          const kfs = track.keyframes || [];
-          if (kfs.length === 0) return;
+      const raw = rawSteps[stepIndex];
+      const spec = (raw && typeof raw === 'object' && !Array.isArray(raw) && Array.isArray(raw.tracks))
+        ? { duration: raw.duration || 1000, tracks: raw.tracks }
+        : this.resolveStepSpec(raw, new Set([name]));
 
-          const points = kfs[0].t > 0
-            ? [{ t: 0, value: track.startValue }, ...kfs]
-            : kfs.map((kf, idx) => (idx === 0 && kf.value === undefined ? { ...kf, value: track.startValue } : kf));
-
-          let segStart = points[0];
-          let segEnd = points[points.length - 1];
-          for (let i = 0; i < points.length - 1; i++) {
-            if (progress >= points[i].t && progress <= points[i + 1].t) {
-              segStart = points[i];
-              segEnd = points[i + 1];
-              break;
-            }
-          }
-
-          const span = Math.max(0.0001, segEnd.t - segStart.t);
-          const localP = Math.min(1, Math.max(0, (progress - segStart.t) / span));
-          const eased = localP < 0.5
-            ? 2 * localP * localP
-            : 1 - Math.pow(-2 * localP + 2, 2) / 2;
-          const val = segStart.value + (segEnd.value - segStart.value) * eased;
-          this.ui.setControlValue(track.stateKey, val);
-        } else if (track.type === 'pulse') {
-          const target = track.target ?? track.endValue ?? 0;
-          const holdWindow = track.hold ?? 0.25;
-          const moveWindow = (1 - holdWindow) / 2;
-          let t = 0;
-          if (progress < moveWindow) {
-            const p = progress / moveWindow;
-            t = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-          } else if (progress <= 1 - moveWindow) {
-            t = 1;
-          } else {
-            const p = (1 - progress) / moveWindow;
-            t = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-          }
-          const base = track.endValue ?? track.startValue;
-          const from = progress <= 0.5 ? track.startValue : base;
-          const val = from + (target - from) * t;
-          this.ui.setControlValue(track.stateKey, val);
-        } else {
-          // Default ('tween' or target value): ease-in-out from startValue to target
-          const endT = track.endAt ?? 1;
-          const localP = Math.min(1, progress / Math.max(0.0001, endT));
-          const target = track.target ?? track.endValue ?? track.startValue;
-          const eased = localP < 0.5
-            ? 2 * localP * localP
-            : 1 - Math.pow(-2 * localP + 2, 2) / 2;
-          const val = track.startValue + (target - track.startValue) * eased;
-          this.ui.setControlValue(track.stateKey, val);
-        }
-      });
-
-      this.ui.requestRender();
-
-      if (progress < 1) {
-        this.sequenceRAF = requestAnimationFrame(step);
-      } else {
-        trackStates.forEach(track => {
-          const lastKf = Array.isArray(track.keyframes) && track.keyframes.length > 0
-            ? track.keyframes[track.keyframes.length - 1].value
-            : undefined;
-          const finalVal = track.endValue ?? track.target ?? lastKf;
+      if (spec.duration <= 0 || spec.tracks.length === 0) {
+        spec.tracks.forEach(track => {
+          const finalVal = track.endValue ?? track.target;
           if (typeof finalVal === 'number') {
             this.ui.setControlValue(track.stateKey, finalVal);
           }
         });
         this.ui.requestRender();
-        this.sequenceRAF = null;
-        this.sequenceState = null;
-        this.ui.clearSequenceSelection();
+        runStep(stepIndex + 1);
+        return;
       }
+
+      const startTime = performance.now();
+      const duration = spec.duration;
+      const trackStates = spec.tracks.map(track => ({
+        ...track,
+        startValue: this.rig.state[track.stateKey] ?? 0
+      }));
+
+      const step = (now) => {
+        if (!this.sequenceState || this.sequenceState.name !== name) return;
+
+        const progress = Math.min(1, (now - startTime) / duration);
+
+        trackStates.forEach(track => {
+          if (track.type === 'sine') {
+            const blendWindow = track.blendIn || 0.05;
+            const blendIn = Math.min(1, progress / blendWindow);
+            const oscillation = track.amplitude * Math.sin(2 * Math.PI * track.cycles * progress);
+            const val = track.startValue * (1 - blendIn) + oscillation * blendIn;
+            this.ui.setControlValue(track.stateKey, val);
+          } else if (track.type === 'keyframes' || Array.isArray(track.keyframes)) {
+            const kfs = track.keyframes || [];
+            if (kfs.length === 0) return;
+
+            const points = kfs[0].t > 0
+              ? [{ t: 0, value: track.startValue }, ...kfs]
+              : kfs.map((kf, idx) => (idx === 0 && kf.value === undefined ? { ...kf, value: track.startValue } : kf));
+
+            let segStart = points[0];
+            let segEnd = points[points.length - 1];
+            for (let i = 0; i < points.length - 1; i++) {
+              if (progress >= points[i].t && progress <= points[i + 1].t) {
+                segStart = points[i];
+                segEnd = points[i + 1];
+                break;
+              }
+            }
+
+            const span = Math.max(0.0001, segEnd.t - segStart.t);
+            const localP = Math.min(1, Math.max(0, (progress - segStart.t) / span));
+            const eased = localP < 0.5
+              ? 2 * localP * localP
+              : 1 - Math.pow(-2 * localP + 2, 2) / 2;
+            const val = segStart.value + (segEnd.value - segStart.value) * eased;
+            this.ui.setControlValue(track.stateKey, val);
+          } else if (track.type === 'pulse') {
+            const target = track.target ?? track.endValue ?? 0;
+            const holdWindow = track.hold ?? 0.25;
+            const moveWindow = (1 - holdWindow) / 2;
+            let t = 0;
+            if (progress < moveWindow) {
+              const p = progress / moveWindow;
+              t = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+            } else if (progress <= 1 - moveWindow) {
+              t = 1;
+            } else {
+              const p = (1 - progress) / moveWindow;
+              t = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+            }
+            const base = track.endValue ?? track.startValue;
+            const from = progress <= 0.5 ? track.startValue : base;
+            const val = from + (target - from) * t;
+            this.ui.setControlValue(track.stateKey, val);
+          } else {
+            // Default ('tween' or target value): ease-in-out from startValue to target
+            const endT = track.endAt ?? 1;
+            const localP = Math.min(1, progress / Math.max(0.0001, endT));
+            const target = track.target ?? track.endValue ?? track.startValue;
+            const eased = localP < 0.5
+              ? 2 * localP * localP
+              : 1 - Math.pow(-2 * localP + 2, 2) / 2;
+            const val = track.startValue + (target - track.startValue) * eased;
+            this.ui.setControlValue(track.stateKey, val);
+          }
+        });
+
+        this.ui.requestRender();
+
+        if (progress < 1) {
+          this.sequenceRAF = requestAnimationFrame(step);
+        } else {
+          trackStates.forEach(track => {
+            const lastKf = Array.isArray(track.keyframes) && track.keyframes.length > 0
+              ? track.keyframes[track.keyframes.length - 1].value
+              : undefined;
+            const finalVal = track.endValue ?? track.target ?? lastKf;
+            if (typeof finalVal === 'number') {
+              this.ui.setControlValue(track.stateKey, finalVal);
+            }
+          });
+          this.ui.requestRender();
+          runStep(stepIndex + 1);
+        }
+      };
+
+      this.sequenceRAF = requestAnimationFrame(step);
     };
 
-    this.sequenceRAF = requestAnimationFrame(step);
+    runStep(0);
   }
 
   setExploreMode(mode) {

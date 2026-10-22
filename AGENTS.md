@@ -62,11 +62,17 @@ When authoring or debugging sequences in `3d/data/sequences.json`, always use th
 
 *Note on Humeral Rotation:* Because the upper arm and forearm are 1D segments along local `Y`, axial humeral rotation (`rightShoulderRotation` / `leftShoulderRotation`) only changes the wrist position when the elbow has a non-zero bend (`rightElbowBend > 0`).
 
-## Sequence Track Types (`3d/data/sequences.json`)
+## Sequence Track Types & Chaining (`3d/data/sequences.json`)
 
-Each sequence in `3d/data/sequences.json` has `{ "id", "label", "duration", "tracks": [...] }`. Supported track types in `3d/js/animator.js`:
+Each sequence in `3d/data/sequences.json` has `{ "id", "label", "duration", "tracks": [...] }` or `{ "id", "label", "chain": [...] }`.
 
+Supported track types in `3d/js/animator.js`:
 - **`"tween"`**: Smooth ease-in-out from current state to `"target"` (optional `"endAt": 0..1` to finish early and hold).
 - **`"sine"`**: Oscillates around 0 with `"amplitude"`, `"cycles"`, `"blendIn"`, and `"endValue"`.
 - **`"keyframes"`**: Multi-step eased keyframes via `"keyframes": [{ "t": 0.4, "value": -15 }, ...]`.
 - **`"pulse"`**: Eases to `"target"`, holds for `"hold"` fraction of duration, and eases to `"endValue"` (or back to start).
+
+Supported `"chain"` entries in `3d/js/animator.js`:
+- **Single sequence ID** (e.g. `"point-you"`): Runs that sequence's tracks.
+- **`"reset"` / `"reset-pose"`**: Eases all joints back to default pose over 1s (skipped automatically if already at default pose).
+- **Parallel sequence IDs** (e.g. `["point-right", "agree"]` or `"point-right+agree"`): Merges tracks and runs them simultaneously.

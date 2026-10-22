@@ -24,6 +24,7 @@ export class RigUI {
     this.toggleLabels = document.getElementById('toggleLabels');
     this.toggleJoints = document.getElementById('toggleJoints');
     this.toggleHeadMesh = document.getElementById('toggleHeadMesh');
+    this.toggleShadows = document.getElementById('toggleShadows');
   }
 
   init(animator) {
@@ -217,8 +218,8 @@ export class RigUI {
       this.animator.startResetTween();
     });
 
-    [this.toggleLabels, this.toggleJoints, this.toggleHeadMesh].forEach(el => {
-      el.addEventListener('change', () => this.requestRender());
+    [this.toggleLabels, this.toggleJoints, this.toggleHeadMesh, this.toggleShadows].forEach(el => {
+      if (el) el.addEventListener('change', () => this.requestRender());
     });
   }
 
@@ -280,6 +281,7 @@ export class RigUI {
       showLabels: this.toggleLabels.checked,
       showJoints: this.toggleJoints.checked,
       showHeadMesh: this.toggleHeadMesh.checked,
+      showShadows: this.toggleShadows ? this.toggleShadows.checked : true,
       highlightSection: this.hoveredSection
     });
   }

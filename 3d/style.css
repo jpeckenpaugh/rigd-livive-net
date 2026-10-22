@@ -184,7 +184,27 @@ canvas {
 
 .explore-mode-buttons {
   display: flex;
+  align-items: center;
   gap: 6px;
+}
+
+.shadow-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.shadow-toggle input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: #fbbf24;
+  cursor: pointer;
 }
 
 .mode-btn {
@@ -345,7 +365,8 @@ input[type=range] {
 
 .view-toggles {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 12px 16px;
   margin-top: 14px;
   border-top: 1px solid #334155;
   padding-top: 12px;
