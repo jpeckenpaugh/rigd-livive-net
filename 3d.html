@@ -221,6 +221,42 @@
       color: #0f172a;
     }
 
+    .sequence-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 0 0 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .sequence-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    .sequence-select {
+      flex: 1;
+      min-width: 130px;
+      max-width: 200px;
+      padding: 5px 8px;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      background: #0f172a;
+      color: #cbd5e1;
+      font-family: inherit;
+      font-size: 0.72rem;
+      cursor: pointer;
+    }
+
+    .sequence-select:focus {
+      outline: 1px solid #fbbf24;
+      border-color: #fbbf24;
+    }
+
     .joint-card {
       background: #0f172a;
       border: 1px solid #334155;
@@ -477,6 +513,13 @@
           <button class="mode-btn" id="modeSymBtn" aria-pressed="false" title="Mirror left/right shoulder and elbow movement">Symmetrical</button>
           <button class="mode-btn" id="modeAntiBtn" aria-pressed="false" title="Anti-mirror left/right shoulder and elbow movement">Asymmetrical</button>
         </div>
+      </div>
+      <div class="sequence-row">
+        <span class="sequence-label">Sequence</span>
+        <select id="sequenceSelect" class="sequence-select" aria-label="Preset sequence">
+          <option value="">Select sequence…</option>
+          <option value="disagree">Disagree</option>
+        </select>
       </div>
       <p class="sidebar-hint">Hover a control group to highlight it on the rig. Check one joint to explore it alone, or use Auto Explore for all. Symmetry pairs the shoulders and elbows.</p>
 
@@ -1445,6 +1488,7 @@
         stopExplore();
         cancelPairTween();
         cancelResetTween();
+        cancelSequence();
 
         let val = parseFloat(e.target.value);
         if (jointRef && paramName) {
@@ -1534,6 +1578,9 @@
     let exploreMode = 'free';
     let pairTween = null;
     let resetTween = null;
+    let sequenceRAF = null;
+    let sequenceState = null;
+    const sequenceSelect = document.getElementById('sequenceSelect');
 
     function randomBetween(min, max) {
       return min + Math.random() * (max - min);
@@ -1712,7 +1759,64 @@
       }
     }
 
+    function cancelSequence(clearSelection = true) {
+      if (sequenceRAF !== null) {
+        cancelAnimationFrame(sequenceRAF);
+        sequenceRAF = null;
+      }
+      sequenceState = null;
+      if (clearSelection) {
+        sequenceSelect.value = '';
+      }
+    }
+
+    function startSequence(name) {
+      cancelSequence(false);
+
+      if (name !== 'disagree') {
+        sequenceSelect.value = '';
+        return;
+      }
+
+      stopExplore();
+      cancelPairTween();
+      cancelResetTween();
+
+      const startYaw = rig.state.neckYaw;
+      const startTime = performance.now();
+      const duration = 1000;
+      const amplitude = 40;
+      const cycles = 5;
+
+      sequenceState = { name };
+
+      const step = (now) => {
+        if (!sequenceState || sequenceState.name !== name) return;
+
+        const progress = Math.min(1, (now - startTime) / duration);
+        const blendIn = Math.min(1, progress / 0.05);
+        const oscillation = amplitude * Math.sin(2 * Math.PI * cycles * progress);
+        const yaw = startYaw * (1 - blendIn) + oscillation * blendIn;
+
+        setControlValue('neckYaw', yaw);
+        render();
+
+        if (progress < 1) {
+          sequenceRAF = requestAnimationFrame(step);
+        } else {
+          setControlValue('neckYaw', 0);
+          render();
+          sequenceRAF = null;
+          sequenceState = null;
+          sequenceSelect.value = '';
+        }
+      };
+
+      sequenceRAF = requestAnimationFrame(step);
+    }
+
     function setExploreMode(mode) {
+      cancelSequence();
       cancelResetTween();
       exploreMode = mode;
       modeSymBtn.classList.toggle('is-active', mode === 'sym');
@@ -1729,6 +1833,7 @@
 
     function startExplore(checkAll = true) {
       if (exploring) return;
+      cancelSequence();
       cancelResetTween();
 
       // Auto Explore checks every joint; a single checkbox starts a focused run.
@@ -1861,6 +1966,14 @@
       setExploreMode(exploreMode === 'anti' ? 'free' : 'anti');
     });
 
+    sequenceSelect.addEventListener('change', () => {
+      if (!sequenceSelect.value) {
+        cancelSequence();
+        return;
+      }
+      startSequence(sequenceSelect.value);
+    });
+
     exploreChecks.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
         const enabledCount = getEnabledExploreSections().size;
@@ -1924,6 +2037,7 @@
     }
 
     resetBtn.addEventListener('click', () => {
+      cancelSequence();
       stopExplore();
       setExploreMode('free');
       startResetTween();

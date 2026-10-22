@@ -26,6 +26,12 @@ Left/right labels use the model's anatomical perspective: in the front view, the
 
 The 3D arm chain is composed as forward flexion → abduction/adduction → humeral rotation → local elbow flexion.
 
+## Preset sequences
+
+The 3D page has a Sequence dropdown. The first preset is **Disagree**: a one-second head-shake
+with five ±40° neck-yaw cycles, returning to neutral. Selecting a sequence stops Auto Explore
+and cancels any symmetry or reset tween.
+
 The 3D page uses one shared skeleton and four cameras. Front, side, and top are orthographic;
 the isometric view uses the same projected skeleton for depth reading.
 
