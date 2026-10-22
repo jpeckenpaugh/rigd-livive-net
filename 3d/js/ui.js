@@ -49,6 +49,7 @@ export class RigUI {
   init(animator) {
     this.animator = animator;
     this.buildSequenceDropdown();
+    this.buildKeyframeSignDropdown();
     this.buildJointCards();
     this.bindHeaderControls();
     this.syncUI();
@@ -65,6 +66,31 @@ export class RigUI {
       opt.textContent = seq.label;
       this.sequenceSelect.appendChild(opt);
     });
+  }
+
+  buildKeyframeSignDropdown() {
+    if (!this.kfSignSelect) return;
+    const aslSeqs = (this.sequences || [])
+      .filter(s => s.id && s.id.startsWith('asl-'))
+      .sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }));
+
+    if (aslSeqs.length > 0) {
+      const current = this.kfSignSelect.value || this.currentSign || 'one';
+      this.kfSignSelect.innerHTML = '';
+      aslSeqs.forEach(seq => {
+        const sign = seq.id.replace('asl-', '');
+        const opt = document.createElement('option');
+        opt.value = sign;
+        opt.textContent = seq.label;
+        this.kfSignSelect.appendChild(opt);
+      });
+      if (aslSeqs.some(s => s.id.replace('asl-', '') === current)) {
+        this.kfSignSelect.value = current;
+      } else {
+        this.kfSignSelect.value = aslSeqs[0].id.replace('asl-', '');
+        this.currentSign = this.kfSignSelect.value;
+      }
+    }
   }
 
   buildJointCards() {
