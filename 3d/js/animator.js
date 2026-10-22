@@ -241,6 +241,59 @@ export class RigAnimator {
           const oscillation = track.amplitude * Math.sin(2 * Math.PI * track.cycles * progress);
           const val = track.startValue * (1 - blendIn) + oscillation * blendIn;
           this.ui.setControlValue(track.stateKey, val);
+        } else if (track.type === 'keyframes' || Array.isArray(track.keyframes)) {
+          const kfs = track.keyframes || [];
+          if (kfs.length === 0) return;
+
+          const points = kfs[0].t > 0
+            ? [{ t: 0, value: track.startValue }, ...kfs]
+            : kfs.map((kf, idx) => (idx === 0 && kf.value === undefined ? { ...kf, value: track.startValue } : kf));
+
+          let segStart = points[0];
+          let segEnd = points[points.length - 1];
+          for (let i = 0; i < points.length - 1; i++) {
+            if (progress >= points[i].t && progress <= points[i + 1].t) {
+              segStart = points[i];
+              segEnd = points[i + 1];
+              break;
+            }
+          }
+
+          const span = Math.max(0.0001, segEnd.t - segStart.t);
+          const localP = Math.min(1, Math.max(0, (progress - segStart.t) / span));
+          const eased = localP < 0.5
+            ? 2 * localP * localP
+            : 1 - Math.pow(-2 * localP + 2, 2) / 2;
+          const val = segStart.value + (segEnd.value - segStart.value) * eased;
+          this.ui.setControlValue(track.stateKey, val);
+        } else if (track.type === 'pulse') {
+          const target = track.target ?? track.endValue ?? 0;
+          const holdWindow = track.hold ?? 0.25;
+          const moveWindow = (1 - holdWindow) / 2;
+          let t = 0;
+          if (progress < moveWindow) {
+            const p = progress / moveWindow;
+            t = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          } else if (progress <= 1 - moveWindow) {
+            t = 1;
+          } else {
+            const p = (1 - progress) / moveWindow;
+            t = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          }
+          const base = track.endValue ?? track.startValue;
+          const from = progress <= 0.5 ? track.startValue : base;
+          const val = from + (target - from) * t;
+          this.ui.setControlValue(track.stateKey, val);
+        } else {
+          // Default ('tween' or target value): ease-in-out from startValue to target
+          const endT = track.endAt ?? 1;
+          const localP = Math.min(1, progress / Math.max(0.0001, endT));
+          const target = track.target ?? track.endValue ?? track.startValue;
+          const eased = localP < 0.5
+            ? 2 * localP * localP
+            : 1 - Math.pow(-2 * localP + 2, 2) / 2;
+          const val = track.startValue + (target - track.startValue) * eased;
+          this.ui.setControlValue(track.stateKey, val);
         }
       });
 
@@ -250,8 +303,12 @@ export class RigAnimator {
         this.sequenceRAF = requestAnimationFrame(step);
       } else {
         trackStates.forEach(track => {
-          if (typeof track.endValue === 'number') {
-            this.ui.setControlValue(track.stateKey, track.endValue);
+          const lastKf = Array.isArray(track.keyframes) && track.keyframes.length > 0
+            ? track.keyframes[track.keyframes.length - 1].value
+            : undefined;
+          const finalVal = track.endValue ?? track.target ?? lastKf;
+          if (typeof finalVal === 'number') {
+            this.ui.setControlValue(track.stateKey, finalVal);
           }
         });
         this.ui.requestRender();

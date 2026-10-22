@@ -9,9 +9,140 @@
           "stateKey": "neckYaw",
           "type": "sine",
           "amplitude": 40,
-          "cycles": 5,
-          "blendIn": 0.05,
+          "cycles": 2,
+          "blendIn": 0.15,
           "endValue": 0
+        }
+      ]
+    },
+    {
+      "id": "agree",
+      "label": "Agree",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "headPitch",
+          "type": "sine",
+          "amplitude": 20,
+          "cycles": 2,
+          "blendIn": 0.15,
+          "endValue": 0
+        }
+      ]
+    },
+    {
+      "id": "point-you",
+      "label": "Point You",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "rightShoulderFlexion",
+          "type": "tween",
+          "target": 60
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "type": "tween",
+          "target": 0
+        }
+      ]
+    },
+    {
+      "id": "point-it",
+      "label": "Point It",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "rightShoulderFlexion",
+          "type": "tween",
+          "target": 60
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "type": "tween",
+          "target": 50
+        }
+      ]
+    },
+    {
+      "id": "point-right",
+      "label": "Point Right",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "rightShoulderAngle",
+          "type": "tween",
+          "target": -60
+        },
+        {
+          "stateKey": "rightShoulderFlexion",
+          "type": "tween",
+          "target": 0
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "type": "tween",
+          "target": 70
+        },
+        {
+          "stateKey": "rightElbowBend",
+          "type": "tween",
+          "target": 50
+        }
+      ]
+    },
+    {
+      "id": "point-left",
+      "label": "Point Left",
+      "duration": 1000,
+      "tracks": [
+        {
+          "stateKey": "rightShoulderAngle",
+          "type": "tween",
+          "target": 45
+        },
+        {
+          "stateKey": "rightShoulderFlexion",
+          "type": "tween",
+          "target": 0
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "type": "tween",
+          "target": -90
+        },
+        {
+          "stateKey": "rightElbowBend",
+          "type": "tween",
+          "target": 50
+        }
+      ]
+    },
+    {
+      "id": "hats-off",
+      "label": "Hats Off",
+      "duration": 1500,
+      "tracks": [
+        {
+          "stateKey": "rightShoulderAngle",
+          "type": "keyframes",
+          "keyframes": [
+            { "t": 0.4, "value": -15 },
+            { "t": 0.7, "value": 0 },
+            { "t": 1.0, "value": -15 }
+          ]
+        },
+        {
+          "stateKey": "rightShoulderFlexion",
+          "type": "tween",
+          "target": 115,
+          "endAt": 0.4
+        },
+        {
+          "stateKey": "rightShoulderRotation",
+          "type": "tween",
+          "target": -60,
+          "endAt": 0.4
         }
       ]
     }
