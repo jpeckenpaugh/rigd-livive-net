@@ -169,6 +169,58 @@
       color: #0f172a;
     }
 
+    .explore-modes {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 0 0 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .explore-modes-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    .explore-mode-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mode-btn {
+      background: #0f172a;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .mode-btn:hover {
+      background: #1e293b;
+      color: #f8fafc;
+      border-color: #475569;
+    }
+
+    .mode-btn.is-active {
+      background: #fbbf24;
+      color: #0f172a;
+      border-color: #fbbf24;
+    }
+
+    .mode-btn.is-active:hover {
+      background: #fcd34d;
+      border-color: #fcd34d;
+      color: #0f172a;
+    }
+
     .joint-card {
       background: #0f172a;
       border: 1px solid #334155;
@@ -379,6 +431,19 @@
       .header-actions .action-btn {
         flex: 1;
       }
+
+      .explore-modes {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .explore-mode-buttons {
+        width: 100%;
+      }
+
+      .explore-mode-buttons .mode-btn {
+        flex: 1;
+      }
     }
   </style>
 </head>
@@ -406,7 +471,14 @@
           <button class="reset-btn" id="resetPoseBtn">Reset Pose</button>
         </div>
       </h2>
-      <p class="sidebar-hint">Hover a control group to highlight it on the rig. Check one joint to explore it alone, or use Auto Explore for all.</p>
+      <div class="explore-modes" role="group" aria-label="Explore symmetry mode">
+        <span class="explore-modes-label">Symmetry</span>
+        <div class="explore-mode-buttons">
+          <button class="mode-btn" id="modeSymBtn" aria-pressed="false" title="Mirror left/right shoulder and elbow movement">Symmetrical</button>
+          <button class="mode-btn" id="modeAntiBtn" aria-pressed="false" title="Anti-mirror left/right shoulder and elbow movement">Asymmetrical</button>
+        </div>
+      </div>
+      <p class="sidebar-hint">Hover a control group to highlight it on the rig. Check one joint to explore it alone, or use Auto Explore for all. Symmetry pairs the shoulders and elbows.</p>
 
       <!-- Skull Base Joint (C1 / Atlanto-Occipital) -->
       <div class="joint-card" data-rig-section="head">
@@ -1311,6 +1383,7 @@
 
       slider.addEventListener('input', (e) => {
         stopExplore();
+        cancelPairTween();
 
         let val = parseFloat(e.target.value);
         if (jointRef && paramName) {
@@ -1348,10 +1421,14 @@
     bindSlider('ctrl_l_elbow_bend', 'val_l_elbow_bend', 'leftElbowBend', RIG_JOINTS.elbowLeft, 'flex');
     bindSlider('ctrl_r_elbow_bend', 'val_r_elbow_bend', 'rightElbowBend', RIG_JOINTS.elbowRight, 'flex');
 
+    const bindingByStateKey = new Map(controlBindings.map(binding => [binding.stateKey, binding]));
+
     const toggleLabels = document.getElementById('toggleLabels');
     const toggleJoints = document.getElementById('toggleJoints');
     const toggleHeadMesh = document.getElementById('toggleHeadMesh');
     const resetBtn = document.getElementById('resetPoseBtn');
+    const modeSymBtn = document.getElementById('modeSymBtn');
+    const modeAntiBtn = document.getElementById('modeAntiBtn');
 
     // Hovering a control card highlights its matching rig parts.
     let hoveredSection = null;
@@ -1377,6 +1454,19 @@
     let lastExploreTime = 0;
     let exploreState = [];
 
+    // Symmetrical targets satisfy right = sign * left.
+    const PAIR_DEFS = [
+      { left: 'leftShoulderAngle', right: 'rightShoulderAngle', sign: -1 },
+      { left: 'leftElbowBend', right: 'rightElbowBend', sign: -1 }
+    ];
+    const PAIR_BY_KEY = new Map();
+    PAIR_DEFS.forEach(pair => {
+      PAIR_BY_KEY.set(pair.left, pair);
+      PAIR_BY_KEY.set(pair.right, pair);
+    });
+    let exploreMode = 'free';
+    let pairTween = null;
+
     function randomBetween(min, max) {
       return min + Math.random() * (max - min);
     }
@@ -1387,6 +1477,120 @@
           .filter(checkbox => checkbox.checked)
           .map(checkbox => checkbox.dataset.exploreKey)
       );
+    }
+
+    function setControlValue(stateKey, value) {
+      const binding = bindingByStateKey.get(stateKey);
+      if (!binding) return;
+
+      let next = value;
+      if (binding.jointRef && binding.paramName) {
+        next = binding.jointRef.clamp(binding.paramName, next);
+      }
+
+      rig.state[stateKey] = next;
+      binding.slider.value = next;
+      binding.valDisplay.textContent = `${Math.round(next)}${binding.unit}`;
+    }
+
+    function getPairRelation(pair) {
+      return exploreMode === 'sym' ? pair.sign : -pair.sign;
+    }
+
+    function getLeaderRange(pair, relation, leaderKey) {
+      const leader = bindingByStateKey.get(leaderKey);
+      const followerKey = leaderKey === pair.left ? pair.right : pair.left;
+      const follower = bindingByStateKey.get(followerKey);
+      if (!leader || !follower) return [0, 0];
+
+      const followerMin = relation > 0 ? follower.min : -follower.max;
+      const followerMax = relation > 0 ? follower.max : -follower.min;
+
+      return [
+        Math.max(leader.min, followerMin),
+        Math.min(leader.max, followerMax)
+      ];
+    }
+
+    function cancelPairTween() {
+      if (pairTween && pairTween.raf !== null) {
+        cancelAnimationFrame(pairTween.raf);
+      }
+      pairTween = null;
+    }
+
+    function startPairTween() {
+      if (exploreMode === 'free') return;
+      cancelPairTween();
+
+      const now = performance.now();
+      const entries = [];
+
+      PAIR_DEFS.forEach(pair => {
+        const leftBinding = bindingByStateKey.get(pair.left);
+        const rightBinding = bindingByStateKey.get(pair.right);
+        if (!leftBinding || !rightBinding) return;
+
+        const relation = getPairRelation(pair);
+        const [min, max] = getLeaderRange(pair, relation, pair.left);
+        const left = rig.state[pair.left];
+        const right = rig.state[pair.right];
+        const targetLeft = Math.max(min, Math.min(max, (left + relation * right) / 2));
+
+        entries.push({
+          leftKey: pair.left,
+          rightKey: pair.right,
+          startLeft: left,
+          startRight: right,
+          targetLeft,
+          targetRight: relation * targetLeft
+        });
+      });
+
+      const needsTween = entries.some(entry =>
+        Math.abs(entry.startLeft - entry.targetLeft) > 0.01 ||
+        Math.abs(entry.startRight - entry.targetRight) > 0.01
+      );
+      if (!needsTween) return;
+
+      pairTween = { startTime: now, duration: 1000, entries, raf: null };
+      pairTween.raf = requestAnimationFrame(stepPairTween);
+    }
+
+    function stepPairTween(now) {
+      if (!pairTween) return;
+
+      const progress = Math.min(1, (now - pairTween.startTime) / pairTween.duration);
+      const eased = progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+      pairTween.entries.forEach(entry => {
+        setControlValue(entry.leftKey, entry.startLeft + (entry.targetLeft - entry.startLeft) * eased);
+        setControlValue(entry.rightKey, entry.startRight + (entry.targetRight - entry.startRight) * eased);
+      });
+
+      render();
+
+      if (progress < 1) {
+        pairTween.raf = requestAnimationFrame(stepPairTween);
+      } else {
+        pairTween = null;
+      }
+    }
+
+    function setExploreMode(mode) {
+      exploreMode = mode;
+      modeSymBtn.classList.toggle('is-active', mode === 'sym');
+      modeAntiBtn.classList.toggle('is-active', mode === 'anti');
+      modeSymBtn.setAttribute('aria-pressed', mode === 'sym' ? 'true' : 'false');
+      modeAntiBtn.setAttribute('aria-pressed', mode === 'anti' ? 'true' : 'false');
+
+      if (mode === 'free') {
+        cancelPairTween();
+      } else {
+        startPairTween();
+      }
     }
 
     function startExplore(checkAll = true) {
@@ -1405,6 +1609,10 @@
       autoExploreBtn.textContent = 'Stop Explore';
       autoExploreBtn.classList.add('is-active');
       autoExploreBtn.setAttribute('aria-pressed', 'true');
+
+      if (exploreMode !== 'free' && !pairTween) {
+        startPairTween();
+      }
 
       const now = performance.now();
       exploreState = controlBindings.map(binding => ({
@@ -1448,9 +1656,44 @@
         return;
       }
 
+      if (exploreMode !== 'free' && !pairTween) {
+        PAIR_DEFS.forEach(pair => {
+          const leftBinding = bindingByStateKey.get(pair.left);
+          const rightBinding = bindingByStateKey.get(pair.right);
+          if (!leftBinding || !rightBinding) return;
+
+          const leftEnabled = enabledSections.has(leftBinding.sectionKey);
+          const rightEnabled = enabledSections.has(rightBinding.sectionKey);
+          if (!leftEnabled && !rightEnabled) return;
+
+          const leaderKey = leftEnabled ? pair.left : pair.right;
+          const followerKey = leaderKey === pair.left ? pair.right : pair.left;
+          const relation = getPairRelation(pair);
+          const [min, max] = getLeaderRange(pair, relation, leaderKey);
+          const item = exploreState.find(entry => entry.binding.stateKey === leaderKey);
+          if (!item) return;
+
+          if (now >= item.nextChange) {
+            item.target = randomBetween(min, max);
+            item.nextChange = now + randomBetween(1500, 4200);
+            item.speed = randomBetween(0.5, 1.2);
+          } else if (item.target < min || item.target > max) {
+            item.target = randomBetween(min, max);
+          }
+
+          const current = rig.state[leaderKey];
+          let next = current + (item.target - current) * (1 - Math.exp(-dt * item.speed));
+          next = Math.max(min, Math.min(max, next));
+
+          setControlValue(leaderKey, next);
+          setControlValue(followerKey, relation * next);
+        });
+      }
+
       exploreState.forEach(item => {
         const { binding } = item;
         if (!enabledSections.has(binding.sectionKey)) return;
+        if (exploreMode !== 'free' && PAIR_BY_KEY.has(binding.stateKey)) return;
 
         if (now >= item.nextChange) {
           item.target = randomBetween(binding.min, binding.max);
@@ -1460,13 +1703,7 @@
 
         const current = rig.state[binding.stateKey];
         let next = current + (item.target - current) * (1 - Math.exp(-dt * item.speed));
-        if (binding.jointRef && binding.paramName) {
-          next = binding.jointRef.clamp(binding.paramName, next);
-        }
-
-        rig.state[binding.stateKey] = next;
-        binding.slider.value = next;
-        binding.valDisplay.textContent = `${Math.round(next)}${binding.unit}`;
+        setControlValue(binding.stateKey, next);
       });
 
       render();
@@ -1479,6 +1716,14 @@
       } else {
         startExplore(true);
       }
+    });
+
+    modeSymBtn.addEventListener('click', () => {
+      setExploreMode(exploreMode === 'sym' ? 'free' : 'sym');
+    });
+
+    modeAntiBtn.addEventListener('click', () => {
+      setExploreMode(exploreMode === 'anti' ? 'free' : 'anti');
     });
 
     exploreChecks.forEach(checkbox => {
@@ -1533,6 +1778,7 @@
 
     resetBtn.addEventListener('click', () => {
       stopExplore();
+      setExploreMode('free');
       rig.reset();
       syncUI();
       render();

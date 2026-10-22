@@ -16,6 +16,7 @@ Browser prototypes of an upper-body skeletal rig, built with Canvas 2D and no de
 - Head crown / ear-to-ear line, 3D face line, and hinged jaw
 - Shoulder and elbow controls with clamped joint limits
 - Per-joint explore checkboxes: check one to explore it alone, or Auto Explore to check all
+- Symmetry/Asymmetry explore modes for the left/right shoulders and elbows, with one-second alignment tweens
 - Hover a control card to highlight its rig segments and joints
 - Toggleable labels, joint nodes, and head guide
 
