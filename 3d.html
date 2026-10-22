@@ -577,10 +577,17 @@
         </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Upper Arm Swing Angle</span>
-            <span class="control-val" id="val_r_shoulder_angle">4°</span>
+            <span title="Right arm: negative raises out to the side; positive moves across the body">Abduction / Adduction</span>
+            <span class="control-val" id="val_r_shoulder_angle">0°</span>
           </div>
-          <input type="range" id="ctrl_r_shoulder_angle" min="-45" max="140" value="4">
+          <input type="range" id="ctrl_r_shoulder_angle" min="-120" max="45" value="0">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span title="At 90° abduction: -90° = forearm down, 0° = forward, +90° = up">Humeral Rotation</span>
+            <span class="control-val" id="val_r_shoulder_rotation">0°</span>
+          </div>
+          <input type="range" id="ctrl_r_shoulder_rotation" min="-90" max="90" value="0">
         </div>
       </div>
 
@@ -595,10 +602,17 @@
         </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Upper Arm Swing Angle</span>
-            <span class="control-val" id="val_l_shoulder_angle">-4°</span>
+            <span title="Left arm: positive raises out to the side; negative moves across the body">Abduction / Adduction</span>
+            <span class="control-val" id="val_l_shoulder_angle">0°</span>
           </div>
-          <input type="range" id="ctrl_l_shoulder_angle" min="-140" max="45" value="-4">
+          <input type="range" id="ctrl_l_shoulder_angle" min="-45" max="120" value="0">
+        </div>
+        <div class="control-row">
+          <div class="control-label">
+            <span title="At 90° abduction: -90° = forearm down, 0° = forward, +90° = up">Humeral Rotation</span>
+            <span class="control-val" id="val_l_shoulder_rotation">0°</span>
+          </div>
+          <input type="range" id="ctrl_l_shoulder_rotation" min="-90" max="90" value="0">
         </div>
       </div>
 
@@ -613,10 +627,10 @@
         </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Elbow Bend</span>
-            <span class="control-val" id="val_r_elbow_bend">-20°</span>
+            <span title="0° = straight, 140° = fully flexed">Elbow Flexion</span>
+            <span class="control-val" id="val_r_elbow_bend">0°</span>
           </div>
-          <input type="range" id="ctrl_r_elbow_bend" min="-120" max="40" value="-20">
+          <input type="range" id="ctrl_r_elbow_bend" min="0" max="140" value="0">
         </div>
       </div>
 
@@ -631,10 +645,10 @@
         </div>
         <div class="control-row">
           <div class="control-label">
-            <span>Elbow Bend</span>
-            <span class="control-val" id="val_l_elbow_bend">20°</span>
+            <span title="0° = straight, 140° = fully flexed">Elbow Flexion</span>
+            <span class="control-val" id="val_l_elbow_bend">0°</span>
           </div>
-          <input type="range" id="ctrl_l_elbow_bend" min="-40" max="120" value="20">
+          <input type="range" id="ctrl_l_elbow_bend" min="0" max="140" value="0">
         </div>
       </div>
 
@@ -738,22 +752,28 @@
       shoulderRight: new JointDefinition({
         name: 'Right Shoulder (Glenohumeral)',
         type: JointTypes.BALL_SOCKET,
-        limits: { swing: [-45, 140] }
+        limits: {
+          swing: [-120, 45],
+          rotation: [-90, 90]
+        }
       }),
       shoulderLeft: new JointDefinition({
         name: 'Left Shoulder (Glenohumeral)',
         type: JointTypes.BALL_SOCKET,
-        limits: { swing: [-140, 45] }
+        limits: {
+          swing: [-45, 120],
+          rotation: [-90, 90]
+        }
       }),
       elbowRight: new JointDefinition({
         name: 'Right Elbow',
         type: JointTypes.HINGE,
-        limits: { flex: [-120, 40] }
+        limits: { flex: [0, 140] }
       }),
       elbowLeft: new JointDefinition({
         name: 'Left Elbow',
         type: JointTypes.HINGE,
-        limits: { flex: [-40, 120] }
+        limits: { flex: [0, 140] }
       })
     };
 
@@ -937,10 +957,12 @@
           jawOpen: 0,
           shoulderElevation: 0,
           shoulderTilt: 0,
-          rightShoulderAngle: 4,
-          leftShoulderAngle: -4,
-          rightElbowBend: -20,
-          leftElbowBend: 20
+          rightShoulderAngle: 0,
+          leftShoulderAngle: 0,
+          rightShoulderRotation: 0,
+          leftShoulderRotation: 0,
+          rightElbowBend: 0,
+          leftElbowBend: 0
         };
       }
 
@@ -988,33 +1010,44 @@
 
         // Right arm. Elbow bend is interpreted as an absolute frontal-plane angle
         // so the default pose stays close to the 2.5D rig.
+        // Right arm: abduction/adduction -> humeral axial rotation -> local elbow flexion.
         const rightUpperArmT = makeTransform(
           rightShoulderT,
           v3(0, 0, 0),
           M3.rotZ(s.rightShoulderAngle * DEG)
         );
-        const rightElbowT = makeTransform(rightUpperArmT, v3(0, -p.upperArmLength, 0), identity);
+        const rightHumeralT = makeTransform(
+          rightUpperArmT,
+          v3(0, 0, 0),
+          M3.rotY(-s.rightShoulderRotation * DEG)
+        );
+        const rightElbowT = makeTransform(rightHumeralT, v3(0, -p.upperArmLength, 0), identity);
         const rightElbow = rightElbowT.t;
         const rightForearmT = makeTransform(
           rightElbowT,
           v3(0, 0, 0),
-          M3.rotZ((s.rightElbowBend - s.rightShoulderAngle) * DEG)
+          M3.rotX(-s.rightElbowBend * DEG)
         );
         const rightWristT = makeTransform(rightForearmT, v3(0, -p.lowerArmLength, 0), identity);
         const rightWrist = rightWristT.t;
 
-        // Left arm.
+        // Left arm: same chain; the humeral roll sign is mirrored so -90 = down for both.
         const leftUpperArmT = makeTransform(
           leftShoulderT,
           v3(0, 0, 0),
           M3.rotZ(s.leftShoulderAngle * DEG)
         );
-        const leftElbowT = makeTransform(leftUpperArmT, v3(0, -p.upperArmLength, 0), identity);
+        const leftHumeralT = makeTransform(
+          leftUpperArmT,
+          v3(0, 0, 0),
+          M3.rotY(s.leftShoulderRotation * DEG)
+        );
+        const leftElbowT = makeTransform(leftHumeralT, v3(0, -p.upperArmLength, 0), identity);
         const leftElbow = leftElbowT.t;
         const leftForearmT = makeTransform(
           leftElbowT,
           v3(0, 0, 0),
-          M3.rotZ((s.leftElbowBend - s.leftShoulderAngle) * DEG)
+          M3.rotX(-s.leftElbowBend * DEG)
         );
         const leftWristT = makeTransform(leftForearmT, v3(0, -p.lowerArmLength, 0), identity);
         const leftWrist = leftWristT.t;
@@ -1421,6 +1454,8 @@
     bindSlider('ctrl_shoulder_tilt', 'val_shoulder_tilt', 'shoulderTilt', RIG_JOINTS.shoulderGirdle, 'tilt');
     bindSlider('ctrl_r_shoulder_angle', 'val_r_shoulder_angle', 'rightShoulderAngle', RIG_JOINTS.shoulderRight, 'swing');
     bindSlider('ctrl_l_shoulder_angle', 'val_l_shoulder_angle', 'leftShoulderAngle', RIG_JOINTS.shoulderLeft, 'swing');
+    bindSlider('ctrl_r_shoulder_rotation', 'val_r_shoulder_rotation', 'rightShoulderRotation', RIG_JOINTS.shoulderRight, 'rotation');
+    bindSlider('ctrl_l_shoulder_rotation', 'val_l_shoulder_rotation', 'leftShoulderRotation', RIG_JOINTS.shoulderLeft, 'rotation');
     bindSlider('ctrl_r_elbow_bend', 'val_r_elbow_bend', 'rightElbowBend', RIG_JOINTS.elbowRight, 'flex');
     bindSlider('ctrl_l_elbow_bend', 'val_l_elbow_bend', 'leftElbowBend', RIG_JOINTS.elbowLeft, 'flex');
 
@@ -1460,7 +1495,8 @@
     // Symmetrical targets satisfy right = sign * left.
     const PAIR_DEFS = [
       { left: 'leftShoulderAngle', right: 'rightShoulderAngle', sign: -1 },
-      { left: 'leftElbowBend', right: 'rightElbowBend', sign: -1 }
+      { left: 'leftShoulderRotation', right: 'rightShoulderRotation', sign: 1 },
+      { left: 'leftElbowBend', right: 'rightElbowBend', sign: 1, oneSided: true }
     ];
     const PAIR_BY_KEY = new Map();
     PAIR_DEFS.forEach(pair => {
@@ -1505,6 +1541,7 @@
       const followerKey = leaderKey === pair.left ? pair.right : pair.left;
       const follower = bindingByStateKey.get(followerKey);
       if (!leader || !follower) return [0, 0];
+      if (pair.oneSided) return [leader.min, leader.max];
 
       const followerMin = relation > 0 ? follower.min : -follower.max;
       const followerMax = relation > 0 ? follower.max : -follower.min;
@@ -1771,6 +1808,12 @@
 
       document.getElementById('ctrl_l_shoulder_angle').value = rig.state.leftShoulderAngle;
       document.getElementById('val_l_shoulder_angle').textContent = `${rig.state.leftShoulderAngle}°`;
+
+      document.getElementById('ctrl_r_shoulder_rotation').value = rig.state.rightShoulderRotation;
+      document.getElementById('val_r_shoulder_rotation').textContent = `${rig.state.rightShoulderRotation}°`;
+
+      document.getElementById('ctrl_l_shoulder_rotation').value = rig.state.leftShoulderRotation;
+      document.getElementById('val_l_shoulder_rotation').textContent = `${rig.state.leftShoulderRotation}°`;
 
       document.getElementById('ctrl_r_elbow_bend').value = rig.state.rightElbowBend;
       document.getElementById('val_r_elbow_bend').textContent = `${rig.state.rightElbowBend}°`;
