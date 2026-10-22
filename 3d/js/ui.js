@@ -20,8 +20,8 @@ export class RigUI {
     this.currentSign = 'one';
     this.loadedKeyframeImages = new Map();
     this.cachedKeyframes = new Map();
-    if (options.keyframesData) {
-      this.cachedKeyframes.set('one', options.keyframesData);
+    if (this.keyframesData) {
+      this.cachedKeyframes.set('one', this.keyframesData);
     }
 
     this.cardsContainer = document.getElementById('jointCardsContainer');
