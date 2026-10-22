@@ -64,8 +64,14 @@ def find_sign_metadata(entry_id: str) -> dict:
     print(f"[1/4] Fetching ASL-LEX lexical & phonological metadata for sign '{entry_id}'...")
     props_list = fetch_json(ASL_LEX_PROPS_URL)
     match = None
+    target_clean = entry_id.strip().lower()
+    target_norm = target_clean.replace("-", "_")
+
     for item in props_list:
-        if str(item.get("EntryID", "")).lower() == entry_id or str(item.get("Code", "")).lower() == entry_id:
+        eid = str(item.get("EntryID", "")).lower()
+        code = str(item.get("Code", "")).lower()
+        lemma = str(item.get("LemmaID", "")).lower()
+        if target_clean in (eid, code) or target_norm == eid or f"{target_norm}_1" == eid or target_clean == lemma:
             match = item
             break
 
