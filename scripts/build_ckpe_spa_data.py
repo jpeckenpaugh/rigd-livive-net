@@ -170,6 +170,131 @@ def process_learned_sign(sign_dir: Path):
     return index_entry
 
 
+def generate_compound_chain(chain_id, label, spec_text, steps, default_rig_state):
+    """
+    Generates a smoothly interpolated compound gesture sequence from a list of steps.
+    Each step can be a single action id or a list of simultaneous action ids.
+    """
+    actions_db = {
+        "reset": {"type": "tween", "targets": dict(default_rig_state)},
+        "point-you": {"type": "tween", "targets": {"rightShoulderFlexion": 60, "rightShoulderRotation": 0, "rightShoulderAngle": -2, "rightElbowBend": 40}},
+        "point-me": {"type": "tween", "targets": {"rightShoulderAngle": 20, "rightShoulderFlexion": 60, "rightShoulderRotation": -110, "rightElbowBend": 130}},
+        "point-right": {"type": "tween", "targets": {"rightShoulderAngle": -60, "rightShoulderFlexion": 0, "rightShoulderRotation": 70, "rightElbowBend": 50}},
+        "point-left": {"type": "tween", "targets": {"rightShoulderAngle": 45, "rightShoulderFlexion": 45, "rightShoulderRotation": -90, "rightElbowBend": 50}},
+        "point-it": {"type": "tween", "targets": {"rightShoulderFlexion": 60, "rightShoulderRotation": 50, "rightShoulderAngle": -2, "rightElbowBend": 40}},
+        "hands-up": {"type": "tween", "targets": {"shoulderElevation": 10, "rightShoulderAngle": 8, "rightShoulderFlexion": 150, "rightShoulderRotation": -60, "leftShoulderAngle": -8, "leftShoulderFlexion": 150, "leftShoulderRotation": -60, "rightElbowBend": 20, "leftElbowBend": 20}},
+        "hats-off": {"type": "tween", "targets": {"rightShoulderAngle": -15, "rightShoulderFlexion": 115, "rightShoulderRotation": 30, "rightElbowBend": 110}},
+        "agree": {"type": "sine", "stateKey": "headPitch", "amplitude": 20, "cycles": 2},
+        "disagree": {"type": "sine", "stateKey": "neckYaw", "amplitude": 40, "cycles": 2}
+    }
+
+    frames = []
+    current_state = dict(default_rig_state)
+    fps = 30
+    step_duration_s = 0.8
+    frames_per_step = int(fps * step_duration_s)
+    total_duration_ms = int(len(steps) * step_duration_s * 1000)
+
+    for step_idx, step in enumerate(steps):
+        step_actions = step if isinstance(step, list) else [step]
+        start_state = dict(current_state)
+
+        # Collect tweens and sines for this step
+        step_targets = {}
+        step_sines = []
+
+        for act in step_actions:
+            def_act = actions_db.get(act, {})
+            if def_act.get("type") == "tween":
+                step_targets.update(def_act.get("targets", {}))
+            elif def_act.get("type") == "sine":
+                step_sines.append(def_act)
+
+        for f_idx in range(frames_per_step):
+            global_frame_idx = len(frames)
+            t_norm = f_idx / max(frames_per_step - 1, 1)
+            ts_ms = int((global_frame_idx / (len(steps) * frames_per_step)) * total_duration_ms)
+            ts_s = round(ts_ms / 1000.0, 3)
+
+            # Ease-in-out cosine
+            ease = 0.5 - 0.5 * math.cos(t_norm * math.pi)
+
+            frame_state = dict(start_state)
+            for k, tgt_val in step_targets.items():
+                s_val = start_state.get(k, default_rig_state.get(k, 0))
+                frame_state[k] = round(s_val + (tgt_val - s_val) * ease, 2)
+
+            for sine in step_sines:
+                k = sine["stateKey"]
+                amp = sine["amplitude"]
+                cycles = sine["cycles"]
+                frame_state[k] = round(amp * math.sin(t_norm * math.pi * 2 * cycles), 2)
+
+            # Phase tagging
+            progress_ratio = global_frame_idx / max((len(steps) * frames_per_step) - 1, 1)
+            if progress_ratio < 0.25:
+                phase = "prep"
+            elif progress_ratio < 0.75:
+                phase = "stroke"
+            else:
+                phase = "retract"
+
+            frames.append({
+                "frame_index": global_frame_idx,
+                "timestamp_ms": ts_ms,
+                "timestamp_s": ts_s,
+                "phase": phase,
+                "rig_state": frame_state,
+                "reward": 1.0,
+                "reward_details": {"authoring_fidelity": 1.0},
+                "rightHandTip": None
+            })
+
+            current_state = frame_state
+
+    phase_counts = {"prep": 0, "stroke": 0, "retract": 0}
+    for f in frames:
+        phase_counts[f["phase"]] += 1
+
+    term_payload = {
+        "term": chain_id,
+        "label": label,
+        "source": "authored",
+        "sign_type": "CompoundGesture",
+        "location": {"major": "Neutral", "minor": "Dynamic Space"},
+        "movement": "Compound Chained Sequence",
+        "handshape": "Authored",
+        "authored_spec": spec_text,
+        "code": "AUTH-" + chain_id.upper(),
+        "source_url": "",
+        "calibration": None,
+        "mean_reward": None,
+        "frame_count": len(frames),
+        "duration_ms": total_duration_ms,
+        "phase_split": phase_counts,
+        "video": None,
+        "thumbnail": None,
+        "frames": frames
+    }
+
+    with open(TERMS_DIR / f"{chain_id}.json", "w", encoding="utf-8") as f:
+        json.dump(term_payload, f, separators=(",", ":"))
+
+    return {
+        "term": chain_id,
+        "label": label,
+        "source": "authored",
+        "sign_type": "CompoundGesture",
+        "location": {"major": "Neutral", "minor": "Dynamic Space"},
+        "movement": "Compound Chained Sequence",
+        "handshape": "Authored",
+        "mean_reward": None,
+        "frame_count": len(frames),
+        "duration_ms": total_duration_ms,
+        "thumbnail": None
+    }
+
+
 def process_authored_sequences():
     with open(BASE_DIR / "3d" / "data" / "sequences.json", "r") as f:
         seq_data = json.load(f)
@@ -220,7 +345,6 @@ def process_authored_sequences():
                 ttype = trk.get("type")
                 if ttype == "tween":
                     target = trk.get("target", default_rig_state.get(k, 0))
-                    # ease in out
                     ease = 0.5 - 0.5 * math.cos(t_norm * math.pi)
                     start_val = default_rig_state.get(k, 0)
                     current_state[k] = round(start_val + (target - start_val) * ease, 2)
@@ -283,6 +407,25 @@ def process_authored_sequences():
             "duration_ms": duration,
             "thumbnail": None
         })
+
+    # Add Compound Chained Sequences
+    compound_1 = generate_compound_chain(
+        "we-go-right",
+        "We Go Right",
+        "Compound Gesture: Reset → Point You → Point Me → Point Right → Agree (Yes).",
+        ["reset", "point-you", "point-me", "point-right", "agree"],
+        default_rig_state
+    )
+    authored_entries.append(compound_1)
+
+    compound_2 = generate_compound_chain(
+        "we-dont-go-left",
+        "We Don't Go Left",
+        "Compound Gesture: Reset → Point You → Point Me → [Point Left + Disagree (No)].",
+        ["reset", "point-you", "point-me", ["point-left", "disagree"]],
+        default_rig_state
+    )
+    authored_entries.append(compound_2)
 
     return authored_entries
 
