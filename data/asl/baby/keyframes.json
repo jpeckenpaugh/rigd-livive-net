@@ -1,0 +1,6052 @@
+{
+  "sign": "baby",
+  "code": "C_01_017",
+  "source_url": "https://asl-lex.org/visualization/?sign=baby",
+  "vimeo_url": "https://player.vimeo.com/video/345576946",
+  "video": {
+    "file": "baby.mp4",
+    "width": 640,
+    "height": 480,
+    "fps": 29.97002997002997,
+    "duration_s": 1.9352625,
+    "codecs": "avc1.64081F",
+    "source": "dash_avc"
+  },
+  "timing_ms": {
+    "sign_onset_ms": 501,
+    "sign_offset_ms": 1235,
+    "sign_duration_ms": 734,
+    "clip_duration_ms": 1935
+  },
+  "phonology_level1_and_2": {
+    "sign_type": "SymmetricalOrAlternating",
+    "major_location": "Neutral",
+    "minor_location": "Neutral",
+    "movement": "Straight",
+    "repeated_movement": 1,
+    "contact": 1,
+    "handshape": "open_b",
+    "selected_fingers": "imrp",
+    "finger_flexion": "FullyOpen",
+    "thumb_position": "Open",
+    "ulnar_rotation": 0
+  },
+  "extraction": {
+    "fps": 30.0,
+    "interval_s": 0.03333333333333333,
+    "format": "png",
+    "total_frames": 58
+  },
+  "frames": [
+    {
+      "frame_index": 0,
+      "file": "frames/frame_0001.png",
+      "timestamp_s": 0.0,
+      "timestamp_ms": 0,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 3.8,
+        "rightShoulderFlexion": 6.0,
+        "rightShoulderRotation": -60.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 40.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.6911,
+        "capsule_coverage": 0.0346,
+        "endpoint_alignment": 1.0,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            60.5,
+            92.0
+          ],
+          "rightWrist": [
+            77.8,
+            111.8
+          ],
+          "rightHandTip": [
+            86.1,
+            121.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 1,
+      "file": "frames/frame_0002.png",
+      "timestamp_s": 0.0333,
+      "timestamp_ms": 33,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -6.6,
+        "rightShoulderFlexion": 4.0,
+        "rightShoulderRotation": -57.7,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 33.1,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.8386,
+        "capsule_coverage": 0.6195,
+        "endpoint_alignment": 0.8763,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            54.4,
+            91.9
+          ],
+          "rightWrist": [
+            64.9,
+            116.8
+          ],
+          "rightHandTip": [
+            69.9,
+            128.6
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 2,
+      "file": "frames/frame_0003.png",
+      "timestamp_s": 0.0667,
+      "timestamp_ms": 67,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -10.6,
+        "rightShoulderFlexion": 4.1,
+        "rightShoulderRotation": -58.2,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 33.1,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.8799,
+        "capsule_coverage": 0.8137,
+        "endpoint_alignment": 0.811,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            52.1,
+            91.6
+          ],
+          "rightWrist": [
+            60.9,
+            117.1
+          ],
+          "rightHandTip": [
+            65.1,
+            129.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 3,
+      "file": "frames/frame_0004.png",
+      "timestamp_s": 0.1,
+      "timestamp_ms": 100,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -10.1,
+        "rightShoulderFlexion": 4.5,
+        "rightShoulderRotation": -58.8,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 34.3,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.8782,
+        "capsule_coverage": 0.7869,
+        "endpoint_alignment": 0.8323,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            52.3,
+            91.6
+          ],
+          "rightWrist": [
+            62.0,
+            116.7
+          ],
+          "rightHandTip": [
+            66.6,
+            128.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 4,
+      "file": "frames/frame_0005.png",
+      "timestamp_s": 0.1333,
+      "timestamp_ms": 133,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -8.5,
+        "rightShoulderFlexion": 7.0,
+        "rightShoulderRotation": -56.6,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 37.7,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.7152,
+        "capsule_coverage": 0.2367,
+        "endpoint_alignment": 0.8734,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            53.3,
+            91.6
+          ],
+          "rightWrist": [
+            64.7,
+            115.0
+          ],
+          "rightHandTip": [
+            70.1,
+            126.1
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 5,
+      "file": "frames/frame_0006.png",
+      "timestamp_s": 0.1667,
+      "timestamp_ms": 167,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -11.0,
+        "rightShoulderFlexion": 15.4,
+        "rightShoulderRotation": -49.4,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 44.8,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5424,
+        "capsule_coverage": 0.0394,
+        "endpoint_alignment": 0.5305,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            52.0,
+            90.4
+          ],
+          "rightWrist": [
+            64.1,
+            109.2
+          ],
+          "rightHandTip": [
+            69.8,
+            118.2
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 6,
+      "file": "frames/frame_0007.png",
+      "timestamp_s": 0.2,
+      "timestamp_ms": 200,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -10.7,
+        "rightShoulderFlexion": 22.7,
+        "rightShoulderRotation": -46.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 47.8,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5686,
+        "capsule_coverage": 0.0536,
+        "endpoint_alignment": 0.5982,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            52.5,
+            89.1
+          ],
+          "rightWrist": [
+            65.3,
+            103.8
+          ],
+          "rightHandTip": [
+            71.4,
+            110.9
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 7,
+      "file": "frames/frame_0008.png",
+      "timestamp_s": 0.2333,
+      "timestamp_ms": 233,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -7.7,
+        "rightShoulderFlexion": 30.3,
+        "rightShoulderRotation": -45.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 49.4,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5653,
+        "capsule_coverage": 0.0473,
+        "endpoint_alignment": 0.5942,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            54.3,
+            87.4
+          ],
+          "rightWrist": [
+            68.5,
+            97.7
+          ],
+          "rightHandTip": [
+            75.3,
+            102.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 8,
+      "file": "frames/frame_0009.png",
+      "timestamp_s": 0.2667,
+      "timestamp_ms": 267,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -4.3,
+        "rightShoulderFlexion": 34.4,
+        "rightShoulderRotation": -40.8,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 56.1,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5558,
+        "capsule_coverage": 0.0181,
+        "endpoint_alignment": 0.5938,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            56.2,
+            86.3
+          ],
+          "rightWrist": [
+            71.5,
+            90.5
+          ],
+          "rightHandTip": [
+            78.8,
+            92.5
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 9,
+      "file": "frames/frame_0010.png",
+      "timestamp_s": 0.3,
+      "timestamp_ms": 300,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": -1.7,
+        "rightShoulderFlexion": 34.2,
+        "rightShoulderRotation": -33.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 65.4,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5537,
+        "capsule_coverage": 0.0126,
+        "endpoint_alignment": 0.5928,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            57.4,
+            86.4
+          ],
+          "rightWrist": [
+            71.7,
+            84.4
+          ],
+          "rightHandTip": [
+            78.6,
+            83.4
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 10,
+      "file": "frames/frame_0011.png",
+      "timestamp_s": 0.3333,
+      "timestamp_ms": 333,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 4.2,
+        "rightShoulderFlexion": 28.9,
+        "rightShoulderRotation": -25.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 75.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5659,
+        "capsule_coverage": 0.0395,
+        "endpoint_alignment": 0.604,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            60.4,
+            88.0
+          ],
+          "rightWrist": [
+            71.7,
+            81.0
+          ],
+          "rightHandTip": [
+            77.1,
+            77.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 11,
+      "file": "frames/frame_0012.png",
+      "timestamp_s": 0.3667,
+      "timestamp_ms": 367,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 10.6,
+        "rightShoulderFlexion": 21.6,
+        "rightShoulderRotation": -18.5,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 86.1,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.6219,
+        "capsule_coverage": 0.0881,
+        "endpoint_alignment": 0.7303,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.0,
+            89.3
+          ],
+          "rightWrist": [
+            71.5,
+            79.6
+          ],
+          "rightHandTip": [
+            75.0,
+            75.0
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 12,
+      "file": "frames/frame_0013.png",
+      "timestamp_s": 0.4,
+      "timestamp_ms": 400,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 11.2,
+        "rightShoulderFlexion": 15.3,
+        "rightShoulderRotation": -16.2,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 96.4,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.6851,
+        "capsule_coverage": 0.1254,
+        "endpoint_alignment": 0.8905,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.6,
+            90.4
+          ],
+          "rightWrist": [
+            70.4,
+            78.8
+          ],
+          "rightHandTip": [
+            73.2,
+            73.2
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 13,
+      "file": "frames/frame_0014.png",
+      "timestamp_s": 0.4333,
+      "timestamp_ms": 433,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 10.6,
+        "rightShoulderFlexion": 11.7,
+        "rightShoulderRotation": -16.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 108.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.69,
+        "capsule_coverage": 0.1392,
+        "endpoint_alignment": 0.892,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.3,
+            91.0
+          ],
+          "rightWrist": [
+            69.2,
+            75.8
+          ],
+          "rightHandTip": [
+            71.5,
+            68.5
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 14,
+      "file": "frames/frame_0015.png",
+      "timestamp_s": 0.4667,
+      "timestamp_ms": 467,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 12.6,
+        "rightShoulderFlexion": 16.5,
+        "rightShoulderRotation": -23.3,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 120.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.6898,
+        "capsule_coverage": 0.2018,
+        "endpoint_alignment": 0.8289,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            65.3,
+            90.1
+          ],
+          "rightWrist": [
+            70.5,
+            68.1
+          ],
+          "rightHandTip": [
+            73.0,
+            57.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 15,
+      "file": "frames/frame_0016.png",
+      "timestamp_s": 0.5,
+      "timestamp_ms": 500,
+      "phase": "prep",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 15.4,
+        "rightShoulderFlexion": 24.3,
+        "rightShoulderRotation": -33.3,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 131.4,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.6879,
+        "capsule_coverage": 0.2428,
+        "endpoint_alignment": 0.7819,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.4,
+            88.2
+          ],
+          "rightWrist": [
+            71.3,
+            61.2
+          ],
+          "rightHandTip": [
+            73.6,
+            48.2
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 16,
+      "file": "frames/frame_0017.png",
+      "timestamp_s": 0.5333,
+      "timestamp_ms": 533,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 19.8,
+        "rightShoulderFlexion": 29.9,
+        "rightShoulderRotation": -38.5,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 137.5,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.6518,
+        "capsule_coverage": 0.2298,
+        "endpoint_alignment": 0.6821,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            68.2,
+            86.0
+          ],
+          "rightWrist": [
+            70.7,
+            57.5
+          ],
+          "rightHandTip": [
+            72.0,
+            43.9
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 17,
+      "file": "frames/frame_0018.png",
+      "timestamp_s": 0.5667,
+      "timestamp_ms": 567,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 26.1,
+        "rightShoulderFlexion": 37.7,
+        "rightShoulderRotation": -38.9,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 134.6,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5875,
+        "capsule_coverage": 0.1654,
+        "endpoint_alignment": 0.5457,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            70.0,
+            82.5
+          ],
+          "rightWrist": [
+            70.2,
+            53.7
+          ],
+          "rightHandTip": [
+            70.3,
+            40.0
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 18,
+      "file": "frames/frame_0019.png",
+      "timestamp_s": 0.6,
+      "timestamp_ms": 600,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 30.9,
+        "rightShoulderFlexion": 42.7,
+        "rightShoulderRotation": -38.1,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 127.2,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5787,
+        "capsule_coverage": 0.1118,
+        "endpoint_alignment": 0.5715,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            71.0,
+            79.8
+          ],
+          "rightWrist": [
+            70.3,
+            51.1
+          ],
+          "rightHandTip": [
+            69.9,
+            37.4
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 19,
+      "file": "frames/frame_0020.png",
+      "timestamp_s": 0.6333,
+      "timestamp_ms": 633,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 33.6,
+        "rightShoulderFlexion": 46.1,
+        "rightShoulderRotation": -38.3,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 121.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5545,
+        "capsule_coverage": 0.073,
+        "endpoint_alignment": 0.5347,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            71.2,
+            78.0
+          ],
+          "rightWrist": [
+            70.5,
+            49.4
+          ],
+          "rightHandTip": [
+            70.2,
+            35.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 20,
+      "file": "frames/frame_0021.png",
+      "timestamp_s": 0.6667,
+      "timestamp_ms": 667,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 33.2,
+        "rightShoulderFlexion": 46.9,
+        "rightShoulderRotation": -38.7,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 116.3,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5298,
+        "capsule_coverage": 0.0607,
+        "endpoint_alignment": 0.4698,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            70.9,
+            77.8
+          ],
+          "rightWrist": [
+            71.6,
+            49.4
+          ],
+          "rightHandTip": [
+            71.9,
+            35.8
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 21,
+      "file": "frames/frame_0022.png",
+      "timestamp_s": 0.7,
+      "timestamp_ms": 700,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 31.2,
+        "rightShoulderFlexion": 44.2,
+        "rightShoulderRotation": -38.3,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 113.6,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5026,
+        "capsule_coverage": 0.0644,
+        "endpoint_alignment": 0.3812,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            70.8,
+            79.2
+          ],
+          "rightWrist": [
+            73.0,
+            51.4
+          ],
+          "rightHandTip": [
+            74.1,
+            38.0
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 22,
+      "file": "frames/frame_0023.png",
+      "timestamp_s": 0.7333,
+      "timestamp_ms": 733,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 29.1,
+        "rightShoulderFlexion": 42.2,
+        "rightShoulderRotation": -37.8,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 110.7,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.4635,
+        "capsule_coverage": 0.0673,
+        "endpoint_alignment": 0.2561,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            70.4,
+            80.3
+          ],
+          "rightWrist": [
+            74.2,
+            53.3
+          ],
+          "rightHandTip": [
+            76.0,
+            40.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 23,
+      "file": "frames/frame_0024.png",
+      "timestamp_s": 0.7667,
+      "timestamp_ms": 767,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 25.8,
+        "rightShoulderFlexion": 41.9,
+        "rightShoulderRotation": -36.7,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 107.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.4191,
+        "capsule_coverage": 0.0599,
+        "endpoint_alignment": 0.1246,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            69.2,
+            81.1
+          ],
+          "rightWrist": [
+            74.8,
+            55.1
+          ],
+          "rightHandTip": [
+            77.6,
+            42.6
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 24,
+      "file": "frames/frame_0025.png",
+      "timestamp_s": 0.8,
+      "timestamp_ms": 800,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 23.9,
+        "rightShoulderFlexion": 39.2,
+        "rightShoulderRotation": -36.5,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 103.8,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3964,
+        "capsule_coverage": 0.0579,
+        "endpoint_alignment": 0.0557,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            68.8,
+            82.4
+          ],
+          "rightWrist": [
+            76.1,
+            57.9
+          ],
+          "rightHandTip": [
+            79.6,
+            46.1
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 25,
+      "file": "frames/frame_0026.png",
+      "timestamp_s": 0.8333,
+      "timestamp_ms": 833,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 22.7,
+        "rightShoulderFlexion": 34.8,
+        "rightShoulderRotation": -36.4,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 101.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3884,
+        "capsule_coverage": 0.0556,
+        "endpoint_alignment": 0.033,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            68.9,
+            84.1
+          ],
+          "rightWrist": [
+            77.7,
+            61.5
+          ],
+          "rightHandTip": [
+            81.8,
+            50.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 26,
+      "file": "frames/frame_0027.png",
+      "timestamp_s": 0.8667,
+      "timestamp_ms": 867,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 21.5,
+        "rightShoulderFlexion": 30.7,
+        "rightShoulderRotation": -35.9,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 97.5,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3881,
+        "capsule_coverage": 0.0388,
+        "endpoint_alignment": 0.0491,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            68.9,
+            85.5
+          ],
+          "rightWrist": [
+            78.9,
+            65.4
+          ],
+          "rightHandTip": [
+            83.7,
+            55.8
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 27,
+      "file": "frames/frame_0028.png",
+      "timestamp_s": 0.9,
+      "timestamp_ms": 900,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 20.2,
+        "rightShoulderFlexion": 27.0,
+        "rightShoulderRotation": -35.7,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 93.6,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.389,
+        "capsule_coverage": 0.0224,
+        "endpoint_alignment": 0.0683,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            68.6,
+            86.7
+          ],
+          "rightWrist": [
+            80.1,
+            69.5
+          ],
+          "rightHandTip": [
+            85.6,
+            61.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 28,
+      "file": "frames/frame_0029.png",
+      "timestamp_s": 0.9333,
+      "timestamp_ms": 933,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 18.7,
+        "rightShoulderFlexion": 23.5,
+        "rightShoulderRotation": -35.8,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 89.6,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3855,
+        "capsule_coverage": 0.0096,
+        "endpoint_alignment": 0.07,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            68.2,
+            87.8
+          ],
+          "rightWrist": [
+            81.2,
+            73.8
+          ],
+          "rightHandTip": [
+            87.4,
+            67.1
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 29,
+      "file": "frames/frame_0030.png",
+      "timestamp_s": 0.9667,
+      "timestamp_ms": 967,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 17.6,
+        "rightShoulderFlexion": 20.4,
+        "rightShoulderRotation": -35.8,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 86.1,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3891,
+        "capsule_coverage": 0.0038,
+        "endpoint_alignment": 0.0871,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            67.8,
+            88.7
+          ],
+          "rightWrist": [
+            81.9,
+            77.6
+          ],
+          "rightHandTip": [
+            88.7,
+            72.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 30,
+      "file": "frames/frame_0031.png",
+      "timestamp_s": 1.0,
+      "timestamp_ms": 1000,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 16.1,
+        "rightShoulderFlexion": 18.0,
+        "rightShoulderRotation": -35.6,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 82.5,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3924,
+        "capsule_coverage": 0.0008,
+        "endpoint_alignment": 0.1003,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            67.2,
+            89.3
+          ],
+          "rightWrist": [
+            82.1,
+            81.3
+          ],
+          "rightHandTip": [
+            89.2,
+            77.4
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 31,
+      "file": "frames/frame_0032.png",
+      "timestamp_s": 1.0333,
+      "timestamp_ms": 1033,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 14.9,
+        "rightShoulderFlexion": 15.1,
+        "rightShoulderRotation": -35.4,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 79.6,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3889,
+        "capsule_coverage": 0.0002,
+        "endpoint_alignment": 0.0902,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.6,
+            90.0
+          ],
+          "rightWrist": [
+            82.2,
+            84.8
+          ],
+          "rightHandTip": [
+            89.7,
+            82.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 32,
+      "file": "frames/frame_0033.png",
+      "timestamp_s": 1.0667,
+      "timestamp_ms": 1067,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 14.3,
+        "rightShoulderFlexion": 12.0,
+        "rightShoulderRotation": -35.7,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 77.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3893,
+        "capsule_coverage": 0.0001,
+        "endpoint_alignment": 0.0914,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.4,
+            90.5
+          ],
+          "rightWrist": [
+            82.6,
+            88.0
+          ],
+          "rightHandTip": [
+            90.4,
+            86.8
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 33,
+      "file": "frames/frame_0034.png",
+      "timestamp_s": 1.1,
+      "timestamp_ms": 1100,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 14.1,
+        "rightShoulderFlexion": 9.0,
+        "rightShoulderRotation": -36.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 74.6,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3917,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0992,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.4,
+            90.8
+          ],
+          "rightWrist": [
+            83.2,
+            90.8
+          ],
+          "rightHandTip": [
+            91.2,
+            90.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 34,
+      "file": "frames/frame_0035.png",
+      "timestamp_s": 1.1333,
+      "timestamp_ms": 1133,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 13.7,
+        "rightShoulderFlexion": 6.6,
+        "rightShoulderRotation": -36.1,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 72.4,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3867,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0834,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.2,
+            91.1
+          ],
+          "rightWrist": [
+            83.3,
+            93.2
+          ],
+          "rightHandTip": [
+            91.5,
+            94.2
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 35,
+      "file": "frames/frame_0036.png",
+      "timestamp_s": 1.1667,
+      "timestamp_ms": 1167,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 13.5,
+        "rightShoulderFlexion": 4.8,
+        "rightShoulderRotation": -36.2,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 70.8,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3869,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0839,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.1,
+            91.2
+          ],
+          "rightWrist": [
+            83.5,
+            94.8
+          ],
+          "rightHandTip": [
+            91.8,
+            96.6
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 36,
+      "file": "frames/frame_0037.png",
+      "timestamp_s": 1.2,
+      "timestamp_ms": 1200,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 14.2,
+        "rightShoulderFlexion": 15.4,
+        "rightShoulderRotation": -35.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 80.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3803,
+        "capsule_coverage": 0.0002,
+        "endpoint_alignment": 0.0645,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 0.9984,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.2,
+            90.0
+          ],
+          "rightWrist": [
+            81.6,
+            84.3
+          ],
+          "rightHandTip": [
+            88.9,
+            81.6
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 37,
+      "file": "frames/frame_0038.png",
+      "timestamp_s": 1.2333,
+      "timestamp_ms": 1233,
+      "phase": "stroke",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 16.5,
+        "rightShoulderFlexion": 27.4,
+        "rightShoulderRotation": -31.1,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 92.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3734,
+        "capsule_coverage": 0.0119,
+        "endpoint_alignment": 0.03,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.8,
+            87.2
+          ],
+          "rightWrist": [
+            77.4,
+            70.9
+          ],
+          "rightHandTip": [
+            82.5,
+            63.1
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 38,
+      "file": "frames/frame_0039.png",
+      "timestamp_s": 1.2667,
+      "timestamp_ms": 1267,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 17.3,
+        "rightShoulderFlexion": 39.4,
+        "rightShoulderRotation": -29.9,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 104.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3853,
+        "capsule_coverage": 0.036,
+        "endpoint_alignment": 0.0432,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            66.0,
+            83.4
+          ],
+          "rightWrist": [
+            73.0,
+            59.2
+          ],
+          "rightHandTip": [
+            76.3,
+            47.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 39,
+      "file": "frames/frame_0040.png",
+      "timestamp_s": 1.3,
+      "timestamp_ms": 1300,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 17.2,
+        "rightShoulderFlexion": 51.4,
+        "rightShoulderRotation": -30.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 116.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5131,
+        "capsule_coverage": 0.0099,
+        "endpoint_alignment": 0.4684,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.5,
+            78.6
+          ],
+          "rightWrist": [
+            69.2,
+            50.5
+          ],
+          "rightHandTip": [
+            71.4,
+            37.0
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 40,
+      "file": "frames/frame_0041.png",
+      "timestamp_s": 1.3333,
+      "timestamp_ms": 1333,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 17.0,
+        "rightShoulderFlexion": 58.1,
+        "rightShoulderRotation": -30.2,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 121.5,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.547,
+        "capsule_coverage": 0.0017,
+        "endpoint_alignment": 0.5827,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            63.5,
+            75.6
+          ],
+          "rightWrist": [
+            67.7,
+            47.2
+          ],
+          "rightHandTip": [
+            69.7,
+            33.6
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 41,
+      "file": "frames/frame_0042.png",
+      "timestamp_s": 1.3667,
+      "timestamp_ms": 1367,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 16.9,
+        "rightShoulderFlexion": 55.6,
+        "rightShoulderRotation": -30.5,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 119.1,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5437,
+        "capsule_coverage": 0.0012,
+        "endpoint_alignment": 0.573,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            63.8,
+            76.7
+          ],
+          "rightWrist": [
+            68.5,
+            48.4
+          ],
+          "rightHandTip": [
+            70.8,
+            34.8
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 42,
+      "file": "frames/frame_0043.png",
+      "timestamp_s": 1.4,
+      "timestamp_ms": 1400,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 16.7,
+        "rightShoulderFlexion": 52.5,
+        "rightShoulderRotation": -30.8,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 116.2,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5495,
+        "capsule_coverage": 0.0013,
+        "endpoint_alignment": 0.5908,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.2,
+            78.2
+          ],
+          "rightWrist": [
+            69.5,
+            50.1
+          ],
+          "rightHandTip": [
+            72.1,
+            36.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 43,
+      "file": "frames/frame_0044.png",
+      "timestamp_s": 1.4333,
+      "timestamp_ms": 1433,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 16.4,
+        "rightShoulderFlexion": 49.1,
+        "rightShoulderRotation": -31.2,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 112.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.5312,
+        "capsule_coverage": 0.0019,
+        "endpoint_alignment": 0.5331,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.5,
+            79.7
+          ],
+          "rightWrist": [
+            70.7,
+            52.4
+          ],
+          "rightHandTip": [
+            73.7,
+            39.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 44,
+      "file": "frames/frame_0045.png",
+      "timestamp_s": 1.4667,
+      "timestamp_ms": 1467,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 16.2,
+        "rightShoulderFlexion": 45.2,
+        "rightShoulderRotation": -31.7,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 109.3,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.4842,
+        "capsule_coverage": 0.002,
+        "endpoint_alignment": 0.386,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.9,
+            81.3
+          ],
+          "rightWrist": [
+            72.1,
+            55.2
+          ],
+          "rightHandTip": [
+            75.6,
+            42.7
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 45,
+      "file": "frames/frame_0046.png",
+      "timestamp_s": 1.5,
+      "timestamp_ms": 1500,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 15.5,
+        "rightShoulderFlexion": 42.0,
+        "rightShoulderRotation": -33.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 105.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.4048,
+        "capsule_coverage": 0.0012,
+        "endpoint_alignment": 0.1388,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            65.0,
+            82.7
+          ],
+          "rightWrist": [
+            73.9,
+            58.3
+          ],
+          "rightHandTip": [
+            78.2,
+            46.6
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 46,
+      "file": "frames/frame_0047.png",
+      "timestamp_s": 1.5333,
+      "timestamp_ms": 1533,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 13.8,
+        "rightShoulderFlexion": 40.5,
+        "rightShoulderRotation": -36.4,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 99.7,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3705,
+        "capsule_coverage": 0.0003,
+        "endpoint_alignment": 0.0325,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.4,
+            83.4
+          ],
+          "rightWrist": [
+            76.3,
+            61.4
+          ],
+          "rightHandTip": [
+            82.0,
+            50.9
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 47,
+      "file": "frames/frame_0048.png",
+      "timestamp_s": 1.5667,
+      "timestamp_ms": 1567,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 12.8,
+        "rightShoulderFlexion": 37.6,
+        "rightShoulderRotation": -38.5,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 95.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3605,
+        "capsule_coverage": 0.0002,
+        "endpoint_alignment": 0.0014,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            64.2,
+            84.6
+          ],
+          "rightWrist": [
+            78.1,
+            65.4
+          ],
+          "rightHandTip": [
+            84.7,
+            56.2
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 48,
+      "file": "frames/frame_0049.png",
+      "timestamp_s": 1.6,
+      "timestamp_ms": 1600,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 11.7,
+        "rightShoulderFlexion": 34.2,
+        "rightShoulderRotation": -40.9,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 89.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.36,
+        "capsule_coverage": 0.0001,
+        "endpoint_alignment": 0.0,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            63.9,
+            85.8
+          ],
+          "rightWrist": [
+            79.9,
+            70.5
+          ],
+          "rightHandTip": [
+            87.6,
+            63.1
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 49,
+      "file": "frames/frame_0050.png",
+      "timestamp_s": 1.6333,
+      "timestamp_ms": 1633,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 9.8,
+        "rightShoulderFlexion": 31.2,
+        "rightShoulderRotation": -45.5,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 80.1,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.36,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            63.2,
+            86.9
+          ],
+          "rightWrist": [
+            82.0,
+            77.5
+          ],
+          "rightHandTip": [
+            91.1,
+            73.0
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 50,
+      "file": "frames/frame_0051.png",
+      "timestamp_s": 1.6667,
+      "timestamp_ms": 1667,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 8.6,
+        "rightShoulderFlexion": 28.0,
+        "rightShoulderRotation": -48.3,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 73.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.36,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            62.7,
+            88.0
+          ],
+          "rightWrist": [
+            82.9,
+            83.3
+          ],
+          "rightHandTip": [
+            92.5,
+            81.1
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 51,
+      "file": "frames/frame_0052.png",
+      "timestamp_s": 1.7,
+      "timestamp_ms": 1700,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 7.8,
+        "rightShoulderFlexion": 24.9,
+        "rightShoulderRotation": -50.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 69.2,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.36,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            62.4,
+            88.8
+          ],
+          "rightWrist": [
+            83.1,
+            88.0
+          ],
+          "rightHandTip": [
+            93.0,
+            87.6
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 52,
+      "file": "frames/frame_0053.png",
+      "timestamp_s": 1.7333,
+      "timestamp_ms": 1733,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 7.1,
+        "rightShoulderFlexion": 22.1,
+        "rightShoulderRotation": -51.5,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 64.9,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.36,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0001,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            62.1,
+            89.5
+          ],
+          "rightWrist": [
+            83.0,
+            92.2
+          ],
+          "rightHandTip": [
+            93.0,
+            93.4
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 53,
+      "file": "frames/frame_0054.png",
+      "timestamp_s": 1.7667,
+      "timestamp_ms": 1767,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 6.5,
+        "rightShoulderFlexion": 19.7,
+        "rightShoulderRotation": -52.9,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 61.2,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.36,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0001,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            61.8,
+            90.1
+          ],
+          "rightWrist": [
+            82.7,
+            95.7
+          ],
+          "rightHandTip": [
+            92.7,
+            98.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 54,
+      "file": "frames/frame_0055.png",
+      "timestamp_s": 1.8,
+      "timestamp_ms": 1800,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 5.9,
+        "rightShoulderFlexion": 17.1,
+        "rightShoulderRotation": -54.3,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 57.3,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.36,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0001,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            61.6,
+            90.6
+          ],
+          "rightWrist": [
+            82.2,
+            99.2
+          ],
+          "rightHandTip": [
+            92.1,
+            103.3
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 55,
+      "file": "frames/frame_0056.png",
+      "timestamp_s": 1.8333,
+      "timestamp_ms": 1833,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 5.1,
+        "rightShoulderFlexion": 13.3,
+        "rightShoulderRotation": -56.3,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 51.4,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3601,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0002,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            61.2,
+            91.2
+          ],
+          "rightWrist": [
+            81.1,
+            104.1
+          ],
+          "rightHandTip": [
+            90.6,
+            110.2
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 56,
+      "file": "frames/frame_0057.png",
+      "timestamp_s": 1.8667,
+      "timestamp_ms": 1867,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 4.4,
+        "rightShoulderFlexion": 9.4,
+        "rightShoulderRotation": -58.2,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 45.4,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3601,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0002,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            60.8,
+            91.7
+          ],
+          "rightWrist": [
+            79.5,
+            108.5
+          ],
+          "rightHandTip": [
+            88.5,
+            116.5
+          ]
+        }
+      }
+    },
+    {
+      "frame_index": 57,
+      "file": "frames/frame_0058.png",
+      "timestamp_s": 1.9,
+      "timestamp_ms": 1900,
+      "phase": "retract",
+      "rig_state": {
+        "headPitch": 0.0,
+        "jawOpen": 0.0,
+        "neckRoll": 0.0,
+        "neckYaw": 0.0,
+        "shoulderElevation": 0.0,
+        "shoulderTilt": 0.0,
+        "rightShoulderAngle": 3.8,
+        "rightShoulderFlexion": 6.0,
+        "rightShoulderRotation": -60.0,
+        "leftShoulderAngle": -3.8,
+        "leftShoulderFlexion": 6.0,
+        "leftShoulderRotation": -60.0,
+        "rightElbowBend": 40.0,
+        "leftElbowBend": 40.0,
+        "pelvisTwist": 0.0,
+        "pelvisBow": 0.0
+      },
+      "reward": {
+        "total_reward": 0.3601,
+        "capsule_coverage": 0.0,
+        "endpoint_alignment": 0.0003,
+        "silhouette_containment": 1.0,
+        "temporal_smoothness": 1.0,
+        "projected_2d": {
+          "rightShoulder": [
+            58.2,
+            58.5
+          ],
+          "rightElbow": [
+            60.5,
+            92.0
+          ],
+          "rightWrist": [
+            77.8,
+            111.8
+          ],
+          "rightHandTip": [
+            86.1,
+            121.3
+          ]
+        }
+      }
+    }
+  ],
+  "ckpe_single_step_targets": [
+    {
+      "step_index": 0,
+      "t_minus_1": {
+        "frame_index": 0,
+        "image": "frames/frame_0001.png",
+        "timestamp_ms": 0,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "DEFAULT_POSE",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 3.8,
+          "rightShoulderFlexion": 6.0,
+          "rightShoulderRotation": -60.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 40.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 1,
+        "target_image": "frames/frame_0002.png",
+        "timestamp_ms": 33,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -6.6,
+          "rightShoulderFlexion": 4.0,
+          "rightShoulderRotation": -57.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 33.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.8386
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 1,
+      "t_minus_1": {
+        "frame_index": 1,
+        "image": "frames/frame_0002.png",
+        "timestamp_ms": 33,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_1",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -6.6,
+          "rightShoulderFlexion": 4.0,
+          "rightShoulderRotation": -57.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 33.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 2,
+        "target_image": "frames/frame_0003.png",
+        "timestamp_ms": 67,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -10.6,
+          "rightShoulderFlexion": 4.1,
+          "rightShoulderRotation": -58.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 33.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.8799
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 2,
+      "t_minus_1": {
+        "frame_index": 2,
+        "image": "frames/frame_0003.png",
+        "timestamp_ms": 67,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_2",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -10.6,
+          "rightShoulderFlexion": 4.1,
+          "rightShoulderRotation": -58.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 33.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 3,
+        "target_image": "frames/frame_0004.png",
+        "timestamp_ms": 100,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -10.1,
+          "rightShoulderFlexion": 4.5,
+          "rightShoulderRotation": -58.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 34.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.8782
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 3,
+      "t_minus_1": {
+        "frame_index": 3,
+        "image": "frames/frame_0004.png",
+        "timestamp_ms": 100,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_3",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -10.1,
+          "rightShoulderFlexion": 4.5,
+          "rightShoulderRotation": -58.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 34.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 4,
+        "target_image": "frames/frame_0005.png",
+        "timestamp_ms": 133,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -8.5,
+          "rightShoulderFlexion": 7.0,
+          "rightShoulderRotation": -56.6,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 37.7,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.7152
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 4,
+      "t_minus_1": {
+        "frame_index": 4,
+        "image": "frames/frame_0005.png",
+        "timestamp_ms": 133,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_4",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -8.5,
+          "rightShoulderFlexion": 7.0,
+          "rightShoulderRotation": -56.6,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 37.7,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 5,
+        "target_image": "frames/frame_0006.png",
+        "timestamp_ms": 167,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -11.0,
+          "rightShoulderFlexion": 15.4,
+          "rightShoulderRotation": -49.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 44.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5424
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 5,
+      "t_minus_1": {
+        "frame_index": 5,
+        "image": "frames/frame_0006.png",
+        "timestamp_ms": 167,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_5",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -11.0,
+          "rightShoulderFlexion": 15.4,
+          "rightShoulderRotation": -49.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 44.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 6,
+        "target_image": "frames/frame_0007.png",
+        "timestamp_ms": 200,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -10.7,
+          "rightShoulderFlexion": 22.7,
+          "rightShoulderRotation": -46.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 47.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5686
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 6,
+      "t_minus_1": {
+        "frame_index": 6,
+        "image": "frames/frame_0007.png",
+        "timestamp_ms": 200,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_6",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -10.7,
+          "rightShoulderFlexion": 22.7,
+          "rightShoulderRotation": -46.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 47.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 7,
+        "target_image": "frames/frame_0008.png",
+        "timestamp_ms": 233,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -7.7,
+          "rightShoulderFlexion": 30.3,
+          "rightShoulderRotation": -45.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 49.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5653
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 7,
+      "t_minus_1": {
+        "frame_index": 7,
+        "image": "frames/frame_0008.png",
+        "timestamp_ms": 233,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_7",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -7.7,
+          "rightShoulderFlexion": 30.3,
+          "rightShoulderRotation": -45.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 49.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 8,
+        "target_image": "frames/frame_0009.png",
+        "timestamp_ms": 267,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -4.3,
+          "rightShoulderFlexion": 34.4,
+          "rightShoulderRotation": -40.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 56.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5558
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 8,
+      "t_minus_1": {
+        "frame_index": 8,
+        "image": "frames/frame_0009.png",
+        "timestamp_ms": 267,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_8",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -4.3,
+          "rightShoulderFlexion": 34.4,
+          "rightShoulderRotation": -40.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 56.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 9,
+        "target_image": "frames/frame_0010.png",
+        "timestamp_ms": 300,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -1.7,
+          "rightShoulderFlexion": 34.2,
+          "rightShoulderRotation": -33.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 65.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5537
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 9,
+      "t_minus_1": {
+        "frame_index": 9,
+        "image": "frames/frame_0010.png",
+        "timestamp_ms": 300,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_9",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": -1.7,
+          "rightShoulderFlexion": 34.2,
+          "rightShoulderRotation": -33.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 65.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 10,
+        "target_image": "frames/frame_0011.png",
+        "timestamp_ms": 333,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 4.2,
+          "rightShoulderFlexion": 28.9,
+          "rightShoulderRotation": -25.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 75.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5659
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 10,
+      "t_minus_1": {
+        "frame_index": 10,
+        "image": "frames/frame_0011.png",
+        "timestamp_ms": 333,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_10",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 4.2,
+          "rightShoulderFlexion": 28.9,
+          "rightShoulderRotation": -25.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 75.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 11,
+        "target_image": "frames/frame_0012.png",
+        "timestamp_ms": 367,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 10.6,
+          "rightShoulderFlexion": 21.6,
+          "rightShoulderRotation": -18.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 86.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.6219
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 11,
+      "t_minus_1": {
+        "frame_index": 11,
+        "image": "frames/frame_0012.png",
+        "timestamp_ms": 367,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_11",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 10.6,
+          "rightShoulderFlexion": 21.6,
+          "rightShoulderRotation": -18.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 86.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 12,
+        "target_image": "frames/frame_0013.png",
+        "timestamp_ms": 400,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 11.2,
+          "rightShoulderFlexion": 15.3,
+          "rightShoulderRotation": -16.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 96.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.6851
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 12,
+      "t_minus_1": {
+        "frame_index": 12,
+        "image": "frames/frame_0013.png",
+        "timestamp_ms": 400,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_12",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 11.2,
+          "rightShoulderFlexion": 15.3,
+          "rightShoulderRotation": -16.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 96.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 13,
+        "target_image": "frames/frame_0014.png",
+        "timestamp_ms": 433,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 10.6,
+          "rightShoulderFlexion": 11.7,
+          "rightShoulderRotation": -16.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 108.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.69
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 13,
+      "t_minus_1": {
+        "frame_index": 13,
+        "image": "frames/frame_0014.png",
+        "timestamp_ms": 433,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_13",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 10.6,
+          "rightShoulderFlexion": 11.7,
+          "rightShoulderRotation": -16.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 108.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 14,
+        "target_image": "frames/frame_0015.png",
+        "timestamp_ms": 467,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 12.6,
+          "rightShoulderFlexion": 16.5,
+          "rightShoulderRotation": -23.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 120.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.6898
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 14,
+      "t_minus_1": {
+        "frame_index": 14,
+        "image": "frames/frame_0015.png",
+        "timestamp_ms": 467,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_14",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 12.6,
+          "rightShoulderFlexion": 16.5,
+          "rightShoulderRotation": -23.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 120.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 15,
+        "target_image": "frames/frame_0016.png",
+        "timestamp_ms": 500,
+        "phase": "prep",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 15.4,
+          "rightShoulderFlexion": 24.3,
+          "rightShoulderRotation": -33.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 131.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.6879
+      },
+      "action_descriptor": "Sign 'baby' preparation: right arm raising from neutral resting pose toward Neutral location (target handshape 'open_b')."
+    },
+    {
+      "step_index": 15,
+      "t_minus_1": {
+        "frame_index": 15,
+        "image": "frames/frame_0016.png",
+        "timestamp_ms": 500,
+        "phase": "prep",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_15",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 15.4,
+          "rightShoulderFlexion": 24.3,
+          "rightShoulderRotation": -33.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 131.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 16,
+        "target_image": "frames/frame_0017.png",
+        "timestamp_ms": 533,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 19.8,
+          "rightShoulderFlexion": 29.9,
+          "rightShoulderRotation": -38.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 137.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.6518
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 16,
+      "t_minus_1": {
+        "frame_index": 16,
+        "image": "frames/frame_0017.png",
+        "timestamp_ms": 533,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_16",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 19.8,
+          "rightShoulderFlexion": 29.9,
+          "rightShoulderRotation": -38.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 137.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 17,
+        "target_image": "frames/frame_0018.png",
+        "timestamp_ms": 567,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 26.1,
+          "rightShoulderFlexion": 37.7,
+          "rightShoulderRotation": -38.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 134.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5875
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 17,
+      "t_minus_1": {
+        "frame_index": 17,
+        "image": "frames/frame_0018.png",
+        "timestamp_ms": 567,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_17",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 26.1,
+          "rightShoulderFlexion": 37.7,
+          "rightShoulderRotation": -38.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 134.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 18,
+        "target_image": "frames/frame_0019.png",
+        "timestamp_ms": 600,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 30.9,
+          "rightShoulderFlexion": 42.7,
+          "rightShoulderRotation": -38.1,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 127.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5787
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 18,
+      "t_minus_1": {
+        "frame_index": 18,
+        "image": "frames/frame_0019.png",
+        "timestamp_ms": 600,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_18",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 30.9,
+          "rightShoulderFlexion": 42.7,
+          "rightShoulderRotation": -38.1,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 127.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 19,
+        "target_image": "frames/frame_0020.png",
+        "timestamp_ms": 633,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 33.6,
+          "rightShoulderFlexion": 46.1,
+          "rightShoulderRotation": -38.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 121.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5545
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 19,
+      "t_minus_1": {
+        "frame_index": 19,
+        "image": "frames/frame_0020.png",
+        "timestamp_ms": 633,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_19",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 33.6,
+          "rightShoulderFlexion": 46.1,
+          "rightShoulderRotation": -38.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 121.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 20,
+        "target_image": "frames/frame_0021.png",
+        "timestamp_ms": 667,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 33.2,
+          "rightShoulderFlexion": 46.9,
+          "rightShoulderRotation": -38.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 116.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5298
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 20,
+      "t_minus_1": {
+        "frame_index": 20,
+        "image": "frames/frame_0021.png",
+        "timestamp_ms": 667,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_20",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 33.2,
+          "rightShoulderFlexion": 46.9,
+          "rightShoulderRotation": -38.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 116.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 21,
+        "target_image": "frames/frame_0022.png",
+        "timestamp_ms": 700,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 31.2,
+          "rightShoulderFlexion": 44.2,
+          "rightShoulderRotation": -38.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 113.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5026
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 21,
+      "t_minus_1": {
+        "frame_index": 21,
+        "image": "frames/frame_0022.png",
+        "timestamp_ms": 700,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_21",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 31.2,
+          "rightShoulderFlexion": 44.2,
+          "rightShoulderRotation": -38.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 113.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 22,
+        "target_image": "frames/frame_0023.png",
+        "timestamp_ms": 733,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 29.1,
+          "rightShoulderFlexion": 42.2,
+          "rightShoulderRotation": -37.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 110.7,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.4635
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 22,
+      "t_minus_1": {
+        "frame_index": 22,
+        "image": "frames/frame_0023.png",
+        "timestamp_ms": 733,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_22",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 29.1,
+          "rightShoulderFlexion": 42.2,
+          "rightShoulderRotation": -37.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 110.7,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 23,
+        "target_image": "frames/frame_0024.png",
+        "timestamp_ms": 767,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 25.8,
+          "rightShoulderFlexion": 41.9,
+          "rightShoulderRotation": -36.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 107.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.4191
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 23,
+      "t_minus_1": {
+        "frame_index": 23,
+        "image": "frames/frame_0024.png",
+        "timestamp_ms": 767,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_23",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 25.8,
+          "rightShoulderFlexion": 41.9,
+          "rightShoulderRotation": -36.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 107.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 24,
+        "target_image": "frames/frame_0025.png",
+        "timestamp_ms": 800,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 23.9,
+          "rightShoulderFlexion": 39.2,
+          "rightShoulderRotation": -36.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 103.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3964
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 24,
+      "t_minus_1": {
+        "frame_index": 24,
+        "image": "frames/frame_0025.png",
+        "timestamp_ms": 800,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_24",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 23.9,
+          "rightShoulderFlexion": 39.2,
+          "rightShoulderRotation": -36.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 103.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 25,
+        "target_image": "frames/frame_0026.png",
+        "timestamp_ms": 833,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 22.7,
+          "rightShoulderFlexion": 34.8,
+          "rightShoulderRotation": -36.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 101.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3884
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 25,
+      "t_minus_1": {
+        "frame_index": 25,
+        "image": "frames/frame_0026.png",
+        "timestamp_ms": 833,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_25",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 22.7,
+          "rightShoulderFlexion": 34.8,
+          "rightShoulderRotation": -36.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 101.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 26,
+        "target_image": "frames/frame_0027.png",
+        "timestamp_ms": 867,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 21.5,
+          "rightShoulderFlexion": 30.7,
+          "rightShoulderRotation": -35.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 97.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3881
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 26,
+      "t_minus_1": {
+        "frame_index": 26,
+        "image": "frames/frame_0027.png",
+        "timestamp_ms": 867,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_26",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 21.5,
+          "rightShoulderFlexion": 30.7,
+          "rightShoulderRotation": -35.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 97.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 27,
+        "target_image": "frames/frame_0028.png",
+        "timestamp_ms": 900,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 20.2,
+          "rightShoulderFlexion": 27.0,
+          "rightShoulderRotation": -35.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 93.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.389
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 27,
+      "t_minus_1": {
+        "frame_index": 27,
+        "image": "frames/frame_0028.png",
+        "timestamp_ms": 900,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_27",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 20.2,
+          "rightShoulderFlexion": 27.0,
+          "rightShoulderRotation": -35.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 93.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 28,
+        "target_image": "frames/frame_0029.png",
+        "timestamp_ms": 933,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 18.7,
+          "rightShoulderFlexion": 23.5,
+          "rightShoulderRotation": -35.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 89.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3855
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 28,
+      "t_minus_1": {
+        "frame_index": 28,
+        "image": "frames/frame_0029.png",
+        "timestamp_ms": 933,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_28",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 18.7,
+          "rightShoulderFlexion": 23.5,
+          "rightShoulderRotation": -35.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 89.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 29,
+        "target_image": "frames/frame_0030.png",
+        "timestamp_ms": 967,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.6,
+          "rightShoulderFlexion": 20.4,
+          "rightShoulderRotation": -35.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 86.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3891
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 29,
+      "t_minus_1": {
+        "frame_index": 29,
+        "image": "frames/frame_0030.png",
+        "timestamp_ms": 967,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_29",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.6,
+          "rightShoulderFlexion": 20.4,
+          "rightShoulderRotation": -35.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 86.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 30,
+        "target_image": "frames/frame_0031.png",
+        "timestamp_ms": 1000,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.1,
+          "rightShoulderFlexion": 18.0,
+          "rightShoulderRotation": -35.6,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 82.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3924
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 30,
+      "t_minus_1": {
+        "frame_index": 30,
+        "image": "frames/frame_0031.png",
+        "timestamp_ms": 1000,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_30",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.1,
+          "rightShoulderFlexion": 18.0,
+          "rightShoulderRotation": -35.6,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 82.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 31,
+        "target_image": "frames/frame_0032.png",
+        "timestamp_ms": 1033,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.9,
+          "rightShoulderFlexion": 15.1,
+          "rightShoulderRotation": -35.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 79.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3889
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 31,
+      "t_minus_1": {
+        "frame_index": 31,
+        "image": "frames/frame_0032.png",
+        "timestamp_ms": 1033,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_31",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.9,
+          "rightShoulderFlexion": 15.1,
+          "rightShoulderRotation": -35.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 79.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 32,
+        "target_image": "frames/frame_0033.png",
+        "timestamp_ms": 1067,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.3,
+          "rightShoulderFlexion": 12.0,
+          "rightShoulderRotation": -35.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 77.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3893
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 32,
+      "t_minus_1": {
+        "frame_index": 32,
+        "image": "frames/frame_0033.png",
+        "timestamp_ms": 1067,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_32",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.3,
+          "rightShoulderFlexion": 12.0,
+          "rightShoulderRotation": -35.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 77.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 33,
+        "target_image": "frames/frame_0034.png",
+        "timestamp_ms": 1100,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.1,
+          "rightShoulderFlexion": 9.0,
+          "rightShoulderRotation": -36.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 74.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3917
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 33,
+      "t_minus_1": {
+        "frame_index": 33,
+        "image": "frames/frame_0034.png",
+        "timestamp_ms": 1100,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_33",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.1,
+          "rightShoulderFlexion": 9.0,
+          "rightShoulderRotation": -36.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 74.6,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 34,
+        "target_image": "frames/frame_0035.png",
+        "timestamp_ms": 1133,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 13.7,
+          "rightShoulderFlexion": 6.6,
+          "rightShoulderRotation": -36.1,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 72.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3867
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 34,
+      "t_minus_1": {
+        "frame_index": 34,
+        "image": "frames/frame_0035.png",
+        "timestamp_ms": 1133,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_34",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 13.7,
+          "rightShoulderFlexion": 6.6,
+          "rightShoulderRotation": -36.1,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 72.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 35,
+        "target_image": "frames/frame_0036.png",
+        "timestamp_ms": 1167,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 13.5,
+          "rightShoulderFlexion": 4.8,
+          "rightShoulderRotation": -36.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 70.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3869
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 35,
+      "t_minus_1": {
+        "frame_index": 35,
+        "image": "frames/frame_0036.png",
+        "timestamp_ms": 1167,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_35",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 13.5,
+          "rightShoulderFlexion": 4.8,
+          "rightShoulderRotation": -36.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 70.8,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 36,
+        "target_image": "frames/frame_0037.png",
+        "timestamp_ms": 1200,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.2,
+          "rightShoulderFlexion": 15.4,
+          "rightShoulderRotation": -35.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 80.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3803
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 36,
+      "t_minus_1": {
+        "frame_index": 36,
+        "image": "frames/frame_0037.png",
+        "timestamp_ms": 1200,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_36",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 14.2,
+          "rightShoulderFlexion": 15.4,
+          "rightShoulderRotation": -35.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 80.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 37,
+        "target_image": "frames/frame_0038.png",
+        "timestamp_ms": 1233,
+        "phase": "stroke",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.5,
+          "rightShoulderFlexion": 27.4,
+          "rightShoulderRotation": -31.1,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 92.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3734
+      },
+      "action_descriptor": "Sign 'baby' hold/stroke: right hand holding handshape 'open_b' in Neutral space (Straight movement)."
+    },
+    {
+      "step_index": 37,
+      "t_minus_1": {
+        "frame_index": 37,
+        "image": "frames/frame_0038.png",
+        "timestamp_ms": 1233,
+        "phase": "stroke",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_37",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.5,
+          "rightShoulderFlexion": 27.4,
+          "rightShoulderRotation": -31.1,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 92.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 38,
+        "target_image": "frames/frame_0039.png",
+        "timestamp_ms": 1267,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.3,
+          "rightShoulderFlexion": 39.4,
+          "rightShoulderRotation": -29.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 104.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3853
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 38,
+      "t_minus_1": {
+        "frame_index": 38,
+        "image": "frames/frame_0039.png",
+        "timestamp_ms": 1267,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_38",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.3,
+          "rightShoulderFlexion": 39.4,
+          "rightShoulderRotation": -29.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 104.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 39,
+        "target_image": "frames/frame_0040.png",
+        "timestamp_ms": 1300,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.2,
+          "rightShoulderFlexion": 51.4,
+          "rightShoulderRotation": -30.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 116.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5131
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 39,
+      "t_minus_1": {
+        "frame_index": 39,
+        "image": "frames/frame_0040.png",
+        "timestamp_ms": 1300,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_39",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.2,
+          "rightShoulderFlexion": 51.4,
+          "rightShoulderRotation": -30.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 116.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 40,
+        "target_image": "frames/frame_0041.png",
+        "timestamp_ms": 1333,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.0,
+          "rightShoulderFlexion": 58.1,
+          "rightShoulderRotation": -30.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 121.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.547
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 40,
+      "t_minus_1": {
+        "frame_index": 40,
+        "image": "frames/frame_0041.png",
+        "timestamp_ms": 1333,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_40",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 17.0,
+          "rightShoulderFlexion": 58.1,
+          "rightShoulderRotation": -30.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 121.5,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 41,
+        "target_image": "frames/frame_0042.png",
+        "timestamp_ms": 1367,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.9,
+          "rightShoulderFlexion": 55.6,
+          "rightShoulderRotation": -30.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 119.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5437
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 41,
+      "t_minus_1": {
+        "frame_index": 41,
+        "image": "frames/frame_0042.png",
+        "timestamp_ms": 1367,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_41",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.9,
+          "rightShoulderFlexion": 55.6,
+          "rightShoulderRotation": -30.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 119.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 42,
+        "target_image": "frames/frame_0043.png",
+        "timestamp_ms": 1400,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.7,
+          "rightShoulderFlexion": 52.5,
+          "rightShoulderRotation": -30.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 116.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5495
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 42,
+      "t_minus_1": {
+        "frame_index": 42,
+        "image": "frames/frame_0043.png",
+        "timestamp_ms": 1400,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_42",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.7,
+          "rightShoulderFlexion": 52.5,
+          "rightShoulderRotation": -30.8,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 116.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 43,
+        "target_image": "frames/frame_0044.png",
+        "timestamp_ms": 1433,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.4,
+          "rightShoulderFlexion": 49.1,
+          "rightShoulderRotation": -31.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 112.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.5312
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 43,
+      "t_minus_1": {
+        "frame_index": 43,
+        "image": "frames/frame_0044.png",
+        "timestamp_ms": 1433,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_43",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.4,
+          "rightShoulderFlexion": 49.1,
+          "rightShoulderRotation": -31.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 112.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 44,
+        "target_image": "frames/frame_0045.png",
+        "timestamp_ms": 1467,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.2,
+          "rightShoulderFlexion": 45.2,
+          "rightShoulderRotation": -31.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 109.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.4842
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 44,
+      "t_minus_1": {
+        "frame_index": 44,
+        "image": "frames/frame_0045.png",
+        "timestamp_ms": 1467,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_44",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 16.2,
+          "rightShoulderFlexion": 45.2,
+          "rightShoulderRotation": -31.7,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 109.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 45,
+        "target_image": "frames/frame_0046.png",
+        "timestamp_ms": 1500,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 15.5,
+          "rightShoulderFlexion": 42.0,
+          "rightShoulderRotation": -33.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 105.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.4048
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 45,
+      "t_minus_1": {
+        "frame_index": 45,
+        "image": "frames/frame_0046.png",
+        "timestamp_ms": 1500,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_45",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 15.5,
+          "rightShoulderFlexion": 42.0,
+          "rightShoulderRotation": -33.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 105.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 46,
+        "target_image": "frames/frame_0047.png",
+        "timestamp_ms": 1533,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 13.8,
+          "rightShoulderFlexion": 40.5,
+          "rightShoulderRotation": -36.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 99.7,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3705
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 46,
+      "t_minus_1": {
+        "frame_index": 46,
+        "image": "frames/frame_0047.png",
+        "timestamp_ms": 1533,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_46",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 13.8,
+          "rightShoulderFlexion": 40.5,
+          "rightShoulderRotation": -36.4,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 99.7,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 47,
+        "target_image": "frames/frame_0048.png",
+        "timestamp_ms": 1567,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 12.8,
+          "rightShoulderFlexion": 37.6,
+          "rightShoulderRotation": -38.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 95.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3605
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 47,
+      "t_minus_1": {
+        "frame_index": 47,
+        "image": "frames/frame_0048.png",
+        "timestamp_ms": 1567,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_47",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 12.8,
+          "rightShoulderFlexion": 37.6,
+          "rightShoulderRotation": -38.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 95.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 48,
+        "target_image": "frames/frame_0049.png",
+        "timestamp_ms": 1600,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 11.7,
+          "rightShoulderFlexion": 34.2,
+          "rightShoulderRotation": -40.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 89.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.36
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 48,
+      "t_minus_1": {
+        "frame_index": 48,
+        "image": "frames/frame_0049.png",
+        "timestamp_ms": 1600,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_48",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 11.7,
+          "rightShoulderFlexion": 34.2,
+          "rightShoulderRotation": -40.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 89.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 49,
+        "target_image": "frames/frame_0050.png",
+        "timestamp_ms": 1633,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 9.8,
+          "rightShoulderFlexion": 31.2,
+          "rightShoulderRotation": -45.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 80.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.36
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 49,
+      "t_minus_1": {
+        "frame_index": 49,
+        "image": "frames/frame_0050.png",
+        "timestamp_ms": 1633,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_49",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 9.8,
+          "rightShoulderFlexion": 31.2,
+          "rightShoulderRotation": -45.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 80.1,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 50,
+        "target_image": "frames/frame_0051.png",
+        "timestamp_ms": 1667,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 8.6,
+          "rightShoulderFlexion": 28.0,
+          "rightShoulderRotation": -48.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 73.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.36
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 50,
+      "t_minus_1": {
+        "frame_index": 50,
+        "image": "frames/frame_0051.png",
+        "timestamp_ms": 1667,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_50",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 8.6,
+          "rightShoulderFlexion": 28.0,
+          "rightShoulderRotation": -48.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 73.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 51,
+        "target_image": "frames/frame_0052.png",
+        "timestamp_ms": 1700,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 7.8,
+          "rightShoulderFlexion": 24.9,
+          "rightShoulderRotation": -50.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 69.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.36
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 51,
+      "t_minus_1": {
+        "frame_index": 51,
+        "image": "frames/frame_0052.png",
+        "timestamp_ms": 1700,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_51",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 7.8,
+          "rightShoulderFlexion": 24.9,
+          "rightShoulderRotation": -50.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 69.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 52,
+        "target_image": "frames/frame_0053.png",
+        "timestamp_ms": 1733,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 7.1,
+          "rightShoulderFlexion": 22.1,
+          "rightShoulderRotation": -51.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 64.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.36
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 52,
+      "t_minus_1": {
+        "frame_index": 52,
+        "image": "frames/frame_0053.png",
+        "timestamp_ms": 1733,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_52",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 7.1,
+          "rightShoulderFlexion": 22.1,
+          "rightShoulderRotation": -51.5,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 64.9,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 53,
+        "target_image": "frames/frame_0054.png",
+        "timestamp_ms": 1767,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 6.5,
+          "rightShoulderFlexion": 19.7,
+          "rightShoulderRotation": -52.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 61.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.36
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 53,
+      "t_minus_1": {
+        "frame_index": 53,
+        "image": "frames/frame_0054.png",
+        "timestamp_ms": 1767,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_53",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 6.5,
+          "rightShoulderFlexion": 19.7,
+          "rightShoulderRotation": -52.9,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 61.2,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 54,
+        "target_image": "frames/frame_0055.png",
+        "timestamp_ms": 1800,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 5.9,
+          "rightShoulderFlexion": 17.1,
+          "rightShoulderRotation": -54.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 57.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.36
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 54,
+      "t_minus_1": {
+        "frame_index": 54,
+        "image": "frames/frame_0055.png",
+        "timestamp_ms": 1800,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_54",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 5.9,
+          "rightShoulderFlexion": 17.1,
+          "rightShoulderRotation": -54.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 57.3,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 55,
+        "target_image": "frames/frame_0056.png",
+        "timestamp_ms": 1833,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 5.1,
+          "rightShoulderFlexion": 13.3,
+          "rightShoulderRotation": -56.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 51.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3601
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 55,
+      "t_minus_1": {
+        "frame_index": 55,
+        "image": "frames/frame_0056.png",
+        "timestamp_ms": 1833,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_55",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 5.1,
+          "rightShoulderFlexion": 13.3,
+          "rightShoulderRotation": -56.3,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 51.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 56,
+        "target_image": "frames/frame_0057.png",
+        "timestamp_ms": 1867,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 4.4,
+          "rightShoulderFlexion": 9.4,
+          "rightShoulderRotation": -58.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 45.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3601
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    },
+    {
+      "step_index": 56,
+      "t_minus_1": {
+        "frame_index": 56,
+        "image": "frames/frame_0057.png",
+        "timestamp_ms": 1867,
+        "phase": "retract",
+        "rig_state_hint_S_t_minus_1": "PREDICTED_S_56",
+        "rig_state_S_t_minus_1": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 4.4,
+          "rightShoulderFlexion": 9.4,
+          "rightShoulderRotation": -58.2,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 45.4,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        }
+      },
+      "t": {
+        "frame_index": 57,
+        "target_image": "frames/frame_0058.png",
+        "timestamp_ms": 1900,
+        "phase": "retract",
+        "target_rig_state_S_t": {
+          "headPitch": 0.0,
+          "jawOpen": 0.0,
+          "neckRoll": 0.0,
+          "neckYaw": 0.0,
+          "shoulderElevation": 0.0,
+          "shoulderTilt": 0.0,
+          "rightShoulderAngle": 3.8,
+          "rightShoulderFlexion": 6.0,
+          "rightShoulderRotation": -60.0,
+          "leftShoulderAngle": -3.8,
+          "leftShoulderFlexion": 6.0,
+          "leftShoulderRotation": -60.0,
+          "rightElbowBend": 40.0,
+          "leftElbowBend": 40.0,
+          "pelvisTwist": 0.0,
+          "pelvisBow": 0.0
+        },
+        "reward_score": 0.3601
+      },
+      "action_descriptor": "Sign 'baby' retraction: right arm lowering from Neutral space back to neutral resting pose."
+    }
+  ],
+  "calibration": {
+    "grid_width": 160,
+    "grid_height": 120,
+    "center_x": 82.0,
+    "top_head_y": 10.0,
+    "shoulder_y": 58.5,
+    "elbow_y": 119.5,
+    "skeletal_shoulder_half_px": 23.75,
+    "elbow_half_px": 21.5,
+    "scale_x": 0.25,
+    "scale_y": 0.25,
+    "calibrated_rest_state": {
+      "headPitch": 0.0,
+      "jawOpen": 0.0,
+      "neckRoll": 0.0,
+      "neckYaw": 0.0,
+      "shoulderElevation": 0.0,
+      "shoulderTilt": 0.0,
+      "rightShoulderAngle": 3.8,
+      "rightShoulderFlexion": 6.0,
+      "rightShoulderRotation": -60.0,
+      "leftShoulderAngle": -3.8,
+      "leftShoulderFlexion": 6.0,
+      "leftShoulderRotation": -60.0,
+      "rightElbowBend": 40.0,
+      "leftElbowBend": 40.0,
+      "pelvisTwist": 0.0,
+      "pelvisBow": 0.0
+    }
+  }
+}

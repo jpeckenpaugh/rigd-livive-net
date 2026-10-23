@@ -1,0 +1,3 @@
+[submodule "ckpe-livive-net"]
+	path = ckpe-livive-net
+	url = git@github.com:jpeckenpaugh/ckpe-livive-net.git

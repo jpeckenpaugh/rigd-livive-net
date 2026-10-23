@@ -88,13 +88,13 @@ To eliminate "bamfing" (discontinuous teleportation of limb angles between adjac
 
 ### 9. Empirical Level 1 Validation Suite & Pipeline Automation (`scripts/train_asl.sh`)
 
-To validate Level 1 reach and vertical elevation hierarchy across anatomical contact zones, the test suite includes **23 signs** solved at $30\text{ fps}$ ($\max \Delta \le 12.0^\circ/\text{frame}$):
+To validate Level 1 reach and vertical elevation hierarchy across anatomical contact zones, the test suite includes **100 signs** solved at $30\text{ fps}$ ($\max \Delta \le 12.0^\circ/\text{frame}$):
 
-- **Neutral Chest Space:** `one`, `two`, `find`, `water`
-- **Cranial, Temple & Directional Targets:** `father`, `boy`, `hello`, `think`, `see`, `why`
-- **Facial, Oral & Chin Targets:** `mother`, `girl`, `drink`, `apple`, `flower`, `thank_you`
-- **Thoracic & Sternum Gestures:** `my`, `please`, `sorry`
-- **Bilateral Coordination & Base Hands:** `box`, `house`, `tree`, `money`
+- **Neutral Chest Space:** `one`, `two`, `find`, `water`, `milk`, `give`, `walk`, `open`, `push`, `pull`, `egg`, `yes`, `no`, `where`, `three`, `four`, `finish`, `more`, `now`
+- **Cranial, Temple & Directional Targets:** `father`, `boy`, `hello`, `think`, `see`, `why`, `sun`, `airplane`, `who`, `know`, `understand`, `remember`, `listen`, `tomorrow`, `yesterday`
+- **Facial, Oral & Chin Targets:** `mother`, `girl`, `drink`, `apple`, `flower`, `thank_you`, `eat_1`, `sleep`, `candy_1`, `orange`, `fruit`, `corn_2`, `bird`, `cat`, `bored`, `shy`
+- **Thoracic & Sternum Gestures:** `my`, `please`, `sorry`, `shirt`, `fine_1`, `like`, `feel`, `pride`, `angry`, `excited`, `tired`
+- **Bilateral Coordination & Base Hands:** `box`, `house`, `tree`, `money`, `work`, `stand_1`, `stop`, `bread`, `coffee`, `tea`, `cheese`, `butter`, `door`, `window`, `key`, `chair`, `fish`, `turtle`, `plant`, `again`, `help`, `friend`, `family`, `meet`, `baby`, `name`, `student`, `learn`, `read`, `write`, `all`, `night`, `week`
 
 | Sign | Category / Target | Frames @ 30 fps | Apex Flexion | Apex Elbow Bend | Max Velocity ($\Delta$) | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
